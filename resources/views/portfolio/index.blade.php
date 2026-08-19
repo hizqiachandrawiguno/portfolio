@@ -1,0 +1,993 @@
+<!DOCTYPE html>
+<html lang="id" class="notranslate">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=5.0">
+    <meta name="theme-color" content="#F7F4EE">
+    <meta name="mobile-web-app-capable" content="yes">
+    <meta name="apple-mobile-web-app-status-bar-style" content="default">
+    <meta name="google" content="notranslate">
+    <title>Hizqia | Portfolio</title>
+    <meta name="description" content="Portofolio Satu Halaman Interaktif Hizqia Chandra Wiguno - Lulusan Teknologi Rekayasa Multimedia Polimedia (IPK 3.70). Ahli Graphic Design, UI/UX, Motion Video Editing, Sertifikasi BNSP, Bootstrap, JS, dan Laravel.">
+    <meta name="author" content="Hizqia Chandra Wiguno">
+
+    <!-- Google Fonts: Outfit, Plus Jakarta Sans, Fira Code -->
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Outfit:wght@300;400;500;600;700;800;900&family=Plus+Jakarta+Sans:ital,wght@0,300;0,400;0,500;0,600;0,700;0,800;1,400&family=Fira+Code:wght@400;500;600&display=swap" rel="stylesheet">
+
+    <!-- Bootstrap 5 CSS -->
+    <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.2/dist/css/bootstrap.min.css" rel="stylesheet">
+    <!-- FontAwesome 6 -->
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.2/css/all.min.css">
+    <!-- Animate.css -->
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/animate.css/4.1.1/animate.min.css"/>
+
+    <!-- Custom Favicon Monogram -->
+    <link rel="icon" type="image/png" href="{{ asset('images/hizqia_logo_orange.png') }}">
+    <link rel="shortcut icon" type="image/png" href="{{ asset('images/hizqia_logo_orange.png') }}">
+
+    <!-- Custom Designer Workspace CSS -->
+    <link rel="stylesheet" href="{{ asset('css/custom-designer.css') }}?v={{ time() }}">
+
+    <!-- Inject Experiences Data Object early & Global Filter Function -->
+    <script>
+        const experiencesData = @json($experiences);
+
+        function filterExperiences(category, btn) {
+            document.querySelectorAll('.exp-filter-btn').forEach(function(b) { 
+                b.classList.remove('active'); 
+            });
+            if (btn) btn.classList.add('active');
+
+            var expCards = document.querySelectorAll('.exp-card-col');
+            expCards.forEach(function(card) {
+                var itemCat = card.getAttribute('data-exp-category');
+                if (category === 'all' || itemCat === category) {
+                    card.style.display = '';
+                    card.classList.remove('animate__animated', 'animate__fadeIn');
+                    void card.offsetWidth; // Reflow to re-trigger animation
+                    card.classList.add('animate__animated', 'animate__fadeIn');
+                } else {
+                    card.style.display = 'none';
+                }
+            });
+        }
+    </script>
+<body>
+
+    <!-- ========================================================================== -->
+    <!-- FULLSCREEN ANIMATED WELCOME INTRO SCREEN                                   -->
+    <!-- ========================================================================== -->
+    <div id="studioIntroScreen" class="studio-intro-overlay">
+        <!-- Ambient Grid Background & 3D Warp Rings -->
+        <div class="intro-grid-bg"></div>
+        <div class="intro-warp-ring"></div>
+        <div class="intro-warp-ring intro-warp-ring-2"></div>
+        <div class="intro-bg-orb intro-orb-1"></div>
+        <div class="intro-bg-orb intro-orb-2"></div>
+
+        <!-- Intro Content Box -->
+        <div class="intro-content-box text-center">
+            <!-- Animated Monogram Logo -->
+            <div class="intro-logo-wrapper mb-4">
+                <img src="{{ asset('images/hizqia_logo_orange.png') }}" alt="Hizqia Monogram Logo" class="intro-logo-img">
+            </div>
+
+            <!-- Typewriter Welcome Title -->
+            <h1 class="intro-typewriter-title mb-2">
+                <span id="introTypewriterText"></span><span class="intro-cursor">|</span>
+            </h1>
+
+            <!-- Subtitle -->
+            <p class="intro-subtitle text-muted font-mono mb-4">
+                Hizqia Chandra Wiguno | Graphic Designer
+            </p>
+
+            <!-- Loading Progress Line & Skip Action -->
+            <div class="intro-progress-bar-wrapper mx-auto mb-4">
+                <div class="intro-progress-bar-fill" id="introProgressBar"></div>
+            </div>
+
+            <button type="button" class="btn btn-accent btn-sm rounded-pill px-4 py-2 font-mono intro-skip-btn" onclick="dismissStudioIntro()">
+                Jelajahi Portfolio <i class="fa-solid fa-arrow-right ms-1"></i>
+            </button>
+        </div>
+    </div>
+
+    <!-- Subtle Ambient Background System (Calm, Modern & Non-intrusive) -->
+    <div class="subtle-ambient-background" aria-hidden="true">
+        <div class="ambient-gradient-glow glow-top"></div>
+        <div class="ambient-gradient-glow glow-bottom"></div>
+        <div class="ambient-subtle-grid"></div>
+    </div>
+
+    <!-- ========================================================================== -->
+    <!-- STUDIO OFFCANVAS SIDEBAR DRAWER                                            -->
+    <!-- ========================================================================== -->
+    <div id="sidebarBackdrop" class="sidebar-backdrop" onclick="closeStudioSidebar()"></div>
+
+    <aside id="studioSidebar" class="studio-sidebar-drawer">
+        <!-- Sidebar Header -->
+        <div class="sidebar-header d-flex align-items-center justify-content-between">
+            <div class="d-flex align-items-center gap-3">
+                <div class="sidebar-logo-badge">
+                    <img src="{{ asset('images/hizqia_logo_orange.png') }}" alt="Hizqia Monogram Logo" class="sidebar-logo-img">
+                </div>
+                <div>
+                    <h5 class="fw-bold mb-0 font-heading text-dark fs-6">Hizqia Portfolio</h5>
+                    <small class="text-muted font-mono" style="font-size: 0.75rem;">Graphic Designer</small>
+                </div>
+            </div>
+            <button type="button" class="sidebar-close-btn" onclick="closeStudioSidebar()" aria-label="Close Sidebar">
+                <i class="fa-solid fa-xmark"></i>
+            </button>
+        </div>
+
+        <!-- User Profile Card inside Sidebar -->
+        <div class="sidebar-user-card p-3 my-3 rounded-4 d-flex align-items-center gap-3">
+            <img src="{{ $bio['photo'] }}" alt="{{ $bio['name'] }}" class="sidebar-user-avatar">
+            <div>
+                <h6 class="fw-bold text-dark mb-0 fs-6">{{ $bio['nickname'] }}</h6>
+                <span class="badge bg-accent text-white font-mono" style="font-size: 0.7rem;">IPK 3.76 Cum Laude</span>
+                <small class="d-block text-muted mt-1" style="font-size: 0.72rem;">{{ $bio['education'] }}</small>
+            </div>
+        </div>
+
+        <!-- Sidebar Navigation Menu Items -->
+        <div class="sidebar-nav-list d-flex flex-column gap-2 my-2">
+            <small class="text-muted font-mono fw-bold px-2 text-uppercase mb-1" style="font-size: 0.7rem; letter-spacing: 1px;">Menu Navigasi</small>
+
+            <a href="#hero" class="sidebar-nav-item active" onclick="closeStudioSidebar()">
+                <div class="sidebar-nav-icon">
+                    <i class="fa-solid fa-paintbrush"></i>
+                </div>
+                <div class="sidebar-nav-text">
+                    <span class="nav-title">Canvas / Biografi</span>
+                    <small class="nav-desc">Artboard 01 & Bio Summary</small>
+                </div>
+                <i class="fa-solid fa-chevron-right nav-arrow"></i>
+            </a>
+
+            <a href="#properties" class="sidebar-nav-item" onclick="closeStudioSidebar()">
+                <div class="sidebar-nav-icon">
+                    <i class="fa-solid fa-sliders"></i>
+                </div>
+                <div class="sidebar-nav-text">
+                    <span class="nav-title">Capabilities</span>
+                    <small class="nav-desc">Rating Tools & Tech Stack</small>
+                </div>
+                <i class="fa-solid fa-chevron-right nav-arrow"></i>
+            </a>
+
+            <a href="#layers" class="sidebar-nav-item" onclick="closeStudioSidebar()">
+                <div class="sidebar-nav-icon">
+                    <i class="fa-solid fa-layer-group"></i>
+                </div>
+                <div class="sidebar-nav-text">
+                    <span class="nav-title">Pengalaman</span>
+                    <small class="nav-desc">6 Rekam Jejak & Workflow</small>
+                </div>
+                <i class="fa-solid fa-chevron-right nav-arrow"></i>
+            </a>
+
+            <a href="#certificates" class="sidebar-nav-item" onclick="closeStudioSidebar()">
+                <div class="sidebar-nav-icon">
+                    <i class="fa-solid fa-award"></i>
+                </div>
+                <div class="sidebar-nav-text">
+                    <span class="nav-title">Sertifikasi</span>
+                    <small class="nav-desc">Junior Graphic Designer & Kominfo</small>
+                </div>
+                <i class="fa-solid fa-chevron-right nav-arrow"></i>
+            </a>
+
+            <a href="#assets" class="sidebar-nav-item" onclick="closeStudioSidebar()">
+                <div class="sidebar-nav-icon">
+                    <i class="fa-solid fa-cubes"></i>
+                </div>
+                <div class="sidebar-nav-text">
+                    <span class="nav-title">Portofolio / Karya</span>
+                    <small class="nav-desc">Galeri Karya & Interactive Demo</small>
+                </div>
+                <i class="fa-solid fa-chevron-right nav-arrow"></i>
+            </a>
+        </div>
+
+        <!-- Sidebar Footer Action CTA -->
+        <div class="sidebar-footer mt-auto pt-3 border-top">
+            <a href="#contact" class="btn btn-accent w-100 py-3 rounded-4 fw-bold font-heading d-flex align-items-center justify-content-center gap-2" onclick="closeStudioSidebar()">
+                <i class="fa-solid fa-paper-plane"></i> Hubungi / Kontak Hizqia
+            </a>
+            <div class="text-center mt-3">
+                <small class="text-muted font-mono" style="font-size: 0.72rem;">© {{ date('Y') }} Hizqia Chandra Wiguno</small>
+            </div>
+        </div>
+    </aside>
+
+    <!-- ========================================================================== -->
+    <!-- FLOATING STUDIO NAVBAR                                                     -->
+    <!-- ========================================================================== -->
+    <nav class="studio-navbar d-flex justify-content-between align-items-center">
+        <div class="d-flex align-items-center gap-2">
+            <button id="sidebarToggleBtn" class="sidebar-toggle-btn d-lg-none" onclick="openStudioSidebar()" aria-label="Buka Sidebar Navigasi">
+                <i class="fa-solid fa-bars-staggered"></i>
+            </button>
+            <a href="#hero" class="text-decoration-none d-inline-flex align-items-center">
+                <img src="{{ asset('images/hizqia_logo_orange.png') }}" alt="Hizqia Monogram Logo" class="nav-logo-icon">
+            </a>
+        </div>
+        <div class="d-none d-lg-flex align-items-center gap-2">
+            <a href="#hero" class="nav-link-custom active"><i class="fa-solid fa-paintbrush me-1"></i> Canvas</a>
+            <a href="#properties" class="nav-link-custom"><i class="fa-solid fa-sliders me-1"></i> Properties</a>
+            <a href="#layers" class="nav-link-custom"><i class="fa-solid fa-layer-group me-1"></i> Layers</a>
+            <a href="#certificates" class="nav-link-custom"><i class="fa-solid fa-award me-1"></i> Sertifikasi</a>
+            <a href="#assets" class="nav-link-custom"><i class="fa-solid fa-cubes me-1"></i> Assets</a>
+        </div>
+        <a href="#contact" class="btn btn-accent btn-sm px-3 py-2 font-mono d-none d-lg-inline-flex align-items-center"><i class="fa-solid fa-paper-plane me-1"></i> Kontak</a>
+    </nav>
+
+    <!-- ========================================================================== -->
+    <!-- VERTICAL JOURNEY DOT PAGINATION INDICATOR (DESKTOP FULL PAGE NAV)          -->
+    <!-- ========================================================================== -->
+    <div id="journeyDotNav" class="journey-dot-pagination d-none d-lg-flex flex-column gap-3">
+        <a href="#hero" class="dot-item active" title="Artboard 01: Hero Canvas">
+            <span class="dot-tooltip font-mono">01. Canvas</span>
+            <span class="dot-circle"></span>
+        </a>
+        <a href="#properties" class="dot-item" title="Artboard 02: Software Skills">
+            <span class="dot-tooltip font-mono">02. Properties</span>
+            <span class="dot-circle"></span>
+        </a>
+        <a href="#layers" class="dot-item" title="Artboard 03: Work Experience">
+            <span class="dot-tooltip font-mono">03. Layers</span>
+            <span class="dot-circle"></span>
+        </a>
+        <a href="#certificates" class="dot-item" title="Artboard 04: BNSP Certificates">
+            <span class="dot-tooltip font-mono">04. Sertifikasi</span>
+            <span class="dot-circle"></span>
+        </a>
+        <a href="#assets" class="dot-item" title="Artboard 05: Assets & Projects">
+            <span class="dot-tooltip font-mono">05. Assets</span>
+            <span class="dot-circle"></span>
+        </a>
+        <a href="#contact" class="dot-item" title="Artboard 06: Connect & Collaborate">
+            <span class="dot-tooltip font-mono">06. Connect</span>
+            <span class="dot-circle"></span>
+        </a>
+    </div>
+
+    <!-- ========================================================================== -->
+    <!-- SECTION 1: HERO / CANVAS AREA                                              -->
+    <!-- ========================================================================== -->
+    <section id="hero" class="hero-section">
+        <div class="container">
+            <div class="artboard-canvas grid-overlay reveal-on-scroll" id="artboardCanvasHero">
+                
+                <!-- Vector Corner Handles -->
+                <div class="vector-handle handle-tl"></div>
+                <div class="vector-handle handle-tr"></div>
+                <div class="vector-handle handle-bl"></div>
+                <div class="vector-handle handle-br"></div>
+
+                <div class="artboard-header-tag">
+                    <i class="fa-solid fa-crop-simple"></i> Graphic Designer
+                </div>
+
+                <div class="row align-items-center gy-4 gy-lg-5">
+                    <div class="col-lg-7">
+                        <h1 class="hero-title mb-3">
+                            Hi! I'm <span class="text-accent" id="typewriterName">Hizqia Chandra Wiguno</span><span class="typewriter-cursor">|</span>
+                        </h1>
+                        
+                        <!-- Catchy Clickbait Bio Summary -->
+                        <p class="lead fw-semibold text-dark mb-4 fs-5" style="max-width: 640px; line-height: 1.5;">
+                            {{ $bio['catchy_summary'] }}
+                        </p>
+
+                        <div class="d-flex flex-wrap gap-2 gap-sm-3 mb-3">
+                            <a href="#assets" class="btn btn-accent">
+                                <i class="fa-solid fa-eye me-1"></i> Lihat Artboard Proyek
+                            </a>
+                            <a href="#certificates" class="btn btn-outline-studio">
+                                <i class="fa-solid fa-award me-1"></i> Sertifikat BNSP
+                            </a>
+                        </div>
+                    </div>
+
+                    <div class="col-lg-5 text-center">
+                        <div class="avatar-artboard-wrapper">
+                            <img src="{{ $bio['photo'] }}" alt="{{ $bio['name'] }}" class="avatar-artboard img-fluid">
+                            
+                            <!-- 2 Floating Studio Badges Around Avatar -->
+                            <div class="floating-badge badge-gpa">
+                                <i class="fa-solid fa-award text-accent fs-5"></i>
+                                <div>
+                                    <div class="font-mono text-accent">IPK 3.76</div>
+                                    <small class="text-muted">Cum Laude</small>
+                                </div>
+                            </div>
+
+                            <div class="floating-badge badge-major">
+                                <i class="fa-solid fa-graduation-cap text-accent fs-5"></i>
+                                <div>
+                                    <div class="font-mono text-dark">Fresh Graduate</div>
+                                </div>
+                            </div>
+
+                        </div>
+                    </div>
+                </div>
+
+            </div>
+        </div>
+    </section>
+
+
+    <!-- ========================================================================== -->
+    <!-- SECTION 2: PANEL PROPERTIES (HARD SKILLS & SOFT SKILLS BENTO GRID)          -->
+    <!-- ========================================================================== -->
+    <section id="properties" class="section-spacing">
+        <div class="container">
+            
+            <div class="section-header text-center max-w-700 mx-auto reveal-on-scroll">
+                <div class="section-tag justify-content-center">
+                    <i class="fa-solid fa-sliders"></i> Capabilities
+                </div>
+                <h2 class="display-6 fw-bold">Hard Skill & Soft Skill</h2>
+                <p class="text-muted">Kombinasi keahlian teknis (Hard Skills software/coding) dan kemampuan interpersonal (Soft Skills) pendukung kualitas karya.</p>
+            </div>
+
+            <!-- Modern Gen-Z Dual Tab Mode Toggle Switcher -->
+            <div class="d-flex justify-content-center mb-4 reveal-on-scroll">
+                <div class="skill-tab-switcher p-1 rounded-pill bg-light border d-inline-flex gap-1">
+                    <button type="button" class="btn btn-sm rounded-pill font-mono px-4 py-2 skill-tab-btn active" data-tab="hard-skills" onclick="switchSkillTab('hard-skills')">
+                        <i class="fa-solid fa-bolt me-1 text-accent"></i> Hard Skills
+                    </button>
+                    <button type="button" class="btn btn-sm rounded-pill font-mono px-4 py-2 skill-tab-btn" data-tab="soft-skills" onclick="switchSkillTab('soft-skills')">
+                        <i class="fa-solid fa-brain me-1 text-accent"></i> Soft Skills
+                    </button>
+                </div>
+            </div>
+
+            <!-- HARD SKILLS VIEW (SOFTWARE & WEB STACK) -->
+            <div id="hardSkillsView" class="skill-view-tab active">
+                <!-- Software Skills Grid -->
+                <div class="row g-4 mb-4">
+                    @foreach($skills['software'] as $skill)
+                    <div class="col-md-6 col-lg-4 skill-card-item reveal-on-scroll" data-category="{{ $skill['category'] }}">
+                        <div class="skill-card">
+                            <div class="d-flex justify-content-between align-items-start mb-3">
+                                <div class="skill-icon-badge" style="background: {{ $skill['color'] }}14; color: {{ $skill['color'] }}; border: 1px solid {{ $skill['color'] }}28;">
+                                    <i class="{{ $skill['icon'] }}"></i>
+                                </div>
+                                <div class="text-end">
+                                    <span class="badge bg-light border text-muted font-mono mb-1">{{ $skill['code'] }}</span>
+                                    <div class="rating-score text-accent font-mono fw-bold">{{ number_format($skill['rating'], 1) }} / 10.0</div>
+                                </div>
+                            </div>
+                            <h4 class="h5 fw-bold text-dark mb-1">{{ $skill['name'] }}</h4>
+                            <small class="text-accent font-mono d-block mb-2 fw-semibold" style="font-size: 0.82rem;">{{ $skill['category'] }}</small>
+                            <p class="text-muted small mb-3">{{ $skill['desc'] }}</p>
+                            
+                            <!-- Progress Bar -->
+                            <div class="progress-bar-custom">
+                                <div class="progress-fill" style="width: {{ ($skill['rating'] / 10) * 100 }}%;"></div>
+                            </div>
+                        </div>
+                    </div>
+                    @endforeach
+                </div>
+
+                <!-- Web Stack Skills Grid -->
+                <div class="row g-4">
+                    <div class="col-12 text-center mb-2 reveal-on-scroll">
+                        <h3 class="h4 fw-bold font-heading text-dark"><i class="fa-solid fa-code text-accent me-2"></i> Web & Development Stack</h3>
+                    </div>
+                    @foreach($skills['web'] as $web)
+                    <div class="col-md-6 col-lg-3 skill-card-item reveal-on-scroll" data-category="Web Stack">
+                        <div class="skill-card">
+                            <div class="d-flex justify-content-between align-items-center mb-3">
+                                <div class="skill-icon-badge" style="background: {{ $web['color'] }}14; color: {{ $web['color'] }}; border: 1px solid {{ $web['color'] }}28; width: 40px; height: 40px; font-size: 1.1rem; margin-bottom: 0;">
+                                    <i class="{{ $web['icon'] }}"></i>
+                                </div>
+                                <span class="rating-score fs-6 text-accent font-mono fw-bold">{{ number_format($web['rating'], 1) }} / 10</span>
+                            </div>
+                            <h5 class="fw-bold fs-6 text-dark mb-1">{{ $web['name'] }}</h5>
+                            <small class="text-accent font-mono d-block mb-2 fw-semibold" style="font-size: 0.75rem;">{{ $web['category'] }}</small>
+                            <p class="text-muted small mb-2">{{ $web['desc'] }}</p>
+                            <div class="progress-bar-custom">
+                                <div class="progress-fill" style="width: {{ ($web['rating'] / 10) * 100 }}%;"></div>
+                            </div>
+                        </div>
+                    </div>
+                    @endforeach
+                </div>
+            </div>
+
+            <!-- SOFT SKILLS BENTO GRID VIEW (GEN-Z CREATIVE STUDIO STYLE) -->
+            <div id="softSkillsView" class="skill-view-tab d-none">
+                <div class="row g-4">
+                    @foreach($skills['soft'] as $soft)
+                    <div class="col-md-6 col-lg-4 reveal-on-scroll">
+                        <div class="soft-skill-bento-card">
+                            <div class="d-flex justify-content-between align-items-center mb-3">
+                                <span class="soft-tag-pill font-mono" style="color: {{ $soft['color'] }}; background: {{ $soft['color'] }}14; border: 1px solid {{ $soft['color'] }}28;">
+                                    {{ $soft['tag'] }}
+                                </span>
+                                <span class="badge bg-white border text-muted font-mono shadow-2xs" style="font-size: 0.72rem;">
+                                    <i class="fa-solid fa-sparkles me-1 text-accent"></i> {{ $soft['badge'] }}
+                                </span>
+                            </div>
+                            <div class="d-flex align-items-center gap-3 mb-3">
+                                <div class="soft-icon-box" style="background: {{ $soft['color'] }}14; color: {{ $soft['color'] }}; border: 1px solid {{ $soft['color'] }}28;">
+                                    <i class="{{ $soft['icon'] }}"></i>
+                                </div>
+                                <h4 class="h5 fw-bold text-dark mb-0 lh-sm">{{ $soft['name'] }}</h4>
+                            </div>
+                            <p class="text-muted small mb-0 lh-relaxed">{{ $soft['desc'] }}</p>
+                        </div>
+                    </div>
+                    @endforeach
+                </div>
+            </div>
+
+        </div>
+    </section>
+
+
+    <!-- ========================================================================== -->
+    <!-- SECTION 3: CAREER & LEADERSHIP JOURNEY (MAGANG & ORGANISASI)               -->
+    <!-- ========================================================================== -->
+    <section id="layers" class="section-spacing bg-light">
+        <div class="container">
+            
+            <div class="section-header text-center max-w-700 mx-auto reveal-on-scroll">
+                <div class="section-tag justify-content-center">
+                    <i class="fa-solid fa-layer-group"></i> CAREER & LEADERSHIP JOURNEY
+                </div>
+                <h2 class="display-6 fw-bold">Career & Leadership Journey</h2>
+                <p class="text-muted">Rekam jejak pengalaman profesional di dunia industri korporat serta dedikasi kepemimpinan dalam organisasi.</p>
+            </div>
+
+            <!-- Modern Category Filter Switcher -->
+            <div class="d-flex justify-content-center mb-4 reveal-on-scroll">
+                <div class="skill-tab-switcher p-1 rounded-pill bg-white border shadow-2xs d-inline-flex gap-1">
+                    <button type="button" class="btn btn-sm rounded-pill font-mono px-3 py-2 skill-tab-btn exp-filter-btn active" onclick="filterExperiences('all', this)">
+                        <i class="fa-solid fa-bolt me-1 text-accent"></i> All ({{ count($experiences) }})
+                    </button>
+                    <button type="button" class="btn btn-sm rounded-pill font-mono px-3 py-2 skill-tab-btn exp-filter-btn" onclick="filterExperiences('Magang', this)">
+                        <i class="fa-solid fa-briefcase me-1 text-accent"></i> Intern (3)
+                    </button>
+                    <button type="button" class="btn btn-sm rounded-pill font-mono px-3 py-2 skill-tab-btn exp-filter-btn" onclick="filterExperiences('Organisasi', this)">
+                        <i class="fa-solid fa-crown me-1 text-accent"></i> Organization (2)
+                    </button>
+                </div>
+            </div>
+
+            <!-- Card Grid View (3 Columns Desktop / 2 Tablet / 1 Mobile) -->
+            <div class="row g-4" id="experiencesGrid">
+                @foreach($experiences as $exp)
+                <div class="col-md-6 col-lg-4 exp-card-col reveal-on-scroll" data-exp-category="{{ $exp['category'] }}">
+                    <div class="exp-card exp-card-minimal" style="--exp-accent: {{ $exp['accent'] }};">
+                        <div>
+                            <!-- Top: Icon Emblem + Year Badge -->
+                            <div class="d-flex justify-content-between align-items-start mb-3">
+                                <div class="exp-icon-box" style="background: {{ $exp['accent'] }}15; border-color: {{ $exp['accent'] }}30; color: {{ $exp['accent'] }};">
+                                    <i class="{{ $exp['icon'] }}"></i>
+                                </div>
+                                <div class="d-flex align-items-center gap-1">
+                                    @if($exp['is_active'])
+                                    <span class="badge bg-success-subtle text-success border border-success-subtle font-mono" style="font-size: 0.72rem; border-radius: 20px;">
+                                        <i class="fa-solid fa-circle-dot me-1"></i> Active
+                                    </span>
+                                    @endif
+                                    <span class="badge bg-light border text-muted font-mono" style="font-size: 0.75rem;">
+                                        {{ $exp['period'] }}
+                                    </span>
+                                </div>
+                            </div>
+
+                            <!-- Middle: Layer Tag, Company Title & Role -->
+                            <div class="mb-3">
+                                <div class="d-flex align-items-center gap-2 mb-1">
+                                    <span class="layer-tag" style="background: {{ $exp['accent'] }}15; color: {{ $exp['accent'] }};">LAYER {{ $exp['layer_num'] }}</span>
+                                    <span class="text-muted font-mono small">{{ $exp['badge'] }}</span>
+                                </div>
+                                <h4 class="h5 fw-bold text-dark mb-1 lh-sm">{{ $exp['title'] }}</h4>
+                                <div class="font-mono small fw-bold" style="color: {{ $exp['accent'] }};">
+                                    {{ $exp['role'] }}
+                                </div>
+                            </div>
+                        </div>
+                        
+                        <!-- Bottom: Clean Action Button -->
+                        <button type="button" 
+                                class="btn-inspect-exp w-100 mt-auto justify-content-between" 
+                                onclick="openExpModal('{{ $exp['id'] }}')">
+                            <span>Lihat Detail & Galeri</span>
+                            <i class="fa-solid fa-arrow-right"></i>
+                        </button>
+                    </div>
+                </div>
+                @endforeach
+            </div>
+
+        </div>
+    </section>
+
+
+    <!-- ========================================================================== -->
+    <!-- SECTION 4: SERTIFIKASI PROFESI BNSP & AKREDITASI                          -->
+    <!-- ========================================================================== -->
+    <section id="certificates" class="section-spacing">
+        <div class="container">
+            
+            <div class="section-header text-center max-w-700 mx-auto reveal-on-scroll">
+                <div class="section-tag justify-content-center">
+                    <i class="fa-solid fa-award"></i> CERTIFICATION & ACCREDITATION
+                </div>
+                <h2 class="display-6 fw-bold">Professional Certification & Training</h2>
+                <p class="text-muted">Lisensi Kompetensi Profesi Resmi dari Badan Nasional Sertifikasi Profesi (BNSP) Republik Indonesia & Pelatihan Terverifikasi.</p>
+            </div>
+
+            <div class="row g-4">
+                @foreach($certificates as $cert)
+                <div class="col-lg-6 reveal-on-scroll">
+                    <div class="cert-showcase-card" style="--cert-accent: {{ $cert['color'] }};">
+                        <div class="d-flex flex-column flex-sm-row align-items-start gap-3 mb-3">
+                            <!-- Glowing Icon Emblem -->
+                            <div class="cert-icon-emblem">
+                                <i class="{{ $cert['icon'] }}"></i>
+                            </div>
+                            
+                            <div class="flex-grow-1 w-100">
+                                <!-- Header Badge & Date -->
+                                <div class="d-flex justify-content-between align-items-center flex-wrap gap-2 mb-2">
+                                    <span class="cert-badge-tag font-mono">
+                                        <i class="fa-solid fa-shield-halved me-1"></i> {{ $cert['badge'] }}
+                                    </span>
+                                    <span class="badge bg-light border text-muted font-mono" style="font-size: 0.76rem; padding: 5px 12px; border-radius: 20px;">
+                                        <i class="fa-regular fa-calendar me-1"></i> {{ $cert['year'] }}
+                                    </span>
+                                </div>
+                                
+                                <!-- Title & Registration Code -->
+                                <h3 class="h5 fw-bold text-dark mb-1">{{ $cert['title'] }}</h3>
+                                <div class="font-mono text-accent small fw-bold mb-2">
+                                    <i class="fa-solid fa-id-card me-1"></i> No. Reg: {{ $cert['reg_num'] }}
+                                </div>
+                            </div>
+                        </div>
+
+                        <!-- Description -->
+                        <p class="text-muted small mb-3 lh-relaxed" style="font-size: 0.88rem;">
+                            {{ $cert['desc'] }}
+                        </p>
+
+                        <!-- Competencies Checklist -->
+                        <div class="mb-4 p-3 bg-light rounded-4 border">
+                            <small class="text-dark font-mono fw-bold d-block mb-2">
+                                <i class="fa-solid fa-check-double text-accent me-1"></i> Unit Kompetensi / Materi Teruji:
+                            </small>
+                            <div class="cert-competencies-list d-flex flex-column gap-2">
+                                @foreach($cert['competencies'] as $comp)
+                                <div class="cert-comp-item">
+                                    <i class="fa-solid fa-circle-check text-accent flex-shrink-0 mt-1"></i>
+                                    <span>{{ preg_replace('/^[M\.\d-]+\s*/', '', $comp) }}</span>
+                                </div>
+                                @endforeach
+                            </div>
+                        </div>
+
+                        <!-- Footer Issuer & Verification PDF CTA Button -->
+                        <div class="d-flex flex-column flex-sm-row justify-content-between align-items-start align-items-sm-center gap-3 pt-3 border-top mt-auto">
+                            <span class="font-mono small text-muted d-inline-flex align-items-center gap-1" style="font-size: 0.78rem;">
+                                <i class="fa-solid fa-building-columns text-accent me-1"></i> {{ $cert['issuer'] }}
+                            </span>
+                            <a href="{{ $cert['pdf_url'] }}" target="_blank" class="btn btn-sm btn-outline-studio font-mono rounded-pill px-3 px-sm-4 py-2 d-inline-flex align-items-center justify-content-center gap-2 w-100 w-sm-auto text-nowrap">
+                                <i class="fa-solid fa-file-pdf text-accent"></i> Lihat Dokumen PDF
+                            </a>
+                        </div>
+                    </div>
+                </div>
+                @endforeach
+            </div>
+
+        </div>
+    </section>
+
+
+    <!-- ========================================================================== -->
+    <!-- SECTION 5: ASSETS LIBRARY (PROYEK SHOWCASE DENGAN TOMBOL DEMO)              -->
+    <!-- ========================================================================== -->
+    <section id="assets" class="section-spacing bg-light">
+        <div class="container">
+            
+            <div class="section-header text-center max-w-700 mx-auto reveal-on-scroll">
+                <div class="section-tag justify-content-center">
+                    <i class="fa-solid fa-cubes"></i> ASSETS LIBRARY
+                </div>
+                <h2 class="display-6 fw-bold">Galeri Proyek Desain & Web</h2>
+                <p class="text-muted">Showcase karya visual utama dan proyek pembelajaran interaktif. Klik tombol demo pada tiap proyek untuk rincian interaktif.</p>
+            </div>
+
+            <div class="row g-4">
+                @foreach($projects as $project)
+                <div class="col-md-6 col-lg-4 reveal-on-scroll">
+                    <div class="project-card" style="--proj-accent: {{ $project['accent'] }};">
+                        <span class="project-badge-tag" style="background: {{ $project['accent'] }} !important; color: #FFFFFF !important;">{{ $project['badge'] }}</span>
+                        <div class="project-img-wrapper">
+                            <img src="{{ $project['image'] }}" alt="{{ $project['title'] }}" class="project-img">
+                        </div>
+                        <div class="p-4 d-flex flex-column justify-content-between flex-grow-1">
+                            <div>
+                                <span class="font-mono small d-block mb-1 fw-bold" style="color: {{ $project['accent'] }};">{{ $project['category_label'] }}</span>
+                                <h3 class="h5 fw-bold mb-2">{{ $project['title'] }}</h3>
+                                <p class="text-muted small mb-3">{{ $project['short_desc'] }}</p>
+                            </div>
+
+                            <div>
+                                <!-- Pure Vanilla Demo Button Trigger -->
+                                <button type="button" class="btn btn-accent btn-sm font-mono mb-3 w-100 justify-content-center" onclick="openProjectModal('{{ ltrim($project['modal_target'], '#') }}')" style="background: {{ $project['accent'] }} !important; border-color: {{ $project['accent'] }} !important;">
+                                    <i class="fa-solid {{ $project['btn_icon'] }} me-1"></i> {{ $project['btn_text'] }}
+                                </button>
+
+                                <div class="d-flex flex-wrap gap-1">
+                                    @foreach($project['tags'] as $tag)
+                                    <span class="badge bg-light border text-muted font-mono" style="font-size: 0.7rem;">#{{ $tag }}</span>
+                                    @endforeach
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+                @endforeach
+            </div>
+
+        </div>
+    </section>
+
+
+    <!-- ========================================================================== -->
+    <!-- SECTION 6: CONTACT & FOOTER                                                -->
+    <!-- ========================================================================== -->
+    <section id="contact" class="section-spacing">
+        <div class="container">
+            <div class="artboard-canvas grid-overlay reveal-on-scroll position-relative artboard-contact-canvas" id="artboardCanvasContact">
+                
+                <!-- Vector Corner Handles -->
+                <div class="vector-handle handle-tl"></div>
+                <div class="vector-handle handle-tr"></div>
+                <div class="vector-handle handle-bl"></div>
+                <div class="vector-handle handle-br"></div>
+
+                <!-- Artboard Top Header Bar: Tag (Left) & Available Status Pill (Right) -->
+                <div class="d-flex flex-column flex-sm-row align-items-start align-items-sm-center justify-content-between gap-3 mb-4">
+                    <div class="artboard-header-tag mb-0">
+                        <i class="fa-solid fa-paper-plane"></i> Artboard 06: Connect &amp; Collaborate
+                    </div>
+
+                    <!-- Live Availability Status Pill (Top Right) -->
+                    <div class="d-inline-flex align-items-center gap-2 px-3 py-2 rounded-pill bg-success-subtle border border-success-subtle">
+                        <span class="status-indicator-dot"></span>
+                        <span class="font-mono small fw-bold text-success" style="font-size: 0.76rem; letter-spacing: 0.5px;">AVAILABLE FOR FULL-TIME &amp; FREELANCE</span>
+                    </div>
+                </div>
+
+                <div class="row align-items-center gy-4 gy-lg-0">
+                    <!-- Left Column: Content & Connect Actions (Rata Atas Bawah / Vertically Balanced) -->
+                    <div class="col-lg-7 text-start py-2 py-lg-4 my-auto">
+                        
+                        <h2 class="display-5 fw-bold mb-3 text-dark">
+                            Let's Make Something <span class="text-accent">Meaningful</span>
+                        </h2>
+
+                        <p class="lead text-muted mb-4 fs-6" style="line-height: 1.6; max-width: 580px;">
+                            Tertarik berkolaborasi untuk kebutuhan <strong>Graphic Design</strong>, <strong>Brand Identity</strong>, <strong>UI/UX Design</strong>, atau <strong>Creative Media</strong> lainnya? Mari terhubung dan diskusikan ide-ide hebat bersama!
+                        </p>
+
+                        <!-- CTA Contact Buttons -->
+                        <div class="d-flex flex-wrap gap-2 gap-sm-3 mb-4">
+                            <a href="mailto:{{ $bio['contact']['email'] }}" class="btn btn-accent">
+                                <i class="fa-solid fa-envelope me-1"></i> Send Email
+                            </a>
+                            <a href="{{ $bio['contact']['linkedin'] }}" target="_blank" class="btn btn-outline-studio">
+                                <i class="fa-brands fa-linkedin me-1 text-accent"></i> LinkedIn
+                            </a>
+                            <a href="{{ $bio['contact']['instagram'] }}" target="_blank" class="btn btn-outline-studio">
+                                <i class="fa-brands fa-instagram me-1 text-accent"></i> Instagram
+                            </a>
+                            <a href="{{ $bio['contact']['github'] }}" target="_blank" class="btn btn-outline-studio">
+                                <i class="fa-brands fa-github me-1 text-accent"></i> GitHub
+                            </a>
+                        </div>
+
+                        <!-- Location & Hire Info -->
+                        <div class="font-mono text-muted small">
+                            <i class="fa-solid fa-location-dot me-1 text-accent"></i> Domisili {{ $bio['contact']['location'] }} • Ready for Worldwide Remote &amp; Onsite
+                        </div>
+                    </div>
+
+                    <!-- Right Column: Standing Cutout Portrait Showcase (Flush to Bottom) -->
+                    <div class="col-lg-5 text-center align-self-end mt-auto">
+                        <div class="connect-photo-wrapper">
+                            <!-- Subtle Ambient Rotating Glow Ring -->
+                            <div class="connect-photo-backdrop"></div>
+
+                            <!-- User Portrait Image -->
+                            <img src="{{ asset('images/hizqia_connect.png') }}?v={{ time() }}" alt="Hizqia Chandra Wiguno" class="connect-photo-img img-fluid">
+
+                            <!-- Floating Badges -->
+                            <div class="floating-badge connect-badge-top">
+                                <i class="fa-solid fa-palette text-accent fs-5"></i>
+                                <div class="text-start">
+                                    <div class="font-mono text-accent">Graphic Designer</div>
+                                    <small class="text-muted">Multimedia TRM</small>
+                                </div>
+                            </div>
+
+                            <div class="floating-badge connect-badge-bottom">
+                                <i class="fa-solid fa-comments text-accent fs-5"></i>
+                                <div class="text-start">
+                                    <div class="font-mono text-dark">Let's Connect!</div>
+                                    <small class="text-muted">Fast Response</small>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+
+            </div>
+        </div>
+    </section>
+
+    <footer class="studio-footer text-center">
+        <div class="container">
+            <p class="text-muted small mb-0">
+                &copy; {{ date('Y') }} <strong>Hizqia Chandra Wiguno</strong>
+            </p>
+        </div>
+    </footer>
+
+
+    <!-- ========================================================================== -->
+    <!-- 1. PINTARBACA INTERACTIVE SYLLABLE GAME DEMO POP-UP MODAL                     -->
+    <!-- ========================================================================== -->
+    <div class="custom-modal-overlay" id="pintarBacaDemoModal" onclick="if(event.target === this) closeProjectModal('pintarBacaDemoModal')">
+        <div class="custom-modal-dialog">
+            <div class="modal-header modal-header-studio d-flex justify-content-between align-items-center">
+                <div class="d-flex align-items-center gap-3">
+                    <span class="badge bg-accent text-white font-mono px-3 py-2 rounded-pill" style="color: #FFFFFF !important;">
+                        <i class="fa-solid fa-star me-1"></i> DEMO INTERAKTIF
+                    </span>
+                    <h3 class="h4 fw-bold text-dark mb-0">PintarBaca Suku Kata</h3>
+                </div>
+                <button type="button" class="btn-close" onclick="closeProjectModal('pintarBacaDemoModal')" aria-label="Close"></button>
+            </div>
+            <div class="modal-body modal-body-studio">
+                <img src="{{ asset('images/pintarbaca_hero.jpg') }}?v={{ time() }}" alt="PintarBaca UI Mockup" class="img-fluid rounded-4 mb-4 border shadow-sm">
+                
+                <div class="pintarbaca-game-container">
+                    <div class="d-flex justify-content-between align-items-center mb-3">
+                        <span class="text-muted font-mono small"><i class="fa-solid fa-gamepad me-1 text-accent"></i> Interactive Syllable Builder</span>
+                        <span class="star-badge" id="pintarBacaScore">★ 0 PTS</span>
+                    </div>
+
+                    <p class="text-muted mb-4">
+                        Klik susunan suku kata di bawah untuk membentuk kata Bahasa Indonesia (Contoh: <strong>PIN</strong> + <strong>TAR</strong> = <strong>PINTAR</strong>)!
+                    </p>
+
+                    <!-- Word Display Box -->
+                    <div class="display-word-box mb-3" id="pintarBacaDisplay">
+                        ...
+                    </div>
+                    <div class="mb-4 text-center">
+                        <span id="pintarBacaStatus" class="text-muted font-mono">Klik tombol suku kata di bawah untuk menyusun kata!</span>
+                    </div>
+
+                    <!-- Syllable Buttons Grid -->
+                    <div class="d-flex flex-wrap justify-content-center gap-3 mb-4">
+                        <button class="syllable-btn" onclick="clickSyllable(this, 'PIN')">PIN</button>
+                        <button class="syllable-btn" onclick="clickSyllable(this, 'TAR')">TAR</button>
+                        <button class="syllable-btn" onclick="clickSyllable(this, 'BA')">BA</button>
+                        <button class="syllable-btn" onclick="clickSyllable(this, 'CA')">CA</button>
+                        <button class="syllable-btn" onclick="clickSyllable(this, 'BE')">BE</button>
+                        <button class="syllable-btn" onclick="clickSyllable(this, 'LA')">LA</button>
+                        <button class="syllable-btn" onclick="clickSyllable(this, 'JAR')">JAR</button>
+                        <button class="syllable-btn" onclick="clickSyllable(this, 'SU')">SU</button>
+                        <button class="syllable-btn" onclick="clickSyllable(this, 'KU')">KU</button>
+                        <button class="syllable-btn" onclick="clickSyllable(this, 'KA')">KA</button>
+                        <button class="syllable-btn" onclick="clickSyllable(this, 'TA')">TA</button>
+                    </div>
+
+                    <div class="text-center">
+                        <button class="btn btn-outline-studio btn-sm font-mono px-4 py-2 rounded-pill" onclick="resetSyllableGame()">
+                            <i class="fa-solid fa-rotate-left me-1"></i> Reset Suku Kata
+                        </button>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+
+
+    <!-- ========================================================================== -->
+    <!-- 2. ERC SAWANGAN DEMO MODAL                                                 -->
+    <!-- ========================================================================== -->
+    <div class="custom-modal-overlay" id="ercDemoModal" onclick="if(event.target === this) closeProjectModal('ercDemoModal')">
+        <div class="custom-modal-dialog">
+            <div class="modal-header modal-header-studio d-flex justify-content-between align-items-center">
+                <div class="d-flex align-items-center gap-2">
+                    <span class="badge bg-accent text-white font-mono px-3 py-2 rounded-pill">
+                        <i class="fa-solid fa-globe me-1"></i> DEMO WEB PORTAL
+                    </span>
+                    <h3 class="h4 fw-bold text-dark mb-0">ERC Sawangan Web Portal</h3>
+                </div>
+                <button type="button" class="btn-close" onclick="closeProjectModal('ercDemoModal')" aria-label="Close"></button>
+            </div>
+            <div class="modal-body modal-body-studio">
+                <img src="{{ asset('images/erc_sawangan_hero.jpg') }}?v={{ time() }}" alt="ERC Sawangan Preview" class="img-fluid rounded-4 mb-4 border shadow-sm">
+                <h5 class="fw-bold text-dark mb-2">Desain Antarmuka Komunitas & Jadwal Ibadah</h5>
+                <p class="text-muted mb-3">Portal web ERC Sawangan dirancang untuk memudahkan jemaat mengakses warta gereja digital, pengumuman kegiatan, dan informasi jadwal ibadah dengan sistem navigasi yang rapi dan hangat.</p>
+                <div class="p-3 bg-light rounded-3 border font-mono small mb-4">
+                    <strong class="text-accent">Highlight Fitur UI/UX:</strong><br>
+                    • Responsive Schedule Cards (Otomatis menyesuaikan layar HP/Tablet)<br>
+                    • Portal Artikel & Warta Mingguan Berbasis Grid<br>
+                    • Skema Warna Bersih & Modern yang Inklusif
+                </div>
+                <div class="text-end">
+                    <a href="https://erc.ohito7.com/" target="_blank" class="btn btn-accent btn-sm rounded-pill font-mono">
+                        <i class="fa-solid fa-arrow-up-right-from-square me-1"></i> Buka Website erc.ohito7.com
+                    </a>
+                </div>
+            </div>
+        </div>
+    </div>
+
+
+    <!-- ========================================================================== -->
+    <!-- 3. DRP OUTSTANDING TEENS DEMO MODAL                                        -->
+    <!-- ========================================================================== -->
+    <div class="custom-modal-overlay" id="drpDemoModal" onclick="if(event.target === this) closeProjectModal('drpDemoModal')">
+        <div class="custom-modal-dialog">
+            <div class="modal-header modal-header-studio d-flex justify-content-between align-items-center">
+                <div class="d-flex align-items-center gap-2">
+                    <span class="badge text-white font-mono px-3 py-2 rounded-pill" style="background: #8B5CF6;">
+                        <i class="fa-solid fa-users me-1"></i> YOUTH COMMUNITY PORTAL
+                    </span>
+                    <h3 class="h4 fw-bold text-dark mb-0">Website DRP Outstanding Teens</h3>
+                </div>
+                <button type="button" class="btn-close" onclick="closeProjectModal('drpDemoModal')" aria-label="Close"></button>
+            </div>
+            <div class="modal-body modal-body-studio">
+                <img src="{{ asset('images/dot_platform_hero.png') }}?v={{ time() }}" alt="DOT Platform Preview" class="img-fluid rounded-4 mb-4 border shadow-sm">
+                <h5 class="fw-bold text-dark mb-2">Platform Komunitas & Dokumentasi Kegiatan Pemuda</h5>
+                <p class="text-muted mb-3">Portal web interaktif untuk komunitas pemuda DRP Outstanding Teens, menyediakan informasi jadwal pertemuan rutin, galeri kegiatan, serta portal registrasi acara pemuda.</p>
+                <div class="p-3 bg-light rounded-3 border font-mono small mb-4">
+                    <strong style="color: #8B5CF6;">Highlight Fitur UI/UX:</strong><br>
+                    • Modern Youth Visual Aesthetic & Energic Color System<br>
+                    • Responsive Event Schedule & Real-time Registration Form<br>
+                    • Galeri Dokumentasi Kegiatan Berbasis Masonry Grid
+                </div>
+                <div class="text-end">
+                    <a href="https://dotsawangan.com/" target="_blank" class="btn btn-sm rounded-pill font-mono text-white" style="background: #8B5CF6;">
+                        <i class="fa-solid fa-arrow-up-right-from-square me-1"></i> Buka Website dotsawangan.com
+                    </a>
+                </div>
+            </div>
+        </div>
+    </div>
+
+
+    <!-- ========================================================================== -->
+    <!-- EXPERIENCE DETAIL GLASS POPUP MODAL (WORKFLOW, SOFTWARE, LEARNINGS & GALLERY) -->
+    <!-- ========================================================================== -->
+    <!-- ========================================================================== -->
+    <!-- EXPERIENCE DETAIL SHOWCASE MODAL (ULTRA CLEAN 2-COLUMN DESIGN)             -->
+    <!-- ========================================================================== -->
+    <div class="custom-modal-overlay" id="experienceDetailModal" onclick="if(event.target === this) closeExpModal()">
+        <div class="custom-modal-dialog exp-showcase-dialog">
+            
+            <!-- Modal Header Banner -->
+            <div class="exp-modal-banner p-4 border-bottom d-flex justify-content-between align-items-start">
+                <div>
+                    <div class="d-flex align-items-center gap-2 mb-2">
+                        <span class="layer-tag text-accent" id="modalExpNumber">LAYER 01</span>
+                        <span class="badge bg-light border text-muted font-mono" id="modalExpPeriod">2024</span>
+                    </div>
+                    <h3 class="fw-bold text-dark mb-1 fs-4" id="modalExpTitle">Company Title</h3>
+                    <div class="text-accent font-heading fw-bold fs-6 d-flex align-items-center gap-2">
+                        <i class="fa-solid fa-briefcase"></i> <span id="modalExpRole">Role</span>
+                    </div>
+                </div>
+                <button type="button" class="btn-close-custom" onclick="closeExpModal()" aria-label="Tutup">
+                    <i class="fa-solid fa-xmark"></i>
+                </button>
+            </div>
+
+            <!-- Modal Body 2-Column Layout -->
+            <div class="modal-body p-4 p-md-5">
+                <div class="row g-4">
+                    
+                    <!-- Left Column: Visual Gallery Showcase -->
+                    <div class="col-lg-6">
+                        <div class="exp-gallery-showcase">
+                            <small class="text-muted font-mono text-uppercase d-block mb-3 fw-bold" style="font-size: 0.75rem; letter-spacing: 1px;">
+                                <i class="fa-solid fa-images text-accent me-1"></i> Artboard Galeri Karya
+                            </small>
+                            <div class="row g-3" id="modalExpGallery">
+                                <!-- Dynamic Gallery Showcase Cards -->
+                            </div>
+                        </div>
+                    </div>
+
+                    <!-- Right Column: Workflow, Tools, and Growth -->
+                    <div class="col-lg-6 d-flex flex-column gap-4">
+                        
+                        <!-- Perusahaan / Organisasi Info Card -->
+                        <div class="exp-info-card p-3 rounded-4 bg-light border">
+                            <small class="text-muted font-mono text-uppercase d-block mb-1" style="font-size: 0.7rem;">Perusahaan / Client</small>
+                            <h6 class="fw-bold text-dark mb-0 fs-6" id="modalExpCompany">Company Name</h6>
+                        </div>
+
+                        <!-- Workflow & Process Section -->
+                        <div>
+                            <small class="text-muted font-mono text-uppercase d-block mb-2 fw-bold" style="font-size: 0.75rem; letter-spacing: 1px;">
+                                <i class="fa-solid fa-diagram-project text-accent me-1"></i> Alur Pengerjaan &amp; Workflow
+                            </small>
+                            <ul class="exp-workflow-list list-unstyled mb-0" id="modalExpWorkflowList">
+                                <!-- Workflow List Items -->
+                            </ul>
+                        </div>
+
+                        <!-- Tools & Software Tags -->
+                        <div>
+                            <small class="text-muted font-mono text-uppercase d-block mb-2 fw-bold" style="font-size: 0.75rem; letter-spacing: 1px;">
+                                <i class="fa-solid fa-laptop-code text-accent me-1"></i> Tools &amp; Software
+                            </small>
+                            <div class="d-flex flex-wrap gap-2" id="modalExpTools">
+                                <!-- Tool Badges -->
+                            </div>
+                        </div>
+
+                        <!-- Key Learnings & Growth Card -->
+                        <div class="exp-growth-card p-3 rounded-4">
+                            <small class="text-accent font-mono text-uppercase d-block mb-2 fw-bold" style="font-size: 0.75rem; letter-spacing: 1px;">
+                                <i class="fa-solid fa-lightbulb me-1"></i> Key Learnings &amp; Impact
+                            </small>
+                            <p class="text-dark mb-0 small lh-base fw-medium" id="modalExpLearnings">Learnings...</p>
+                        </div>
+
+                    </div>
+
+                </div>
+            </div>
+
+        </div>
+    </div>
+
+
+    <!-- ========================================================================== -->
+    <!-- BACKGROUND NO-COPYRIGHT AMBIENT AUDIO PLAYER                              -->
+    <!-- ========================================================================== -->
+    <audio id="bgMusic" loop preload="auto">
+        <source src="https://cdn.pixabay.com/download/audio/2022/05/27/audio_1808fbf07a.mp3?filename=chill-lofi-110820.mp3" type="audio/mpeg">
+        <source src="https://assets.mixkit.co/music/preview/mixkit-tech-house-vibes-130.mp3" type="audio/mpeg">
+    </audio>
+
+    <!-- FLOATING AUDIO CONTROLLER WIDGET -->
+    <div id="audioControlWidget" class="floating-audio-widget" onclick="toggleBgMusic()" title="Putar / Hentikan Musik Latar (Volume 10%)">
+        <div class="audio-equalizer-bars" id="audioEqualizer">
+            <span class="bar bar-1"></span>
+            <span class="bar bar-2"></span>
+            <span class="bar bar-3"></span>
+        </div>
+        <span id="audioStatusText" class="font-mono text-uppercase">BGM 10%</span>
+        <i id="audioIcon" class="fa-solid fa-volume-high text-accent"></i>
+    </div>
+
+    <!-- Custom Interactive JS with Cache Buster -->
+    <script src="{{ asset('js/portfolio-interactive.js') }}?v={{ time() }}"></script>
+</body>
+</html>
