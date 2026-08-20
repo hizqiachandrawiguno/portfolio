@@ -210,55 +210,58 @@ document.addEventListener('DOMContentLoaded', function () {
     }, { once: true });
 
     window.dismissStudioIntro = function () {
-        if (!introOverlay || introOverlay.classList.contains('dismissed')) return;
-
-        // Start background ambient music at 10% volume
-        playBgMusic();
-
-        // Morph subtitle text to Journey Entrance indicator
-        const subTitle = document.querySelector('.intro-subtitle');
-        if (subTitle) {
-            subTitle.innerHTML = '<span class="text-accent fw-bold animate__animated animate__pulse animate__infinite"><i class="fa-solid fa-rocket me-1"></i> ENTERING HIZQIA\'S CREATIVE JOURNEY...</span>';
-        }
-
-        // Trigger 3D Zoom Tunnel dismissal & land into hero artboard canvas
-        introOverlay.classList.add('dismissed');
-        document.body.classList.add('journey-entering');
+        if (!introOverlay) return;
+        introOverlay.style.display = 'none';
         document.body.style.overflow = '';
-
-        setTimeout(() => {
-            introOverlay.style.display = 'none';
-        }, 1000);
     };
 
-    if (introOverlay && introTextEl) {
-        document.body.style.overflow = 'hidden';
-        const welcomeMessage = "Welcome to My Portfolio";
-        let textIndex = 0;
-        const typingSpeed = 100; // ms per character (smooth & elegant)
+    /* -------------------------------------------------------------------------- */
+    /* 1. ANIMATED NUMBER COUNTER (FROM 0 TO TARGET VALUE)                        */
+    /* -------------------------------------------------------------------------- */
+    function animateNumberCounters(container = document) {
+        const counters = container.querySelectorAll('.counter-number:not(.counted)');
+        counters.forEach(counter => {
+            const target = parseFloat(counter.getAttribute('data-target') || '0');
+            const decimals = parseInt(counter.getAttribute('data-decimals') || '1', 10);
+            const duration = parseInt(counter.getAttribute('data-duration') || '1400', 10);
+            let startTime = null;
 
-        function runIntroTypewriter() {
-            if (textIndex < welcomeMessage.length) {
-                introTextEl.textContent += welcomeMessage.charAt(textIndex);
-                textIndex++;
+            counter.classList.add('counted');
 
-                // Sync progress bar fill
-                if (introProgress) {
-                    const percent = Math.round((textIndex / welcomeMessage.length) * 100);
-                    introProgress.style.width = percent + '%';
+            function step(timestamp) {
+                if (!startTime) startTime = timestamp;
+                const progress = Math.min((timestamp - startTime) / duration, 1);
+                // Ease-out cubic curve: 1 - (1 - t)^3
+                const easeOut = 1 - Math.pow(1 - progress, 3);
+                const currentVal = (target * easeOut).toFixed(decimals);
+                counter.textContent = currentVal;
+
+                if (progress < 1) {
+                    requestAnimationFrame(step);
+                } else {
+                    counter.textContent = target.toFixed(decimals);
                 }
-
-                setTimeout(runIntroTypewriter, typingSpeed);
-            } else {
-                // Typing finished - complete progress bar & stay for 3 seconds before auto transition
-                if (introProgress) introProgress.style.width = '100%';
-                setTimeout(() => {
-                    dismissStudioIntro();
-                }, 3000); // 3 seconds display duration
             }
-        }
+            requestAnimationFrame(step);
+        });
+    }
 
-        setTimeout(runIntroTypewriter, 600);
+    /* -------------------------------------------------------------------------- */
+    /* 2. ANIMATED PROGRESS BARS (EXPAND FROM 0% TO TARGET PERCENTAGE)            */
+    /* -------------------------------------------------------------------------- */
+    function animateProgressBars(container = document) {
+        const progressBars = container.querySelectorAll('.progress-fill');
+        progressBars.forEach(bar => {
+            const targetWidth = bar.getAttribute('data-progress') || '0';
+            // Start at 0%
+            bar.style.width = '0%';
+            // Trigger animation on next frame
+            requestAnimationFrame(() => {
+                setTimeout(() => {
+                    bar.style.width = targetWidth + '%';
+                }, 60);
+            });
+        });
     }
 
     /* -------------------------------------------------------------------------- */
@@ -278,7 +281,13 @@ document.addEventListener('DOMContentLoaded', function () {
         });
 
         if (tabName === 'hard-skills') {
-            if (hardView) hardView.classList.remove('d-none');
+            if (hardView) {
+                hardView.classList.remove('d-none');
+                // Re-trigger counter & progress bar animation when switching back
+                hardView.querySelectorAll('.counter-number').forEach(el => el.classList.remove('counted'));
+                animateNumberCounters(hardView);
+                animateProgressBars(hardView);
+            }
             if (softView) softView.classList.add('d-none');
         } else if (tabName === 'soft-skills') {
             if (hardView) hardView.classList.add('d-none');
@@ -302,31 +311,56 @@ document.addEventListener('DOMContentLoaded', function () {
 
 
     /* -------------------------------------------------------------------------- */
-    /* TYPEWRITER ANIMATION FOR NAME HIZQIA CHANDRA WIGUNO                        */
+    /* INFINITE LOOPING TYPEWRITER EFFECT FOR HERO NAME & CREATIVE ROLES          */
     /* -------------------------------------------------------------------------- */
     const nameEl = document.getElementById('typewriterName');
     if (nameEl) {
-        const fullText = "Hizqia Chandra Wiguno";
+        const phrases = [
+            "Hizqia Chandra Wiguno",
+            "Graphic Designer",
+        ];
+
+        let phraseIndex = 0;
         let charIndex = 0;
+        let isDeleting = false;
+        let typingSpeed = 90;
+
         nameEl.textContent = "";
 
-        function typeChar() {
-            if (charIndex < fullText.length) {
-                nameEl.textContent += fullText.charAt(charIndex);
+        function loopTypewriter() {
+            const currentPhrase = phrases[phraseIndex];
+
+            if (isDeleting) {
+                nameEl.textContent = currentPhrase.substring(0, charIndex - 1);
+                charIndex--;
+                typingSpeed = 45;
+            } else {
+                nameEl.textContent = currentPhrase.substring(0, charIndex + 1);
                 charIndex++;
-                setTimeout(typeChar, 80 + Math.random() * 40);
+                typingSpeed = 85 + Math.random() * 30;
             }
+
+            if (!isDeleting && charIndex === currentPhrase.length) {
+                isDeleting = true;
+                typingSpeed = 2200; // Display duration
+            } else if (isDeleting && charIndex === 0) {
+                isDeleting = false;
+                phraseIndex = (phraseIndex + 1) % phrases.length;
+                typingSpeed = 400; // Brief pause before next phrase
+            }
+
+            setTimeout(loopTypewriter, typingSpeed);
         }
 
-        setTimeout(typeChar, 400);
+        setTimeout(loopTypewriter, 500);
     }
 
 
     /* -------------------------------------------------------------------------- */
-    /* DYNAMIC INTERSECTION OBSERVER FOR FADE IN ON SCROLL (PREVENTS POPPING OUT) */
+    /* DYNAMIC INTERSECTION OBSERVER FOR FADE IN ON SCROLL & COUNTERS/BARS        */
     /* -------------------------------------------------------------------------- */
     const revealElements = document.querySelectorAll('.reveal-on-scroll');
-    
+
     if ('IntersectionObserver' in window) {
         const observerOptions = {
             root: null,
@@ -338,6 +372,9 @@ document.addEventListener('DOMContentLoaded', function () {
             entries.forEach(entry => {
                 if (entry.isIntersecting) {
                     entry.target.classList.add('revealed');
+                    // Animate any numbers and progress bars inside the revealed element
+                    animateNumberCounters(entry.target);
+                    animateProgressBars(entry.target);
                     revealObserver.unobserve(entry.target);
                 }
             });
@@ -345,7 +382,11 @@ document.addEventListener('DOMContentLoaded', function () {
 
         revealElements.forEach(el => revealObserver.observe(el));
     } else {
-        revealElements.forEach(el => el.classList.add('revealed'));
+        revealElements.forEach(el => {
+            el.classList.add('revealed');
+            animateNumberCounters(el);
+            animateProgressBars(el);
+        });
     }
 
 

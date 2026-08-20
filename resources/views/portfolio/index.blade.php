@@ -11,6 +11,12 @@
     <meta name="description" content="Portofolio Satu Halaman Interaktif Hizqia Chandra Wiguno - Lulusan Teknologi Rekayasa Multimedia Polimedia (IPK 3.70). Ahli Graphic Design, UI/UX, Motion Video Editing, Sertifikasi BNSP, Bootstrap, JS, dan Laravel.">
     <meta name="author" content="Hizqia Chandra Wiguno">
 
+    <!-- Priority Resource Hints: DNS-Prefetch & Preconnect -->
+    <link rel="dns-prefetch" href="//fonts.googleapis.com">
+    <link rel="dns-prefetch" href="//fonts.gstatic.com">
+    <link rel="dns-prefetch" href="//cdnjs.cloudflare.com">
+    <link rel="dns-prefetch" href="//cdn.jsdelivr.net">
+
     <!-- Google Fonts: Outfit, Plus Jakarta Sans, Fira Code -->
     <link rel="preconnect" href="https://fonts.googleapis.com">
     <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
@@ -56,50 +62,12 @@
     </script>
 <body>
 
-    <!-- ========================================================================== -->
-    <!-- FULLSCREEN ANIMATED WELCOME INTRO SCREEN                                   -->
-    <!-- ========================================================================== -->
-    <div id="studioIntroScreen" class="studio-intro-overlay">
-        <!-- Ambient Grid Background & 3D Warp Rings -->
-        <div class="intro-grid-bg"></div>
-        <div class="intro-warp-ring"></div>
-        <div class="intro-warp-ring intro-warp-ring-2"></div>
-        <div class="intro-bg-orb intro-orb-1"></div>
-        <div class="intro-bg-orb intro-orb-2"></div>
-
-        <!-- Intro Content Box -->
-        <div class="intro-content-box text-center">
-            <!-- Animated Monogram Logo -->
-            <div class="intro-logo-wrapper mb-4">
-                <img src="{{ asset('images/hizqia_logo_orange.png') }}" alt="Hizqia Monogram Logo" class="intro-logo-img">
-            </div>
-
-            <!-- Typewriter Welcome Title -->
-            <h1 class="intro-typewriter-title mb-2">
-                <span id="introTypewriterText"></span><span class="intro-cursor">|</span>
-            </h1>
-
-            <!-- Subtitle -->
-            <p class="intro-subtitle text-muted font-mono mb-4">
-                Hizqia Chandra Wiguno | Graphic Designer
-            </p>
-
-            <!-- Loading Progress Line & Skip Action -->
-            <div class="intro-progress-bar-wrapper mx-auto mb-4">
-                <div class="intro-progress-bar-fill" id="introProgressBar"></div>
-            </div>
-
-            <button type="button" class="btn btn-accent btn-sm rounded-pill px-4 py-2 font-mono intro-skip-btn" onclick="dismissStudioIntro()">
-                Jelajahi Portfolio <i class="fa-solid fa-arrow-right ms-1"></i>
-            </button>
-        </div>
-    </div>
-
     <!-- Subtle Ambient Background System (Calm, Modern & Non-intrusive) -->
     <div class="subtle-ambient-background" aria-hidden="true">
         <div class="ambient-gradient-glow glow-top"></div>
         <div class="ambient-gradient-glow glow-bottom"></div>
         <div class="ambient-subtle-grid"></div>
+        <div class="vintage-grain-overlay"></div>
     </div>
 
     <!-- ========================================================================== -->
@@ -112,7 +80,7 @@
         <div class="sidebar-header d-flex align-items-center justify-content-between">
             <div class="d-flex align-items-center gap-3">
                 <div class="sidebar-logo-badge">
-                    <img src="{{ asset('images/hizqia_logo_orange.png') }}" alt="Hizqia Monogram Logo" class="sidebar-logo-img">
+                    <img src="{{ asset('images/hizqia_logo_orange.png') }}" alt="Hizqia Monogram Logo" class="sidebar-logo-img" loading="lazy" decoding="async">
                 </div>
                 <div>
                     <h5 class="fw-bold mb-0 font-heading text-dark fs-6">Hizqia Portfolio</h5>
@@ -126,10 +94,10 @@
 
         <!-- User Profile Card inside Sidebar -->
         <div class="sidebar-user-card p-3 my-3 rounded-4 d-flex align-items-center gap-3">
-            <img src="{{ $bio['photo'] }}" alt="{{ $bio['name'] }}" class="sidebar-user-avatar">
+            <img src="{{ $bio['photo'] }}" alt="{{ $bio['name'] }}" class="sidebar-user-avatar" loading="lazy" decoding="async">
             <div>
                 <h6 class="fw-bold text-dark mb-0 fs-6">{{ $bio['nickname'] }}</h6>
-                <span class="badge bg-accent text-white font-mono" style="font-size: 0.7rem;">IPK 3.76 Cum Laude</span>
+                <span class="badge bg-accent text-white font-mono" style="font-size: 0.7rem;">IPK <span class="counter-number" data-target="3.76" data-decimals="2">0.00</span> Cum Laude</span>
                 <small class="d-block text-muted mt-1" style="font-size: 0.72rem;">{{ $bio['education'] }}</small>
             </div>
         </div>
@@ -214,7 +182,7 @@
                 <i class="fa-solid fa-bars-staggered"></i>
             </button>
             <a href="#hero" class="text-decoration-none d-inline-flex align-items-center">
-                <img src="{{ asset('images/hizqia_logo_orange.png') }}" alt="Hizqia Monogram Logo" class="nav-logo-icon">
+                <img src="{{ asset('images/hizqia_logo_orange.png') }}" alt="Hizqia Monogram Logo" class="nav-logo-icon" loading="eager" fetchpriority="high" decoding="sync">
             </a>
         </div>
         <div class="d-none d-lg-flex align-items-center gap-2">
@@ -270,14 +238,34 @@
                 <div class="vector-handle handle-bl"></div>
                 <div class="vector-handle handle-br"></div>
 
-                <div class="artboard-header-tag">
-                    <i class="fa-solid fa-crop-simple"></i> Graphic Designer
+                <!-- Floating Decorative Looping Graphics -->
+                <div class="hero-loop-graphic hero-graphic-sparkle-1" title="Creative Sparkle">
+                    <svg viewBox="0 0 24 24" width="26" height="26" fill="currentColor">
+                        <path d="M12 0C12 6.627 6.627 12 0 12C6.627 12 12 17.373 12 24C12 17.373 17.373 12 24 12C17.373 12 12 6.627 12 0Z"/>
+                    </svg>
+                </div>
+                <div class="hero-loop-graphic hero-graphic-sparkle-2" title="Design Vector">
+                    <svg viewBox="0 0 24 24" width="20" height="20" fill="currentColor">
+                        <path d="M12 0C12 6.627 6.627 12 0 12C6.627 12 12 17.373 12 24C12 17.373 17.373 12 24 12C17.373 12 12 6.627 12 0Z"/>
+                    </svg>
+                </div>
+
+                <div class="d-flex align-items-center justify-content-between mb-4">
+                    <div class="artboard-header-tag mb-0">
+                        <i class="fa-solid fa-crop-simple"></i> Portfolio
+                    </div>
                 </div>
 
                 <div class="row align-items-center gy-4 gy-lg-5">
                     <div class="col-lg-7">
-                        <h1 class="hero-title mb-3">
-                            Hi! I'm <span class="text-accent" id="typewriterName">Hizqia Chandra Wiguno</span><span class="typewriter-cursor">|</span>
+                        <h1 class="hero-title mb-3 position-relative">
+                            Hi! I'm <br class="d-sm-none">
+                            <span class="text-accent position-relative d-inline-block">
+                                <span id="typewriterName">Hizqia Chandra Wiguno</span>
+                                <svg class="hero-underline-vector" viewBox="0 0 240 12" fill="none" xmlns="http://www.w3.org/2000/svg">
+                                    <path d="M3 9C60 3 180 3 237 9" stroke="currentColor" stroke-width="4" stroke-linecap="round"/>
+                                </svg>
+                            </span><span class="typewriter-cursor">|</span>
                         </h1>
                         
                         <!-- Catchy Clickbait Bio Summary -->
@@ -297,13 +285,17 @@
 
                     <div class="col-lg-5 text-center">
                         <div class="avatar-artboard-wrapper">
-                            <img src="{{ $bio['photo'] }}" alt="{{ $bio['name'] }}" class="avatar-artboard img-fluid">
+                            <!-- Orbiting Looping Halo Vector Background -->
+                            <div class="avatar-orbit-ring avatar-orbit-1"></div>
+                            <div class="avatar-orbit-ring avatar-orbit-2"></div>
+
+                            <img src="{{ $bio['photo'] }}" alt="{{ $bio['name'] }}" class="avatar-artboard img-fluid position-relative" style="z-index: 2;" loading="eager" fetchpriority="high" decoding="async">
                             
                             <!-- 2 Floating Studio Badges Around Avatar -->
                             <div class="floating-badge badge-gpa">
                                 <i class="fa-solid fa-award text-accent fs-5"></i>
                                 <div>
-                                    <div class="font-mono text-accent">IPK 3.76</div>
+                                    <div class="font-mono text-accent">IPK <span class="counter-number" data-target="3.76" data-decimals="2">0.00</span></div>
                                     <small class="text-muted">Cum Laude</small>
                                 </div>
                             </div>
@@ -363,16 +355,16 @@
                                 </div>
                                 <div class="text-end">
                                     <span class="badge bg-light border text-muted font-mono mb-1">{{ $skill['code'] }}</span>
-                                    <div class="rating-score text-accent font-mono fw-bold">{{ number_format($skill['rating'], 1) }} / 10.0</div>
+                                    <div class="rating-score text-accent font-mono fw-bold"><span class="counter-number" data-target="{{ $skill['rating'] }}" data-decimals="1">0.0</span> / 10.0</div>
                                 </div>
                             </div>
                             <h4 class="h5 fw-bold text-dark mb-1">{{ $skill['name'] }}</h4>
                             <small class="text-accent font-mono d-block mb-2 fw-semibold" style="font-size: 0.82rem;">{{ $skill['category'] }}</small>
                             <p class="text-muted small mb-3">{{ $skill['desc'] }}</p>
                             
-                            <!-- Progress Bar -->
+                            <!-- Progress Bar with Animation -->
                             <div class="progress-bar-custom">
-                                <div class="progress-fill" style="width: {{ ($skill['rating'] / 10) * 100 }}%;"></div>
+                                <div class="progress-fill" data-progress="{{ ($skill['rating'] / 10) * 100 }}" style="width: 0%;"></div>
                             </div>
                         </div>
                     </div>
@@ -391,13 +383,13 @@
                                 <div class="skill-icon-badge" style="background: {{ $web['color'] }}14; color: {{ $web['color'] }}; border: 1px solid {{ $web['color'] }}28; width: 40px; height: 40px; font-size: 1.1rem; margin-bottom: 0;">
                                     <i class="{{ $web['icon'] }}"></i>
                                 </div>
-                                <span class="rating-score fs-6 text-accent font-mono fw-bold">{{ number_format($web['rating'], 1) }} / 10</span>
+                                <span class="rating-score fs-6 text-accent font-mono fw-bold"><span class="counter-number" data-target="{{ $web['rating'] }}" data-decimals="1">0.0</span> / 10</span>
                             </div>
                             <h5 class="fw-bold fs-6 text-dark mb-1">{{ $web['name'] }}</h5>
                             <small class="text-accent font-mono d-block mb-2 fw-semibold" style="font-size: 0.75rem;">{{ $web['category'] }}</small>
                             <p class="text-muted small mb-2">{{ $web['desc'] }}</p>
                             <div class="progress-bar-custom">
-                                <div class="progress-fill" style="width: {{ ($web['rating'] / 10) * 100 }}%;"></div>
+                                <div class="progress-fill" data-progress="{{ ($web['rating'] / 10) * 100 }}" style="width: 0%;"></div>
                             </div>
                         </div>
                     </div>
@@ -437,9 +429,100 @@
 
 
     <!-- ========================================================================== -->
+    <!-- RUNNING TICKER MARQUEE SLIDER (BETWEEN SKILLS & CAREER)                    -->
+    <!-- ========================================================================== -->
+    <div class="marquee-ticker-banner" aria-label="Creative Roles Marquee Slider">
+        <div class="marquee-ticker-body">
+            <div class="marquee-ticker-track">
+                <!-- Group 1 -->
+                <div class="marquee-ticker-group">
+                    <div class="marquee-ticker-item">
+                        <span class="text-white-word">Motion Designer</span>
+                        <svg class="marquee-sparkle-icon" viewBox="0 0 24 24" fill="currentColor">
+                            <path d="M12 0C12 6.627 6.627 12 0 12C6.627 12 12 17.373 12 24C12 17.373 17.373 12 24 12C17.373 12 12 6.627 12 0Z"/>
+                        </svg>
+                    </div>
+                    <div class="marquee-ticker-item">
+                        <span class="text-white-word">Creative Multimedia</span>
+                        <svg class="marquee-sparkle-icon" viewBox="0 0 24 24" fill="currentColor">
+                            <path d="M12 0C12 6.627 6.627 12 0 12C6.627 12 12 17.373 12 24C12 17.373 17.373 12 24 12C17.373 12 12 6.627 12 0Z"/>
+                        </svg>
+                    </div>
+                    <div class="marquee-ticker-item">
+                        <span class="text-white-word">Graphic Designer</span>
+                        <svg class="marquee-sparkle-icon" viewBox="0 0 24 24" fill="currentColor">
+                            <path d="M12 0C12 6.627 6.627 12 0 12C6.627 12 12 17.373 12 24C12 17.373 17.373 12 24 12C17.373 12 12 6.627 12 0Z"/>
+                        </svg>
+                    </div>
+                    <div class="marquee-ticker-item">
+                        <span class="text-white-word">Graphic Designer</span>
+                        <svg class="marquee-sparkle-icon" viewBox="0 0 24 24" fill="currentColor">
+                            <path d="M12 0C12 6.627 6.627 12 0 12C6.627 12 12 17.373 12 24C12 17.373 17.373 12 24 12C17.373 12 12 6.627 12 0Z"/>
+                        </svg>
+                    </div>
+                    <div class="marquee-ticker-item">
+                        <span class="text-white-word">UI/UX Designer</span>
+                        <svg class="marquee-sparkle-icon" viewBox="0 0 24 24" fill="currentColor">
+                            <path d="M12 0C12 6.627 6.627 12 0 12C6.627 12 12 17.373 12 24C12 17.373 17.373 12 24 12C17.373 12 12 6.627 12 0Z"/>
+                        </svg>
+                    </div>
+                    <div class="marquee-ticker-item">
+                        <span class="text-white-word">Graphic Designer</span>
+                        <svg class="marquee-sparkle-icon" viewBox="0 0 24 24" fill="currentColor">
+                            <path d="M12 0C12 6.627 6.627 12 0 12C6.627 12 12 17.373 12 24C12 17.373 17.373 12 24 12C17.373 12 12 6.627 12 0Z"/>
+                        </svg>
+                    </div>
+                </div>
+
+                <!-- Group 2 (Duplicate for Seamless Infinite Loop) -->
+                <div class="marquee-ticker-group" aria-hidden="true">
+                    <div class="marquee-ticker-item">
+                        <span class="text-white-word">Motion Designer</span>
+                        <svg class="marquee-sparkle-icon" viewBox="0 0 24 24" fill="currentColor">
+                            <path d="M12 0C12 6.627 6.627 12 0 12C6.627 12 12 17.373 12 24C12 17.373 17.373 12 24 12C17.373 12 12 6.627 12 0Z"/>
+                        </svg>
+                    </div>
+                    <div class="marquee-ticker-item">
+                        <span class="text-white-word">Creative Multimedia</span>
+                        <svg class="marquee-sparkle-icon" viewBox="0 0 24 24" fill="currentColor">
+                            <path d="M12 0C12 6.627 6.627 12 0 12C6.627 12 12 17.373 12 24C12 17.373 17.373 12 24 12C17.373 12 12 6.627 12 0Z"/>
+                        </svg>
+                    </div>
+                    <div class="marquee-ticker-item">
+                        <span class="text-white-word">Graphic Designer</span>
+                        <svg class="marquee-sparkle-icon" viewBox="0 0 24 24" fill="currentColor">
+                            <path d="M12 0C12 6.627 6.627 12 0 12C6.627 12 12 17.373 12 24C12 17.373 17.373 12 24 12C17.373 12 12 6.627 12 0Z"/>
+                        </svg>
+                    </div>
+                    <div class="marquee-ticker-item">
+                        <span class="text-white-word">Graphic Designer</span>
+                        <svg class="marquee-sparkle-icon" viewBox="0 0 24 24" fill="currentColor">
+                            <path d="M12 0C12 6.627 6.627 12 0 12C6.627 12 12 17.373 12 24C12 17.373 17.373 12 24 12C17.373 12 12 6.627 12 0Z"/>
+                        </svg>
+                    </div>
+                    <div class="marquee-ticker-item">
+                        <span class="text-white-word">UI/UX Designer</span>
+                        <svg class="marquee-sparkle-icon" viewBox="0 0 24 24" fill="currentColor">
+                            <path d="M12 0C12 6.627 6.627 12 0 12C6.627 12 12 17.373 12 24C12 17.373 17.373 12 24 12C17.373 12 12 6.627 12 0Z"/>
+                        </svg>
+                    </div>
+                    <div class="marquee-ticker-item">
+                        <span class="text-white-word">Graphic Designer</span>
+                        <svg class="marquee-sparkle-icon" viewBox="0 0 24 24" fill="currentColor">
+                            <path d="M12 0C12 6.627 6.627 12 0 12C6.627 12 12 17.373 12 24C12 17.373 17.373 12 24 12C17.373 12 12 6.627 12 0Z"/>
+                        </svg>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+
+
+    <!-- ========================================================================== -->
     <!-- SECTION 3: CAREER & LEADERSHIP JOURNEY (MAGANG & ORGANISASI)               -->
     <!-- ========================================================================== -->
     <section id="layers" class="section-spacing bg-light">
+
         <div class="container">
             
             <div class="section-header text-center max-w-700 mx-auto reveal-on-scroll">
@@ -515,6 +598,96 @@
 
         </div>
     </section>
+
+
+    <!-- ========================================================================== -->
+    <!-- RUNNING TICKER MARQUEE SLIDER (BETWEEN CAREER & CERTIFICATION)             -->
+    <!-- ========================================================================== -->
+    <div class="marquee-ticker-banner" aria-label="Creative Roles Marquee Slider">
+        <div class="marquee-ticker-body">
+            <div class="marquee-ticker-track">
+                <!-- Group 1 -->
+                <div class="marquee-ticker-group">
+                    <div class="marquee-ticker-item">
+                        <span class="text-white-word">Motion Designer</span>
+                        <svg class="marquee-sparkle-icon" viewBox="0 0 24 24" fill="currentColor">
+                            <path d="M12 0C12 6.627 6.627 12 0 12C6.627 12 12 17.373 12 24C12 17.373 17.373 12 24 12C17.373 12 12 6.627 12 0Z"/>
+                        </svg>
+                    </div>
+                    <div class="marquee-ticker-item">
+                        <span class="text-white-word">Creative Multimedia</span>
+                        <svg class="marquee-sparkle-icon" viewBox="0 0 24 24" fill="currentColor">
+                            <path d="M12 0C12 6.627 6.627 12 0 12C6.627 12 12 17.373 12 24C12 17.373 17.373 12 24 12C17.373 12 12 6.627 12 0Z"/>
+                        </svg>
+                    </div>
+                    <div class="marquee-ticker-item">
+                        <span class="text-white-word">Graphic Designer</span>
+                        <svg class="marquee-sparkle-icon" viewBox="0 0 24 24" fill="currentColor">
+                            <path d="M12 0C12 6.627 6.627 12 0 12C6.627 12 12 17.373 12 24C12 17.373 17.373 12 24 12C17.373 12 12 6.627 12 0Z"/>
+                        </svg>
+                    </div>
+                    <div class="marquee-ticker-item">
+                        <span class="text-white-word">Graphic Designer</span>
+                        <svg class="marquee-sparkle-icon" viewBox="0 0 24 24" fill="currentColor">
+                            <path d="M12 0C12 6.627 6.627 12 0 12C6.627 12 12 17.373 12 24C12 17.373 17.373 12 24 12C17.373 12 12 6.627 12 0Z"/>
+                        </svg>
+                    </div>
+                    <div class="marquee-ticker-item">
+                        <span class="text-white-word">UI/UX Designer</span>
+                        <svg class="marquee-sparkle-icon" viewBox="0 0 24 24" fill="currentColor">
+                            <path d="M12 0C12 6.627 6.627 12 0 12C6.627 12 12 17.373 12 24C12 17.373 17.373 12 24 12C17.373 12 12 6.627 12 0Z"/>
+                        </svg>
+                    </div>
+                    <div class="marquee-ticker-item">
+                        <span class="text-white-word">Graphic Designer</span>
+                        <svg class="marquee-sparkle-icon" viewBox="0 0 24 24" fill="currentColor">
+                            <path d="M12 0C12 6.627 6.627 12 0 12C6.627 12 12 17.373 12 24C12 17.373 17.373 12 24 12C17.373 12 12 6.627 12 0Z"/>
+                        </svg>
+                    </div>
+                </div>
+
+                <!-- Group 2 (Duplicate for Seamless Infinite Loop) -->
+                <div class="marquee-ticker-group" aria-hidden="true">
+                    <div class="marquee-ticker-item">
+                        <span class="text-white-word">Motion Designer</span>
+                        <svg class="marquee-sparkle-icon" viewBox="0 0 24 24" fill="currentColor">
+                            <path d="M12 0C12 6.627 6.627 12 0 12C6.627 12 12 17.373 12 24C12 17.373 17.373 12 24 12C17.373 12 12 6.627 12 0Z"/>
+                        </svg>
+                    </div>
+                    <div class="marquee-ticker-item">
+                        <span class="text-white-word">Creative Multimedia</span>
+                        <svg class="marquee-sparkle-icon" viewBox="0 0 24 24" fill="currentColor">
+                            <path d="M12 0C12 6.627 6.627 12 0 12C6.627 12 12 17.373 12 24C12 17.373 17.373 12 24 12C17.373 12 12 6.627 12 0Z"/>
+                        </svg>
+                    </div>
+                    <div class="marquee-ticker-item">
+                        <span class="text-white-word">Graphic Designer</span>
+                        <svg class="marquee-sparkle-icon" viewBox="0 0 24 24" fill="currentColor">
+                            <path d="M12 0C12 6.627 6.627 12 0 12C6.627 12 12 17.373 12 24C12 17.373 17.373 12 24 12C17.373 12 12 6.627 12 0Z"/>
+                        </svg>
+                    </div>
+                    <div class="marquee-ticker-item">
+                        <span class="text-white-word">Graphic Designer</span>
+                        <svg class="marquee-sparkle-icon" viewBox="0 0 24 24" fill="currentColor">
+                            <path d="M12 0C12 6.627 6.627 12 0 12C6.627 12 12 17.373 12 24C12 17.373 17.373 12 24 12C17.373 12 12 6.627 12 0Z"/>
+                        </svg>
+                    </div>
+                    <div class="marquee-ticker-item">
+                        <span class="text-white-word">UI/UX Designer</span>
+                        <svg class="marquee-sparkle-icon" viewBox="0 0 24 24" fill="currentColor">
+                            <path d="M12 0C12 6.627 6.627 12 0 12C6.627 12 12 17.373 12 24C12 17.373 17.373 12 24 12C17.373 12 12 6.627 12 0Z"/>
+                        </svg>
+                    </div>
+                    <div class="marquee-ticker-item">
+                        <span class="text-white-word">Graphic Designer</span>
+                        <svg class="marquee-sparkle-icon" viewBox="0 0 24 24" fill="currentColor">
+                            <path d="M12 0C12 6.627 6.627 12 0 12C6.627 12 12 17.373 12 24C12 17.373 17.373 12 24 12C17.373 12 12 6.627 12 0Z"/>
+                        </svg>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
 
 
     <!-- ========================================================================== -->
@@ -618,7 +791,7 @@
                     <div class="project-card" style="--proj-accent: {{ $project['accent'] }};">
                         <span class="project-badge-tag" style="background: {{ $project['accent'] }} !important; color: #FFFFFF !important;">{{ $project['badge'] }}</span>
                         <div class="project-img-wrapper">
-                            <img src="{{ $project['image'] }}" alt="{{ $project['title'] }}" class="project-img">
+                            <img src="{{ $project['image'] }}" alt="{{ $project['title'] }}" class="project-img" loading="lazy" decoding="async">
                         </div>
                         <div class="p-4 d-flex flex-column justify-content-between flex-grow-1">
                             <div>
@@ -650,105 +823,9 @@
 
 
     <!-- ========================================================================== -->
-    <!-- SECTION 6: CONTACT & FOOTER                                                -->
+    <!-- SECTION 6: ARTBOARD 06 - CONNECT & COLLABORATE (INTERACTIVE GSAP OUTRO)    -->
     <!-- ========================================================================== -->
-    <section id="contact" class="section-spacing">
-        <div class="container">
-            <div class="artboard-canvas grid-overlay reveal-on-scroll position-relative artboard-contact-canvas" id="artboardCanvasContact">
-                
-                <!-- Vector Corner Handles -->
-                <div class="vector-handle handle-tl"></div>
-                <div class="vector-handle handle-tr"></div>
-                <div class="vector-handle handle-bl"></div>
-                <div class="vector-handle handle-br"></div>
-
-                <!-- Artboard Top Header Bar: Tag (Left) & Available Status Pill (Right) -->
-                <div class="d-flex flex-column flex-sm-row align-items-start align-items-sm-center justify-content-between gap-3 mb-4">
-                    <div class="artboard-header-tag mb-0">
-                        <i class="fa-solid fa-paper-plane"></i> Artboard 06: Connect &amp; Collaborate
-                    </div>
-
-                    <!-- Live Availability Status Pill (Top Right) -->
-                    <div class="d-inline-flex align-items-center gap-2 px-3 py-2 rounded-pill bg-success-subtle border border-success-subtle">
-                        <span class="status-indicator-dot"></span>
-                        <span class="font-mono small fw-bold text-success" style="font-size: 0.76rem; letter-spacing: 0.5px;">AVAILABLE FOR FULL-TIME &amp; FREELANCE</span>
-                    </div>
-                </div>
-
-                <div class="row align-items-center gy-4 gy-lg-0">
-                    <!-- Left Column: Content & Connect Actions (Rata Atas Bawah / Vertically Balanced) -->
-                    <div class="col-lg-7 text-start py-2 py-lg-4 my-auto">
-                        
-                        <h2 class="display-5 fw-bold mb-3 text-dark">
-                            Let's Make Something <span class="text-accent">Meaningful</span>
-                        </h2>
-
-                        <p class="lead text-muted mb-4 fs-6" style="line-height: 1.6; max-width: 580px;">
-                            Tertarik berkolaborasi untuk kebutuhan <strong>Graphic Design</strong>, <strong>Brand Identity</strong>, <strong>UI/UX Design</strong>, atau <strong>Creative Media</strong> lainnya? Mari terhubung dan diskusikan ide-ide hebat bersama!
-                        </p>
-
-                        <!-- CTA Contact Buttons -->
-                        <div class="d-flex flex-wrap gap-2 gap-sm-3 mb-4">
-                            <a href="mailto:{{ $bio['contact']['email'] }}" class="btn btn-accent">
-                                <i class="fa-solid fa-envelope me-1"></i> Send Email
-                            </a>
-                            <a href="{{ $bio['contact']['linkedin'] }}" target="_blank" class="btn btn-outline-studio">
-                                <i class="fa-brands fa-linkedin me-1 text-accent"></i> LinkedIn
-                            </a>
-                            <a href="{{ $bio['contact']['instagram'] }}" target="_blank" class="btn btn-outline-studio">
-                                <i class="fa-brands fa-instagram me-1 text-accent"></i> Instagram
-                            </a>
-                            <a href="{{ $bio['contact']['github'] }}" target="_blank" class="btn btn-outline-studio">
-                                <i class="fa-brands fa-github me-1 text-accent"></i> GitHub
-                            </a>
-                        </div>
-
-                        <!-- Location & Hire Info -->
-                        <div class="font-mono text-muted small">
-                            <i class="fa-solid fa-location-dot me-1 text-accent"></i> Domisili {{ $bio['contact']['location'] }} • Ready for Worldwide Remote &amp; Onsite
-                        </div>
-                    </div>
-
-                    <!-- Right Column: Standing Cutout Portrait Showcase (Flush to Bottom) -->
-                    <div class="col-lg-5 text-center align-self-end mt-auto">
-                        <div class="connect-photo-wrapper">
-                            <!-- Subtle Ambient Rotating Glow Ring -->
-                            <div class="connect-photo-backdrop"></div>
-
-                            <!-- User Portrait Image -->
-                            <img src="{{ asset('images/hizqia_connect.png') }}?v={{ time() }}" alt="Hizqia Chandra Wiguno" class="connect-photo-img img-fluid">
-
-                            <!-- Floating Badges -->
-                            <div class="floating-badge connect-badge-top">
-                                <i class="fa-solid fa-palette text-accent fs-5"></i>
-                                <div class="text-start">
-                                    <div class="font-mono text-accent">Graphic Designer</div>
-                                    <small class="text-muted">Multimedia TRM</small>
-                                </div>
-                            </div>
-
-                            <div class="floating-badge connect-badge-bottom">
-                                <i class="fa-solid fa-comments text-accent fs-5"></i>
-                                <div class="text-start">
-                                    <div class="font-mono text-dark">Let's Connect!</div>
-                                    <small class="text-muted">Fast Response</small>
-                                </div>
-                            </div>
-                        </div>
-                    </div>
-                </div>
-
-            </div>
-        </div>
-    </section>
-
-    <footer class="studio-footer text-center">
-        <div class="container">
-            <p class="text-muted small mb-0">
-                &copy; {{ date('Y') }} <strong>Hizqia Chandra Wiguno</strong>
-            </p>
-        </div>
-    </footer>
+    @include('footer')
 
 
     <!-- ========================================================================== -->
@@ -766,7 +843,7 @@
                 <button type="button" class="btn-close" onclick="closeProjectModal('pintarBacaDemoModal')" aria-label="Close"></button>
             </div>
             <div class="modal-body modal-body-studio">
-                <img src="{{ asset('images/pintarbaca_hero.jpg') }}?v={{ time() }}" alt="PintarBaca UI Mockup" class="img-fluid rounded-4 mb-4 border shadow-sm">
+                <img src="{{ asset('images/pintarbaca_hero.jpg') }}?v={{ time() }}" alt="PintarBaca UI Mockup" class="img-fluid rounded-4 mb-4 border shadow-sm" loading="lazy" decoding="async">
                 
                 <div class="pintarbaca-game-container">
                     <div class="d-flex justify-content-between align-items-center mb-3">
@@ -827,7 +904,7 @@
                 <button type="button" class="btn-close" onclick="closeProjectModal('ercDemoModal')" aria-label="Close"></button>
             </div>
             <div class="modal-body modal-body-studio">
-                <img src="{{ asset('images/erc_sawangan_hero.jpg') }}?v={{ time() }}" alt="ERC Sawangan Preview" class="img-fluid rounded-4 mb-4 border shadow-sm">
+                <img src="{{ asset('images/erc_sawangan_hero.jpg') }}?v={{ time() }}" alt="ERC Sawangan Preview" class="img-fluid rounded-4 mb-4 border shadow-sm" loading="lazy" decoding="async">
                 <h5 class="fw-bold text-dark mb-2">Desain Antarmuka Komunitas & Jadwal Ibadah</h5>
                 <p class="text-muted mb-3">Portal web ERC Sawangan dirancang untuk memudahkan jemaat mengakses warta gereja digital, pengumuman kegiatan, dan informasi jadwal ibadah dengan sistem navigasi yang rapi dan hangat.</p>
                 <div class="p-3 bg-light rounded-3 border font-mono small mb-4">
@@ -861,7 +938,7 @@
                 <button type="button" class="btn-close" onclick="closeProjectModal('drpDemoModal')" aria-label="Close"></button>
             </div>
             <div class="modal-body modal-body-studio">
-                <img src="{{ asset('images/dot_platform_hero.png') }}?v={{ time() }}" alt="DOT Platform Preview" class="img-fluid rounded-4 mb-4 border shadow-sm">
+                <img src="{{ asset('images/dot_platform_hero.png') }}?v={{ time() }}" alt="DOT Platform Preview" class="img-fluid rounded-4 mb-4 border shadow-sm" loading="lazy" decoding="async">
                 <h5 class="fw-bold text-dark mb-2">Platform Komunitas & Dokumentasi Kegiatan Pemuda</h5>
                 <p class="text-muted mb-3">Portal web interaktif untuk komunitas pemuda DRP Outstanding Teens, menyediakan informasi jadwal pertemuan rutin, galeri kegiatan, serta portal registrasi acara pemuda.</p>
                 <div class="p-3 bg-light rounded-3 border font-mono small mb-4">
