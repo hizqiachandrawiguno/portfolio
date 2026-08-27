@@ -13,16 +13,6 @@
     <!-- Analog Vintage Film Grain -->
     <div class="outro-grain-overlay" aria-hidden="true"></div>
 
-    <!-- Architectural Corner HUD Tags -->
-    <div class="outro-hud-tag-tl">
-        <span class="hud-accent">[+]</span>
-        <span>OUTRO CANVAS / 06</span>
-    </div>
-    <div class="outro-hud-tag-tr">
-        <span class="hud-pulse-dot"></span>
-        <span>STAGE: READY</span>
-    </div>
-
     <!-- ====================================================================== -->
     <!-- MAIN CENTERED STAGE (CONTAINS ALL KINETIC & POPPING ELEMENTS)          -->
     <!-- ====================================================================== -->
@@ -179,7 +169,7 @@
                 <svg width="13" height="13" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.2" stroke-linecap="round" stroke-linejoin="round">
                     <path d="M21.5 2v6h-6M21.34 15.57a10 10 0 1 1-.57-8.38l5.67-5.67"/>
                 </svg>
-                <span>Replay Animation</span>
+                <span>Replay</span>
             </button>
         </div>
 
@@ -188,7 +178,7 @@
     <!-- Bottom Copyright Note with Generous Breathing Room -->
     <div class="outro-bottom-copyright">
         <p class="mb-0">
-            &copy; {{ date('Y') }} <strong>Hizqia Chandra Wiguno</strong> • Crafted with Intention &amp; Precision
+            &copy; {{ date('Y') }} <strong>Hizqia Chandra Wiguno</strong>
         </p>
     </div>
 

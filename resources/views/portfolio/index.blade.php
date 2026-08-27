@@ -36,9 +36,10 @@
     <!-- Custom Designer Workspace CSS -->
     <link rel="stylesheet" href="{{ asset('css/custom-designer.css') }}?v={{ time() }}">
 
-    <!-- Inject Experiences Data Object early & Global Filter Function -->
+    <!-- Inject Experiences & Projects Data Objects early & Global Filter Functions -->
     <script>
         const experiencesData = @json($experiences);
+        const projectsData = @json($projects);
 
         function filterExperiences(category, btn) {
             document.querySelectorAll('.exp-filter-btn').forEach(function(b) { 
@@ -49,6 +50,26 @@
             var expCards = document.querySelectorAll('.exp-card-col');
             expCards.forEach(function(card) {
                 var itemCat = card.getAttribute('data-exp-category');
+                if (category === 'all' || itemCat === category) {
+                    card.style.display = '';
+                    card.classList.remove('animate__animated', 'animate__fadeIn');
+                    void card.offsetWidth; // Reflow to re-trigger animation
+                    card.classList.add('animate__animated', 'animate__fadeIn');
+                } else {
+                    card.style.display = 'none';
+                }
+            });
+        }
+
+        function filterProjects(category, btn) {
+            document.querySelectorAll('.proj-filter-btn').forEach(function(b) { 
+                b.classList.remove('active'); 
+            });
+            if (btn) btn.classList.add('active');
+
+            var projCards = document.querySelectorAll('.proj-card-col');
+            projCards.forEach(function(card) {
+                var itemCat = card.getAttribute('data-proj-category');
                 if (category === 'all' || itemCat === category) {
                     card.style.display = '';
                     card.classList.remove('animate__animated', 'animate__fadeIn');
@@ -588,7 +609,7 @@
                         <button type="button" 
                                 class="btn-inspect-exp w-100 mt-auto justify-content-between" 
                                 onclick="openExpModal('{{ $exp['id'] }}')">
-                            <span>Lihat Detail & Galeri</span>
+                            <span>{{ !empty($exp['details']['gallery']) ? 'Lihat Detail & Galeri' : 'Lihat Detail Organisasi' }}</span>
                             <i class="fa-solid fa-arrow-right"></i>
                         </button>
                     </div>
@@ -772,39 +793,99 @@
 
 
     <!-- ========================================================================== -->
-    <!-- SECTION 5: ASSETS LIBRARY (PROYEK SHOWCASE DENGAN TOMBOL DEMO)              -->
+    <!-- SECTION 5: ASSETS LIBRARY (CREATIVE WORKSPACE & MULTIMEDIA SHOWCASE)       -->
     <!-- ========================================================================== -->
     <section id="assets" class="section-spacing bg-light">
         <div class="container">
             
             <div class="section-header text-center max-w-700 mx-auto reveal-on-scroll">
                 <div class="section-tag justify-content-center">
-                    <i class="fa-solid fa-cubes"></i> ASSETS LIBRARY
+                    <i class="fa-solid fa-cubes"></i> CREATIVE ASSETS & MULTIMEDIA
                 </div>
-                <h2 class="display-6 fw-bold">Galeri Proyek Desain & Web</h2>
-                <p class="text-muted">Showcase karya visual utama dan proyek pembelajaran interaktif. Klik tombol demo pada tiap proyek untuk rincian interaktif.</p>
+                <h2 class="display-6 fw-bold">Creative Works & Multimedia Showcase</h2>
+                <p class="text-muted">Koleksi karya terpadu mencakup Graphic & Social Media Design, Video Editing sinematik teruji, serta platform interaktif UI/UX modern.</p>
             </div>
 
-            <div class="row g-4">
+            <!-- Multi-Category Creative Filter Tabs -->
+            <div class="d-flex justify-content-center mb-4 reveal-on-scroll">
+                <div class="skill-tab-switcher p-1 rounded-pill bg-white border shadow-2xs d-inline-flex flex-wrap gap-1 justify-content-center">
+                    <button type="button" class="btn btn-sm rounded-pill font-mono px-3 py-2 skill-tab-btn proj-filter-btn active" onclick="filterProjects('all', this)">
+                        <i class="fa-solid fa-sparkles me-1 text-accent"></i> Semua Karya ({{ count($projects) }})
+                    </button>
+                    <button type="button" class="btn btn-sm rounded-pill font-mono px-3 py-2 skill-tab-btn proj-filter-btn" onclick="filterProjects('graphic', this)">
+                        <i class="fa-solid fa-palette me-1" style="color: #EC4899;"></i> Graphic Design (2)
+                    </button>
+                    <button type="button" class="btn btn-sm rounded-pill font-mono px-3 py-2 skill-tab-btn proj-filter-btn" onclick="filterProjects('video', this)">
+                        <i class="fa-solid fa-clapperboard me-1" style="color: #3B82F6;"></i> Video Editing (2)
+                    </button>
+                    <button type="button" class="btn btn-sm rounded-pill font-mono px-3 py-2 skill-tab-btn proj-filter-btn" onclick="filterProjects('uiux', this)">
+                        <i class="fa-solid fa-laptop-code me-1" style="color: #F59E0B;"></i> UI/UX & Web (2)
+                    </button>
+                </div>
+            </div>
+
+            <div class="row g-4" id="projectsGrid">
                 @foreach($projects as $project)
-                <div class="col-md-6 col-lg-4 reveal-on-scroll">
-                    <div class="project-card" style="--proj-accent: {{ $project['accent'] }};">
-                        <span class="project-badge-tag" style="background: {{ $project['accent'] }} !important; color: #FFFFFF !important;">{{ $project['badge'] }}</span>
-                        <div class="project-img-wrapper">
+                <div class="col-md-6 col-lg-6 proj-card-col reveal-on-scroll" data-proj-category="{{ $project['category'] }}">
+                    <div class="project-card h-100 d-flex flex-column" style="--proj-accent: {{ $project['accent'] }};">
+                        <span class="project-badge-tag" style="background: {{ $project['accent'] }} !important; color: #FFFFFF !important;">
+                            @if($project['category'] === 'video')
+                                <i class="fa-solid fa-play me-1"></i>
+                            @elseif($project['category'] === 'graphic')
+                                <i class="fa-solid fa-eye me-1"></i>
+                            @else
+                                <i class="fa-solid fa-code me-1"></i>
+                            @endif
+                            {{ $project['badge'] }}
+                        </span>
+                        
+                        <!-- Image Wrapper with Click Trigger -->
+                        <div class="project-img-wrapper cursor-pointer position-relative" 
+                             @if(($project['action_type'] ?? '') === 'video')
+                                onclick="openVideoModal('{{ $project['id'] }}')" title="Klik untuk putar video"
+                             @elseif(($project['action_type'] ?? '') === 'lightbox')
+                                onclick="openImageLightbox('{{ $project['image'] }}', '{{ addslashes($project['title']) }}', '{{ addslashes($project['short_desc']) }}', '{{ addslashes($project['category_label']) }}')" title="Klik untuk perbesar HD"
+                             @else
+                                onclick="openProjectModal('{{ ltrim($project['modal_target'], '#') }}')" title="Klik untuk demo"
+                             @endif>
                             <img src="{{ $project['image'] }}" alt="{{ $project['title'] }}" class="project-img" loading="lazy" decoding="async">
+                            
+                            @if(($project['action_type'] ?? '') === 'video')
+                            <div class="video-play-overlay-hint">
+                                <div class="video-play-pulse-btn">
+                                    <i class="fa-solid fa-play"></i>
+                                </div>
+                                <span class="badge bg-dark bg-opacity-75 text-white font-mono px-2 py-1 mt-2" style="font-size: 0.7rem;">
+                                    <i class="fa-regular fa-clock me-1"></i> {{ $project['video_duration'] ?? '03:00' }}
+                                </span>
+                            </div>
+                            @endif
                         </div>
+
                         <div class="p-4 d-flex flex-column justify-content-between flex-grow-1">
                             <div>
-                                <span class="font-mono small d-block mb-1 fw-bold" style="color: {{ $project['accent'] }};">{{ $project['category_label'] }}</span>
+                                <span class="font-mono small d-block mb-1 fw-bold" style="color: {{ $project['accent'] }};">
+                                    {{ $project['category_label'] }}
+                                </span>
                                 <h3 class="h5 fw-bold mb-2">{{ $project['title'] }}</h3>
-                                <p class="text-muted small mb-3">{{ $project['short_desc'] }}</p>
+                                <p class="text-muted small mb-3 lh-relaxed">{{ $project['short_desc'] }}</p>
                             </div>
 
-                            <div>
-                                <!-- Pure Vanilla Demo Button Trigger -->
-                                <button type="button" class="btn btn-accent btn-sm font-mono mb-3 w-100 justify-content-center" onclick="openProjectModal('{{ ltrim($project['modal_target'], '#') }}')" style="background: {{ $project['accent'] }} !important; border-color: {{ $project['accent'] }} !important;">
-                                    <i class="fa-solid {{ $project['btn_icon'] }} me-1"></i> {{ $project['btn_text'] }}
-                                </button>
+                            <div class="pt-2 mt-auto">
+                                <!-- Trigger Buttons according to Action Type -->
+                                @if(($project['action_type'] ?? '') === 'video')
+                                    <button type="button" class="btn btn-accent btn-sm font-mono mb-3 w-100 justify-content-center" onclick="openVideoModal('{{ $project['id'] }}')" style="background: {{ $project['accent'] }} !important; border-color: {{ $project['accent'] }} !important;">
+                                        <i class="fa-solid {{ $project['btn_icon'] }} me-1"></i> {{ $project['btn_text'] }}
+                                    </button>
+                                @elseif(($project['action_type'] ?? '') === 'lightbox')
+                                    <button type="button" class="btn btn-accent btn-sm font-mono mb-3 w-100 justify-content-center" onclick="openImageLightbox('{{ $project['image'] }}', '{{ addslashes($project['title']) }}', '{{ addslashes($project['short_desc']) }}', '{{ addslashes($project['category_label']) }}')" style="background: {{ $project['accent'] }} !important; border-color: {{ $project['accent'] }} !important;">
+                                        <i class="fa-solid {{ $project['btn_icon'] }} me-1"></i> {{ $project['btn_text'] }}
+                                    </button>
+                                @else
+                                    <button type="button" class="btn btn-accent btn-sm font-mono mb-3 w-100 justify-content-center" onclick="openProjectModal('{{ ltrim($project['modal_target'], '#') }}')" style="background: {{ $project['accent'] }} !important; border-color: {{ $project['accent'] }} !important;">
+                                        <i class="fa-solid {{ $project['btn_icon'] }} me-1"></i> {{ $project['btn_text'] }}
+                                    </button>
+                                @endif
 
                                 <div class="d-flex flex-wrap gap-1">
                                     @foreach($project['tags'] as $tag)
@@ -924,35 +1005,77 @@
 
 
     <!-- ========================================================================== -->
-    <!-- 3. DRP OUTSTANDING TEENS DEMO MODAL                                        -->
+    <!-- 3. STUDIO CINEMA VIDEO PLAYER MODAL (FOR VIDEO EDITING WORKS)              -->
     <!-- ========================================================================== -->
-    <div class="custom-modal-overlay" id="drpDemoModal" onclick="if(event.target === this) closeProjectModal('drpDemoModal')">
-        <div class="custom-modal-dialog">
-            <div class="modal-header modal-header-studio d-flex justify-content-between align-items-center">
-                <div class="d-flex align-items-center gap-2">
-                    <span class="badge text-white font-mono px-3 py-2 rounded-pill" style="background: #8B5CF6;">
-                        <i class="fa-solid fa-users me-1"></i> YOUTH COMMUNITY PORTAL
+    <div class="custom-modal-overlay video-cinema-overlay" id="videoPlayerModal" onclick="if(event.target === this) closeVideoModal()">
+        <div class="custom-modal-dialog video-cinema-dialog">
+            
+            <!-- Video Modal Header -->
+            <div class="modal-header modal-header-cinema d-flex justify-content-between align-items-center">
+                <div class="d-flex align-items-center gap-3">
+                    <span class="badge bg-primary text-white font-mono px-3 py-2 rounded-pill" id="modalVideoBadge">
+                        <i class="fa-solid fa-clapperboard me-1"></i> VIDEO SHOWCASE
                     </span>
-                    <h3 class="h4 fw-bold text-dark mb-0">Website DRP Outstanding Teens</h3>
+                    <div>
+                        <h3 class="h5 fw-bold text-white mb-0" id="modalVideoTitle">Video Title</h3>
+                        <small class="text-white-50 font-mono" id="modalVideoClient" style="font-size: 0.75rem;">Client / Channel</small>
+                    </div>
                 </div>
-                <button type="button" class="btn-close" onclick="closeProjectModal('drpDemoModal')" aria-label="Close"></button>
+                <button type="button" class="btn-close btn-close-white" onclick="closeVideoModal()" aria-label="Tutup Video"></button>
             </div>
-            <div class="modal-body modal-body-studio">
-                <img src="{{ asset('images/dot_platform_hero.png') }}?v={{ time() }}" alt="DOT Platform Preview" class="img-fluid rounded-4 mb-4 border shadow-sm" loading="lazy" decoding="async">
-                <h5 class="fw-bold text-dark mb-2">Platform Komunitas & Dokumentasi Kegiatan Pemuda</h5>
-                <p class="text-muted mb-3">Portal web interaktif untuk komunitas pemuda DRP Outstanding Teens, menyediakan informasi jadwal pertemuan rutin, galeri kegiatan, serta portal registrasi acara pemuda.</p>
-                <div class="p-3 bg-light rounded-3 border font-mono small mb-4">
-                    <strong style="color: #8B5CF6;">Highlight Fitur UI/UX:</strong><br>
-                    • Modern Youth Visual Aesthetic & Energic Color System<br>
-                    • Responsive Event Schedule & Real-time Registration Form<br>
-                    • Galeri Dokumentasi Kegiatan Berbasis Masonry Grid
+
+            <div class="modal-body modal-body-cinema p-0">
+                <!-- Video Player Container (16:9 Responsive Stage) -->
+                <div class="video-stage-container" id="videoStageContainer">
+                    <video id="modalVideoPlayer" controls playsinline class="video-element-cinema" poster="">
+                        <source id="modalVideoSource" src="" type="video/mp4">
+                        Browser Anda tidak mendukung pemutar video HTML5.
+                    </video>
+                    <iframe id="modalYoutubePlayer" class="video-element-cinema d-none" src="" title="Video Player" frameborder="0" allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture; web-share" allowfullscreen></iframe>
                 </div>
-                <div class="text-end">
-                    <a href="https://dotsawangan.com/" target="_blank" class="btn btn-sm rounded-pill font-mono text-white" style="background: #8B5CF6;">
-                        <i class="fa-solid fa-arrow-up-right-from-square me-1"></i> Buka Website dotsawangan.com
-                    </a>
+
+                <!-- Video Technical Breakdown & Workflow Specs -->
+                <div class="p-4 p-md-4 bg-dark text-white border-top border-secondary border-opacity-25">
+                    <div class="row g-4">
+                        <div class="col-lg-7">
+                            <div class="d-flex align-items-center gap-2 mb-2 flex-wrap">
+                                <span class="badge bg-secondary bg-opacity-50 text-white font-mono" id="modalVideoRatio">16:9 4K</span>
+                                <span class="badge bg-secondary bg-opacity-50 text-white font-mono" id="modalVideoDuration">04:18</span>
+                                <span class="badge bg-accent text-white font-mono" id="modalVideoRole">Lead Editor</span>
+                            </div>
+                            <p class="text-white-50 small mb-3 lh-relaxed" id="modalVideoDesc">
+                                Deskripsi video editing...
+                            </p>
+                            <div class="mb-3" id="modalVideoActions">
+                                <a id="modalYoutubeExternalLink" href="#" target="_blank" class="btn btn-sm btn-danger font-mono rounded-pill px-3 py-1.5 d-inline-flex align-items-center gap-2" style="font-size: 0.78rem;">
+                                    <i class="fa-brands fa-youtube fs-6"></i> Buka & Tonton di YouTube
+                                </a>
+                            </div>
+                            <div>
+                                <small class="text-white-50 font-mono text-uppercase d-block mb-2 fw-bold" style="font-size: 0.72rem; letter-spacing: 1px;">
+                                    <i class="fa-solid fa-toolbox text-accent me-1"></i> Software &amp; Tools
+                                </small>
+                                <div class="d-flex flex-wrap gap-1" id="modalVideoTools">
+                                    <!-- Tool badges -->
+                                </div>
+                            </div>
+                        </div>
+
+                        <div class="col-lg-5">
+                            <div class="p-3 rounded-4 bg-black bg-opacity-40 border border-secondary border-opacity-25">
+                                <small class="text-accent font-mono text-uppercase d-block mb-2 fw-bold" style="font-size: 0.72rem; letter-spacing: 1px;">
+                                    <i class="fa-solid fa-sliders me-1"></i> Editing Workflow &amp; Key Focus
+                                </small>
+                                <ul class="list-unstyled text-white-50 small mb-0 d-flex flex-column gap-2" id="modalVideoWorkflowList" style="font-size: 0.78rem;">
+                                    <!-- Workflow points -->
+                                </ul>
+                            </div>
+                        </div>
+                    </div>
                 </div>
+
             </div>
+
         </div>
     </div>
 
@@ -990,11 +1113,16 @@
                     <!-- Left Column: Visual Gallery Showcase -->
                     <div class="col-lg-6">
                         <div class="exp-gallery-showcase">
-                            <small class="text-muted font-mono text-uppercase d-block mb-3 fw-bold" style="font-size: 0.75rem; letter-spacing: 1px;">
-                                <i class="fa-solid fa-images text-accent me-1"></i> Artboard Galeri Karya
-                            </small>
-                            <div class="row g-3" id="modalExpGallery">
-                                <!-- Dynamic Gallery Showcase Cards -->
+                            <div class="d-flex justify-content-between align-items-center mb-3">
+                                <small class="text-muted font-mono text-uppercase fw-bold" style="font-size: 0.75rem; letter-spacing: 1px;">
+                                    <i class="fa-solid fa-images text-accent me-1"></i> Artboard Galeri Karya
+                                </small>
+                                <span class="badge bg-light border text-muted font-mono" id="modalExpGalleryCount" style="font-size: 0.72rem;">0 Karya</span>
+                            </div>
+                            <div class="exp-gallery-scroll-container">
+                                <div class="row g-3" id="modalExpGallery">
+                                    <!-- Dynamic Gallery Showcase Cards (2 Columns) -->
+                                </div>
                             </div>
                         </div>
                     </div>
@@ -1041,6 +1169,24 @@
                 </div>
             </div>
 
+        </div>
+    </div>
+
+
+    <!-- ========================================================================== -->
+    <!-- HIGH-RESOLUTION ARTWORK LIGHTBOX ZOOM MODAL                               -->
+    <!-- ========================================================================== -->
+    <div class="custom-modal-overlay image-lightbox-overlay" id="imageLightboxModal" onclick="if(event.target === this) closeImageLightbox()">
+        <div class="image-lightbox-container">
+            <button type="button" class="btn-lightbox-close" onclick="closeImageLightbox()" aria-label="Tutup Fullscreen">
+                <i class="fa-solid fa-xmark"></i>
+            </button>
+            <img id="lightboxImg" src="" alt="High-Res Artwork Preview" class="lightbox-img">
+            <div class="lightbox-caption-bar mt-3 p-3 text-center rounded-4 shadow-sm">
+                <span class="badge bg-accent text-white font-mono mb-2 px-3 py-1 rounded-pill" id="lightboxCategory" style="font-size: 0.72rem;">Category</span>
+                <h5 class="text-white fw-bold mb-1 fs-6 font-heading" id="lightboxTitle">Judul Karya</h5>
+                <p class="text-white-50 small mb-0 lh-sm" id="lightboxCaption" style="font-size: 0.8rem;">Deskripsi karya...</p>
+            </div>
         </div>
     </div>
 

@@ -61,21 +61,60 @@ window.openExpModal = function (expId) {
 
     // Populate Experience Image Gallery Showcase Cards
     const galleryContainer = document.getElementById('modalExpGallery');
+    const galleryCountEl = document.getElementById('modalExpGalleryCount');
+
     if (galleryContainer) {
         galleryContainer.innerHTML = '';
-        if (expData.details.gallery && Array.isArray(expData.details.gallery)) {
-            expData.details.gallery.forEach(item => {
+        if (expData.details.gallery && Array.isArray(expData.details.gallery) && expData.details.gallery.length > 0) {
+            if (galleryCountEl) {
+                galleryCountEl.textContent = `${expData.details.gallery.length} Karya`;
+            }
+            expData.details.gallery.forEach((item, index) => {
                 const col = document.createElement('div');
-                col.className = 'col-12';
+                col.className = 'col-sm-6 col-12';
+                const categoryBadge = item.category 
+                    ? `<span class="badge bg-accent-subtle text-accent font-mono mb-2 d-inline-block text-truncate" style="font-size: 0.65rem; max-width: 100%;"><i class="fa-solid fa-layer-group me-1"></i> ${item.category}</span>` 
+                    : '';
+                
+                const safeTitle = (item.title || '').replace(/'/g, "\\'");
+                const safeCaption = (item.caption || '').replace(/'/g, "\\'");
+                const safeCategory = (item.category || '').replace(/'/g, "\\'");
+
                 col.innerHTML = `
                     <div class="exp-gallery-item-clean">
-                        <img src="${item.image}" alt="${item.title}" class="exp-gallery-img mb-2 border">
-                        <small class="fw-bold font-heading d-block text-dark mb-1">${item.title}</small>
-                        <small class="text-muted d-block lh-sm" style="font-size: 0.78rem;">${item.caption}</small>
+                        ${categoryBadge}
+                        <div class="exp-gallery-img-wrap" onclick="openImageLightbox('${item.image}', '${safeTitle}', '${safeCaption}', '${safeCategory}')" title="Klik untuk memperbesar gambar">
+                            <img src="${item.image}" alt="${item.title}" class="exp-gallery-img" loading="lazy">
+                            <div class="exp-gallery-zoom-hint">
+                                <i class="fa-solid fa-magnifying-glass-plus me-1"></i> Zoom HD
+                            </div>
+                        </div>
+                        <small class="fw-bold font-heading d-block text-dark mb-1 lh-sm" style="font-size: 0.84rem;">${item.title}</small>
+                        <small class="text-muted d-block lh-sm" style="font-size: 0.74rem;">${item.caption}</small>
                     </div>
                 `;
                 galleryContainer.appendChild(col);
             });
+        } else {
+            if (galleryCountEl) {
+                galleryCountEl.textContent = 'Organisasi';
+            }
+            const col = document.createElement('div');
+            col.className = 'col-12';
+            col.innerHTML = `
+                <div class="p-4 rounded-4 border bg-white text-center shadow-2xs my-2">
+                    <div class="mb-3">
+                        <span class="d-inline-flex align-items-center justify-content-center rounded-circle" style="width: 54px; height: 54px; background: rgba(139, 92, 246, 0.12); color: #8B5CF6;">
+                            <i class="fa-solid fa-users-gear fs-4"></i>
+                        </span>
+                    </div>
+                    <h6 class="fw-bold text-dark mb-2 font-heading">Kepemimpinan & Tata Kelola Organisasi</h6>
+                    <p class="text-muted small mb-0 lh-relaxed" style="max-width: 320px; margin: 0 auto; font-size: 0.82rem;">
+                        Pengalaman ini berfokus pada manajemen tim, koordinasi lintas divisi, dan advokasi kepemudaan/mahasiswa tanpa aset desain publikasi.
+                    </p>
+                </div>
+            `;
+            galleryContainer.appendChild(col);
         }
     }
 
@@ -90,7 +129,49 @@ window.closeExpModal = function () {
     const modalOverlay = document.getElementById('experienceDetailModal');
     if (modalOverlay) {
         modalOverlay.classList.remove('active');
-        document.body.style.overflow = '';
+        // Only reset overflow if lightbox is not active
+        const lightbox = document.getElementById('imageLightboxModal');
+        if (!lightbox || !lightbox.classList.contains('active')) {
+            document.body.style.overflow = '';
+        }
+    }
+};
+
+// IMAGE LIGHTBOX FULLSCREEN PREVIEW
+window.openImageLightbox = function (imgSrc, title, caption, category) {
+    const lightboxModal = document.getElementById('imageLightboxModal');
+    const lightboxImg = document.getElementById('lightboxImg');
+    const lightboxTitle = document.getElementById('lightboxTitle');
+    const lightboxCaption = document.getElementById('lightboxCaption');
+    const lightboxCategory = document.getElementById('lightboxCategory');
+
+    if (lightboxImg) lightboxImg.src = imgSrc;
+    if (lightboxTitle) lightboxTitle.textContent = title || '';
+    if (lightboxCaption) lightboxCaption.textContent = caption || '';
+    if (lightboxCategory) {
+        if (category) {
+            lightboxCategory.textContent = category;
+            lightboxCategory.style.display = 'inline-block';
+        } else {
+            lightboxCategory.style.display = 'none';
+        }
+    }
+
+    if (lightboxModal) {
+        lightboxModal.classList.add('active');
+        document.body.style.overflow = 'hidden';
+    }
+};
+
+window.closeImageLightbox = function () {
+    const lightboxModal = document.getElementById('imageLightboxModal');
+    if (lightboxModal) {
+        lightboxModal.classList.remove('active');
+        // If experience modal is still open, keep body overflow hidden
+        const expModal = document.getElementById('experienceDetailModal');
+        if (!expModal || !expModal.classList.contains('active')) {
+            document.body.style.overflow = '';
+        }
     }
 };
 
@@ -104,6 +185,148 @@ window.openProjectModal = function (modalId) {
 
 window.closeProjectModal = function (modalId) {
     const modalOverlay = document.getElementById(modalId);
+    if (modalOverlay) {
+        modalOverlay.classList.remove('active');
+        document.body.style.overflow = '';
+    }
+};
+
+// STUDIO CINEMA VIDEO PLAYER MODAL FUNCTIONS
+function getYoutubeVideoId(url) {
+    if (!url) return null;
+    const regExp = /^.*(youtu.be\/|v\/|u\/\w\/|embed\/|watch\?v=|\&v=)([^#\&\?]*).*/;
+    const match = url.match(regExp);
+    return (match && match[2].length === 11) ? match[2] : null;
+}
+
+window.openVideoModal = function (projectId) {
+    if (typeof projectsData === 'undefined') {
+        console.error('projectsData is missing!');
+        return;
+    }
+
+    const project = projectsData.find(item => item.id === projectId || 
+        (projectId === 'proj-ellecion' && item.id === 'proj-eleccion') ||
+        (projectId === 'proj-eleccion' && item.id === 'proj-ellecion'));
+    if (!project) {
+        console.error('Project data not found for id:', projectId);
+        return;
+    }
+
+    const titleEl = document.getElementById('modalVideoTitle');
+    const clientEl = document.getElementById('modalVideoClient');
+    const badgeEl = document.getElementById('modalVideoBadge');
+    const descEl = document.getElementById('modalVideoDesc');
+    const ratioEl = document.getElementById('modalVideoRatio');
+    const durationEl = document.getElementById('modalVideoDuration');
+    const roleEl = document.getElementById('modalVideoRole');
+    const toolsEl = document.getElementById('modalVideoTools');
+    const workflowListEl = document.getElementById('modalVideoWorkflowList');
+    const videoPlayer = document.getElementById('modalVideoPlayer');
+    const videoSource = document.getElementById('modalVideoSource');
+    const ytIframe = document.getElementById('modalYoutubePlayer');
+    const extLink = document.getElementById('modalYoutubeExternalLink');
+
+    if (titleEl) titleEl.textContent = project.title;
+    if (clientEl) clientEl.textContent = project.video_client || project.category_label;
+    if (badgeEl) badgeEl.innerHTML = `<i class="fa-solid fa-clapperboard me-1"></i> ${project.badge || 'VIDEO SHOWCASE'}`;
+    if (descEl) descEl.textContent = project.full_desc || project.short_desc;
+    if (ratioEl) ratioEl.textContent = project.video_ratio || '16:9 4K';
+    if (durationEl) durationEl.textContent = project.video_duration || '03:00';
+    if (roleEl) roleEl.textContent = project.video_role || 'Video Editor';
+
+    // Populate Software & Tools Badges
+    if (toolsEl) {
+        toolsEl.innerHTML = '';
+        if (project.tags && Array.isArray(project.tags)) {
+            project.tags.forEach(tag => {
+                const span = document.createElement('span');
+                span.className = 'badge bg-secondary bg-opacity-40 text-white font-mono';
+                span.style.fontSize = '0.72rem';
+                span.innerHTML = `#${tag}`;
+                toolsEl.appendChild(span);
+            });
+        }
+    }
+
+    // Populate Editing Workflow Points
+    if (workflowListEl) {
+        workflowListEl.innerHTML = '';
+        if (project.video_workflow) {
+            const lines = project.video_workflow.split('\n');
+            lines.forEach(line => {
+                const cleanLine = line.trim().replace(/^\d+\.\s*/, '');
+                if (cleanLine) {
+                    const li = document.createElement('li');
+                    li.innerHTML = `<i class="fa-solid fa-check text-accent me-1"></i> ${cleanLine}`;
+                    workflowListEl.appendChild(li);
+                }
+            });
+        }
+    }
+
+    // Setup Video Player (YouTube Embed or HTML5 Video)
+    const ytId = getYoutubeVideoId(project.video_url || project.video_embed_url);
+    if (ytId && ytIframe) {
+        if (videoPlayer) {
+            videoPlayer.pause();
+            videoPlayer.classList.add('d-none');
+        }
+        ytIframe.classList.remove('d-none');
+        ytIframe.src = `https://www.youtube.com/embed/${ytId}?autoplay=1&rel=0&modestbranding=1`;
+        if (extLink) {
+            extLink.classList.remove('d-none');
+            extLink.href = `https://www.youtube.com/watch?v=${ytId}`;
+        }
+    } else {
+        if (ytIframe) {
+            ytIframe.src = '';
+            ytIframe.classList.add('d-none');
+        }
+        if (extLink) {
+            if (project.video_url) {
+                extLink.classList.remove('d-none');
+                extLink.href = project.video_url;
+            } else {
+                extLink.classList.add('d-none');
+            }
+        }
+        if (videoPlayer && videoSource) {
+            videoPlayer.classList.remove('d-none');
+            videoPlayer.pause();
+            if (project.image) {
+                videoPlayer.poster = project.image;
+            }
+            if (project.video_url) {
+                videoSource.src = project.video_url;
+                videoPlayer.load();
+                const playPromise = videoPlayer.play();
+                if (playPromise !== undefined) {
+                    playPromise.catch(() => {
+                        // Browser prevented autoplay
+                    });
+                }
+            }
+        }
+    }
+
+    const modalOverlay = document.getElementById('videoPlayerModal');
+    if (modalOverlay) {
+        modalOverlay.classList.add('active');
+        document.body.style.overflow = 'hidden';
+    }
+};
+
+window.closeVideoModal = function () {
+    const modalOverlay = document.getElementById('videoPlayerModal');
+    const videoPlayer = document.getElementById('modalVideoPlayer');
+    const ytIframe = document.getElementById('modalYoutubePlayer');
+    if (videoPlayer) {
+        videoPlayer.pause();
+    }
+    if (ytIframe) {
+        ytIframe.src = '';
+    }
     if (modalOverlay) {
         modalOverlay.classList.remove('active');
         document.body.style.overflow = '';
@@ -148,6 +371,17 @@ window.filterExperiences = function (category, btn) {
 
 document.addEventListener('keydown', function (e) {
     if (e.key === 'Escape') {
+        const videoModal = document.getElementById('videoPlayerModal');
+        if (videoModal && videoModal.classList.contains('active')) {
+            closeVideoModal();
+            return;
+        }
+        const lightbox = document.getElementById('imageLightboxModal');
+        if (lightbox && lightbox.classList.contains('active')) {
+            closeImageLightbox();
+            return;
+        }
+        closeExpModal();
         closeStudioSidebar();
     }
 });
