@@ -34,7 +34,7 @@
     <link rel="shortcut icon" type="image/png" href="{{ asset('images/hizqia_logo_orange.png') }}">
 
     <!-- Custom Designer Workspace CSS -->
-    <link rel="stylesheet" href="{{ asset('css/custom-designer.css') }}?v={{ time() }}">
+    <link rel="stylesheet" href="{{ asset('css/custom-designer.css') }}?v=2.5.0">
 
     <!-- Inject Experiences & Projects Data Objects early & Global Filter Functions -->
     <script>
@@ -213,7 +213,14 @@
             <a href="#certificates" class="nav-link-custom"><i class="fa-solid fa-award me-1"></i> Sertifikasi</a>
             <a href="#assets" class="nav-link-custom"><i class="fa-solid fa-cubes me-1"></i> Assets</a>
         </div>
-        <a href="#contact" class="btn btn-accent btn-sm px-3 py-2 font-mono d-none d-lg-inline-flex align-items-center"><i class="fa-solid fa-paper-plane me-1"></i> Kontak</a>
+        <div class="d-flex align-items-center gap-2">
+            <button type="button" class="btn btn-sm rounded-pill px-3 py-1.5 font-mono d-inline-flex align-items-center gap-2" onclick="openCommandPalette()" style="font-size: 0.78rem; border: 1px solid var(--border-color); background: rgba(255,255,255,0.85); color: var(--text-primary);" title="Cari Cepat (Ctrl + K)">
+                <i class="fa-solid fa-magnifying-glass text-accent"></i>
+                <span class="d-none d-md-inline">Cari...</span>
+                <kbd class="cmd-kbd py-0 px-1.5" style="font-size: 0.65rem;">Ctrl K</kbd>
+            </button>
+            <a href="#contact" class="btn btn-accent btn-sm px-3 py-2 font-mono d-none d-lg-inline-flex align-items-center"><i class="fa-solid fa-paper-plane me-1"></i> Kontak</a>
+        </div>
     </nav>
 
     <!-- ========================================================================== -->
@@ -821,6 +828,9 @@
                     <button type="button" class="btn btn-sm rounded-pill font-mono px-3 py-2 skill-tab-btn proj-filter-btn" onclick="filterProjects('uiux', this)">
                         <i class="fa-solid fa-laptop-code me-1" style="color: #F59E0B;"></i> UI/UX & Web (2)
                     </button>
+                    <button type="button" class="btn btn-sm rounded-pill font-mono px-3 py-2 skill-tab-btn" onclick="openBeforeAfterModal()" style="border: 1px dashed var(--accent-color); color: var(--accent-color);" title="Lihat Perbandingan Retouch Interaktif">
+                        <i class="fa-solid fa-wand-magic-sparkles me-1"></i> Retouch Before-After
+                    </button>
                 </div>
             </div>
 
@@ -828,6 +838,7 @@
                 @foreach($projects as $project)
                 <div class="col-md-6 col-lg-6 proj-card-col reveal-on-scroll" data-proj-category="{{ $project['category'] }}">
                     <div class="project-card h-100 d-flex flex-column" style="--proj-accent: {{ $project['accent'] }};">
+                        <div class="card-glare-shine"></div>
                         <span class="project-badge-tag" style="background: {{ $project['accent'] }} !important; color: #FFFFFF !important;">
                             @if($project['category'] === 'video')
                                 <i class="fa-solid fa-play me-1"></i>
@@ -1035,38 +1046,41 @@
                 </div>
 
                 <!-- Video Technical Breakdown & Workflow Specs -->
-                <div class="p-4 p-md-4 bg-dark text-white border-top border-secondary border-opacity-25">
-                    <div class="row g-4">
-                        <div class="col-lg-7">
-                            <div class="d-flex align-items-center gap-2 mb-2 flex-wrap">
-                                <span class="badge bg-secondary bg-opacity-50 text-white font-mono" id="modalVideoRatio">16:9 4K</span>
-                                <span class="badge bg-secondary bg-opacity-50 text-white font-mono" id="modalVideoDuration">04:18</span>
-                                <span class="badge bg-accent text-white font-mono" id="modalVideoRole">Lead Editor</span>
-                            </div>
-                            <p class="text-white-50 small mb-3 lh-relaxed" id="modalVideoDesc">
-                                Deskripsi video editing...
-                            </p>
-                            <div class="mb-3" id="modalVideoActions">
-                                <a id="modalYoutubeExternalLink" href="#" target="_blank" class="btn btn-sm btn-danger font-mono rounded-pill px-3 py-1.5 d-inline-flex align-items-center gap-2" style="font-size: 0.78rem;">
-                                    <i class="fa-brands fa-youtube fs-6"></i> Buka & Tonton di YouTube
-                                </a>
-                            </div>
+                <div class="video-cinema-details text-white border-top border-secondary border-opacity-25">
+                    <div class="row g-4 g-lg-5 align-items-stretch">
+                        <div class="col-lg-7 d-flex flex-column justify-content-between">
                             <div>
-                                <small class="text-white-50 font-mono text-uppercase d-block mb-2 fw-bold" style="font-size: 0.72rem; letter-spacing: 1px;">
+                                <div class="d-flex align-items-center gap-2 mb-3.5 flex-wrap">
+                                    <span class="badge bg-secondary bg-opacity-50 text-white font-mono px-3 py-1.5 rounded-pill" id="modalVideoRatio">16:9 4K</span>
+                                    <span class="badge bg-secondary bg-opacity-50 text-white font-mono px-3 py-1.5 rounded-pill" id="modalVideoDuration">04:18</span>
+                                    <span class="badge bg-accent text-white font-mono px-3 py-1.5 rounded-pill" id="modalVideoRole">Lead Editor</span>
+                                </div>
+                                <p class="text-white-50 mb-4 lh-relaxed video-desc-text" id="modalVideoDesc">
+                                    Deskripsi video editing...
+                                </p>
+                                <div class="mb-4" id="modalVideoActions">
+                                    <a id="modalYoutubeExternalLink" href="#" target="_blank" class="btn btn-sm btn-danger font-mono rounded-pill px-4 py-2 d-inline-flex align-items-center gap-2" style="font-size: 0.82rem;">
+                                        <i class="fa-brands fa-youtube fs-6"></i> Buka & Tonton di YouTube
+                                    </a>
+                                </div>
+                            </div>
+                            
+                            <div class="pt-3.5 border-top border-secondary border-opacity-25">
+                                <small class="text-white-50 font-mono text-uppercase d-block mb-2.5 fw-bold" style="font-size: 0.74rem; letter-spacing: 1.2px;">
                                     <i class="fa-solid fa-toolbox text-accent me-1"></i> Software &amp; Tools
                                 </small>
-                                <div class="d-flex flex-wrap gap-1" id="modalVideoTools">
+                                <div class="d-flex flex-wrap gap-2" id="modalVideoTools">
                                     <!-- Tool badges -->
                                 </div>
                             </div>
                         </div>
 
                         <div class="col-lg-5">
-                            <div class="p-3 rounded-4 bg-black bg-opacity-40 border border-secondary border-opacity-25">
-                                <small class="text-accent font-mono text-uppercase d-block mb-2 fw-bold" style="font-size: 0.72rem; letter-spacing: 1px;">
+                            <div class="video-workflow-card rounded-4 bg-black bg-opacity-40 border border-secondary border-opacity-25 h-100 d-flex flex-column">
+                                <small class="text-accent font-mono text-uppercase d-block mb-3 fw-bold" style="font-size: 0.75rem; letter-spacing: 1.2px;">
                                     <i class="fa-solid fa-sliders me-1"></i> Editing Workflow &amp; Key Focus
                                 </small>
-                                <ul class="list-unstyled text-white-50 small mb-0 d-flex flex-column gap-2" id="modalVideoWorkflowList" style="font-size: 0.78rem;">
+                                <ul class="list-unstyled text-white-50 small mb-0 d-flex flex-column gap-3" id="modalVideoWorkflowList" style="font-size: 0.82rem; line-height: 1.6;">
                                     <!-- Workflow points -->
                                 </ul>
                             </div>
@@ -1194,23 +1208,200 @@
     <!-- ========================================================================== -->
     <!-- BACKGROUND NO-COPYRIGHT AMBIENT AUDIO PLAYER                              -->
     <!-- ========================================================================== -->
-    <audio id="bgMusic" loop preload="auto">
+    <audio id="bgMusic" loop preload="none">
         <source src="https://cdn.pixabay.com/download/audio/2022/05/27/audio_1808fbf07a.mp3?filename=chill-lofi-110820.mp3" type="audio/mpeg">
         <source src="https://assets.mixkit.co/music/preview/mixkit-tech-house-vibes-130.mp3" type="audio/mpeg">
     </audio>
 
-    <!-- FLOATING AUDIO CONTROLLER WIDGET -->
+    <!-- FLOATING AUDIO CONTROLLER WIDGET WITH REAL-TIME CANVAS VISUALIZER -->
     <div id="audioControlWidget" class="floating-audio-widget" onclick="toggleBgMusic()" title="Putar / Hentikan Musik Latar (Volume 10%)">
-        <div class="audio-equalizer-bars" id="audioEqualizer">
-            <span class="bar bar-1"></span>
-            <span class="bar bar-2"></span>
-            <span class="bar bar-3"></span>
+        <div class="audio-canvas-wrap">
+            <canvas id="audioWaveCanvas" width="68" height="24"></canvas>
         </div>
         <span id="audioStatusText" class="font-mono text-uppercase">BGM 10%</span>
         <i id="audioIcon" class="fa-solid fa-volume-high text-accent"></i>
     </div>
 
-    <!-- Custom Interactive JS with Cache Buster -->
-    <script src="{{ asset('js/portfolio-interactive.js') }}?v={{ time() }}"></script>
+    <!-- ========================================================================== -->
+    <!-- COMMAND PALETTE (CTRL + K / CMD + K) MODAL                                 -->
+    <!-- ========================================================================== -->
+    <div id="cmdPaletteBackdrop" class="cmd-palette-backdrop" onclick="if(event.target === this) closeCommandPalette()">
+        <div class="cmd-palette-modal" role="dialog" aria-modal="true">
+            <div class="cmd-palette-header">
+                <i class="fa-solid fa-magnifying-glass text-accent fs-5"></i>
+                <input type="text" id="cmdPaletteInput" class="cmd-palette-input" placeholder="Cari karya, keahlian, atau aksi cepat..." autocomplete="off">
+                <kbd class="cmd-kbd">ESC</kbd>
+            </div>
+            <div class="cmd-palette-body" id="cmdPaletteList">
+                <div class="cmd-group-label">Navigasi Halaman</div>
+                <a href="#hero" class="cmd-item" onclick="closeCommandPalette()">
+                    <div class="cmd-item-left">
+                        <div class="cmd-item-icon"><i class="fa-solid fa-paintbrush"></i></div>
+                        <div>
+                            <div class="cmd-item-title">Artboard 01: Hero Canvas</div>
+                            <div class="cmd-item-sub">Biografi & Profil Kreatif</div>
+                        </div>
+                    </div>
+                    <i class="fa-solid fa-arrow-turn-down fa-rotate-90 text-muted" style="font-size: 0.75rem;"></i>
+                </a>
+                <a href="#properties" class="cmd-item" onclick="closeCommandPalette()">
+                    <div class="cmd-item-left">
+                        <div class="cmd-item-icon"><i class="fa-solid fa-sliders"></i></div>
+                        <div>
+                            <div class="cmd-item-title">Artboard 02: Software & Capabilities</div>
+                            <div class="cmd-item-sub">Photoshop, Illustrator, Premiere, Figma, Tech Stack</div>
+                        </div>
+                    </div>
+                    <i class="fa-solid fa-arrow-turn-down fa-rotate-90 text-muted" style="font-size: 0.75rem;"></i>
+                </a>
+                <a href="#layers" class="cmd-item" onclick="closeCommandPalette()">
+                    <div class="cmd-item-left">
+                        <div class="cmd-item-icon"><i class="fa-solid fa-layer-group"></i></div>
+                        <div>
+                            <div class="cmd-item-title">Artboard 03: Work Experience (Layers)</div>
+                            <div class="cmd-item-sub">SERA Astra, Pharos, DRP, Polimedia</div>
+                        </div>
+                    </div>
+                    <i class="fa-solid fa-arrow-turn-down fa-rotate-90 text-muted" style="font-size: 0.75rem;"></i>
+                </a>
+                <a href="#certificates" class="cmd-item" onclick="closeCommandPalette()">
+                    <div class="cmd-item-left">
+                        <div class="cmd-item-icon"><i class="fa-solid fa-award"></i></div>
+                        <div>
+                            <div class="cmd-item-title">Artboard 04: Sertifikasi & Lisensi</div>
+                            <div class="cmd-item-sub">BNSP Graphic Designer, Kominfo Digital Talent, UI/UX</div>
+                        </div>
+                    </div>
+                    <i class="fa-solid fa-arrow-turn-down fa-rotate-90 text-muted" style="font-size: 0.75rem;"></i>
+                </a>
+                <a href="#assets" class="cmd-item" onclick="closeCommandPalette()">
+                    <div class="cmd-item-left">
+                        <div class="cmd-item-icon"><i class="fa-solid fa-cubes"></i></div>
+                        <div>
+                            <div class="cmd-item-title">Artboard 05: Proyek & Portofolio</div>
+                            <div class="cmd-item-sub">Desain Grafis, Video Editing, UI/UX EduTech</div>
+                        </div>
+                    </div>
+                    <i class="fa-solid fa-arrow-turn-down fa-rotate-90 text-muted" style="font-size: 0.75rem;"></i>
+                </a>
+                <a href="#contact" class="cmd-item" onclick="closeCommandPalette()">
+                    <div class="cmd-item-left">
+                        <div class="cmd-item-icon"><i class="fa-solid fa-paper-plane"></i></div>
+                        <div>
+                            <div class="cmd-item-title">Artboard 06: Connect & Kontak</div>
+                            <div class="cmd-item-sub">Kirim Email, LinkedIn, Instagram</div>
+                        </div>
+                    </div>
+                    <i class="fa-solid fa-arrow-turn-down fa-rotate-90 text-muted" style="font-size: 0.75rem;"></i>
+                </a>
+
+                <div class="cmd-group-label mt-2">Aksi Cepat & Proyek Unggulan</div>
+                <div class="cmd-item" onclick="closeCommandPalette(); openBeforeAfterModal();">
+                    <div class="cmd-item-left">
+                        <div class="cmd-item-icon"><i class="fa-solid fa-wand-magic-sparkles"></i></div>
+                        <div>
+                            <div class="cmd-item-title">Bandingkan Before & After Retouch</div>
+                            <div class="cmd-item-sub">Slider Interaktif Photo Retouching TRAC</div>
+                        </div>
+                    </div>
+                    <span class="badge bg-accent text-white font-mono" style="font-size: 0.65rem;">INTERAKTIF</span>
+                </div>
+                <div class="cmd-item" onclick="closeCommandPalette(); openProjectModal('pintarBacaDemoModal');">
+                    <div class="cmd-item-left">
+                        <div class="cmd-item-icon"><i class="fa-solid fa-gamepad"></i></div>
+                        <div>
+                            <div class="cmd-item-title">Mainkan Mini-Game PintarBaca</div>
+                            <div class="cmd-item-sub">Game Suku Kata Edukasi Anak Interaktif</div>
+                        </div>
+                    </div>
+                    <span class="badge bg-warning text-dark font-mono" style="font-size: 0.65rem;">GAME</span>
+                </div>
+                <div class="cmd-item" onclick="closeCommandPalette(); toggleBgMusic();">
+                    <div class="cmd-item-left">
+                        <div class="cmd-item-icon"><i class="fa-solid fa-music"></i></div>
+                        <div>
+                            <div class="cmd-item-title">Putar / Pause Musik Latar (BGM Lo-Fi)</div>
+                            <div class="cmd-item-sub">Volume santai 10% dengan Audio Visualizer</div>
+                        </div>
+                    </div>
+                    <span class="badge bg-secondary text-white font-mono" style="font-size: 0.65rem;">AUDIO</span>
+                </div>
+                <a href="mailto:hizqiachandrawiguno@gmail.com" class="cmd-item" onclick="closeCommandPalette()">
+                    <div class="cmd-item-left">
+                        <div class="cmd-item-icon"><i class="fa-solid fa-envelope"></i></div>
+                        <div>
+                            <div class="cmd-item-title">Kirim Email ke Hizqia</div>
+                            <div class="cmd-item-sub">hizqiachandrawiguno@gmail.com</div>
+                        </div>
+                    </div>
+                    <i class="fa-solid fa-arrow-up-right-from-square text-muted" style="font-size: 0.75rem;"></i>
+                </a>
+            </div>
+            <div class="cmd-palette-footer">
+                <span>Ketik untuk memfilter &bull; Navigasi via keyboard</span>
+                <span><kbd class="cmd-kbd">ESC</kbd> untuk menutup</span>
+            </div>
+        </div>
+    </div>
+
+    <!-- ========================================================================== -->
+    <!-- INTERACTIVE BEFORE/AFTER RETOUCH SLIDER MODAL                              -->
+    <!-- ========================================================================== -->
+    <div class="custom-modal-overlay" id="beforeAfterRetouchModal" onclick="if(event.target === this) closeProjectModal('beforeAfterRetouchModal')">
+        <div class="custom-modal-dialog" style="max-width: 860px;">
+            <div class="modal-header modal-header-studio d-flex justify-content-between align-items-center">
+                <div class="d-flex align-items-center gap-2">
+                    <span class="badge bg-accent text-white font-mono px-3 py-1.5 rounded-pill">
+                        <i class="fa-solid fa-wand-magic-sparkles me-1"></i> DESIGN PROCESS SHOWCASE
+                    </span>
+                    <h5 class="fw-bold mb-0 font-heading fs-6 text-dark">TRAC Key Visual - Photo Retouching &amp; Composite</h5>
+                </div>
+                <button type="button" class="btn-close-studio" onclick="closeProjectModal('beforeAfterRetouchModal')" aria-label="Close">
+                    <i class="fa-solid fa-xmark"></i>
+                </button>
+            </div>
+            <div class="p-4 bg-white">
+                <div class="alert alert-light border d-flex align-items-center gap-2.5 py-2 px-3 mb-3 rounded-3" style="font-size: 0.82rem;">
+                    <i class="fa-solid fa-hand-pointer text-accent fs-6"></i>
+                    <span><strong>Geser handle garis putih</strong> ke kiri atau ke kanan untuk membandingkan materi foto raw dengan hasil final compositing!</span>
+                </div>
+
+                <div class="before-after-container" id="beforeAfterSlider">
+                    <!-- After Image (Background) -->
+                    <img src="{{ asset('images/trac_key_visual_pantai.webp') }}" alt="After Final Retouch" class="before-after-img">
+                    <span class="before-after-tag tag-after">HASIL RETOUCH &amp; COMPOSITE</span>
+
+                    <!-- Before Image (Overlay clipped by width) -->
+                    <div class="before-after-overlay" id="beforeAfterOverlay">
+                        <img src="{{ asset('images/trac_promo_booth.webp') }}" alt="Before Raw Materials" class="before-after-img" style="filter: grayscale(85%) contrast(85%);">
+                        <span class="before-after-tag tag-before">RAW MATERIAL ASSET</span>
+                    </div>
+
+                    <!-- Draggable Handle -->
+                    <div class="before-after-handle" id="beforeAfterHandle">
+                        <i class="fa-solid fa-arrows-left-right"></i>
+                    </div>
+                </div>
+
+                <div class="row g-3 mt-3 pt-2 border-top">
+                    <div class="col-sm-4">
+                        <small class="text-muted font-mono d-block" style="font-size: 0.72rem;">TEKNIK</small>
+                        <span class="fw-bold small text-dark">3D Pop-Out &amp; Color Grading</span>
+                    </div>
+                    <div class="col-sm-4">
+                        <small class="text-muted font-mono d-block" style="font-size: 0.72rem;">SOFTWARE</small>
+                        <span class="fw-bold small text-dark">Adobe Photoshop CC</span>
+                    </div>
+                    <div class="col-sm-4">
+                        <small class="text-muted font-mono d-block" style="font-size: 0.72rem;">TOTAL LAYERS</small>
+                        <span class="fw-bold small text-dark">48 Masking &amp; Adjustment Layers</span>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+
+    <!-- Custom Interactive JS with Static Versioning for Optimal Browser Caching -->
+    <script src="{{ asset('js/portfolio-interactive.js') }}?v=2.5.0"></script>
 </body>
 </html>

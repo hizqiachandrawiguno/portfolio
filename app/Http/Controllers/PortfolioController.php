@@ -17,7 +17,7 @@ class PortfolioController extends Controller
             'major' => 'Teknologi Rekayasa Multimedia (TRM)',
             'gpa' => '3.76',
             'status' => 'Lulusan Terbaik / Ready for Hire',
-            'photo' => asset('images/hizqia_profile.png'),
+            'photo' => asset('images/hizqia_profile.webp'),
             'catchy_summary' => 'I create Visual Identities and Communication pieces with direction, character, and intention behind every detail.',
             'contact' => [
                 'email' => 'hizqiachandrawiguno@gmail.com',
@@ -202,8 +202,8 @@ class PortfolioController extends Controller
                     'tools' => ['Adobe Photoshop', 'Adobe Illustrator', 'Canva', 'Social Media Analytics'],
                     'learnings' => 'Mengasah pemahaman strategi komunikasi pemasaran, penyusunan pesan brand yang persuasif, serta koordinasi campaign promosi terstruktur.',
                     'gallery' => [
-                        ['title' => 'Materi Marketing Campaign', 'image' => asset('images/pharos_indonesia.png'), 'caption' => 'Desain Banner & Visual Promosi EGuards Indonesia'],
-                        ['title' => 'Social Media Content', 'image' => asset('images/pintarbaca_hero.jpg') . '?v=' . time(), 'caption' => 'Materi Publikasi & Infografis Digital']
+                        ['title' => 'Materi Marketing Campaign', 'image' => asset('images/pharos_indonesia.webp'), 'caption' => 'Desain Banner & Visual Promosi EGuards Indonesia'],
+                        ['title' => 'Social Media Content', 'image' => asset('images/pintarbaca_hero.webp'), 'caption' => 'Materi Publikasi & Infografis Digital']
                     ]
                 ]
             ],
@@ -229,55 +229,55 @@ class PortfolioController extends Controller
                         [
                             'title' => 'Tenda Booth TRAC (3x3 M)',
                             'category' => 'Spatial & Event Booth',
-                            'image' => asset('images/trac_tenda_booth.png'),
+                            'image' => asset('images/trac_tenda_booth.webp'),
                             'caption' => 'Desain spatial 3D mockup booth resmi TRAC untuk event offline & shuttle stop, lengkap dengan spesifikasi teknis 3x3 M.'
                         ],
                         [
                             'title' => 'Standing Banner TRACtoGo Promo',
                             'category' => 'Print Collateral / POSM',
-                            'image' => asset('images/trac_standing_banner.png'),
+                            'image' => asset('images/trac_standing_banner.webp'),
                             'caption' => 'Materi promosi cetak ukuran 60x160 cm (Albatross Dopp) dengan hierarki informasi promo sewa mobil & download app.'
                         ],
                         [
                             'title' => 'Key Visual: Teman di Setiap Kilometer',
                             'category' => 'Creative Photo Manipulation',
-                            'image' => asset('images/trac_key_visual_pantai.jpg'),
+                            'image' => asset('images/trac_key_visual_pantai.webp'),
                             'caption' => 'Digital photo compositing efek 3D pop-out smartphone menghubungkan suasana penat kantor menuju liburan santai di pantai.'
                         ],
                         [
                             'title' => 'Flyer Event: Liburan Banyak Bonusnya',
                             'category' => 'Event Promo & Merchandising',
-                            'image' => asset('images/trac_promo_booth.jpg'),
+                            'image' => asset('images/trac_promo_booth.webp'),
                             'caption' => 'Desain aktivasi booth event dengan showcase merchandise kit resmi (lanyard, fan, tote bag) & voucher rental mobil.'
                         ],
                         [
                             'title' => 'Seasonal Flyer: TRAC Holiday Gift',
                             'category' => 'Corporate Internal Campaign',
-                            'image' => asset('images/trac_holiday_gift.jpg'),
+                            'image' => asset('images/trac_holiday_gift.webp'),
                             'caption' => 'Materi promosi libur Natal & Tahun Baru khusus karyawan Astra Group dengan metafora kado pita Menara Astra.'
                         ],
                         [
                             'title' => 'Backdrop Stage: Sales Forum 2025',
                             'category' => 'Spatial & Event Stage',
-                            'image' => asset('images/trac_sales_forum_backdrop.jpg'),
+                            'image' => asset('images/trac_sales_forum_backdrop.webp'),
                             'caption' => 'Perancangan backdrop panggung modular Sales Forum 2025 di Crowne Plaza Bandung dengan tema retro-futuristic grid & skala teknis 1:10.'
                         ],
                         [
                             'title' => 'Twibbon: Sales Forum 2025',
                             'category' => 'Event Branding & Engagement',
-                            'image' => asset('images/trac_sales_forum_twibbon.png'),
+                            'image' => asset('images/trac_sales_forum_twibbon.webp'),
                             'caption' => 'Desain photo frame twibbon 1:1 untuk engagement media sosial peserta & karyawan Sales Forum TRAC 2025.'
                         ],
                         [
                             'title' => 'Creative Poster: TRAC Christmas Tree (Red)',
                             'category' => 'Creative Concept / Social Media',
-                            'image' => asset('images/trac_christmas_red.jpg'),
+                            'image' => asset('images/trac_christmas_red.webp'),
                             'caption' => 'Desain poster ucapan Natal minimalis & cerdas: sorot lampu mobil putih membentuk siluet pohon natal berujung bintang.'
                         ],
                         [
                             'title' => 'Creative Poster: IBID Christmas Tree (Green)',
                             'category' => 'Creative Concept / Social Media',
-                            'image' => asset('images/ibid_christmas_tree.jpg'),
+                            'image' => asset('images/ibid_christmas_tree.webp'),
                             'caption' => 'Visualisasi pohon natal kreatif tersusun dari tumpukan mobil lelang IBID (Member of Astra) bergradasi warna hijau festive.'
                         ]
                     ]
@@ -305,31 +305,31 @@ class PortfolioController extends Controller
                         [
                             'title' => 'Edukasi: Menghapus Stigma HIV',
                             'category' => 'Health Edu Infographic',
-                            'image' => asset('images/pharos_edukasi_stigma_hiv.png'),
+                            'image' => asset('images/pharos_edukasi_stigma_hiv.webp'),
                             'caption' => 'Desain konten edukasi digital iDokter by Panakea (Pharos) dengan tipografi ekspresif dan visual emosional untuk mengedukasi masyarakat tentang stigma HIV.'
                         ],
                         [
                             'title' => 'Edukasi: Mengapa Tes HIV Penting?',
                             'category' => 'Medical Q&A Content',
-                            'image' => asset('images/pharos_edukasi_tes_hiv.png'),
+                            'image' => asset('images/pharos_edukasi_tes_hiv.webp'),
                             'caption' => 'Infografis Q&A medis bertema pentingnya deteksi dini HIV dengan representasi nakes ramah dan skema warna hijau khas platform kesehatan iDokter.'
                         ],
                         [
                             'title' => 'TikTok Cover: POV Gen-Z Saat Puasa',
                             'category' => 'Short Video / TikTok Content',
-                            'image' => asset('images/pharos_tiktok_genz_puasa.png'),
+                            'image' => asset('images/pharos_tiktok_genz_puasa.webp'),
                             'caption' => 'Desain cover & konsep konten video pendek situasi komedi Gen-Z di lingkungan kantor farmasi Pharos dengan bingkai retro grid browser.'
                         ],
                         [
                             'title' => 'TikTok Cover: Butuh Ini Bukan Cinta!',
                             'category' => 'Viral Trend & Entertainment',
-                            'image' => asset('images/pharos_tiktok_butuh_ini.png'),
+                            'image' => asset('images/pharos_tiktok_butuh_ini.webp'),
                             'caption' => 'Aset visual cover video pendek dengan gaya stiker kertas sobek (ripped paper) yang ekspresif untuk mendorong interaksi dan retensi audiens TikTok.'
                         ],
                         [
                             'title' => 'TikTok Cover: Velocity Pro Challenge',
                             'category' => 'Trend & Motion Content',
-                            'image' => asset('images/pharos_tiktok_velocity_pro.png'),
+                            'image' => asset('images/pharos_tiktok_velocity_pro.webp'),
                             'caption' => 'Desain thumbnail video tren Velocity Pro dengan elemen doodle graffiti, kacamata pixel, dan rantai emas untuk nuansa konten pop-culture yang seru.'
                         ]
                     ]
@@ -471,7 +471,7 @@ class PortfolioController extends Controller
                 'modal_target' => '#imageLightboxModal',
                 'btn_text' => 'Lihat Feed & Carousel Desain',
                 'btn_icon' => 'fa-magnifying-glass-plus',
-                'image' => asset('images/drp_social_media_hero.jpg') . '?v=' . time(),
+                'image' => asset('images/drp_social_media_hero.webp'),
                 'badge' => 'Social Media Carousel & Feed',
                 'short_desc' => 'Perancangan aset visual feed Instagram, materi carousel edukasi, poster event kepemudaan, dan template story berkarakter dinamis.',
                 'full_desc' => 'Desain komunikasi visual media sosial untuk komunitas DRP Outstanding Teens. Menggunakan identitas warna ungu & oranye energik, tipografi modern, serta sistem layout grid multi-slide yang konsisten untuk engagement Gen-Z.',
@@ -487,7 +487,7 @@ class PortfolioController extends Controller
                 'modal_target' => '#imageLightboxModal',
                 'btn_text' => 'Lihat Brand Identity & Art',
                 'btn_icon' => 'fa-palette',
-                'image' => asset('images/ritistic_project_hero.jpg') . '?v=' . time(),
+                'image' => asset('images/ritistic_project_hero.webp'),
                 'badge' => 'Brand Identity & Vector Art',
                 'short_desc' => 'Eksplorasi identitas visual brand kreatif, custom lettering, merchandise tote bag, sticker pack, dan seni ilustrasi vektor.',
                 'full_desc' => 'Perancangan visual identity komprehensif untuk Ritistic Project. Mencakup logo lettering custom, palette warna ekspresif (neon teal, coral, & navy), panduan brand guidelines, serta visual merchandise komersial.',
@@ -505,7 +505,7 @@ class PortfolioController extends Controller
                 'modal_target' => '#videoPlayerModal',
                 'btn_text' => 'Tonton Video Eleccion Worship',
                 'btn_icon' => 'fa-circle-play',
-                'image' => asset('images/eleccion_worship_hero.jpg') . '?v=' . time(),
+                'image' => asset('images/eleccion_worship_hero.webp'),
                 'badge' => 'Live Studio Worship 4K',
                 'short_desc' => 'Penyuntingan video live recording performa musik "Allah Roh Kudus" oleh Eleccion Worship dengan sinkronisasi multicam 4K, cinematic color grading, dan audio mastering sync.',
                 'full_desc' => 'Produksi dan penyuntingan video live recording cover lagu "Allah Roh Kudus" oleh Eleccion Worship di Diwangkoro Music Production. Bertanggung jawab sebagai Videographer, Video Editor, dan Thumbnail Designer. Mengintegrasikan sinkronisasi multi-angle camera secara presisi, penyesuaian mood lighting studio panggung bernuansa warm & cinematic, integrasi subtitle lirik dinamis, serta audio-visual mastering synchronization.',
@@ -528,7 +528,7 @@ class PortfolioController extends Controller
                 'modal_target' => '#videoPlayerModal',
                 'btn_text' => 'Tonton Video Anak Bertanya',
                 'btn_icon' => 'fa-circle-play',
-                'image' => asset('images/anak_bertanya_hero.jpg') . '?v=' . time(),
+                'image' => asset('images/anak_bertanya_hero.webp'),
                 'badge' => 'Kids Series & Motion Typography',
                 'short_desc' => 'Penyuntingan video series edukasi rohani anak "Anak Bertanya" (Eps 1) dengan motion graphics interaktif, pop-up text ilustratif, animasi dinamis, dan sound FX ceria.',
                 'full_desc' => 'Penyuntingan program series edukasi rohani anak "Anak Bertanya" Episode 1: "Siapakah Yang Menciptakan Tuhan?" untuk El-Roi Kids Church - GBI ERC Sawangan. Menggabungkan talkshow interaktif host & narasumber dengan motion graphics edukatif, kinetic text, visual bubble penjelas konsep, serta tata suara ceria dengan SFX komikal untuk menjaga retensi penonton anak dan keluarga.',
@@ -553,7 +553,7 @@ class PortfolioController extends Controller
                 'modal_target' => '#pintarBacaDemoModal',
                 'btn_text' => 'Mainkan Demo PintarBaca',
                 'btn_icon' => 'fa-gamepad',
-                'image' => asset('images/pintarbaca_hero.jpg') . '?v=' . time(),
+                'image' => asset('images/pintarbaca_hero.webp'),
                 'badge' => 'Interactive Web EduTech',
                 'short_desc' => 'Platform edukasi web interaktif bagi anak-anak untuk belajar mengeja dan membaca suku kata bahasa Indonesia.',
                 'full_desc' => 'PintarBaca dirancang khusus untuk mempermudah anak usia dini belajar membaca suku kata. Menggabungkan ilustrasi visual beresolusi tinggi, skema warna ceria, serta widget interaktif pembentuk kata.',
@@ -569,7 +569,7 @@ class PortfolioController extends Controller
                 'modal_target' => '#ercDemoModal',
                 'btn_text' => 'Lihat Demo Portal Web',
                 'btn_icon' => 'fa-globe',
-                'image' => asset('images/erc_sawangan_hero.jpg') . '?v=' . time(),
+                'image' => asset('images/erc_sawangan_hero.webp'),
                 'badge' => 'Community Web Platform',
                 'short_desc' => 'Portal web informatif untuk komunitas gereja ERC Sawangan dengan fitur jadwal ibadah dan warta digital.',
                 'full_desc' => 'Perancangan antarmuka pengguna (UI/UX) untuk platform komunitas ERC Sawangan. Menampilkan jadwal ibadah, portal artikel warta mingguan, dan sistem navigasi yang rapi serta fully responsive.',

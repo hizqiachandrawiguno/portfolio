@@ -241,8 +241,8 @@ window.openVideoModal = function (projectId) {
         if (project.tags && Array.isArray(project.tags)) {
             project.tags.forEach(tag => {
                 const span = document.createElement('span');
-                span.className = 'badge bg-secondary bg-opacity-40 text-white font-mono';
-                span.style.fontSize = '0.72rem';
+                span.className = 'badge bg-secondary bg-opacity-30 text-white font-mono px-3 py-1.5 rounded-3 border border-secondary border-opacity-25';
+                span.style.fontSize = '0.76rem';
                 span.innerHTML = `#${tag}`;
                 toolsEl.appendChild(span);
             });
@@ -258,7 +258,8 @@ window.openVideoModal = function (projectId) {
                 const cleanLine = line.trim().replace(/^\d+\.\s*/, '');
                 if (cleanLine) {
                     const li = document.createElement('li');
-                    li.innerHTML = `<i class="fa-solid fa-check text-accent me-1"></i> ${cleanLine}`;
+                    li.className = 'd-flex align-items-start gap-2.5';
+                    li.innerHTML = `<i class="fa-solid fa-check text-accent mt-1 flex-shrink-0"></i> <span>${cleanLine}</span>`;
                     workflowListEl.appendChild(li);
                 }
             });
@@ -369,8 +370,71 @@ window.filterExperiences = function (category, btn) {
     });
 };
 
+// COMMAND PALETTE (CTRL + K) FUNCTIONS
+window.openCommandPalette = function () {
+    const backdrop = document.getElementById('cmdPaletteBackdrop');
+    const input = document.getElementById('cmdPaletteInput');
+    if (backdrop) {
+        backdrop.classList.add('active');
+        document.body.style.overflow = 'hidden';
+        if (input) {
+            input.value = '';
+            setTimeout(() => input.focus(), 50);
+            // Reset filter view
+            document.querySelectorAll('#cmdPaletteList .cmd-item').forEach(el => el.style.display = 'flex');
+        }
+    }
+};
+
+window.closeCommandPalette = function () {
+    const backdrop = document.getElementById('cmdPaletteBackdrop');
+    if (backdrop) {
+        backdrop.classList.remove('active');
+        document.body.style.overflow = '';
+    }
+};
+
+// BEFORE/AFTER RETOUCH MODAL FUNCTIONS
+window.openBeforeAfterModal = function () {
+    const modal = document.getElementById('beforeAfterRetouchModal');
+    if (modal) {
+        modal.classList.add('active');
+        document.body.style.overflow = 'hidden';
+    }
+};
+
+window.closeBeforeAfterModal = function () {
+    const modal = document.getElementById('beforeAfterRetouchModal');
+    if (modal) {
+        modal.classList.remove('active');
+        document.body.style.overflow = '';
+    }
+};
+
 document.addEventListener('keydown', function (e) {
+    // Open Command Palette with Ctrl + K or Cmd + K
+    if ((e.ctrlKey || e.metaKey) && (e.key === 'k' || e.key === 'K')) {
+        e.preventDefault();
+        const backdrop = document.getElementById('cmdPaletteBackdrop');
+        if (backdrop && backdrop.classList.contains('active')) {
+            closeCommandPalette();
+        } else {
+            openCommandPalette();
+        }
+        return;
+    }
+
     if (e.key === 'Escape') {
+        const cmdModal = document.getElementById('cmdPaletteBackdrop');
+        if (cmdModal && cmdModal.classList.contains('active')) {
+            closeCommandPalette();
+            return;
+        }
+        const retouchModal = document.getElementById('beforeAfterRetouchModal');
+        if (retouchModal && retouchModal.classList.contains('active')) {
+            closeProjectModal('beforeAfterRetouchModal');
+            return;
+        }
         const videoModal = document.getElementById('videoPlayerModal');
         if (videoModal && videoModal.classList.contains('active')) {
             closeVideoModal();
@@ -656,32 +720,36 @@ document.addEventListener('DOMContentLoaded', function () {
         });
     }
 
-    window.addEventListener('scroll', updateActiveNavbar);
-    updateActiveNavbar();
-
-
     /* -------------------------------------------------------------------------- */
-    /* 2. PARALLAX DESIGN SCROLL EFFECTS (DESKTOP ONLY)                           */
+    /* 2. OPTIMIZED THROTTLED SCROLL & PARALLAX (60 FPS, NO LAYOUT THRASHING)     */
     /* -------------------------------------------------------------------------- */
     const avatarArtboard = document.querySelector('.avatar-artboard-wrapper');
+    let isScrollTicking = false;
 
     window.addEventListener('scroll', function () {
-        let scroll = window.scrollY;
-
-        if (avatarArtboard) {
-            if (window.innerWidth > 991) {
-                avatarArtboard.style.transform = `translateY(${scroll * 0.04}px)`;
-            } else {
-                avatarArtboard.style.transform = 'none';
-            }
+        if (!isScrollTicking) {
+            window.requestAnimationFrame(function () {
+                updateActiveNavbar();
+                if (avatarArtboard) {
+                    if (window.innerWidth > 991) {
+                        avatarArtboard.style.transform = `translate3d(0, ${window.scrollY * 0.04}px, 0)`;
+                    } else {
+                        avatarArtboard.style.transform = 'none';
+                    }
+                }
+                isScrollTicking = false;
+            });
+            isScrollTicking = true;
         }
-    });
+    }, { passive: true });
+
+    updateActiveNavbar();
 
     window.addEventListener('resize', function () {
         if (avatarArtboard && window.innerWidth <= 991) {
             avatarArtboard.style.transform = 'none';
         }
-    });
+    }, { passive: true });
 
     /* -------------------------------------------------------------------------- */
     /* 3. PINTARBACA INTERACTIVE SYLLABLE MINI-GAME DEMO                         */
@@ -817,6 +885,139 @@ document.addEventListener('DOMContentLoaded', function () {
             console.error('Fallback: Oops, unable to copy', err);
         }
         document.body.removeChild(textArea);
+    }
+
+    /* -------------------------------------------------------------------------- */
+    /* 6. 3D INTERACTIVE CARD TILT & GLASS SHEEN (GPU-ACCELERATED)               */
+    /* -------------------------------------------------------------------------- */
+    const projectCards = document.querySelectorAll('.project-card');
+    projectCards.forEach(card => {
+        card.addEventListener('mousemove', function (e) {
+            const rect = card.getBoundingClientRect();
+            const x = e.clientX - rect.left;
+            const y = e.clientY - rect.top;
+            const centerX = rect.width / 2;
+            const centerY = rect.height / 2;
+            const rotX = ((centerY - y) / centerY) * 6;
+            const rotY = ((x - centerX) / centerX) * 6;
+            card.style.transform = `perspective(1000px) rotateX(${rotX.toFixed(2)}deg) rotateY(${rotY.toFixed(2)}deg) translateY(-4px)`;
+            card.style.setProperty('--glare-x', `${((x / rect.width) * 100).toFixed(1)}%`);
+            card.style.setProperty('--glare-y', `${((y / rect.height) * 100).toFixed(1)}%`);
+        });
+
+        card.addEventListener('mouseleave', function () {
+            card.style.transform = 'perspective(1000px) rotateX(0deg) rotateY(0deg) translateY(0px)';
+        });
+    });
+
+    /* -------------------------------------------------------------------------- */
+    /* 7. COMMAND PALETTE LIVE FILTER SEARCH                                      */
+    /* -------------------------------------------------------------------------- */
+    const cmdInput = document.getElementById('cmdPaletteInput');
+    if (cmdInput) {
+        cmdInput.addEventListener('input', function () {
+            const query = cmdInput.value.toLowerCase().trim();
+            const items = document.querySelectorAll('#cmdPaletteList .cmd-item');
+
+            items.forEach(item => {
+                const text = item.textContent.toLowerCase();
+                if (!query || text.includes(query)) {
+                    item.style.display = 'flex';
+                } else {
+                    item.style.display = 'none';
+                }
+            });
+        });
+    }
+
+    /* -------------------------------------------------------------------------- */
+    /* 8. BEFORE/AFTER RETOUCH SLIDER DRAG INTERACTION                            */
+    /* -------------------------------------------------------------------------- */
+    const baSlider = document.getElementById('beforeAfterSlider');
+    const baOverlay = document.getElementById('beforeAfterOverlay');
+    const baHandle = document.getElementById('beforeAfterHandle');
+
+    if (baSlider && baOverlay && baHandle) {
+        let isDraggingSlider = false;
+
+        function updateSliderPosition(clientX) {
+            const rect = baSlider.getBoundingClientRect();
+            let offsetX = clientX - rect.left;
+            let percent = (offsetX / rect.width) * 100;
+            percent = Math.max(0, Math.min(100, percent));
+            baOverlay.style.width = percent + '%';
+            baHandle.style.left = percent + '%';
+        }
+
+        baSlider.addEventListener('mousedown', function (e) {
+            isDraggingSlider = true;
+            updateSliderPosition(e.clientX);
+        });
+
+        window.addEventListener('mouseup', function () {
+            isDraggingSlider = false;
+        });
+
+        window.addEventListener('mousemove', function (e) {
+            if (isDraggingSlider) {
+                updateSliderPosition(e.clientX);
+            }
+        });
+
+        baSlider.addEventListener('touchstart', function (e) {
+            isDraggingSlider = true;
+            if (e.touches && e.touches[0]) {
+                updateSliderPosition(e.touches[0].clientX);
+            }
+        }, { passive: true });
+
+        window.addEventListener('touchend', function () {
+            isDraggingSlider = false;
+        });
+
+        window.addEventListener('touchmove', function (e) {
+            if (isDraggingSlider && e.touches && e.touches[0]) {
+                updateSliderPosition(e.touches[0].clientX);
+            }
+        }, { passive: true });
+    }
+
+    /* -------------------------------------------------------------------------- */
+    /* 9. REAL-TIME AUDIO WAVEFORM CANVAS VISUALIZER                               */
+    /* -------------------------------------------------------------------------- */
+    const waveCanvas = document.getElementById('audioWaveCanvas');
+    if (waveCanvas) {
+        const ctx = waveCanvas.getContext('2d');
+        const barCount = 7;
+        let heights = new Array(barCount).fill(4);
+
+        function renderWaveform() {
+            ctx.clearRect(0, 0, waveCanvas.width, waveCanvas.height);
+            const barWidth = 4;
+            const gap = 5;
+            const startX = (waveCanvas.width - (barCount * (barWidth + gap) - gap)) / 2;
+
+            for (let i = 0; i < barCount; i++) {
+                let targetHeight = 4;
+                if (isAudioPlaying) {
+                    targetHeight = 4 + Math.sin(Date.now() * 0.009 + i * 1.3) * 8 + Math.random() * 5;
+                }
+                heights[i] += (targetHeight - heights[i]) * 0.25;
+                const h = Math.max(3, Math.min(22, heights[i]));
+                const y = (waveCanvas.height - h) / 2;
+
+                ctx.fillStyle = isAudioPlaying ? '#E36B32' : '#8C847B';
+                ctx.beginPath();
+                if (ctx.roundRect) {
+                    ctx.roundRect(startX + i * (barWidth + gap), y, barWidth, h, 2);
+                } else {
+                    ctx.rect(startX + i * (barWidth + gap), y, barWidth, h);
+                }
+                ctx.fill();
+            }
+            requestAnimationFrame(renderWaveform);
+        }
+        renderWaveform();
     }
 
 });

@@ -96,9 +96,11 @@
         .ambient-glow {
             position: absolute;
             border-radius: 50%;
-            filter: blur(80px);
+            filter: blur(60px);
             pointer-events: none;
             opacity: 0.12;
+            transform: translate3d(0, 0, 0);
+            will-change: transform;
             animation: floatGlow 18s ease-in-out infinite alternate;
         }
 
@@ -120,14 +122,14 @@
         }
 
         @media (min-width: 768px) {
-            .glow-1 { width: 500px; height: 500px; filter: blur(110px); }
-            .glow-2 { width: 550px; height: 550px; filter: blur(110px); }
+            .glow-1 { width: 450px; height: 450px; filter: blur(75px); }
+            .glow-2 { width: 500px; height: 500px; filter: blur(75px); }
         }
 
         @keyframes floatGlow {
-            0% { transform: translate(0, 0) scale(1); }
-            50% { transform: translate(25px, -20px) scale(1.06); }
-            100% { transform: translate(-20px, 15px) scale(0.96); }
+            0% { transform: translate3d(0, 0, 0) scale(1); }
+            50% { transform: translate3d(25px, -20px, 0) scale(1.06); }
+            100% { transform: translate3d(-20px, 15px, 0) scale(0.96); }
         }
 
         /* Letter Styling */
@@ -169,33 +171,18 @@
             -webkit-backdrop-filter: blur(8px);
         }
 
-        /* Subtle Analog Film Grain & Paper Texture Overlay */
+        /* Optimized Analog Film Grain Texture Overlay (Hardware Accelerated, No Jitter Loop) */
         .vintage-grain-overlay {
             position: fixed;
-            top: -50%;
-            left: -50%;
-            width: 200%;
-            height: 200%;
+            inset: 0;
+            width: 100%;
+            height: 100%;
             pointer-events: none;
             z-index: 40;
-            opacity: 0.048;
+            opacity: 0.038;
             background-image: url("data:image/svg+xml,%3Csvg viewBox='0 0 200 200' xmlns='http://www.w3.org/2000/svg'%3E%3Cfilter id='noiseFilter'%3E%3CfeTurbulence type='fractalNoise' baseFrequency='0.8' numOctaves='3' stitchTiles='stitch'/%3E%3C/filter%3E%3Crect width='100%25' height='100%25' filter='url(%23noiseFilter)'/%3E%3C/svg%3E");
             background-repeat: repeat;
-            animation: grainJitter 8s steps(10) infinite;
-            mix-blend-mode: multiply;
-        }
-
-        @keyframes grainJitter {
-            0%, 100% { transform: translate(0, 0); }
-            10% { transform: translate(-1%, -1%); }
-            20% { transform: translate(1%, 0); }
-            30% { transform: translate(-1%, 1%); }
-            40% { transform: translate(1%, -1%); }
-            50% { transform: translate(-1%, 0); }
-            60% { transform: translate(1%, 1%); }
-            70% { transform: translate(0, -1%); }
-            80% { transform: translate(-1%, -1%); }
-            90% { transform: translate(1%, 0); }
+            transform: translateZ(0);
         }
     </style>
 </head>
