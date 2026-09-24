@@ -34,7 +34,7 @@
     <link rel="shortcut icon" type="image/png" href="{{ asset('images/hizqia_logo_orange.png') }}">
 
     <!-- Custom Designer Workspace CSS -->
-    <link rel="stylesheet" href="{{ asset('css/custom-designer.css') }}?v=2.5.0">
+    <link rel="stylesheet" href="{{ asset('css/custom-designer.css') }}?v={{ time() }}">
 
     <!-- Inject Experiences & Projects Data Objects early & Global Filter Functions -->
     <script>
@@ -194,19 +194,19 @@
         </div>
     </aside>
 
-    <nav class="studio-navbar">
-        <!-- LEFT: Brand / Logo -->
-        <div class="nav-left d-flex align-items-center gap-2">
-            <button id="sidebarToggleBtn" class="sidebar-toggle-btn d-lg-none" onclick="openStudioSidebar()" aria-label="Buka Sidebar Navigasi">
+    <nav class="studio-navbar d-flex align-items-center justify-content-between px-3 px-md-4">
+        <!-- 1. LEFT ZONE: Brand Logo (Left-aligned) -->
+        <div class="navbar-zone-left d-flex align-items-center">
+            <button id="sidebarToggleBtn" class="sidebar-toggle-btn d-lg-none me-2" onclick="openStudioSidebar()" aria-label="Buka Sidebar Navigasi">
                 <i class="fa-solid fa-bars-staggered"></i>
             </button>
-            <a href="#hero" class="text-decoration-none d-inline-flex align-items-center" title="Hizqia Chandra Wiguno">
+            <a href="#hero" class="d-inline-flex align-items-center text-decoration-none" title="Hizqia Chandra Wiguno">
                 <img src="{{ asset('images/hizqia_logo_orange.png') }}" alt="Hizqia Monogram Logo" class="nav-logo-icon" loading="eager" fetchpriority="high" decoding="sync">
             </a>
         </div>
 
-        <!-- CENTER: Navigation Links -->
-        <div class="nav-center d-none d-lg-flex align-items-center gap-1">
+        <!-- 2. CENTER ZONE: Navigation Links (Dead Center) -->
+        <div class="navbar-zone-center d-none d-lg-flex align-items-center justify-content-center gap-1">
             <a href="#hero" class="nav-link-custom active"><i class="fa-solid fa-paintbrush me-1"></i> Canvas</a>
             <a href="#properties" class="nav-link-custom"><i class="fa-solid fa-sliders me-1"></i> Properties</a>
             <a href="#layers" class="nav-link-custom"><i class="fa-solid fa-layer-group me-1"></i> Layers</a>
@@ -215,12 +215,12 @@
             <a href="#contact" class="nav-link-custom"><i class="fa-solid fa-paper-plane me-1"></i> Kontak</a>
         </div>
 
-        <!-- RIGHT: Search Bar -->
-        <div class="nav-right d-flex align-items-center justify-content-end">
-            <button type="button" class="nav-search-btn" onclick="openCommandPalette()" title="Cari Cepat (Ctrl + K)">
-                <i class="fa-solid fa-magnifying-glass search-icon"></i>
-                <span class="search-text d-none d-sm-inline">Cari...</span>
-                <kbd class="search-kbd d-none d-md-inline-block">Ctrl K</kbd>
+        <!-- 3. RIGHT ZONE: Search Bar (Right-aligned) -->
+        <div class="navbar-zone-right d-flex align-items-center justify-content-end">
+            <button type="button" class="btn btn-sm rounded-pill font-mono nav-search-btn d-inline-flex align-items-center gap-2" onclick="openCommandPalette()" title="Cari Cepat (Ctrl + K)">
+                <i class="fa-solid fa-magnifying-glass text-accent"></i>
+                <span class="d-none d-sm-inline">Cari...</span>
+                <kbd class="cmd-kbd py-0 px-1.5 d-none d-md-inline-block">Ctrl K</kbd>
             </button>
         </div>
     </nav>
