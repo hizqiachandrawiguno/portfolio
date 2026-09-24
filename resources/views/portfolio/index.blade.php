@@ -118,7 +118,7 @@
             <img src="{{ $bio['photo'] }}" alt="{{ $bio['name'] }}" class="sidebar-user-avatar" loading="lazy" decoding="async">
             <div>
                 <h6 class="fw-bold text-dark mb-0 fs-6">{{ $bio['nickname'] }}</h6>
-                <span class="badge bg-accent text-white font-mono" style="font-size: 0.7rem;">IPK <span class="counter-number" data-target="3.76" data-decimals="2">0.00</span> Cum Laude</span>
+                <span class="badge bg-accent text-white font-mono" style="font-size: 0.7rem;">IPK <span class="counter-number" data-target="3.70" data-decimals="2">0.00</span> Cum Laude</span>
                 <small class="d-block text-muted mt-1" style="font-size: 0.72rem;">{{ $bio['education'] }}</small>
             </div>
         </div>
@@ -195,9 +195,7 @@
     </aside>
 
     <!-- ========================================================================== -->
-    <!-- FLOATING STUDIO NAVBAR                                                     -->
-    <!-- ========================================================================== -->
-    <nav class="studio-navbar d-flex justify-content-between align-items-center">
+    <nav class="studio-navbar d-flex align-items-center justify-content-between justify-content-lg-center">
         <div class="d-flex align-items-center gap-2">
             <button id="sidebarToggleBtn" class="sidebar-toggle-btn d-lg-none" onclick="openStudioSidebar()" aria-label="Buka Sidebar Navigasi">
                 <i class="fa-solid fa-bars-staggered"></i>
@@ -206,52 +204,15 @@
                 <img src="{{ asset('images/hizqia_logo_orange.png') }}" alt="Hizqia Monogram Logo" class="nav-logo-icon" loading="eager" fetchpriority="high" decoding="sync">
             </a>
         </div>
-        <div class="d-none d-lg-flex align-items-center gap-2">
+        <div class="d-none d-lg-flex align-items-center gap-1 mx-lg-2">
             <a href="#hero" class="nav-link-custom active"><i class="fa-solid fa-paintbrush me-1"></i> Canvas</a>
             <a href="#properties" class="nav-link-custom"><i class="fa-solid fa-sliders me-1"></i> Properties</a>
             <a href="#layers" class="nav-link-custom"><i class="fa-solid fa-layer-group me-1"></i> Layers</a>
             <a href="#certificates" class="nav-link-custom"><i class="fa-solid fa-award me-1"></i> Sertifikasi</a>
             <a href="#assets" class="nav-link-custom"><i class="fa-solid fa-cubes me-1"></i> Assets</a>
-        </div>
-        <div class="d-flex align-items-center gap-2">
-            <button type="button" class="btn btn-sm rounded-pill px-3 py-1.5 font-mono d-inline-flex align-items-center gap-2" onclick="openCommandPalette()" style="font-size: 0.78rem; border: 1px solid var(--border-color); background: rgba(255,255,255,0.85); color: var(--text-primary);" title="Cari Cepat (Ctrl + K)">
-                <i class="fa-solid fa-magnifying-glass text-accent"></i>
-                <span class="d-none d-md-inline">Cari...</span>
-                <kbd class="cmd-kbd py-0 px-1.5" style="font-size: 0.65rem;">Ctrl K</kbd>
-            </button>
-            <a href="#contact" class="btn btn-accent btn-sm px-3 py-2 font-mono d-none d-lg-inline-flex align-items-center"><i class="fa-solid fa-paper-plane me-1"></i> Kontak</a>
+            <a href="#contact" class="nav-link-custom"><i class="fa-solid fa-paper-plane me-1"></i> Kontak</a>
         </div>
     </nav>
-
-    <!-- ========================================================================== -->
-    <!-- VERTICAL JOURNEY DOT PAGINATION INDICATOR (DESKTOP FULL PAGE NAV)          -->
-    <!-- ========================================================================== -->
-    <div id="journeyDotNav" class="journey-dot-pagination d-none d-lg-flex flex-column gap-3">
-        <a href="#hero" class="dot-item active" title="Artboard 01: Hero Canvas">
-            <span class="dot-tooltip font-mono">01. Canvas</span>
-            <span class="dot-circle"></span>
-        </a>
-        <a href="#properties" class="dot-item" title="Artboard 02: Software Skills">
-            <span class="dot-tooltip font-mono">02. Properties</span>
-            <span class="dot-circle"></span>
-        </a>
-        <a href="#layers" class="dot-item" title="Artboard 03: Work Experience">
-            <span class="dot-tooltip font-mono">03. Layers</span>
-            <span class="dot-circle"></span>
-        </a>
-        <a href="#certificates" class="dot-item" title="Artboard 04: BNSP Certificates">
-            <span class="dot-tooltip font-mono">04. Sertifikasi</span>
-            <span class="dot-circle"></span>
-        </a>
-        <a href="#assets" class="dot-item" title="Artboard 05: Assets & Projects">
-            <span class="dot-tooltip font-mono">05. Assets</span>
-            <span class="dot-circle"></span>
-        </a>
-        <a href="#contact" class="dot-item" title="Artboard 06: Connect & Collaborate">
-            <span class="dot-tooltip font-mono">06. Connect</span>
-            <span class="dot-circle"></span>
-        </a>
-    </div>
 
     <!-- ========================================================================== -->
     <!-- SECTION 1: HERO / CANVAS AREA                                              -->
@@ -820,13 +781,13 @@
                         <i class="fa-solid fa-sparkles me-1 text-accent"></i> Semua Karya ({{ count($projects) }})
                     </button>
                     <button type="button" class="btn btn-sm rounded-pill font-mono px-3 py-2 skill-tab-btn proj-filter-btn" onclick="filterProjects('graphic', this)">
-                        <i class="fa-solid fa-palette me-1" style="color: #EC4899;"></i> Graphic Design (2)
+                        <i class="fa-solid fa-palette me-1" style="color: #E36B32;"></i> Graphic Design (2)
                     </button>
                     <button type="button" class="btn btn-sm rounded-pill font-mono px-3 py-2 skill-tab-btn proj-filter-btn" onclick="filterProjects('video', this)">
-                        <i class="fa-solid fa-clapperboard me-1" style="color: #3B82F6;"></i> Video Editing (2)
+                        <i class="fa-solid fa-clapperboard me-1" style="color: #C2410C;"></i> Video Editing (2)
                     </button>
                     <button type="button" class="btn btn-sm rounded-pill font-mono px-3 py-2 skill-tab-btn proj-filter-btn" onclick="filterProjects('uiux', this)">
-                        <i class="fa-solid fa-laptop-code me-1" style="color: #F59E0B;"></i> UI/UX & Web (2)
+                        <i class="fa-solid fa-laptop-code me-1" style="color: #D97706;"></i> UI/UX & Web (2)
                     </button>
                     <button type="button" class="btn btn-sm rounded-pill font-mono px-3 py-2 skill-tab-btn" onclick="openBeforeAfterModal()" style="border: 1px dashed var(--accent-color); color: var(--accent-color);" title="Lihat Perbandingan Retouch Interaktif">
                         <i class="fa-solid fa-wand-magic-sparkles me-1"></i> Retouch Before-After

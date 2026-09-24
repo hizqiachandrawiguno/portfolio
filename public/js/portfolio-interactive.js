@@ -104,7 +104,7 @@ window.openExpModal = function (expId) {
             col.innerHTML = `
                 <div class="p-4 rounded-4 border bg-white text-center shadow-2xs my-2">
                     <div class="mb-3">
-                        <span class="d-inline-flex align-items-center justify-content-center rounded-circle" style="width: 54px; height: 54px; background: rgba(139, 92, 246, 0.12); color: #8B5CF6;">
+                        <span class="d-inline-flex align-items-center justify-content-center rounded-circle" style="width: 54px; height: 54px; background: rgba(227, 107, 50, 0.12); color: #E36B32;">
                             <i class="fa-solid fa-users-gear fs-4"></i>
                         </span>
                     </div>

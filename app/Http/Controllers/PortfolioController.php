@@ -129,7 +129,7 @@ class PortfolioController extends Controller
                     'tag' => 'CORE STRENGTH #01',
                     'badge' => '100% Adaptable',
                     'icon' => 'fa-solid fa-brain',
-                    'color' => '#8B5CF6',
+                    'color' => '#E36B32',
                     'bg_gradient' => '#FFFFFF',
                     'desc' => 'Mampu mentransformasi brief rumit menjadi solusi visual yang bersih, intuitif, dan berdampak tinggi bagi audiens.'
                 ],
@@ -138,7 +138,7 @@ class PortfolioController extends Controller
                     'tag' => 'CORE STRENGTH #02',
                     'badge' => 'Synergy & Pitching',
                     'icon' => 'fa-solid fa-comments',
-                    'color' => '#06B6D4',
+                    'color' => '#D97706',
                     'bg_gradient' => '#FFFFFF',
                     'desc' => 'Komunikasi efektif dan artikulatif saat berkolaborasi dengan klien, tim developer, maupun tim desain cross-functional.'
                 ],
@@ -147,7 +147,7 @@ class PortfolioController extends Controller
                     'tag' => 'CORE STRENGTH #03',
                     'badge' => 'Future Ready',
                     'icon' => 'fa-solid fa-bolt',
-                    'color' => '#EAB308',
+                    'color' => '#EA580C',
                     'bg_gradient' => '#FFFFFF',
                     'desc' => 'Cepat beradaptasi dan menguasai software grafis baru, AI creative tools, hingga framework web modern tanpa hambatan.'
                 ],
@@ -156,7 +156,7 @@ class PortfolioController extends Controller
                     'tag' => 'CORE STRENGTH #04',
                     'badge' => 'On-Time Delivery',
                     'icon' => 'fa-solid fa-stopwatch',
-                    'color' => '#10B981',
+                    'color' => '#C2410C',
                     'bg_gradient' => '#FFFFFF',
                     'desc' => 'Manajemen waktu dan alur kerja (workflow) yang disiplin sehingga proyek selesai tepat waktu dengan kualitas maksimal.'
                 ],
@@ -165,7 +165,7 @@ class PortfolioController extends Controller
                     'tag' => 'CORE STRENGTH #05',
                     'badge' => 'User Centric',
                     'icon' => 'fa-solid fa-lightbulb',
-                    'color' => '#F59E0B',
+                    'color' => '#D97706',
                     'bg_gradient' => '#FFFFFF',
                     'desc' => 'Pendekatan desain berbasis empati pengguna untuk memastikan setiap layout visual tidak hanya estetik tapi juga fungsional.'
                 ],
@@ -174,7 +174,7 @@ class PortfolioController extends Controller
                     'tag' => 'CORE STRENGTH #06',
                     'badge' => 'High Responsibility',
                     'icon' => 'fa-solid fa-users-gear',
-                    'color' => '#EC4899',
+                    'color' => '#E36B32',
                     'bg_gradient' => '#FFFFFF',
                     'desc' => 'Tanggung jawab penuh dalam mengawal proyek dari konsep ide mentah, eksekusi visual, hingga final delivery.'
                 ]
@@ -193,7 +193,7 @@ class PortfolioController extends Controller
                 'badge' => 'Magang',
                 'type' => 'Internship Program',
                 'icon' => 'fa-solid fa-bullhorn',
-                'accent' => '#3B82F6',
+                'accent' => '#EA580C',
                 'is_active' => false,
                 'short_desc' => 'Merancang strategi komunikasi pemasaran, materi promosi visual multi-channel, dan analisis engagement audiens EGuards Indonesia.',
                 'details' => [
@@ -217,7 +217,7 @@ class PortfolioController extends Controller
                 'badge' => 'Magang Astra Group',
                 'type' => 'Magang Astra Group',
                 'icon' => 'fa-solid fa-briefcase',
-                'accent' => '#0284C7',
+                'accent' => '#C2410C',
                 'is_active' => false,
                 'short_desc' => 'Merancang aset visual branding, materi promosi digital korporat, dan kampanye media sosial berstandar Astra.',
                 'details' => [
@@ -293,7 +293,7 @@ class PortfolioController extends Controller
                 'badge' => 'Magang',
                 'type' => 'Internship Program',
                 'icon' => 'fa-solid fa-hashtag',
-                'accent' => '#10B981',
+                'accent' => '#D97706',
                 'is_active' => false,
                 'short_desc' => 'Mengelola strategi konten media sosial multi-platform, memproduksi infografis edukasi medis iDokter by Panakea, dan konten kreatif TikTok/Reels Pharos.',
                 'details' => [
@@ -345,7 +345,7 @@ class PortfolioController extends Controller
                 'badge' => 'Ketua Organisasi',
                 'type' => 'Leadership / Organisasi Kampus',
                 'icon' => 'fa-solid fa-hands-holding-child',
-                'accent' => '#8B5CF6',
+                'accent' => '#E36B32',
                 'is_active' => false,
                 'short_desc' => 'Memimpin organisasi konseling mahasiswa kampus, memfasilitasi program kesehatan mental, dan koordinasi dengan bagian kemahasiswaan.',
                 'details' => [
@@ -366,7 +366,7 @@ class PortfolioController extends Controller
                 'badge' => 'Active Leadership',
                 'type' => 'Leadership / Organisasi',
                 'icon' => 'fa-solid fa-crown',
-                'accent' => '#F97316',
+                'accent' => '#EA580C',
                 'is_active' => true,
                 'short_desc' => 'Memimpin visi organisasi pemuda, mengarahkan tim lintas divisi, serta menginisiasi program kerja pengembangan kepemudaan.',
                 'details' => [
@@ -390,7 +390,7 @@ class PortfolioController extends Controller
                 'year' => '02 Juli 2024 (Berlaku 3 Tahun)',
                 'badge' => 'Sertifikasi Profesi BNSP',
                 'icon' => 'fa-solid fa-award',
-                'color' => '#DC2626',
+                'color' => '#C2410C',
                 'pdf_url' => asset('images/cert_bnsp.pdf'),
                 'desc' => 'Sertifikat Kompetensi Profesi Resmi dari Badan Nasional Sertifikasi Profesi (BNSP) Republik Indonesia atas nama Hizqia Chandra Wiguno. Diterbitkan di Yogyakarta oleh Lembaga Sertifikasi Profesi Teknologi Digital.',
                 'competencies' => [
@@ -410,7 +410,7 @@ class PortfolioController extends Controller
                 'year' => '04 Juli 2024 (24 Jam Pelatihan)',
                 'badge' => 'Kominfo RI Scholarship',
                 'icon' => 'fa-solid fa-graduation-cap',
-                'color' => '#2563EB',
+                'color' => '#D97706',
                 'pdf_url' => asset('images/cert_kominfo.pdf'),
                 'desc' => 'Sertifikat Kelulusan Pelatihan Intensif Vocational School Graduate Academy (VSGA) Digital Talent Scholarship Kominfo RI untuk skema Junior Graphic Designer.',
                 'competencies' => [
@@ -448,7 +448,7 @@ class PortfolioController extends Controller
                 'year' => '17 Mei 2024',
                 'badge' => 'UI/UX Specialization',
                 'icon' => 'fa-solid fa-laptop-code',
-                'color' => '#7C3AED',
+                'color' => '#E36B32',
                 'pdf_url' => asset('images/cert_rubrik_ui.pdf'),
                 'desc' => 'Sertifikat Spesialisasi UI Design for Landing Page dari Rubrik Grafis. Memverifikasi kemampuan merancang tata letak web landing page yang modern, komunikatif, dan conversion-focused.',
                 'competencies' => [
@@ -474,9 +474,9 @@ class PortfolioController extends Controller
                 'image' => asset('images/drp_social_media_hero.webp'),
                 'badge' => 'Social Media Carousel & Feed',
                 'short_desc' => 'Perancangan aset visual feed Instagram, materi carousel edukasi, poster event kepemudaan, dan template story berkarakter dinamis.',
-                'full_desc' => 'Desain komunikasi visual media sosial untuk komunitas DRP Outstanding Teens. Menggunakan identitas warna ungu & oranye energik, tipografi modern, serta sistem layout grid multi-slide yang konsisten untuk engagement Gen-Z.',
+                'full_desc' => 'Desain komunikasi visual media sosial untuk komunitas DRP Outstanding Teens. Menggunakan identitas warna oranye terracotta & warm amber yang dinamis, tipografi modern, serta sistem layout grid multi-slide yang konsisten untuk engagement Gen-Z.',
                 'tags' => ['Photoshop', 'Illustrator', 'Social Media Feed', 'Carousel', 'Youth Branding'],
-                'accent' => '#8B5CF6'
+                'accent' => '#E36B32'
             ],
             [
                 'id' => 'proj-ritistic',
@@ -490,9 +490,9 @@ class PortfolioController extends Controller
                 'image' => asset('images/ritistic_project_hero.webp'),
                 'badge' => 'Brand Identity & Vector Art',
                 'short_desc' => 'Eksplorasi identitas visual brand kreatif, custom lettering, merchandise tote bag, sticker pack, dan seni ilustrasi vektor.',
-                'full_desc' => 'Perancangan visual identity komprehensif untuk Ritistic Project. Mencakup logo lettering custom, palette warna ekspresif (neon teal, coral, & navy), panduan brand guidelines, serta visual merchandise komersial.',
+                'full_desc' => 'Perancangan visual identity komprehensif untuk Ritistic Project. Mencakup logo lettering custom, palette warna ekspresif (warm coral, terracotta, & deep amber), panduan brand guidelines, serta visual merchandise komersial.',
                 'tags' => ['Brand Identity', 'Custom Lettering', 'Vector Art', 'Merchandise', 'Illustrator'],
-                'accent' => '#EC4899'
+                'accent' => '#EA580C'
             ],
 
             // --- 2. VIDEO EDITING & MOTION PRODUCTION ---
@@ -517,7 +517,7 @@ class PortfolioController extends Controller
                 'video_role' => 'Videographer, Video Editor & Thumbnail Designer',
                 'video_workflow' => "1. Multicam Sync & Dynamic Angle Switching: Sinkronisasi waveform audio multi-kamera (Wide Stage, Vocalist Close-up, Guitarist, & Drummer).\n2. Cinematic Color Grading & Studio Mood: Pengolahan pencahayaan studio dengan LUT warm amber & deep contrast yang sinematik.\n3. Audio-Visual Mastering Alignment: Sinkronisasi presisi antara rekaman visual dengan output master audio Diwangkoro Music Production.\n4. Kinetic Lyrics & Cover Thumbnail: Integrasi subtitle lirik terstruktur serta perancangan poster thumbnail YouTube dengan CTR tinggi.",
                 'tags' => ['Premiere Pro', 'Multicam Editing', 'Color Grading', 'Live Worship', 'Audio Sync', 'Videography', 'Thumbnail Design'],
-                'accent' => '#3B82F6'
+                'accent' => '#C2410C'
             ],
             [
                 'id' => 'proj-anak-bertanya',
@@ -540,7 +540,7 @@ class PortfolioController extends Controller
                 'video_role' => 'Video Editor & Motion Designer',
                 'video_workflow' => "1. Interactive Pacing & Retention Cut: Pacing editing dinamis dan jump-cut removal untuk mempertahankan retensi fokus anak-anak selama 10+ menit.\n2. Kinetic Motion Graphics & Word Bubble: Pembuatan animasi teks, pop-up icon ilustrasi, dan visual balloon penjelas poin-poin penting di After Effects.\n3. Comic Sound FX & BGM Layering: Penataan efek suara kartun lucu (pop, whoosh, ding) sinkron visual serta pemilihan musik latar ceria dan ramah anak.\n4. Visual Polish & Color Vibrance: Color grading terang, kontras seimbang, serta integrasi lower-thirds & branding El-Roi Kids Church yang konsisten.",
                 'tags' => ['After Effects', 'Premiere Pro', 'Motion Graphics', 'Kinetic Typography', 'Kids Edu Series', 'Sound Design'],
-                'accent' => '#10B981'
+                'accent' => '#D97706'
             ],
 
             // --- 3. UI/UX & WEB PLATFORMS ---
@@ -558,7 +558,7 @@ class PortfolioController extends Controller
                 'short_desc' => 'Platform edukasi web interaktif bagi anak-anak untuk belajar mengeja dan membaca suku kata bahasa Indonesia.',
                 'full_desc' => 'PintarBaca dirancang khusus untuk mempermudah anak usia dini belajar membaca suku kata. Menggabungkan ilustrasi visual beresolusi tinggi, skema warna ceria, serta widget interaktif pembentuk kata.',
                 'tags' => ['PintarBaca', 'EduTech', 'Suku Kata', 'Bootstrap 5', 'JS Interactive'],
-                'accent' => '#F59E0B'
+                'accent' => '#EA580C'
             ],
             [
                 'id' => 'proj-erc',
@@ -574,7 +574,7 @@ class PortfolioController extends Controller
                 'short_desc' => 'Portal web informatif untuk komunitas gereja ERC Sawangan dengan fitur jadwal ibadah dan warta digital.',
                 'full_desc' => 'Perancangan antarmuka pengguna (UI/UX) untuk platform komunitas ERC Sawangan. Menampilkan jadwal ibadah, portal artikel warta mingguan, dan sistem navigasi yang rapi serta fully responsive.',
                 'tags' => ['UI/UX Design', 'Community Portal', 'Figma', 'Bootstrap 5', 'Responsive Web'],
-                'accent' => '#0D9488'
+                'accent' => '#B45309'
             ]
         ];
 
