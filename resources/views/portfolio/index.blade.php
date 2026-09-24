@@ -194,23 +194,34 @@
         </div>
     </aside>
 
-    <!-- ========================================================================== -->
-    <nav class="studio-navbar d-flex align-items-center justify-content-between justify-content-lg-center">
-        <div class="d-flex align-items-center gap-2">
+    <nav class="studio-navbar">
+        <!-- LEFT: Brand / Logo -->
+        <div class="nav-left d-flex align-items-center gap-2">
             <button id="sidebarToggleBtn" class="sidebar-toggle-btn d-lg-none" onclick="openStudioSidebar()" aria-label="Buka Sidebar Navigasi">
                 <i class="fa-solid fa-bars-staggered"></i>
             </button>
-            <a href="#hero" class="text-decoration-none d-inline-flex align-items-center">
+            <a href="#hero" class="text-decoration-none d-inline-flex align-items-center" title="Hizqia Chandra Wiguno">
                 <img src="{{ asset('images/hizqia_logo_orange.png') }}" alt="Hizqia Monogram Logo" class="nav-logo-icon" loading="eager" fetchpriority="high" decoding="sync">
             </a>
         </div>
-        <div class="d-none d-lg-flex align-items-center gap-1 mx-lg-2">
+
+        <!-- CENTER: Navigation Links -->
+        <div class="nav-center d-none d-lg-flex align-items-center gap-1">
             <a href="#hero" class="nav-link-custom active"><i class="fa-solid fa-paintbrush me-1"></i> Canvas</a>
             <a href="#properties" class="nav-link-custom"><i class="fa-solid fa-sliders me-1"></i> Properties</a>
             <a href="#layers" class="nav-link-custom"><i class="fa-solid fa-layer-group me-1"></i> Layers</a>
             <a href="#certificates" class="nav-link-custom"><i class="fa-solid fa-award me-1"></i> Sertifikasi</a>
             <a href="#assets" class="nav-link-custom"><i class="fa-solid fa-cubes me-1"></i> Assets</a>
             <a href="#contact" class="nav-link-custom"><i class="fa-solid fa-paper-plane me-1"></i> Kontak</a>
+        </div>
+
+        <!-- RIGHT: Search Bar -->
+        <div class="nav-right d-flex align-items-center justify-content-end">
+            <button type="button" class="nav-search-btn" onclick="openCommandPalette()" title="Cari Cepat (Ctrl + K)">
+                <i class="fa-solid fa-magnifying-glass search-icon"></i>
+                <span class="search-text d-none d-sm-inline">Cari...</span>
+                <kbd class="search-kbd d-none d-md-inline-block">Ctrl K</kbd>
+            </button>
         </div>
     </nav>
 
