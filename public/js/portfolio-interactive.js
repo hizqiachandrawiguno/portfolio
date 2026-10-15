@@ -681,15 +681,14 @@ document.addEventListener('DOMContentLoaded', function () {
     if ('IntersectionObserver' in window) {
         const observerOptions = {
             root: null,
-            rootMargin: '0px 0px -20px 0px',
-            threshold: 0.05
+            rootMargin: '0px 0px 50px 0px',
+            threshold: 0.02
         };
 
         const revealObserver = new IntersectionObserver((entries) => {
             entries.forEach(entry => {
                 if (entry.isIntersecting) {
                     entry.target.classList.add('revealed');
-                    // Animate any numbers and progress bars inside the revealed element
                     animateNumberCounters(entry.target);
                     animateProgressBars(entry.target);
                     revealObserver.unobserve(entry.target);
@@ -697,7 +696,17 @@ document.addEventListener('DOMContentLoaded', function () {
             });
         }, observerOptions);
 
-        revealElements.forEach(el => revealObserver.observe(el));
+        revealElements.forEach(el => {
+            const rect = el.getBoundingClientRect();
+            // If already visible in the initial viewport, reveal immediately
+            if (rect.top < window.innerHeight) {
+                el.classList.add('revealed');
+                animateNumberCounters(el);
+                animateProgressBars(el);
+            } else {
+                revealObserver.observe(el);
+            }
+        });
     } else {
         revealElements.forEach(el => {
             el.classList.add('revealed');
@@ -981,7 +990,10 @@ document.addEventListener('DOMContentLoaded', function () {
                     item.style.display = 'none';
                 }
             });
-      /* -------------------------------------------------------------------------- */
+        });
+    }
+
+    /* -------------------------------------------------------------------------- */
     /* 8. BEFORE/AFTER RETOUCH SLIDER DRAG INTERACTION (INLINE & MODAL)           */
     /* -------------------------------------------------------------------------- */
     function initSliderInteraction(sliderId, overlayId, handleId) {

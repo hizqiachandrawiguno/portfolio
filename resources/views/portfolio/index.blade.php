@@ -230,7 +230,7 @@
     <!-- ========================================================================== -->
     <section id="hero" class="hero-section">
         <div class="container">
-            <div class="artboard-canvas grid-overlay reveal-on-scroll" id="artboardCanvasHero">
+            <div class="artboard-canvas grid-overlay" id="artboardCanvasHero">
                 
                 <!-- Vector Corner Handles -->
                 <div class="vector-handle handle-tl"></div>
