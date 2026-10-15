@@ -199,6 +199,25 @@ function getYoutubeVideoId(url) {
     return (match && match[2].length === 11) ? match[2] : null;
 }
 
+// DIRECT INLINE VIDEO PLAYER (NO POPUP MODAL REQUIRED)
+window.playInlineVideo = function (projectId, videoUrl) {
+    const poster = document.getElementById('videoPoster-' + projectId);
+    const slot = document.getElementById('videoIframeSlot-' + projectId);
+    if (!slot) return;
+
+    const ytId = getYoutubeVideoId(videoUrl);
+    if (ytId) {
+        slot.innerHTML = `<iframe src="https://www.youtube.com/embed/${ytId}?autoplay=1&rel=0&modestbranding=1" 
+                                  title="Video Showcase Player" 
+                                  frameborder="0" 
+                                  allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture; web-share" 
+                                  allowfullscreen 
+                                  class="w-100 h-100"></iframe>`;
+        if (poster) poster.classList.add('d-none');
+        slot.classList.remove('d-none');
+    }
+};
+
 window.openVideoModal = function (projectId) {
     if (typeof projectsData === 'undefined') {
         console.error('projectsData is missing!');
@@ -721,29 +740,64 @@ document.addEventListener('DOMContentLoaded', function () {
     }
 
     /* -------------------------------------------------------------------------- */
-    /* 2. OPTIMIZED THROTTLED SCROLL & PARALLAX (60 FPS, NO LAYOUT THRASHING)     */
+    /* 2. OPTIMIZED HIGH-PERFORMANCE PARALLAX ENGINE (60 FPS, SMOOTH DEPTH)      */
     /* -------------------------------------------------------------------------- */
     const avatarArtboard = document.querySelector('.avatar-artboard-wrapper');
+    const ambientGlowTop = document.querySelector('.ambient-gradient-glow.glow-top');
+    const ambientGlowBottom = document.querySelector('.ambient-gradient-glow.glow-bottom');
+    const ambientGrid = document.querySelector('.ambient-subtle-grid');
+    const parallaxItems = document.querySelectorAll('[data-parallax]');
     let isScrollTicking = false;
+
+    function applyParallaxEffects() {
+        const scrollY = window.pageYOffset;
+        const windowHeight = window.innerHeight;
+
+        updateActiveNavbar();
+
+        // Parallax: Ambient Background Layers
+        if (ambientGlowTop) {
+            ambientGlowTop.style.transform = `translate3d(0, ${(scrollY * 0.12).toFixed(1)}px, 0)`;
+        }
+        if (ambientGlowBottom) {
+            ambientGlowBottom.style.transform = `translate3d(0, ${(-scrollY * 0.08).toFixed(1)}px, 0)`;
+        }
+        if (ambientGrid) {
+            ambientGrid.style.transform = `translate3d(0, ${(scrollY * 0.04).toFixed(1)}px, 0)`;
+        }
+
+        // Parallax: Hero Avatar Artboard
+        if (avatarArtboard) {
+            if (window.innerWidth > 991) {
+                avatarArtboard.style.transform = `translate3d(0, ${(scrollY * 0.06).toFixed(1)}px, 0)`;
+            } else {
+                avatarArtboard.style.transform = 'none';
+            }
+        }
+
+        // Parallax: Elements with [data-parallax] attribute
+        parallaxItems.forEach(el => {
+            const speed = parseFloat(el.getAttribute('data-parallax')) || 0.04;
+            const rect = el.getBoundingClientRect();
+            if (rect.top < windowHeight + 120 && rect.bottom > -120) {
+                const distance = (windowHeight / 2) - rect.top;
+                const offset = (distance * speed).toFixed(1);
+                el.style.transform = `translate3d(0, ${offset}px, 0)`;
+            }
+        });
+    }
 
     window.addEventListener('scroll', function () {
         if (!isScrollTicking) {
             window.requestAnimationFrame(function () {
-                updateActiveNavbar();
-                if (avatarArtboard) {
-                    if (window.innerWidth > 991) {
-                        avatarArtboard.style.transform = `translate3d(0, ${window.scrollY * 0.04}px, 0)`;
-                    } else {
-                        avatarArtboard.style.transform = 'none';
-                    }
-                }
+                applyParallaxEffects();
                 isScrollTicking = false;
             });
             isScrollTicking = true;
         }
     }, { passive: true });
 
-    updateActiveNavbar();
+    applyParallaxEffects();
 
     window.addEventListener('resize', function () {
         if (avatarArtboard && window.innerWidth <= 991) {
@@ -927,60 +981,62 @@ document.addEventListener('DOMContentLoaded', function () {
                     item.style.display = 'none';
                 }
             });
-        });
-    }
-
+      /* -------------------------------------------------------------------------- */
+    /* 8. BEFORE/AFTER RETOUCH SLIDER DRAG INTERACTION (INLINE & MODAL)           */
     /* -------------------------------------------------------------------------- */
-    /* 8. BEFORE/AFTER RETOUCH SLIDER DRAG INTERACTION                            */
-    /* -------------------------------------------------------------------------- */
-    const baSlider = document.getElementById('beforeAfterSlider');
-    const baOverlay = document.getElementById('beforeAfterOverlay');
-    const baHandle = document.getElementById('beforeAfterHandle');
+    function initSliderInteraction(sliderId, overlayId, handleId) {
+        const slider = document.getElementById(sliderId);
+        const overlay = document.getElementById(overlayId);
+        const handle = document.getElementById(handleId);
 
-    if (baSlider && baOverlay && baHandle) {
-        let isDraggingSlider = false;
+        if (!slider || !overlay || !handle) return;
 
-        function updateSliderPosition(clientX) {
-            const rect = baSlider.getBoundingClientRect();
+        let isDragging = false;
+
+        function updatePosition(clientX) {
+            const rect = slider.getBoundingClientRect();
             let offsetX = clientX - rect.left;
             let percent = (offsetX / rect.width) * 100;
             percent = Math.max(0, Math.min(100, percent));
-            baOverlay.style.width = percent + '%';
-            baHandle.style.left = percent + '%';
+            overlay.style.width = percent + '%';
+            handle.style.left = percent + '%';
         }
 
-        baSlider.addEventListener('mousedown', function (e) {
-            isDraggingSlider = true;
-            updateSliderPosition(e.clientX);
+        slider.addEventListener('mousedown', function (e) {
+            isDragging = true;
+            updatePosition(e.clientX);
         });
 
         window.addEventListener('mouseup', function () {
-            isDraggingSlider = false;
+            isDragging = false;
         });
 
         window.addEventListener('mousemove', function (e) {
-            if (isDraggingSlider) {
-                updateSliderPosition(e.clientX);
+            if (isDragging) {
+                updatePosition(e.clientX);
             }
         });
 
-        baSlider.addEventListener('touchstart', function (e) {
-            isDraggingSlider = true;
+        slider.addEventListener('touchstart', function (e) {
+            isDragging = true;
             if (e.touches && e.touches[0]) {
-                updateSliderPosition(e.touches[0].clientX);
+                updatePosition(e.touches[0].clientX);
             }
         }, { passive: true });
 
         window.addEventListener('touchend', function () {
-            isDraggingSlider = false;
+            isDragging = false;
         });
 
         window.addEventListener('touchmove', function (e) {
-            if (isDraggingSlider && e.touches && e.touches[0]) {
-                updateSliderPosition(e.touches[0].clientX);
+            if (isDragging && e.touches && e.touches[0]) {
+                updatePosition(e.touches[0].clientX);
             }
         }, { passive: true });
     }
+
+    initSliderInteraction('beforeAfterSlider', 'beforeAfterOverlay', 'beforeAfterHandle');
+    initSliderInteraction('inlineBeforeAfterSlider', 'inlineBeforeAfterOverlay', 'inlineBeforeAfterHandle');
 
     /* -------------------------------------------------------------------------- */
     /* 9. REAL-TIME AUDIO WAVEFORM CANVAS VISUALIZER                               */

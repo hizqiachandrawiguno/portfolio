@@ -138,13 +138,13 @@
                 <i class="fa-solid fa-chevron-right nav-arrow"></i>
             </a>
 
-            <a href="#properties" class="sidebar-nav-item" onclick="closeStudioSidebar()">
+            <a href="#assets" class="sidebar-nav-item" onclick="closeStudioSidebar()">
                 <div class="sidebar-nav-icon">
-                    <i class="fa-solid fa-sliders"></i>
+                    <i class="fa-solid fa-cubes"></i>
                 </div>
                 <div class="sidebar-nav-text">
-                    <span class="nav-title">Capabilities</span>
-                    <small class="nav-desc">Rating Tools & Tech Stack</small>
+                    <span class="nav-title">Portofolio / Karya</span>
+                    <small class="nav-desc">Galeri Karya & Interactive Demo</small>
                 </div>
                 <i class="fa-solid fa-chevron-right nav-arrow"></i>
             </a>
@@ -160,6 +160,17 @@
                 <i class="fa-solid fa-chevron-right nav-arrow"></i>
             </a>
 
+            <a href="#properties" class="sidebar-nav-item" onclick="closeStudioSidebar()">
+                <div class="sidebar-nav-icon">
+                    <i class="fa-solid fa-sliders"></i>
+                </div>
+                <div class="sidebar-nav-text">
+                    <span class="nav-title">Capabilities</span>
+                    <small class="nav-desc">Rating Tools & Tech Stack</small>
+                </div>
+                <i class="fa-solid fa-chevron-right nav-arrow"></i>
+            </a>
+
             <a href="#certificates" class="sidebar-nav-item" onclick="closeStudioSidebar()">
                 <div class="sidebar-nav-icon">
                     <i class="fa-solid fa-award"></i>
@@ -167,17 +178,6 @@
                 <div class="sidebar-nav-text">
                     <span class="nav-title">Sertifikasi</span>
                     <small class="nav-desc">Junior Graphic Designer & Kominfo</small>
-                </div>
-                <i class="fa-solid fa-chevron-right nav-arrow"></i>
-            </a>
-
-            <a href="#assets" class="sidebar-nav-item" onclick="closeStudioSidebar()">
-                <div class="sidebar-nav-icon">
-                    <i class="fa-solid fa-cubes"></i>
-                </div>
-                <div class="sidebar-nav-text">
-                    <span class="nav-title">Portofolio / Karya</span>
-                    <small class="nav-desc">Galeri Karya & Interactive Demo</small>
                 </div>
                 <i class="fa-solid fa-chevron-right nav-arrow"></i>
             </a>
@@ -208,10 +208,10 @@
         <!-- 2. CENTER ZONE: Navigation Links (Dead Center) -->
         <div class="navbar-zone-center d-none d-lg-flex align-items-center justify-content-center gap-1">
             <a href="#hero" class="nav-link-custom active"><i class="fa-solid fa-paintbrush me-1"></i> Canvas</a>
-            <a href="#properties" class="nav-link-custom"><i class="fa-solid fa-sliders me-1"></i> Properties</a>
-            <a href="#layers" class="nav-link-custom"><i class="fa-solid fa-layer-group me-1"></i> Layers</a>
+            <a href="#assets" class="nav-link-custom"><i class="fa-solid fa-cubes me-1"></i> Karya</a>
+            <a href="#layers" class="nav-link-custom"><i class="fa-solid fa-layer-group me-1"></i> Pengalaman</a>
+            <a href="#properties" class="nav-link-custom"><i class="fa-solid fa-sliders me-1"></i> Capabilities</a>
             <a href="#certificates" class="nav-link-custom"><i class="fa-solid fa-award me-1"></i> Sertifikasi</a>
-            <a href="#assets" class="nav-link-custom"><i class="fa-solid fa-cubes me-1"></i> Assets</a>
             <a href="#contact" class="nav-link-custom"><i class="fa-solid fa-paper-plane me-1"></i> Kontak</a>
         </div>
 
@@ -275,24 +275,24 @@
 
                         <div class="d-flex flex-wrap gap-2 gap-sm-3 mb-3">
                             <a href="#assets" class="btn btn-accent">
-                                <i class="fa-solid fa-eye me-1"></i> Lihat Artboard Proyek
+                                <i class="fa-solid fa-sparkles me-1"></i> Jelajahi Karya Terpilih
                             </a>
-                            <a href="#certificates" class="btn btn-outline-studio">
-                                <i class="fa-solid fa-award me-1"></i> Sertifikat BNSP
+                            <a href="#layers" class="btn btn-outline-studio">
+                                <i class="fa-solid fa-compass me-1"></i> Rekam Jejak &amp; Pengalaman
                             </a>
                         </div>
                     </div>
 
                     <div class="col-lg-5 text-center">
-                        <div class="avatar-artboard-wrapper">
-                            <!-- Orbiting Looping Halo Vector Background -->
+                        <div class="avatar-artboard-wrapper" data-parallax="0.05">
+                            <!-- Calm Minimalist Halo Vector Background -->
                             <div class="avatar-orbit-ring avatar-orbit-1"></div>
                             <div class="avatar-orbit-ring avatar-orbit-2"></div>
 
                             <img src="{{ $bio['photo'] }}" alt="{{ $bio['name'] }}" class="avatar-artboard img-fluid position-relative" style="z-index: 2;" loading="eager" fetchpriority="high" decoding="async">
                             
-                            <!-- 2 Floating Studio Badges Around Avatar -->
-                            <div class="floating-badge badge-gpa">
+                            <!-- Floating Studio Badges Around Avatar with Parallax -->
+                            <div class="floating-badge badge-gpa" data-parallax="0.08">
                                 <i class="fa-solid fa-award text-accent fs-5"></i>
                                 <div>
                                     <div class="font-mono text-accent">IPK <span class="counter-number" data-target="3.76" data-decimals="2">0.00</span></div>
@@ -300,7 +300,7 @@
                                 </div>
                             </div>
 
-                            <div class="floating-badge badge-major">
+                            <div class="floating-badge badge-major" data-parallax="-0.04">
                                 <i class="fa-solid fa-graduation-cap text-accent fs-5"></i>
                                 <div>
                                     <div class="font-mono text-dark">Fresh Graduate</div>
@@ -317,22 +317,304 @@
 
 
     <!-- ========================================================================== -->
-    <!-- SECTION 2: PANEL PROPERTIES (HARD SKILLS & SOFT SKILLS BENTO GRID)          -->
+    <!-- SECTION 2: CURATED PORTFOLIO & CREATIVE WORKS (DIRECT EDITORIAL DISPLAY)   -->
     <!-- ========================================================================== -->
-    <section id="properties" class="section-spacing">
+    <section id="assets" class="section-spacing bg-light">
+        <div class="container">
+            
+            <div class="section-header text-center max-w-700 mx-auto reveal-on-scroll">
+                <div class="section-tag justify-content-center">
+                    <i class="fa-solid fa-sparkles text-accent"></i> SELECTED WORKS (2024 - {{ date('Y') }})
+                </div>
+                <h2 class="display-6 fw-bold">Curated Works &amp; Multimedia Showcase</h2>
+                <p class="text-muted">Koleksi karya visual, produksi video sinematik, dan aplikasi interaktif. Tonton dan eksplorasi langsung tanpa hambatan.</p>
+            </div>
+
+            <!-- Multi-Category Creative Filter Tabs -->
+            <div class="d-flex justify-content-center mb-4 reveal-on-scroll">
+                <div class="skill-tab-switcher p-1 rounded-pill bg-white border shadow-2xs d-inline-flex flex-wrap gap-1 justify-content-center">
+                    <button type="button" class="btn btn-sm rounded-pill font-mono px-3 py-2 skill-tab-btn proj-filter-btn active" onclick="filterProjects('all', this)">
+                        <i class="fa-solid fa-sparkles me-1 text-accent"></i> Semua Karya ({{ count($projects) }})
+                    </button>
+                    <button type="button" class="btn btn-sm rounded-pill font-mono px-3 py-2 skill-tab-btn proj-filter-btn" onclick="filterProjects('graphic', this)">
+                        <i class="fa-solid fa-palette me-1" style="color: #E36B32;"></i> Graphic Design (2)
+                    </button>
+                    <button type="button" class="btn btn-sm rounded-pill font-mono px-3 py-2 skill-tab-btn proj-filter-btn" onclick="filterProjects('video', this)">
+                        <i class="fa-solid fa-clapperboard me-1" style="color: #C2410C;"></i> Video Editing (2)
+                    </button>
+                    <button type="button" class="btn btn-sm rounded-pill font-mono px-3 py-2 skill-tab-btn proj-filter-btn" onclick="filterProjects('uiux', this)">
+                        <i class="fa-solid fa-laptop-code me-1" style="color: #D97706;"></i> UI/UX &amp; Web (2)
+                    </button>
+                </div>
+            </div>
+
+            <div class="row g-4" id="projectsGrid">
+                
+                <!-- FEATURED SPOTLIGHT: BEFORE & AFTER PHOTO RETOUCHING (DIRECT INTERACTIVE SLIDER) -->
+                <div class="col-12 proj-card-col reveal-on-scroll" data-proj-category="graphic">
+                    <div class="spotlight-retouch-card p-3 p-md-4 p-lg-5" data-parallax="0.03">
+                        <div class="row align-items-center g-4">
+                            <div class="col-lg-5">
+                                <span class="badge bg-accent-subtle text-accent font-mono px-3 py-1.5 rounded-pill mb-2">
+                                    <i class="fa-solid fa-wand-magic-sparkles me-1"></i> DIRECT INTERACTIVE SHOWCASE
+                                </span>
+                                <h3 class="h4 fw-bold text-dark mb-2">TRAC Key Visual - Photo Retouching &amp; Composite</h3>
+                                <p class="text-muted small mb-3 lh-relaxed">
+                                    Materi foto mentah diolah menjadi key visual komersial 3D pop-out beresolusi tinggi dengan penyesuaian pencahayaan sinematik dan 48 layer masking di Photoshop.
+                                </p>
+                                <div class="d-flex align-items-center gap-2 mb-3 py-2 px-3 bg-light rounded-3 border small text-muted font-mono">
+                                    <i class="fa-solid fa-arrows-left-right text-accent fs-6"></i>
+                                    <span>Geser handle garis putih pada gambar untuk membandingkan!</span>
+                                </div>
+                                <div class="d-flex flex-wrap gap-1">
+                                    <span class="badge bg-light border text-muted font-mono" style="font-size: 0.72rem;">#PhotoshopCC</span>
+                                    <span class="badge bg-light border text-muted font-mono" style="font-size: 0.72rem;">#3DPopOut</span>
+                                    <span class="badge bg-light border text-muted font-mono" style="font-size: 0.72rem;">#ColorGrading</span>
+                                    <span class="badge bg-light border text-muted font-mono" style="font-size: 0.72rem;">#Compositing</span>
+                                </div>
+                            </div>
+                            <div class="col-lg-7">
+                                <div class="before-after-container rounded-4 shadow-sm" id="inlineBeforeAfterSlider">
+                                    <!-- After Image -->
+                                    <img src="{{ asset('images/trac_key_visual_pantai.webp') }}" alt="After Final Retouch" class="before-after-img">
+                                    <span class="before-after-tag tag-after">HASIL FINAL RETOUCH</span>
+
+                                    <!-- Before Image -->
+                                    <div class="before-after-overlay" id="inlineBeforeAfterOverlay">
+                                        <img src="{{ asset('images/trac_promo_booth.webp') }}" alt="Before Raw Materials" class="before-after-img" style="filter: grayscale(80%) contrast(85%);">
+                                        <span class="before-after-tag tag-before">RAW MATERIAL ASSET</span>
+                                    </div>
+
+                                    <!-- Draggable Handle -->
+                                    <div class="before-after-handle" id="inlineBeforeAfterHandle">
+                                        <i class="fa-solid fa-arrows-left-right"></i>
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+
+                @foreach($projects as $index => $project)
+                <div class="col-md-6 col-lg-6 proj-card-col reveal-on-scroll reveal-delay-{{ ($index % 3) + 1 }}" data-proj-category="{{ $project['category'] }}">
+                    <div class="project-card h-100 d-flex flex-column" style="--proj-accent: {{ $project['accent'] }};" data-parallax="0.02">
+                        <span class="project-badge-tag" style="background: {{ $project['accent'] }} !important; color: #FFFFFF !important;">
+                            @if($project['category'] === 'video')
+                                <i class="fa-solid fa-play me-1"></i>
+                            @elseif($project['category'] === 'graphic')
+                                <i class="fa-solid fa-eye me-1"></i>
+                            @else
+                                <i class="fa-solid fa-code me-1"></i>
+                            @endif
+                            {{ $project['badge'] }}
+                        </span>
+                        
+                        <!-- Visual Display / Inline Player Container -->
+                        @if(($project['action_type'] ?? '') === 'video')
+                            <!-- Direct Inline Video Player Slot -->
+                            <div class="project-video-container" id="videoInlineWrap-{{ $project['id'] }}">
+                                <div class="project-img-wrapper cursor-pointer position-relative" id="videoPoster-{{ $project['id'] }}" onclick="playInlineVideo('{{ $project['id'] }}', '{{ $project['video_url'] }}')" title="Klik untuk putar video di sini langsung">
+                                    <img src="{{ $project['image'] }}" alt="{{ $project['title'] }}" class="project-img" loading="lazy" decoding="async">
+                                    <div class="video-play-overlay-hint">
+                                        <div class="video-play-pulse-btn">
+                                            <i class="fa-solid fa-play"></i>
+                                        </div>
+                                        <span class="badge bg-dark bg-opacity-75 text-white font-mono px-2 py-1 mt-2" style="font-size: 0.7rem;">
+                                            <i class="fa-regular fa-clock me-1"></i> {{ $project['video_duration'] ?? '03:00' }} &bull; Klik untuk Putar
+                                        </span>
+                                    </div>
+                                </div>
+                                <div class="video-inline-slot d-none" id="videoIframeSlot-{{ $project['id'] }}"></div>
+                            </div>
+                        @elseif(($project['action_type'] ?? '') === 'lightbox')
+                            <!-- Graphic Image Showcase with Click Zoom Hint -->
+                            <div class="project-img-wrapper cursor-pointer position-relative" onclick="openImageLightbox('{{ $project['image'] }}', '{{ addslashes($project['title']) }}', '{{ addslashes($project['short_desc']) }}', '{{ addslashes($project['category_label']) }}')" title="Klik untuk perbesar HD">
+                                <img src="{{ $project['image'] }}" alt="{{ $project['title'] }}" class="project-img" loading="lazy" decoding="async">
+                                <div class="exp-gallery-zoom-hint">
+                                    <i class="fa-solid fa-magnifying-glass-plus me-1"></i> Perbesar HD
+                                </div>
+                            </div>
+                        @else
+                            <!-- UI/UX Platform Interactive / Modal Demo -->
+                            <div class="project-img-wrapper cursor-pointer position-relative" onclick="openProjectModal('{{ ltrim($project['modal_target'], '#') }}')" title="Klik untuk demo interaktif">
+                                <img src="{{ $project['image'] }}" alt="{{ $project['title'] }}" class="project-img" loading="lazy" decoding="async">
+                                <div class="exp-gallery-zoom-hint">
+                                    <i class="fa-solid fa-laptop-code me-1"></i> Uji Coba Demo
+                                </div>
+                            </div>
+                        @endif
+
+                        <div class="p-4 d-flex flex-column justify-content-between flex-grow-1">
+                            <div>
+                                <div class="d-flex align-items-center justify-content-between mb-1">
+                                    <span class="font-mono small fw-bold" style="color: {{ $project['accent'] }};">
+                                        {{ $project['category_label'] }}
+                                    </span>
+                                    @if(!empty($project['video_client']))
+                                    <small class="text-muted font-mono" style="font-size: 0.72rem;">{{ $project['video_client'] }}</small>
+                                    @endif
+                                </div>
+                                <h3 class="h5 fw-bold mb-2">{{ $project['title'] }}</h3>
+                                <p class="text-muted small mb-3 lh-relaxed">{{ $project['short_desc'] }}</p>
+                            </div>
+
+                            <div class="pt-2 mt-auto">
+                                <!-- Direct Action Buttons -->
+                                @if(($project['action_type'] ?? '') === 'video')
+                                    <div class="d-flex gap-2 mb-3">
+                                        <button type="button" class="btn btn-accent btn-sm font-mono flex-grow-1 justify-content-center" onclick="playInlineVideo('{{ $project['id'] }}', '{{ $project['video_url'] }}')" style="background: {{ $project['accent'] }} !important; border-color: {{ $project['accent'] }} !important;">
+                                            <i class="fa-solid fa-play me-1"></i> Putar Video di Sini
+                                        </button>
+                                        <a href="{{ $project['video_url'] }}" target="_blank" rel="noopener noreferrer" class="btn btn-outline-studio btn-sm font-mono d-inline-flex align-items-center" title="Tonton di YouTube">
+                                            <i class="fa-brands fa-youtube text-danger"></i>
+                                        </a>
+                                    </div>
+                                @elseif(($project['action_type'] ?? '') === 'lightbox')
+                                    <button type="button" class="btn btn-outline-studio btn-sm font-mono mb-3 w-100 justify-content-center" onclick="openImageLightbox('{{ $project['image'] }}', '{{ addslashes($project['title']) }}', '{{ addslashes($project['short_desc']) }}', '{{ addslashes($project['category_label']) }}')">
+                                        <i class="fa-solid fa-magnifying-glass-plus me-1 text-accent"></i> Perbesar Gambar HD
+                                    </button>
+                                @else
+                                    <button type="button" class="btn btn-accent btn-sm font-mono mb-3 w-100 justify-content-center" onclick="openProjectModal('{{ ltrim($project['modal_target'], '#') }}')" style="background: {{ $project['accent'] }} !important; border-color: {{ $project['accent'] }} !important;">
+                                        <i class="fa-solid {{ $project['btn_icon'] }} me-1"></i> {{ $project['btn_text'] }}
+                                    </button>
+                                @endif
+
+                                <div class="d-flex flex-wrap gap-1">
+                                    @foreach($project['tags'] as $tag)
+                                    <span class="badge bg-light border text-muted font-mono" style="font-size: 0.7rem;">#{{ $tag }}</span>
+                                    @endforeach
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+                @endforeach
+            </div>
+
+        </div>
+    </section>
+
+
+    <!-- ========================================================================== -->
+    <!-- ELEGANT RUNNING TICKER MARQUEE DIVIDER                                     -->
+    <!-- ========================================================================== -->
+    <div class="marquee-ticker-banner" aria-label="Creative Roles Marquee Slider">
+        <div class="marquee-ticker-body">
+            <div class="marquee-ticker-track">
+                <div class="marquee-ticker-group">
+                    <div class="marquee-ticker-item"><span class="text-white-word">Motion Designer</span></div>
+                    <div class="marquee-ticker-item"><span class="text-white-word">Creative Multimedia</span></div>
+                    <div class="marquee-ticker-item"><span class="text-white-word">Graphic Designer</span></div>
+                    <div class="marquee-ticker-item"><span class="text-white-word">UI/UX Designer</span></div>
+                    <div class="marquee-ticker-item"><span class="text-white-word">Visual Branding</span></div>
+                </div>
+                <div class="marquee-ticker-group" aria-hidden="true">
+                    <div class="marquee-ticker-item"><span class="text-white-word">Motion Designer</span></div>
+                    <div class="marquee-ticker-item"><span class="text-white-word">Creative Multimedia</span></div>
+                    <div class="marquee-ticker-item"><span class="text-white-word">Graphic Designer</span></div>
+                    <div class="marquee-ticker-item"><span class="text-white-word">UI/UX Designer</span></div>
+                    <div class="marquee-ticker-item"><span class="text-white-word">Visual Branding</span></div>
+                </div>
+            </div>
+        </div>
+    </div>
+
+
+    <!-- ========================================================================== -->
+    <!-- SECTION 3: CAREER & LEADERSHIP JOURNEY (MAGANG & ORGANISASI)               -->
+    <!-- ========================================================================== -->
+    <section id="layers" class="section-spacing">
+        <div class="container">
+            
+            <div class="section-header text-center max-w-700 mx-auto reveal-on-scroll">
+                <div class="section-tag justify-content-center">
+                    <i class="fa-solid fa-layer-group"></i> CAREER &amp; LEADERSHIP JOURNEY
+                </div>
+                <h2 class="display-6 fw-bold">Career &amp; Leadership Journey</h2>
+                <p class="text-muted">Rekam jejak pengalaman profesional di dunia industri korporat serta dedikasi kepemimpinan dalam organisasi.</p>
+            </div>
+
+            <!-- Modern Category Filter Switcher -->
+            <div class="d-flex justify-content-center mb-4 reveal-on-scroll">
+                <div class="skill-tab-switcher p-1 rounded-pill bg-white border shadow-2xs d-inline-flex gap-1">
+                    <button type="button" class="btn btn-sm rounded-pill font-mono px-3 py-2 skill-tab-btn exp-filter-btn active" onclick="filterExperiences('all', this)">
+                        <i class="fa-solid fa-bolt me-1 text-accent"></i> All ({{ count($experiences) }})
+                    </button>
+                    <button type="button" class="btn btn-sm rounded-pill font-mono px-3 py-2 skill-tab-btn exp-filter-btn" onclick="filterExperiences('Magang', this)">
+                        <i class="fa-solid fa-briefcase me-1 text-accent"></i> Intern (3)
+                    </button>
+                    <button type="button" class="btn btn-sm rounded-pill font-mono px-3 py-2 skill-tab-btn exp-filter-btn" onclick="filterExperiences('Organisasi', this)">
+                        <i class="fa-solid fa-crown me-1 text-accent"></i> Organization (2)
+                    </button>
+                </div>
+            </div>
+
+            <!-- Card Grid View -->
+            <div class="row g-4" id="experiencesGrid">
+                @foreach($experiences as $index => $exp)
+                <div class="col-md-6 col-lg-4 exp-card-col reveal-on-scroll reveal-delay-{{ ($index % 3) + 1 }}" data-exp-category="{{ $exp['category'] }}">
+                    <div class="exp-card exp-card-minimal" style="--exp-accent: {{ $exp['accent'] }};">
+                        <div>
+                            <div class="d-flex justify-content-between align-items-start mb-3">
+                                <div class="exp-icon-box" style="background: {{ $exp['accent'] }}15; border-color: {{ $exp['accent'] }}30; color: {{ $exp['accent'] }};">
+                                    <i class="{{ $exp['icon'] }}"></i>
+                                </div>
+                                <div class="d-flex align-items-center gap-1">
+                                    @if($exp['is_active'])
+                                    <span class="badge bg-success-subtle text-success border border-success-subtle font-mono" style="font-size: 0.72rem; border-radius: 20px;">
+                                        <i class="fa-solid fa-circle-dot me-1"></i> Active
+                                    </span>
+                                    @endif
+                                    <span class="badge bg-light border text-muted font-mono" style="font-size: 0.75rem;">
+                                        {{ $exp['period'] }}
+                                    </span>
+                                </div>
+                            </div>
+
+                            <div class="mb-3">
+                                <div class="d-flex align-items-center gap-2 mb-1">
+                                    <span class="layer-tag" style="background: {{ $exp['accent'] }}15; color: {{ $exp['accent'] }};">LAYER {{ $exp['layer_num'] }}</span>
+                                    <span class="text-muted font-mono small">{{ $exp['badge'] }}</span>
+                                </div>
+                                <h4 class="h5 fw-bold text-dark mb-1 lh-sm">{{ $exp['title'] }}</h4>
+                                <div class="font-mono small fw-bold" style="color: {{ $exp['accent'] }};">
+                                    {{ $exp['role'] }}
+                                </div>
+                            </div>
+                        </div>
+                        
+                        <button type="button" 
+                                class="btn-inspect-exp w-100 mt-auto justify-content-between" 
+                                onclick="openExpModal('{{ $exp['id'] }}')">
+                            <span>{{ !empty($exp['details']['gallery']) ? 'Lihat Detail & Galeri' : 'Lihat Detail Organisasi' }}</span>
+                            <i class="fa-solid fa-arrow-right"></i>
+                        </button>
+                    </div>
+                </div>
+                @endforeach
+            </div>
+
+        </div>
+    </section>
+
+
+    <!-- ========================================================================== -->
+    <!-- SECTION 4: PANEL PROPERTIES (HARD SKILLS & SOFT SKILLS BENTO GRID)          -->
+    <!-- ========================================================================== -->
+    <section id="properties" class="section-spacing bg-light">
         <div class="container">
             
             <div class="section-header text-center max-w-700 mx-auto reveal-on-scroll">
                 <div class="section-tag justify-content-center">
                     <i class="fa-solid fa-sliders"></i> Capabilities
                 </div>
-                <h2 class="display-6 fw-bold">Hard Skill & Soft Skill</h2>
+                <h2 class="display-6 fw-bold">Hard Skill &amp; Soft Skill</h2>
                 <p class="text-muted">Kombinasi keahlian teknis (Hard Skills software/coding) dan kemampuan interpersonal (Soft Skills) pendukung kualitas karya.</p>
             </div>
 
             <!-- Modern Gen-Z Dual Tab Mode Toggle Switcher -->
             <div class="d-flex justify-content-center mb-4 reveal-on-scroll">
-                <div class="skill-tab-switcher p-1 rounded-pill bg-light border d-inline-flex gap-1">
+                <div class="skill-tab-switcher p-1 rounded-pill bg-white border d-inline-flex gap-1">
                     <button type="button" class="btn btn-sm rounded-pill font-mono px-4 py-2 skill-tab-btn active" data-tab="hard-skills" onclick="switchSkillTab('hard-skills')">
                         <i class="fa-solid fa-bolt me-1 text-accent"></i> Hard Skills
                     </button>
@@ -346,8 +628,8 @@
             <div id="hardSkillsView" class="skill-view-tab active">
                 <!-- Software Skills Grid -->
                 <div class="row g-4 mb-4">
-                    @foreach($skills['software'] as $skill)
-                    <div class="col-md-6 col-lg-4 skill-card-item reveal-on-scroll" data-category="{{ $skill['category'] }}">
+                    @foreach($skills['software'] as $index => $skill)
+                    <div class="col-md-6 col-lg-4 skill-card-item reveal-on-scroll reveal-delay-{{ ($index % 3) + 1 }}" data-category="{{ $skill['category'] }}">
                         <div class="skill-card">
                             <div class="d-flex justify-content-between align-items-start mb-3">
                                 <div class="skill-icon-badge" style="background: {{ $skill['color'] }}14; color: {{ $skill['color'] }}; border: 1px solid {{ $skill['color'] }}28;">
@@ -362,7 +644,6 @@
                             <small class="text-accent font-mono d-block mb-2 fw-semibold" style="font-size: 0.82rem;">{{ $skill['category'] }}</small>
                             <p class="text-muted small mb-3">{{ $skill['desc'] }}</p>
                             
-                            <!-- Progress Bar with Animation -->
                             <div class="progress-bar-custom">
                                 <div class="progress-fill" data-progress="{{ ($skill['rating'] / 10) * 100 }}" style="width: 0%;"></div>
                             </div>
@@ -374,10 +655,10 @@
                 <!-- Web Stack Skills Grid -->
                 <div class="row g-4">
                     <div class="col-12 text-center mb-2 reveal-on-scroll">
-                        <h3 class="h4 fw-bold font-heading text-dark"><i class="fa-solid fa-code text-accent me-2"></i> Web & Development Stack</h3>
+                        <h3 class="h4 fw-bold font-heading text-dark"><i class="fa-solid fa-code text-accent me-2"></i> Web &amp; Development Stack</h3>
                     </div>
-                    @foreach($skills['web'] as $web)
-                    <div class="col-md-6 col-lg-3 skill-card-item reveal-on-scroll" data-category="Web Stack">
+                    @foreach($skills['web'] as $index => $web)
+                    <div class="col-md-6 col-lg-3 skill-card-item reveal-on-scroll reveal-delay-{{ ($index % 4) + 1 }}" data-category="Web Stack">
                         <div class="skill-card">
                             <div class="d-flex justify-content-between align-items-center mb-3">
                                 <div class="skill-icon-badge" style="background: {{ $web['color'] }}14; color: {{ $web['color'] }}; border: 1px solid {{ $web['color'] }}28; width: 40px; height: 40px; font-size: 1.1rem; margin-bottom: 0;">
@@ -397,11 +678,11 @@
                 </div>
             </div>
 
-            <!-- SOFT SKILLS BENTO GRID VIEW (GEN-Z CREATIVE STUDIO STYLE) -->
+            <!-- SOFT SKILLS BENTO GRID VIEW -->
             <div id="softSkillsView" class="skill-view-tab d-none">
                 <div class="row g-4">
-                    @foreach($skills['soft'] as $soft)
-                    <div class="col-md-6 col-lg-4 reveal-on-scroll">
+                    @foreach($skills['soft'] as $index => $soft)
+                    <div class="col-md-6 col-lg-4 reveal-on-scroll reveal-delay-{{ ($index % 3) + 1 }}">
                         <div class="soft-skill-bento-card">
                             <div class="d-flex justify-content-between align-items-center mb-3">
                                 <span class="soft-tag-pill font-mono" style="color: {{ $soft['color'] }}; background: {{ $soft['color'] }}14; border: 1px solid {{ $soft['color'] }}28;">
@@ -429,293 +710,29 @@
 
 
     <!-- ========================================================================== -->
-    <!-- RUNNING TICKER MARQUEE SLIDER (BETWEEN SKILLS & CAREER)                    -->
-    <!-- ========================================================================== -->
-    <div class="marquee-ticker-banner" aria-label="Creative Roles Marquee Slider">
-        <div class="marquee-ticker-body">
-            <div class="marquee-ticker-track">
-                <!-- Group 1 -->
-                <div class="marquee-ticker-group">
-                    <div class="marquee-ticker-item">
-                        <span class="text-white-word">Motion Designer</span>
-                        <svg class="marquee-sparkle-icon" viewBox="0 0 24 24" fill="currentColor">
-                            <path d="M12 0C12 6.627 6.627 12 0 12C6.627 12 12 17.373 12 24C12 17.373 17.373 12 24 12C17.373 12 12 6.627 12 0Z"/>
-                        </svg>
-                    </div>
-                    <div class="marquee-ticker-item">
-                        <span class="text-white-word">Creative Multimedia</span>
-                        <svg class="marquee-sparkle-icon" viewBox="0 0 24 24" fill="currentColor">
-                            <path d="M12 0C12 6.627 6.627 12 0 12C6.627 12 12 17.373 12 24C12 17.373 17.373 12 24 12C17.373 12 12 6.627 12 0Z"/>
-                        </svg>
-                    </div>
-                    <div class="marquee-ticker-item">
-                        <span class="text-white-word">Graphic Designer</span>
-                        <svg class="marquee-sparkle-icon" viewBox="0 0 24 24" fill="currentColor">
-                            <path d="M12 0C12 6.627 6.627 12 0 12C6.627 12 12 17.373 12 24C12 17.373 17.373 12 24 12C17.373 12 12 6.627 12 0Z"/>
-                        </svg>
-                    </div>
-                    <div class="marquee-ticker-item">
-                        <span class="text-white-word">Graphic Designer</span>
-                        <svg class="marquee-sparkle-icon" viewBox="0 0 24 24" fill="currentColor">
-                            <path d="M12 0C12 6.627 6.627 12 0 12C6.627 12 12 17.373 12 24C12 17.373 17.373 12 24 12C17.373 12 12 6.627 12 0Z"/>
-                        </svg>
-                    </div>
-                    <div class="marquee-ticker-item">
-                        <span class="text-white-word">UI/UX Designer</span>
-                        <svg class="marquee-sparkle-icon" viewBox="0 0 24 24" fill="currentColor">
-                            <path d="M12 0C12 6.627 6.627 12 0 12C6.627 12 12 17.373 12 24C12 17.373 17.373 12 24 12C17.373 12 12 6.627 12 0Z"/>
-                        </svg>
-                    </div>
-                    <div class="marquee-ticker-item">
-                        <span class="text-white-word">Graphic Designer</span>
-                        <svg class="marquee-sparkle-icon" viewBox="0 0 24 24" fill="currentColor">
-                            <path d="M12 0C12 6.627 6.627 12 0 12C6.627 12 12 17.373 12 24C12 17.373 17.373 12 24 12C17.373 12 12 6.627 12 0Z"/>
-                        </svg>
-                    </div>
-                </div>
-
-                <!-- Group 2 (Duplicate for Seamless Infinite Loop) -->
-                <div class="marquee-ticker-group" aria-hidden="true">
-                    <div class="marquee-ticker-item">
-                        <span class="text-white-word">Motion Designer</span>
-                        <svg class="marquee-sparkle-icon" viewBox="0 0 24 24" fill="currentColor">
-                            <path d="M12 0C12 6.627 6.627 12 0 12C6.627 12 12 17.373 12 24C12 17.373 17.373 12 24 12C17.373 12 12 6.627 12 0Z"/>
-                        </svg>
-                    </div>
-                    <div class="marquee-ticker-item">
-                        <span class="text-white-word">Creative Multimedia</span>
-                        <svg class="marquee-sparkle-icon" viewBox="0 0 24 24" fill="currentColor">
-                            <path d="M12 0C12 6.627 6.627 12 0 12C6.627 12 12 17.373 12 24C12 17.373 17.373 12 24 12C17.373 12 12 6.627 12 0Z"/>
-                        </svg>
-                    </div>
-                    <div class="marquee-ticker-item">
-                        <span class="text-white-word">Graphic Designer</span>
-                        <svg class="marquee-sparkle-icon" viewBox="0 0 24 24" fill="currentColor">
-                            <path d="M12 0C12 6.627 6.627 12 0 12C6.627 12 12 17.373 12 24C12 17.373 17.373 12 24 12C17.373 12 12 6.627 12 0Z"/>
-                        </svg>
-                    </div>
-                    <div class="marquee-ticker-item">
-                        <span class="text-white-word">Graphic Designer</span>
-                        <svg class="marquee-sparkle-icon" viewBox="0 0 24 24" fill="currentColor">
-                            <path d="M12 0C12 6.627 6.627 12 0 12C6.627 12 12 17.373 12 24C12 17.373 17.373 12 24 12C17.373 12 12 6.627 12 0Z"/>
-                        </svg>
-                    </div>
-                    <div class="marquee-ticker-item">
-                        <span class="text-white-word">UI/UX Designer</span>
-                        <svg class="marquee-sparkle-icon" viewBox="0 0 24 24" fill="currentColor">
-                            <path d="M12 0C12 6.627 6.627 12 0 12C6.627 12 12 17.373 12 24C12 17.373 17.373 12 24 12C17.373 12 12 6.627 12 0Z"/>
-                        </svg>
-                    </div>
-                    <div class="marquee-ticker-item">
-                        <span class="text-white-word">Graphic Designer</span>
-                        <svg class="marquee-sparkle-icon" viewBox="0 0 24 24" fill="currentColor">
-                            <path d="M12 0C12 6.627 6.627 12 0 12C6.627 12 12 17.373 12 24C12 17.373 17.373 12 24 12C17.373 12 12 6.627 12 0Z"/>
-                        </svg>
-                    </div>
-                </div>
-            </div>
-        </div>
-    </div>
-
-
-    <!-- ========================================================================== -->
-    <!-- SECTION 3: CAREER & LEADERSHIP JOURNEY (MAGANG & ORGANISASI)               -->
-    <!-- ========================================================================== -->
-    <section id="layers" class="section-spacing bg-light">
-
-        <div class="container">
-            
-            <div class="section-header text-center max-w-700 mx-auto reveal-on-scroll">
-                <div class="section-tag justify-content-center">
-                    <i class="fa-solid fa-layer-group"></i> CAREER & LEADERSHIP JOURNEY
-                </div>
-                <h2 class="display-6 fw-bold">Career & Leadership Journey</h2>
-                <p class="text-muted">Rekam jejak pengalaman profesional di dunia industri korporat serta dedikasi kepemimpinan dalam organisasi.</p>
-            </div>
-
-            <!-- Modern Category Filter Switcher -->
-            <div class="d-flex justify-content-center mb-4 reveal-on-scroll">
-                <div class="skill-tab-switcher p-1 rounded-pill bg-white border shadow-2xs d-inline-flex gap-1">
-                    <button type="button" class="btn btn-sm rounded-pill font-mono px-3 py-2 skill-tab-btn exp-filter-btn active" onclick="filterExperiences('all', this)">
-                        <i class="fa-solid fa-bolt me-1 text-accent"></i> All ({{ count($experiences) }})
-                    </button>
-                    <button type="button" class="btn btn-sm rounded-pill font-mono px-3 py-2 skill-tab-btn exp-filter-btn" onclick="filterExperiences('Magang', this)">
-                        <i class="fa-solid fa-briefcase me-1 text-accent"></i> Intern (3)
-                    </button>
-                    <button type="button" class="btn btn-sm rounded-pill font-mono px-3 py-2 skill-tab-btn exp-filter-btn" onclick="filterExperiences('Organisasi', this)">
-                        <i class="fa-solid fa-crown me-1 text-accent"></i> Organization (2)
-                    </button>
-                </div>
-            </div>
-
-            <!-- Card Grid View (3 Columns Desktop / 2 Tablet / 1 Mobile) -->
-            <div class="row g-4" id="experiencesGrid">
-                @foreach($experiences as $exp)
-                <div class="col-md-6 col-lg-4 exp-card-col reveal-on-scroll" data-exp-category="{{ $exp['category'] }}">
-                    <div class="exp-card exp-card-minimal" style="--exp-accent: {{ $exp['accent'] }};">
-                        <div>
-                            <!-- Top: Icon Emblem + Year Badge -->
-                            <div class="d-flex justify-content-between align-items-start mb-3">
-                                <div class="exp-icon-box" style="background: {{ $exp['accent'] }}15; border-color: {{ $exp['accent'] }}30; color: {{ $exp['accent'] }};">
-                                    <i class="{{ $exp['icon'] }}"></i>
-                                </div>
-                                <div class="d-flex align-items-center gap-1">
-                                    @if($exp['is_active'])
-                                    <span class="badge bg-success-subtle text-success border border-success-subtle font-mono" style="font-size: 0.72rem; border-radius: 20px;">
-                                        <i class="fa-solid fa-circle-dot me-1"></i> Active
-                                    </span>
-                                    @endif
-                                    <span class="badge bg-light border text-muted font-mono" style="font-size: 0.75rem;">
-                                        {{ $exp['period'] }}
-                                    </span>
-                                </div>
-                            </div>
-
-                            <!-- Middle: Layer Tag, Company Title & Role -->
-                            <div class="mb-3">
-                                <div class="d-flex align-items-center gap-2 mb-1">
-                                    <span class="layer-tag" style="background: {{ $exp['accent'] }}15; color: {{ $exp['accent'] }};">LAYER {{ $exp['layer_num'] }}</span>
-                                    <span class="text-muted font-mono small">{{ $exp['badge'] }}</span>
-                                </div>
-                                <h4 class="h5 fw-bold text-dark mb-1 lh-sm">{{ $exp['title'] }}</h4>
-                                <div class="font-mono small fw-bold" style="color: {{ $exp['accent'] }};">
-                                    {{ $exp['role'] }}
-                                </div>
-                            </div>
-                        </div>
-                        
-                        <!-- Bottom: Clean Action Button -->
-                        <button type="button" 
-                                class="btn-inspect-exp w-100 mt-auto justify-content-between" 
-                                onclick="openExpModal('{{ $exp['id'] }}')">
-                            <span>{{ !empty($exp['details']['gallery']) ? 'Lihat Detail & Galeri' : 'Lihat Detail Organisasi' }}</span>
-                            <i class="fa-solid fa-arrow-right"></i>
-                        </button>
-                    </div>
-                </div>
-                @endforeach
-            </div>
-
-        </div>
-    </section>
-
-
-    <!-- ========================================================================== -->
-    <!-- RUNNING TICKER MARQUEE SLIDER (BETWEEN CAREER & CERTIFICATION)             -->
-    <!-- ========================================================================== -->
-    <div class="marquee-ticker-banner" aria-label="Creative Roles Marquee Slider">
-        <div class="marquee-ticker-body">
-            <div class="marquee-ticker-track">
-                <!-- Group 1 -->
-                <div class="marquee-ticker-group">
-                    <div class="marquee-ticker-item">
-                        <span class="text-white-word">Motion Designer</span>
-                        <svg class="marquee-sparkle-icon" viewBox="0 0 24 24" fill="currentColor">
-                            <path d="M12 0C12 6.627 6.627 12 0 12C6.627 12 12 17.373 12 24C12 17.373 17.373 12 24 12C17.373 12 12 6.627 12 0Z"/>
-                        </svg>
-                    </div>
-                    <div class="marquee-ticker-item">
-                        <span class="text-white-word">Creative Multimedia</span>
-                        <svg class="marquee-sparkle-icon" viewBox="0 0 24 24" fill="currentColor">
-                            <path d="M12 0C12 6.627 6.627 12 0 12C6.627 12 12 17.373 12 24C12 17.373 17.373 12 24 12C17.373 12 12 6.627 12 0Z"/>
-                        </svg>
-                    </div>
-                    <div class="marquee-ticker-item">
-                        <span class="text-white-word">Graphic Designer</span>
-                        <svg class="marquee-sparkle-icon" viewBox="0 0 24 24" fill="currentColor">
-                            <path d="M12 0C12 6.627 6.627 12 0 12C6.627 12 12 17.373 12 24C12 17.373 17.373 12 24 12C17.373 12 12 6.627 12 0Z"/>
-                        </svg>
-                    </div>
-                    <div class="marquee-ticker-item">
-                        <span class="text-white-word">Graphic Designer</span>
-                        <svg class="marquee-sparkle-icon" viewBox="0 0 24 24" fill="currentColor">
-                            <path d="M12 0C12 6.627 6.627 12 0 12C6.627 12 12 17.373 12 24C12 17.373 17.373 12 24 12C17.373 12 12 6.627 12 0Z"/>
-                        </svg>
-                    </div>
-                    <div class="marquee-ticker-item">
-                        <span class="text-white-word">UI/UX Designer</span>
-                        <svg class="marquee-sparkle-icon" viewBox="0 0 24 24" fill="currentColor">
-                            <path d="M12 0C12 6.627 6.627 12 0 12C6.627 12 12 17.373 12 24C12 17.373 17.373 12 24 12C17.373 12 12 6.627 12 0Z"/>
-                        </svg>
-                    </div>
-                    <div class="marquee-ticker-item">
-                        <span class="text-white-word">Graphic Designer</span>
-                        <svg class="marquee-sparkle-icon" viewBox="0 0 24 24" fill="currentColor">
-                            <path d="M12 0C12 6.627 6.627 12 0 12C6.627 12 12 17.373 12 24C12 17.373 17.373 12 24 12C17.373 12 12 6.627 12 0Z"/>
-                        </svg>
-                    </div>
-                </div>
-
-                <!-- Group 2 (Duplicate for Seamless Infinite Loop) -->
-                <div class="marquee-ticker-group" aria-hidden="true">
-                    <div class="marquee-ticker-item">
-                        <span class="text-white-word">Motion Designer</span>
-                        <svg class="marquee-sparkle-icon" viewBox="0 0 24 24" fill="currentColor">
-                            <path d="M12 0C12 6.627 6.627 12 0 12C6.627 12 12 17.373 12 24C12 17.373 17.373 12 24 12C17.373 12 12 6.627 12 0Z"/>
-                        </svg>
-                    </div>
-                    <div class="marquee-ticker-item">
-                        <span class="text-white-word">Creative Multimedia</span>
-                        <svg class="marquee-sparkle-icon" viewBox="0 0 24 24" fill="currentColor">
-                            <path d="M12 0C12 6.627 6.627 12 0 12C6.627 12 12 17.373 12 24C12 17.373 17.373 12 24 12C17.373 12 12 6.627 12 0Z"/>
-                        </svg>
-                    </div>
-                    <div class="marquee-ticker-item">
-                        <span class="text-white-word">Graphic Designer</span>
-                        <svg class="marquee-sparkle-icon" viewBox="0 0 24 24" fill="currentColor">
-                            <path d="M12 0C12 6.627 6.627 12 0 12C6.627 12 12 17.373 12 24C12 17.373 17.373 12 24 12C17.373 12 12 6.627 12 0Z"/>
-                        </svg>
-                    </div>
-                    <div class="marquee-ticker-item">
-                        <span class="text-white-word">Graphic Designer</span>
-                        <svg class="marquee-sparkle-icon" viewBox="0 0 24 24" fill="currentColor">
-                            <path d="M12 0C12 6.627 6.627 12 0 12C6.627 12 12 17.373 12 24C12 17.373 17.373 12 24 12C17.373 12 12 6.627 12 0Z"/>
-                        </svg>
-                    </div>
-                    <div class="marquee-ticker-item">
-                        <span class="text-white-word">UI/UX Designer</span>
-                        <svg class="marquee-sparkle-icon" viewBox="0 0 24 24" fill="currentColor">
-                            <path d="M12 0C12 6.627 6.627 12 0 12C6.627 12 12 17.373 12 24C12 17.373 17.373 12 24 12C17.373 12 12 6.627 12 0Z"/>
-                        </svg>
-                    </div>
-                    <div class="marquee-ticker-item">
-                        <span class="text-white-word">Graphic Designer</span>
-                        <svg class="marquee-sparkle-icon" viewBox="0 0 24 24" fill="currentColor">
-                            <path d="M12 0C12 6.627 6.627 12 0 12C6.627 12 12 17.373 12 24C12 17.373 17.373 12 24 12C17.373 12 12 6.627 12 0Z"/>
-                        </svg>
-                    </div>
-                </div>
-            </div>
-        </div>
-    </div>
-
-
-    <!-- ========================================================================== -->
-    <!-- SECTION 4: SERTIFIKASI PROFESI BNSP & AKREDITASI                          -->
+    <!-- SECTION 5: SERTIFIKASI PROFESI BNSP & AKREDITASI                          -->
     <!-- ========================================================================== -->
     <section id="certificates" class="section-spacing">
         <div class="container">
             
             <div class="section-header text-center max-w-700 mx-auto reveal-on-scroll">
                 <div class="section-tag justify-content-center">
-                    <i class="fa-solid fa-award"></i> CERTIFICATION & ACCREDITATION
+                    <i class="fa-solid fa-award"></i> CERTIFICATION &amp; ACCREDITATION
                 </div>
-                <h2 class="display-6 fw-bold">Professional Certification & Training</h2>
-                <p class="text-muted">Lisensi Kompetensi Profesi Resmi dari Badan Nasional Sertifikasi Profesi (BNSP) Republik Indonesia & Pelatihan Terverifikasi.</p>
+                <h2 class="display-6 fw-bold">Professional Certification &amp; Training</h2>
+                <p class="text-muted">Lisensi Kompetensi Profesi Resmi dari Badan Nasional Sertifikasi Profesi (BNSP) Republik Indonesia &amp; Pelatihan Terverifikasi.</p>
             </div>
 
             <div class="row g-4">
-                @foreach($certificates as $cert)
-                <div class="col-lg-6 reveal-on-scroll">
+                @foreach($certificates as $index => $cert)
+                <div class="col-lg-6 reveal-on-scroll reveal-delay-{{ ($index % 2) + 1 }}">
                     <div class="cert-showcase-card" style="--cert-accent: {{ $cert['color'] }};">
                         <div class="d-flex flex-column flex-sm-row align-items-start gap-3 mb-3">
-                            <!-- Glowing Icon Emblem -->
                             <div class="cert-icon-emblem">
                                 <i class="{{ $cert['icon'] }}"></i>
                             </div>
                             
                             <div class="flex-grow-1 w-100">
-                                <!-- Header Badge & Date -->
                                 <div class="d-flex justify-content-between align-items-center flex-wrap gap-2 mb-2">
                                     <span class="cert-badge-tag font-mono">
                                         <i class="fa-solid fa-shield-halved me-1"></i> {{ $cert['badge'] }}
@@ -725,7 +742,6 @@
                                     </span>
                                 </div>
                                 
-                                <!-- Title & Registration Code -->
                                 <h3 class="h5 fw-bold text-dark mb-1">{{ $cert['title'] }}</h3>
                                 <div class="font-mono text-accent small fw-bold mb-2">
                                     <i class="fa-solid fa-id-card me-1"></i> No. Reg: {{ $cert['reg_num'] }}
@@ -733,12 +749,10 @@
                             </div>
                         </div>
 
-                        <!-- Description -->
                         <p class="text-muted small mb-3 lh-relaxed" style="font-size: 0.88rem;">
                             {{ $cert['desc'] }}
                         </p>
 
-                        <!-- Competencies Checklist -->
                         <div class="mb-4 p-3 bg-light rounded-4 border">
                             <small class="text-dark font-mono fw-bold d-block mb-2">
                                 <i class="fa-solid fa-check-double text-accent me-1"></i> Unit Kompetensi / Materi Teruji:
@@ -753,7 +767,6 @@
                             </div>
                         </div>
 
-                        <!-- Footer Issuer & Verification PDF CTA Button -->
                         <div class="d-flex flex-column flex-sm-row justify-content-between align-items-start align-items-sm-center gap-3 pt-3 border-top mt-auto">
                             <span class="font-mono small text-muted d-inline-flex align-items-center gap-1" style="font-size: 0.78rem;">
                                 <i class="fa-solid fa-building-columns text-accent me-1"></i> {{ $cert['issuer'] }}
@@ -761,121 +774,6 @@
                             <a href="{{ $cert['pdf_url'] }}" target="_blank" class="btn btn-sm btn-outline-studio font-mono rounded-pill px-3 px-sm-4 py-2 d-inline-flex align-items-center justify-content-center gap-2 w-100 w-sm-auto text-nowrap">
                                 <i class="fa-solid fa-file-pdf text-accent"></i> Lihat Dokumen PDF
                             </a>
-                        </div>
-                    </div>
-                </div>
-                @endforeach
-            </div>
-
-        </div>
-    </section>
-
-
-    <!-- ========================================================================== -->
-    <!-- SECTION 5: ASSETS LIBRARY (CREATIVE WORKSPACE & MULTIMEDIA SHOWCASE)       -->
-    <!-- ========================================================================== -->
-    <section id="assets" class="section-spacing bg-light">
-        <div class="container">
-            
-            <div class="section-header text-center max-w-700 mx-auto reveal-on-scroll">
-                <div class="section-tag justify-content-center">
-                    <i class="fa-solid fa-cubes"></i> CREATIVE ASSETS & MULTIMEDIA
-                </div>
-                <h2 class="display-6 fw-bold">Creative Works & Multimedia Showcase</h2>
-                <p class="text-muted">Koleksi karya terpadu mencakup Graphic & Social Media Design, Video Editing sinematik teruji, serta platform interaktif UI/UX modern.</p>
-            </div>
-
-            <!-- Multi-Category Creative Filter Tabs -->
-            <div class="d-flex justify-content-center mb-4 reveal-on-scroll">
-                <div class="skill-tab-switcher p-1 rounded-pill bg-white border shadow-2xs d-inline-flex flex-wrap gap-1 justify-content-center">
-                    <button type="button" class="btn btn-sm rounded-pill font-mono px-3 py-2 skill-tab-btn proj-filter-btn active" onclick="filterProjects('all', this)">
-                        <i class="fa-solid fa-sparkles me-1 text-accent"></i> Semua Karya ({{ count($projects) }})
-                    </button>
-                    <button type="button" class="btn btn-sm rounded-pill font-mono px-3 py-2 skill-tab-btn proj-filter-btn" onclick="filterProjects('graphic', this)">
-                        <i class="fa-solid fa-palette me-1" style="color: #E36B32;"></i> Graphic Design (2)
-                    </button>
-                    <button type="button" class="btn btn-sm rounded-pill font-mono px-3 py-2 skill-tab-btn proj-filter-btn" onclick="filterProjects('video', this)">
-                        <i class="fa-solid fa-clapperboard me-1" style="color: #C2410C;"></i> Video Editing (2)
-                    </button>
-                    <button type="button" class="btn btn-sm rounded-pill font-mono px-3 py-2 skill-tab-btn proj-filter-btn" onclick="filterProjects('uiux', this)">
-                        <i class="fa-solid fa-laptop-code me-1" style="color: #D97706;"></i> UI/UX & Web (2)
-                    </button>
-                    <button type="button" class="btn btn-sm rounded-pill font-mono px-3 py-2 skill-tab-btn" onclick="openBeforeAfterModal()" style="border: 1px dashed var(--accent-color); color: var(--accent-color);" title="Lihat Perbandingan Retouch Interaktif">
-                        <i class="fa-solid fa-wand-magic-sparkles me-1"></i> Retouch Before-After
-                    </button>
-                </div>
-            </div>
-
-            <div class="row g-4" id="projectsGrid">
-                @foreach($projects as $project)
-                <div class="col-md-6 col-lg-6 proj-card-col reveal-on-scroll" data-proj-category="{{ $project['category'] }}">
-                    <div class="project-card h-100 d-flex flex-column" style="--proj-accent: {{ $project['accent'] }};">
-                        <div class="card-glare-shine"></div>
-                        <span class="project-badge-tag" style="background: {{ $project['accent'] }} !important; color: #FFFFFF !important;">
-                            @if($project['category'] === 'video')
-                                <i class="fa-solid fa-play me-1"></i>
-                            @elseif($project['category'] === 'graphic')
-                                <i class="fa-solid fa-eye me-1"></i>
-                            @else
-                                <i class="fa-solid fa-code me-1"></i>
-                            @endif
-                            {{ $project['badge'] }}
-                        </span>
-                        
-                        <!-- Image Wrapper with Click Trigger -->
-                        <div class="project-img-wrapper cursor-pointer position-relative" 
-                             @if(($project['action_type'] ?? '') === 'video')
-                                onclick="openVideoModal('{{ $project['id'] }}')" title="Klik untuk putar video"
-                             @elseif(($project['action_type'] ?? '') === 'lightbox')
-                                onclick="openImageLightbox('{{ $project['image'] }}', '{{ addslashes($project['title']) }}', '{{ addslashes($project['short_desc']) }}', '{{ addslashes($project['category_label']) }}')" title="Klik untuk perbesar HD"
-                             @else
-                                onclick="openProjectModal('{{ ltrim($project['modal_target'], '#') }}')" title="Klik untuk demo"
-                             @endif>
-                            <img src="{{ $project['image'] }}" alt="{{ $project['title'] }}" class="project-img" loading="lazy" decoding="async">
-                            
-                            @if(($project['action_type'] ?? '') === 'video')
-                            <div class="video-play-overlay-hint">
-                                <div class="video-play-pulse-btn">
-                                    <i class="fa-solid fa-play"></i>
-                                </div>
-                                <span class="badge bg-dark bg-opacity-75 text-white font-mono px-2 py-1 mt-2" style="font-size: 0.7rem;">
-                                    <i class="fa-regular fa-clock me-1"></i> {{ $project['video_duration'] ?? '03:00' }}
-                                </span>
-                            </div>
-                            @endif
-                        </div>
-
-                        <div class="p-4 d-flex flex-column justify-content-between flex-grow-1">
-                            <div>
-                                <span class="font-mono small d-block mb-1 fw-bold" style="color: {{ $project['accent'] }};">
-                                    {{ $project['category_label'] }}
-                                </span>
-                                <h3 class="h5 fw-bold mb-2">{{ $project['title'] }}</h3>
-                                <p class="text-muted small mb-3 lh-relaxed">{{ $project['short_desc'] }}</p>
-                            </div>
-
-                            <div class="pt-2 mt-auto">
-                                <!-- Trigger Buttons according to Action Type -->
-                                @if(($project['action_type'] ?? '') === 'video')
-                                    <button type="button" class="btn btn-accent btn-sm font-mono mb-3 w-100 justify-content-center" onclick="openVideoModal('{{ $project['id'] }}')" style="background: {{ $project['accent'] }} !important; border-color: {{ $project['accent'] }} !important;">
-                                        <i class="fa-solid {{ $project['btn_icon'] }} me-1"></i> {{ $project['btn_text'] }}
-                                    </button>
-                                @elseif(($project['action_type'] ?? '') === 'lightbox')
-                                    <button type="button" class="btn btn-accent btn-sm font-mono mb-3 w-100 justify-content-center" onclick="openImageLightbox('{{ $project['image'] }}', '{{ addslashes($project['title']) }}', '{{ addslashes($project['short_desc']) }}', '{{ addslashes($project['category_label']) }}')" style="background: {{ $project['accent'] }} !important; border-color: {{ $project['accent'] }} !important;">
-                                        <i class="fa-solid {{ $project['btn_icon'] }} me-1"></i> {{ $project['btn_text'] }}
-                                    </button>
-                                @else
-                                    <button type="button" class="btn btn-accent btn-sm font-mono mb-3 w-100 justify-content-center" onclick="openProjectModal('{{ ltrim($project['modal_target'], '#') }}')" style="background: {{ $project['accent'] }} !important; border-color: {{ $project['accent'] }} !important;">
-                                        <i class="fa-solid {{ $project['btn_icon'] }} me-1"></i> {{ $project['btn_text'] }}
-                                    </button>
-                                @endif
-
-                                <div class="d-flex flex-wrap gap-1">
-                                    @foreach($project['tags'] as $tag)
-                                    <span class="badge bg-light border text-muted font-mono" style="font-size: 0.7rem;">#{{ $tag }}</span>
-                                    @endforeach
-                                </div>
-                            </div>
                         </div>
                     </div>
                 </div>
@@ -1216,12 +1114,12 @@
                     </div>
                     <i class="fa-solid fa-arrow-turn-down fa-rotate-90 text-muted" style="font-size: 0.75rem;"></i>
                 </a>
-                <a href="#properties" class="cmd-item" onclick="closeCommandPalette()">
+                <a href="#assets" class="cmd-item" onclick="closeCommandPalette()">
                     <div class="cmd-item-left">
-                        <div class="cmd-item-icon"><i class="fa-solid fa-sliders"></i></div>
+                        <div class="cmd-item-icon"><i class="fa-solid fa-cubes"></i></div>
                         <div>
-                            <div class="cmd-item-title">Artboard 02: Software & Capabilities</div>
-                            <div class="cmd-item-sub">Photoshop, Illustrator, Premiere, Figma, Tech Stack</div>
+                            <div class="cmd-item-title">Artboard 02: Proyek &amp; Portofolio</div>
+                            <div class="cmd-item-sub">Desain Grafis, Video Editing, UI/UX EduTech</div>
                         </div>
                     </div>
                     <i class="fa-solid fa-arrow-turn-down fa-rotate-90 text-muted" style="font-size: 0.75rem;"></i>
@@ -1236,22 +1134,22 @@
                     </div>
                     <i class="fa-solid fa-arrow-turn-down fa-rotate-90 text-muted" style="font-size: 0.75rem;"></i>
                 </a>
-                <a href="#certificates" class="cmd-item" onclick="closeCommandPalette()">
+                <a href="#properties" class="cmd-item" onclick="closeCommandPalette()">
                     <div class="cmd-item-left">
-                        <div class="cmd-item-icon"><i class="fa-solid fa-award"></i></div>
+                        <div class="cmd-item-icon"><i class="fa-solid fa-sliders"></i></div>
                         <div>
-                            <div class="cmd-item-title">Artboard 04: Sertifikasi & Lisensi</div>
-                            <div class="cmd-item-sub">BNSP Graphic Designer, Kominfo Digital Talent, UI/UX</div>
+                            <div class="cmd-item-title">Artboard 04: Software &amp; Capabilities</div>
+                            <div class="cmd-item-sub">Photoshop, Illustrator, Premiere, Figma, Tech Stack</div>
                         </div>
                     </div>
                     <i class="fa-solid fa-arrow-turn-down fa-rotate-90 text-muted" style="font-size: 0.75rem;"></i>
                 </a>
-                <a href="#assets" class="cmd-item" onclick="closeCommandPalette()">
+                <a href="#certificates" class="cmd-item" onclick="closeCommandPalette()">
                     <div class="cmd-item-left">
-                        <div class="cmd-item-icon"><i class="fa-solid fa-cubes"></i></div>
+                        <div class="cmd-item-icon"><i class="fa-solid fa-award"></i></div>
                         <div>
-                            <div class="cmd-item-title">Artboard 05: Proyek & Portofolio</div>
-                            <div class="cmd-item-sub">Desain Grafis, Video Editing, UI/UX EduTech</div>
+                            <div class="cmd-item-title">Artboard 05: Sertifikasi &amp; Lisensi</div>
+                            <div class="cmd-item-sub">BNSP Graphic Designer, Kominfo Digital Talent, UI/UX</div>
                         </div>
                     </div>
                     <i class="fa-solid fa-arrow-turn-down fa-rotate-90 text-muted" style="font-size: 0.75rem;"></i>
@@ -1373,7 +1271,7 @@
         </div>
     </div>
 
-    <!-- Custom Interactive JS with Static Versioning for Optimal Browser Caching -->
-    <script src="{{ asset('js/portfolio-interactive.js') }}?v=2.5.0"></script>
+    <!-- Custom Interactive JS with Cache Busting for Instant Updates -->
+    <script src="{{ asset('js/portfolio-interactive.js') }}?v={{ time() }}"></script>
 </body>
 </html>
