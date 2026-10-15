@@ -501,6 +501,7 @@ document.addEventListener('DOMContentLoaded', function () {
             if (audioWidget) audioWidget.classList.add('playing');
             if (audioIcon) audioIcon.className = 'fa-solid fa-volume-high text-accent';
             if (audioStatus) audioStatus.textContent = 'BGM 10%';
+            if (window.startWaveformVisualizer) window.startWaveformVisualizer();
         }).catch(err => {
             console.log('Autoplay deferred until user interaction:', err);
         });
@@ -514,6 +515,7 @@ document.addEventListener('DOMContentLoaded', function () {
             if (audioWidget) audioWidget.classList.remove('playing');
             if (audioIcon) audioIcon.className = 'fa-solid fa-volume-xmark text-muted';
             if (audioStatus) audioStatus.textContent = 'MUTED';
+            if (window.stopWaveformVisualizer) window.stopWaveformVisualizer();
         } else {
             playBgMusic();
         }
@@ -562,6 +564,9 @@ document.addEventListener('DOMContentLoaded', function () {
             requestAnimationFrame(step);
         });
     }
+
+    // Run initial counters immediately for hero and sidebar badges
+    animateNumberCounters(document);
 
     /* -------------------------------------------------------------------------- */
     /* 2. ANIMATED PROGRESS BARS (EXPAND FROM 0% TO TARGET PERCENTAGE)            */
@@ -717,39 +722,90 @@ document.addEventListener('DOMContentLoaded', function () {
 
 
     /* -------------------------------------------------------------------------- */
-    /* 1. SCROLLSPY NAVBAR & VERTICAL JOURNEY DOT TRACKER                         */
+    /* 1. SCROLLSPY NAVBAR, CONTACT SECTION DETECTION & SMOOTH ANCHOR NAV         */
     /* -------------------------------------------------------------------------- */
-    const sections = document.querySelectorAll('section[id]');
+    const sections = document.querySelectorAll('section[id], footer[id]');
     const navLinks = document.querySelectorAll('.studio-navbar .nav-link-custom');
     const dotLinks = document.querySelectorAll('.journey-dot-pagination .dot-item');
+    const sidebarNavItems = document.querySelectorAll('.sidebar-nav-item');
 
-    function updateActiveNavbar() {
-        let scrollY = window.pageYOffset;
+    function setActiveSectionLink(sectionId) {
+        if (!sectionId) return;
 
-        sections.forEach(current => {
-            const sectionHeight = current.offsetHeight;
-            const sectionTop = current.offsetTop - 180;
-            const sectionId = current.getAttribute('id');
+        navLinks.forEach(link => {
+            const href = link.getAttribute('href');
+            if (href === `#${sectionId}`) {
+                link.classList.add('active');
+            } else {
+                link.classList.remove('active');
+            }
+        });
 
-            if (scrollY > sectionTop && scrollY <= sectionTop + sectionHeight) {
-                navLinks.forEach(link => {
-                    link.classList.remove('active');
-                    if (link.getAttribute('href') === `#${sectionId}`) {
-                        link.classList.add('active');
-                    }
-                });
-                dotLinks.forEach(dot => {
-                    dot.classList.remove('active');
-                    if (dot.getAttribute('href') === `#${sectionId}`) {
-                        dot.classList.add('active');
-                    }
-                });
+        dotLinks.forEach(dot => {
+            const href = dot.getAttribute('href');
+            if (href === `#${sectionId}`) {
+                dot.classList.add('active');
+            } else {
+                dot.classList.remove('active');
+            }
+        });
+
+        sidebarNavItems.forEach(item => {
+            const href = item.getAttribute('href');
+            if (href === `#${sectionId}`) {
+                item.classList.add('active');
+            } else {
+                item.classList.remove('active');
             }
         });
     }
 
+    function updateActiveNavbar() {
+        const scrollY = window.pageYOffset;
+        const windowHeight = window.innerHeight;
+        const docHeight = document.documentElement.scrollHeight;
+
+        // Reached bottom of page -> immediately activate contact footer
+        if (scrollY + windowHeight >= docHeight - 70) {
+            setActiveSectionLink('contact');
+            return;
+        }
+
+        sections.forEach(current => {
+            const sectionHeight = current.offsetHeight;
+            const sectionTop = current.offsetTop - 140;
+            const sectionId = current.getAttribute('id');
+
+            if (scrollY >= sectionTop && scrollY < sectionTop + sectionHeight) {
+                setActiveSectionLink(sectionId);
+            }
+        });
+    }
+
+    // Smooth anchor navigation handling with exact sticky navbar offset
+    document.querySelectorAll('a[href^="#"]').forEach(anchor => {
+        anchor.addEventListener('click', function (e) {
+            const targetId = this.getAttribute('href');
+            if (!targetId || targetId === '#') return;
+            const targetEl = document.querySelector(targetId);
+            if (targetEl) {
+                e.preventDefault();
+                const navHeight = 70;
+                const targetPos = targetEl.getBoundingClientRect().top + window.pageYOffset - navHeight;
+                window.scrollTo({
+                    top: Math.max(0, targetPos),
+                    behavior: 'smooth'
+                });
+                setActiveSectionLink(targetId.replace('#', ''));
+                if (typeof closeStudioSidebar === 'function') {
+                    closeStudioSidebar();
+                }
+            }
+        });
+    });
+
     /* -------------------------------------------------------------------------- */
-    /* 2. OPTIMIZED HIGH-PERFORMANCE PARALLAX ENGINE (60 FPS, SMOOTH DEPTH)      */
+    /* 2. OPTIMIZED HIGH-PERFORMANCE PARALLAX ENGINE (60/120 FPS NATIVE ON MOBILE) */
     /* -------------------------------------------------------------------------- */
     const avatarArtboard = document.querySelector('.avatar-artboard-wrapper');
     const ambientGlowTop = document.querySelector('.ambient-gradient-glow.glow-top');
@@ -764,31 +820,33 @@ document.addEventListener('DOMContentLoaded', function () {
 
         updateActiveNavbar();
 
-        // Parallax: Ambient Background Layers
+        // On mobile / touch devices: bypass DOM transforms for buttery smooth native inertial scrolling
+        const isMobileOrTouch = window.innerWidth < 992 || ('ontouchstart' in window);
+        if (isMobileOrTouch) {
+            return;
+        }
+
+        // Desktop Parallax: Ambient Background Layers
         if (ambientGlowTop) {
-            ambientGlowTop.style.transform = `translate3d(0, ${(scrollY * 0.12).toFixed(1)}px, 0)`;
+            ambientGlowTop.style.transform = `translate3d(0, ${(scrollY * 0.10).toFixed(1)}px, 0)`;
         }
         if (ambientGlowBottom) {
-            ambientGlowBottom.style.transform = `translate3d(0, ${(-scrollY * 0.08).toFixed(1)}px, 0)`;
+            ambientGlowBottom.style.transform = `translate3d(0, ${(-scrollY * 0.06).toFixed(1)}px, 0)`;
         }
         if (ambientGrid) {
-            ambientGrid.style.transform = `translate3d(0, ${(scrollY * 0.04).toFixed(1)}px, 0)`;
+            ambientGrid.style.transform = `translate3d(0, ${(scrollY * 0.03).toFixed(1)}px, 0)`;
         }
 
         // Parallax: Hero Avatar Artboard
         if (avatarArtboard) {
-            if (window.innerWidth > 991) {
-                avatarArtboard.style.transform = `translate3d(0, ${(scrollY * 0.06).toFixed(1)}px, 0)`;
-            } else {
-                avatarArtboard.style.transform = 'none';
-            }
+            avatarArtboard.style.transform = `translate3d(0, ${(scrollY * 0.05).toFixed(1)}px, 0)`;
         }
 
         // Parallax: Elements with [data-parallax] attribute
         parallaxItems.forEach(el => {
-            const speed = parseFloat(el.getAttribute('data-parallax')) || 0.04;
+            const speed = parseFloat(el.getAttribute('data-parallax')) || 0.03;
             const rect = el.getBoundingClientRect();
-            if (rect.top < windowHeight + 120 && rect.bottom > -120) {
+            if (rect.top < windowHeight + 100 && rect.bottom > -100) {
                 const distance = (windowHeight / 2) - rect.top;
                 const offset = (distance * speed).toFixed(1);
                 el.style.transform = `translate3d(0, ${offset}px, 0)`;
@@ -1058,6 +1116,7 @@ document.addEventListener('DOMContentLoaded', function () {
         const ctx = waveCanvas.getContext('2d');
         const barCount = 7;
         let heights = new Array(barCount).fill(4);
+        let waveRafId = null;
 
         function renderWaveform() {
             ctx.clearRect(0, 0, waveCanvas.width, waveCanvas.height);
@@ -1083,9 +1142,29 @@ document.addEventListener('DOMContentLoaded', function () {
                 }
                 ctx.fill();
             }
-            requestAnimationFrame(renderWaveform);
+
+            if (isAudioPlaying) {
+                waveRafId = requestAnimationFrame(renderWaveform);
+            } else {
+                waveRafId = null;
+            }
         }
-        renderWaveform();
+
+        window.startWaveformVisualizer = function () {
+            if (!waveRafId) {
+                waveRafId = requestAnimationFrame(renderWaveform);
+            }
+        };
+
+        window.stopWaveformVisualizer = function () {
+            if (waveRafId) {
+                cancelAnimationFrame(waveRafId);
+                waveRafId = null;
+            }
+            renderWaveform(); // Draw idle frame once
+        };
+
+        renderWaveform(); // Initial static frame draw
     }
 
 });

@@ -3,13 +3,116 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=5.0">
-    <meta name="theme-color" content="#F7F4EE">
+    <meta name="theme-color" content="#FAF6F0">
     <meta name="mobile-web-app-capable" content="yes">
     <meta name="apple-mobile-web-app-status-bar-style" content="default">
+    <meta name="apple-mobile-web-app-title" content="Hizqia Portfolio">
+    <meta name="application-name" content="Hizqia Portfolio">
     <meta name="google" content="notranslate">
-    <title>Hizqia | Portfolio</title>
-    <meta name="description" content="Portofolio Satu Halaman Interaktif Hizqia Chandra Wiguno - Lulusan Teknologi Rekayasa Multimedia Polimedia (IPK 3.70). Ahli Graphic Design, UI/UX, Motion Video Editing, Sertifikasi BNSP, Bootstrap, JS, dan Laravel.">
+    <meta name="robots" content="index, follow, max-image-preview:large, max-snippet:-1, max-video-preview:-1">
+
+    <!-- Primary SEO Meta Tags -->
+    <title>Hizqia Chandra Wiguno | Graphic Designer &amp; Multimedia Specialist</title>
+    <meta name="title" content="Hizqia Chandra Wiguno | Graphic Designer &amp; Multimedia Specialist">
+    <meta name="description" content="Portofolio Resmi Hizqia Chandra Wiguno - Graphic Designer, UI/UX Designer &amp; Video Editor. Lulusan Teknologi Rekayasa Multimedia Polimedia (IPK 3.76 Cum Laude) dengan Sertifikasi BNSP.">
+    <meta name="keywords" content="Hizqia Chandra Wiguno, Hizqia Chandra, Graphic Designer Jakarta, Portfolio Desain Grafis, UI UX Designer Indonesia, Video Editor Jakarta, Polimedia, Teknologi Rekayasa Multimedia, Adobe Photoshop, Premiere Pro, Figma, Desain Brand Identity">
     <meta name="author" content="Hizqia Chandra Wiguno">
+    <link rel="canonical" href="https://hizqiachandra.site/">
+
+    <!-- Geo & Local SEO -->
+    <meta name="geo.region" content="ID-JK">
+    <meta name="geo.placename" content="Jakarta">
+    <meta name="geo.position" content="-6.2088;106.8456">
+    <meta name="ICBM" content="-6.2088, 106.8456">
+
+    <!-- Open Graph / Facebook / WhatsApp -->
+    <meta property="og:type" content="profile">
+    <meta property="og:site_name" content="Hizqia Chandra Wiguno Portfolio">
+    <meta property="og:url" content="https://hizqiachandra.site/">
+    <meta property="og:title" content="Hizqia Chandra Wiguno | Graphic Designer &amp; Multimedia Specialist">
+    <meta property="og:description" content="Eksplorasi karya visual, rekam jejak profesional, brand identity, photo retouching, video editing sinematik, dan interactive showcase oleh Hizqia Chandra Wiguno (IPK 3.76 Cum Laude).">
+    <meta property="og:image" content="{{ asset('images/hizqia_profile.webp') }}">
+    <meta property="og:image:width" content="800">
+    <meta property="og:image:height" content="800">
+    <meta property="og:image:alt" content="Hizqia Chandra Wiguno - Graphic Designer Portfolio">
+    <meta property="og:locale" content="id_ID">
+    <meta property="profile:first_name" content="Hizqia Chandra">
+    <meta property="profile:last_name" content="Wiguno">
+    <meta property="profile:username" content="HizqiaChandra">
+
+    <!-- Twitter Cards -->
+    <meta name="twitter:card" content="summary_large_image">
+    <meta name="twitter:url" content="https://hizqiachandra.site/">
+    <meta name="twitter:title" content="Hizqia Chandra Wiguno | Graphic Designer &amp; Multimedia Specialist">
+    <meta name="twitter:description" content="Portofolio interaktif Graphic Design, UI/UX, dan Video Editing oleh Hizqia Chandra Wiguno (IPK 3.76 Cum Laude).">
+    <meta name="twitter:image" content="{{ asset('images/hizqia_profile.webp') }}">
+    <meta name="twitter:creator" content="@HizqiaChandra">
+
+    <!-- Google Structured Data (Schema.org JSON-LD) -->
+    <script type="application/ld+json">
+    {
+      "@context": "https://schema.org",
+      "@graph": [
+        {
+          "@type": "Person",
+          "@id": "https://hizqiachandra.site/#person",
+          "name": "Hizqia Chandra Wiguno",
+          "alternateName": ["Hizqia", "Hizqia Chandra"],
+          "jobTitle": "Graphic Designer & Multimedia Specialist",
+          "url": "https://hizqiachandra.site",
+          "image": "{{ asset('images/hizqia_profile.webp') }}",
+          "email": "mailto:hizqiachandrawiguno@gmail.com",
+          "alumniOf": {
+            "@type": "CollegeOrUniversity",
+            "name": "Politeknik Negeri Media Kreatif Jakarta"
+          },
+          "sameAs": [
+            "https://www.linkedin.com/in/hizqiachandrawiguno/",
+            "https://instagram.com/HizqiaChandra",
+            "https://github.com/hizqiachandrawiguno"
+          ],
+          "knowsAbout": [
+            "Graphic Design",
+            "Brand Identity",
+            "Adobe Photoshop",
+            "Adobe Illustrator",
+            "Adobe Premiere Pro",
+            "Figma",
+            "UI/UX Design",
+            "Video Editing",
+            "Motion Graphics",
+            "Web Development"
+          ],
+          "description": "Graphic Designer dan Multimedia Specialist lulusan Teknologi Rekayasa Multimedia Polimedia Jakarta dengan predikat Cum Laude (IPK 3.76) dan sertifikasi BNSP."
+        },
+        {
+          "@type": "WebSite",
+          "@id": "https://hizqiachandra.site/#website",
+          "url": "https://hizqiachandra.site",
+          "name": "Hizqia Chandra Wiguno Portfolio",
+          "publisher": {
+            "@id": "https://hizqiachandra.site/#person"
+          },
+          "inLanguage": "id"
+        },
+        {
+          "@type": "ProfilePage",
+          "@id": "https://hizqiachandra.site/#webpage",
+          "url": "https://hizqiachandra.site",
+          "name": "Hizqia Chandra Wiguno | Graphic Designer Portfolio",
+          "isPartOf": {
+            "@id": "https://hizqiachandra.site/#website"
+          },
+          "about": {
+            "@id": "https://hizqiachandra.site/#person"
+          },
+          "mainEntity": {
+            "@id": "https://hizqiachandra.site/#person"
+          }
+        }
+      ]
+    }
+    </script>
 
     <!-- Priority Resource Hints: DNS-Prefetch & Preconnect -->
     <link rel="dns-prefetch" href="//fonts.googleapis.com">
@@ -118,7 +221,7 @@
             <img src="{{ $bio['photo'] }}" alt="{{ $bio['name'] }}" class="sidebar-user-avatar" loading="lazy" decoding="async">
             <div>
                 <h6 class="fw-bold text-dark mb-0 fs-6">{{ $bio['nickname'] }}</h6>
-                <span class="badge bg-accent text-white font-mono" style="font-size: 0.7rem;">IPK <span class="counter-number" data-target="3.70" data-decimals="2">0.00</span> Cum Laude</span>
+                <span class="badge bg-accent text-white font-mono" style="font-size: 0.7rem;">IPK <span class="counter-number" data-target="{{ $bio['gpa'] ?? '3.76' }}" data-decimals="2">{{ $bio['gpa'] ?? '3.76' }}</span> Cum Laude</span>
                 <small class="d-block text-muted mt-1" style="font-size: 0.72rem;">{{ $bio['education'] }}</small>
             </div>
         </div>
@@ -295,7 +398,7 @@
                             <div class="floating-badge badge-gpa" data-parallax="0.08">
                                 <i class="fa-solid fa-award text-accent fs-5"></i>
                                 <div>
-                                    <div class="font-mono text-accent">IPK <span class="counter-number" data-target="3.76" data-decimals="2">0.00</span></div>
+                                    <div class="font-mono text-accent">IPK <span class="counter-number" data-target="{{ $bio['gpa'] ?? '3.76' }}" data-decimals="2">{{ $bio['gpa'] ?? '3.76' }}</span></div>
                                     <small class="text-muted">Cum Laude</small>
                                 </div>
                             </div>

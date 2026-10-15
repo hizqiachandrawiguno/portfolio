@@ -2,9 +2,19 @@
 <html lang="id" class="h-full">
 <head>
     <meta charset="UTF-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=1.0, user-scalable=no">
-    <title>Welcome | Hizqia Chandra Wiguno Portfolio</title>
-    <meta name="description" content="Welcome to Hizqia Chandra Wiguno's Creative Portfolio Space. Graphic Designer, UI/UX, and Multimedia Specialist.">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=5.0">
+    <title>Hizqia Chandra Wiguno | Creative Portfolio &amp; Graphic Designer</title>
+    <meta name="description" content="Selamat datang di Portofolio Resmi Hizqia Chandra Wiguno - Graphic Designer, UI/UX Designer &amp; Multimedia Engineer. Lulusan TRM Polimedia Cum Laude.">
+    <meta name="author" content="Hizqia Chandra Wiguno">
+    <meta name="robots" content="index, follow">
+    <link rel="canonical" href="https://hizqiachandra.site/">
+
+    <!-- Open Graph -->
+    <meta property="og:type" content="website">
+    <meta property="og:url" content="https://hizqiachandra.site/">
+    <meta property="og:title" content="Hizqia Chandra Wiguno | Creative Portfolio">
+    <meta property="og:description" content="Visual Identity, Interactive Multimedia, and Creative Engineering by Hizqia Chandra Wiguno.">
+    <meta property="og:image" content="{{ asset('images/hizqia_profile.webp') }}">
 
     <!-- Favicon -->
     <link rel="icon" type="image/png" href="{{ asset('images/hizqia_logo_orange.png') }}">

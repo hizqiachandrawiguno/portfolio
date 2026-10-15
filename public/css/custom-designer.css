@@ -172,7 +172,8 @@ body {
     line-height: 1.6;
 }
 
-section[id] {
+section[id],
+footer[id] {
     scroll-margin-top: 85px;
 }
 
@@ -2227,38 +2228,55 @@ h6 {
 
 /* RESPONSIVE MEDIA QUERIES (TABLET & MOBILE) */
 @media (max-width: 991.98px) {
+    /* 1. SCROLL PERFORMANCE & GPU STABILITY (NO JANK / NO REFLOW THRASING) */
+    .ambient-gradient-glow {
+        animation: none !important;
+        filter: blur(28px) !important;
+        opacity: 0.04 !important;
+    }
+
+    .vintage-grain-overlay {
+        opacity: 0.02 !important;
+        pointer-events: none !important;
+    }
+
+    .before-after-container {
+        touch-action: pan-y;
+    }
+
     .section-spacing {
-        padding-top: 100px !important;
-        padding-bottom: 90px !important;
+        padding-top: 85px !important;
+        padding-bottom: 75px !important;
     }
 
     .section-header {
-        margin-bottom: 42px !important;
+        margin-bottom: 36px !important;
     }
 
     .hero-section {
         min-height: auto;
-        padding-top: 105px !important;
-        padding-bottom: 65px !important;
+        padding-top: 95px !important;
+        padding-bottom: 50px !important;
     }
 
     .artboard-canvas {
-        padding: 28px 20px;
-        border-radius: 18px;
+        padding: 26px 20px 32px 20px;
+        border-radius: 20px;
         margin-bottom: 2rem;
     }
 
     .avatar-artboard-wrapper {
         margin-top: 24px;
-        width: 260px;
+        margin-bottom: 16px;
+        width: 250px;
         max-width: 100%;
         margin-left: auto;
         margin-right: auto;
     }
 
     .avatar-artboard {
-        width: 260px;
-        height: 260px;
+        width: 250px;
+        height: 250px;
         max-width: 100%;
         aspect-ratio: 1 / 1;
         object-fit: cover;
@@ -2267,163 +2285,211 @@ h6 {
     }
 
     .badge-gpa {
-        top: -10px;
-        right: -8px;
+        top: 6px;
+        right: -6px;
     }
 
     .badge-major {
-        bottom: -10px;
-        left: -8px;
+        bottom: 6px;
+        left: -6px;
     }
 }
 
 @media (max-width: 575.98px) {
+    /* ANDROID SYSTEM MOBILE EXPERIENCE (MATERIAL 3 HIERARCHY & SAFE TOUCH TARGETS) */
     .studio-navbar {
-        top: 10px;
-        padding: 6px 14px;
+        top: 8px;
+        padding: 8px 14px;
         width: calc(100% - 20px);
+        border-radius: 28px;
     }
 
     .section-spacing {
-        padding-top: 80px !important;
-        padding-bottom: 70px !important;
+        padding-top: 65px !important;
+        padding-bottom: 60px !important;
     }
 
     .section-header {
-        margin-bottom: 30px !important;
+        margin-bottom: 26px !important;
     }
 
     .hero-section {
-        padding-top: 90px !important;
-        padding-bottom: 45px !important;
+        padding-top: 85px !important;
+        padding-bottom: 36px !important;
     }
 
     .artboard-canvas {
-        padding: 20px 16px;
-        border-radius: 16px;
+        padding: 22px 16px 36px 16px;
+        border-radius: 20px;
         margin-bottom: 1.5rem;
     }
 
     .artboard-header-tag {
-        font-size: 0.7rem;
-        padding: 4px 10px;
+        font-size: 0.72rem;
+        padding: 5px 12px;
+        border-radius: 20px;
         margin-bottom: 12px;
     }
 
     .hero-title {
-        font-size: 1.55rem;
-        line-height: 1.25;
-        margin-bottom: 12px !important;
+        font-size: clamp(1.65rem, 5.8vw, 2.1rem);
+        line-height: 1.22;
+        letter-spacing: -0.02em;
+        margin-bottom: 14px !important;
     }
 
     .hero-section .lead {
-        font-size: 0.9rem !important;
-        line-height: 1.5;
-        margin-bottom: 16px !important;
+        font-size: 0.94rem !important;
+        line-height: 1.55;
+        color: #4B4643 !important;
+        margin-bottom: 22px !important;
+    }
+
+    /* Android Standard 48dp Minimum Touch Target */
+    .btn-accent,
+    .btn-outline-studio {
+        min-height: 48px;
+        padding: 12px 18px;
+        font-size: 0.92rem;
+        font-weight: 700;
+        width: 100%;
+        border-radius: 14px;
+        display: flex;
+        align-items: center;
+        justify-content: center;
+        gap: 8px;
+    }
+
+    .btn-accent:active,
+    .btn-outline-studio:active {
+        transform: scale(0.98);
     }
 
     .avatar-artboard-wrapper {
-        margin-top: 20px;
-        width: 240px;
-        max-width: 82vw;
+        margin-top: 24px;
+        margin-bottom: 16px;
+        width: 220px;
+        max-width: 78vw;
         margin-left: auto;
         margin-right: auto;
     }
 
     .avatar-artboard {
-        width: 240px;
-        height: 240px;
+        width: 220px;
+        height: 220px;
         max-width: 100%;
         aspect-ratio: 1 / 1;
         object-fit: cover;
         object-position: 50% 60%;
-        border-radius: 18px;
+        border-radius: 20px;
+        box-shadow: 0 8px 24px rgba(23, 19, 17, 0.1);
     }
 
+    /* Material 3 Micro-Chips for Avatar Badges */
     .floating-badge {
         padding: 6px 12px;
         font-size: 0.72rem;
-        border-radius: 20px;
+        border-radius: 24px;
+        background: rgba(255, 253, 248, 0.96);
         box-shadow: 0 4px 14px rgba(23, 19, 17, 0.12);
+        z-index: 6;
     }
 
     .badge-gpa {
-        top: -10px;
-        right: -8px;
+        top: 6px;
+        right: -6px;
     }
 
     .badge-major {
-        bottom: -10px;
-        left: -8px;
+        bottom: 6px;
+        left: -6px;
     }
 
-    .btn-accent,
-    .btn-outline-studio {
-        padding: 10px 16px;
-        font-size: 0.86rem;
-        width: 100%;
-        justify-content: center;
-    }
-
+    /* Material 3 Segmented Pill Filter Controls */
     .skill-tab-switcher {
         width: 100%;
-        max-width: 440px;
+        max-width: 100%;
         display: flex !important;
-        flex-direction: row;
-        gap: 4px;
-        padding: 4px !important;
+        flex-wrap: wrap;
+        justify-content: center;
+        gap: 6px;
+        padding: 6px !important;
+        border-radius: 16px;
     }
 
     .skill-tab-btn {
-        flex: 1 1 50%;
-        padding: 8px 6px !important;
-        font-size: 0.74rem !important;
+        flex: 1 1 calc(50% - 6px);
+        min-height: 40px;
+        padding: 8px 10px !important;
+        font-size: 0.75rem !important;
         text-align: center;
+        border-radius: 12px;
         white-space: normal;
         line-height: 1.25;
+        display: inline-flex;
+        align-items: center;
+        justify-content: center;
     }
 
+    /* Material 3 Bottom Sheet / Modal Dialogs */
     .custom-modal-dialog {
-        max-height: 90vh;
-        border-radius: 16px;
-        margin: 10px auto;
+        max-height: 88vh;
+        border-radius: 24px;
+        margin: 12px auto;
     }
 
     .modal-header-studio,
     .modal-body-studio {
-        padding: 16px;
+        padding: 18px 16px;
     }
 
     .exp-showcase-dialog {
-        width: calc(100% - 20px) !important;
-        max-height: 90vh !important;
-        overflow-y: auto !important;
+        width: calc(100% - 16px) !important;
+        max-height: 88vh !important;
+        border-radius: 24px !important;
     }
 
     .video-cinema-dialog {
-        width: calc(100% - 20px) !important;
-        max-height: 90vh !important;
-        margin: 10px auto !important;
-        border-radius: 16px !important;
+        width: calc(100% - 16px) !important;
+        max-height: 88vh !important;
+        border-radius: 24px !important;
     }
 
     .modal-header-cinema {
-        padding: 14px 18px !important;
+        padding: 14px 16px !important;
     }
 
     .video-cinema-details {
-        padding: 20px 18px 28px 18px !important;
+        padding: 16px 14px 24px 14px !important;
     }
 
     .exp-gallery-img {
         height: 140px;
     }
 
+    /* COMPACT MATERIAL 3 FLOATING AUDIO PILL (NON-INTRUSIVE & SAFE AREA COMPLIANT) */
     .floating-audio-widget {
-        bottom: 12px;
-        right: 12px;
-        padding: 6px 12px;
-        font-size: 0.72rem;
+        bottom: max(16px, env(safe-area-inset-bottom, 16px)) !important;
+        right: 16px !important;
+        height: 40px !important;
+        padding: 0 14px !important;
+        border-radius: 24px !important;
+        background: rgba(255, 253, 248, 0.96) !important;
+        border: 1px solid #D6D0C5 !important;
+        box-shadow: 0 4px 16px rgba(23, 19, 17, 0.12) !important;
+        gap: 8px !important;
+        font-size: 0.74rem !important;
+        z-index: 1040 !important;
+    }
+
+    .floating-audio-widget #audioWaveCanvas {
+        width: 36px !important;
+        height: 18px !important;
+    }
+
+    .floating-audio-widget #audioStatusText {
+        font-size: 0.72rem !important;
+        font-weight: 800 !important;
     }
 }
 

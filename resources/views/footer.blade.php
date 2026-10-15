@@ -890,7 +890,7 @@ document.addEventListener('DOMContentLoaded', () => {
                         footerMasterTl.play();
                     }
                 });
-            }, { threshold: 0.2 });
+            }, { threshold: 0.08 });
 
             observer.observe(footerSection);
         } else {
