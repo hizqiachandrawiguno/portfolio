@@ -50,68 +50,68 @@
 
     <!-- Google Structured Data (Schema.org JSON-LD) -->
     <script type="application/ld+json">
-    {
-      "@context": "https://schema.org",
-      "@graph": [
-        {
-          "@type": "Person",
-          "@id": "https://hizqiachandra.site/#person",
-          "name": "Hizqia Chandra Wiguno",
-          "alternateName": ["Hizqia", "Hizqia Chandra"],
-          "jobTitle": "Graphic Designer & Multimedia Specialist",
-          "url": "https://hizqiachandra.site",
-          "image": "{{ asset('images/hizqia_profile.webp') }}",
-          "email": "mailto:hizqiachandrawiguno@gmail.com",
-          "alumniOf": {
-            "@type": "CollegeOrUniversity",
-            "name": "Politeknik Negeri Media Kreatif Jakarta"
-          },
-          "sameAs": [
-            "https://www.linkedin.com/in/hizqiachandrawiguno/",
-            "https://instagram.com/HizqiaChandra",
-            "https://github.com/hizqiachandrawiguno"
+    {!! json_encode([
+      '@context' => 'https://schema.org',
+      '@graph' => [
+        [
+          '@type' => 'Person',
+          '@id' => 'https://hizqiachandra.site/#person',
+          'name' => 'Hizqia Chandra Wiguno',
+          'alternateName' => ['Hizqia', 'Hizqia Chandra'],
+          'jobTitle' => 'Graphic Designer & Multimedia Specialist',
+          'url' => 'https://hizqiachandra.site',
+          'image' => asset('images/hizqia_profile.webp'),
+          'email' => 'mailto:hizqiachandrawiguno@gmail.com',
+          'alumniOf' => [
+            '@type' => 'CollegeOrUniversity',
+            'name' => 'Politeknik Negeri Media Kreatif Jakarta'
           ],
-          "knowsAbout": [
-            "Graphic Design",
-            "Brand Identity",
-            "Adobe Photoshop",
-            "Adobe Illustrator",
-            "Adobe Premiere Pro",
-            "Figma",
-            "UI/UX Design",
-            "Video Editing",
-            "Motion Graphics",
-            "Web Development"
+          'sameAs' => [
+            'https://www.linkedin.com/in/hizqiachandrawiguno/',
+            'https://instagram.com/HizqiaChandra',
+            'https://github.com/hizqiachandrawiguno'
           ],
-          "description": "Graphic Designer dan Multimedia Specialist lulusan Teknologi Rekayasa Multimedia Polimedia Jakarta dengan predikat Cum Laude (IPK 3.76) dan sertifikasi BNSP."
-        },
-        {
-          "@type": "WebSite",
-          "@id": "https://hizqiachandra.site/#website",
-          "url": "https://hizqiachandra.site",
-          "name": "Hizqia Chandra Wiguno Portfolio",
-          "publisher": {
-            "@id": "https://hizqiachandra.site/#person"
-          },
-          "inLanguage": "id"
-        },
-        {
-          "@type": "ProfilePage",
-          "@id": "https://hizqiachandra.site/#webpage",
-          "url": "https://hizqiachandra.site",
-          "name": "Hizqia Chandra Wiguno | Graphic Designer Portfolio",
-          "isPartOf": {
-            "@id": "https://hizqiachandra.site/#website"
-          },
-          "about": {
-            "@id": "https://hizqiachandra.site/#person"
-          },
-          "mainEntity": {
-            "@id": "https://hizqiachandra.site/#person"
-          }
-        }
+          'knowsAbout' => [
+            'Graphic Design',
+            'Brand Identity',
+            'Adobe Photoshop',
+            'Adobe Illustrator',
+            'Adobe Premiere Pro',
+            'Figma',
+            'UI/UX Design',
+            'Video Editing',
+            'Motion Graphics',
+            'Web Development'
+          ],
+          'description' => 'Graphic Designer dan Multimedia Specialist lulusan Teknologi Rekayasa Multimedia Polimedia Jakarta dengan predikat Cum Laude (IPK 3.76) dan sertifikasi BNSP.'
+        ],
+        [
+          '@type' => 'WebSite',
+          '@id' => 'https://hizqiachandra.site/#website',
+          'url' => 'https://hizqiachandra.site',
+          'name' => 'Hizqia Chandra Wiguno Portfolio',
+          'publisher' => [
+            '@id' => 'https://hizqiachandra.site/#person'
+          ],
+          'inLanguage' => 'id'
+        ],
+        [
+          '@type' => 'ProfilePage',
+          '@id' => 'https://hizqiachandra.site/#webpage',
+          'url' => 'https://hizqiachandra.site',
+          'name' => 'Hizqia Chandra Wiguno | Graphic Designer Portfolio',
+          'isPartOf' => [
+            '@id' => 'https://hizqiachandra.site/#website'
+          ],
+          'about' => [
+            '@id' => 'https://hizqiachandra.site/#person'
+          ],
+          'mainEntity' => [
+            '@id' => 'https://hizqiachandra.site/#person'
+          ]
+        ]
       ]
-    }
+    ], JSON_UNESCAPED_SLASHES | JSON_PRETTY_PRINT | JSON_UNESCAPED_UNICODE) !!}
     </script>
 
     <!-- Priority Resource Hints: DNS-Prefetch & Preconnect -->
