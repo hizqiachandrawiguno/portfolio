@@ -14,7 +14,7 @@
     <!-- Primary SEO Meta Tags -->
     <title>Hizqia Chandra Wiguno | Graphic Designer &amp; Multimedia Specialist</title>
     <meta name="title" content="Hizqia Chandra Wiguno | Graphic Designer &amp; Multimedia Specialist">
-    <meta name="description" content="Portofolio Resmi Hizqia Chandra Wiguno - Graphic Designer, UI/UX Designer &amp; Video Editor. Lulusan Teknologi Rekayasa Multimedia Polimedia (IPK 3.76 Cum Laude) dengan Sertifikasi BNSP.">
+    <meta name="description" content="Portofolio Resmi Hizqia Chandra Wiguno - Graphic Designer, UI/UX Designer &amp; Video Editor. Lulusan Teknologi Rekayasa Multimedia Polimedia (IPK 3.70) dengan Sertifikasi BNSP.">
     <meta name="keywords" content="Hizqia Chandra Wiguno, Hizqia Chandra, Graphic Designer Jakarta, Portfolio Desain Grafis, UI UX Designer Indonesia, Video Editor Jakarta, Polimedia, Teknologi Rekayasa Multimedia, Adobe Photoshop, Premiere Pro, Figma, Desain Brand Identity">
     <meta name="author" content="Hizqia Chandra Wiguno">
     <link rel="canonical" href="https://hizqiachandra.site/">
@@ -30,7 +30,7 @@
     <meta property="og:site_name" content="Hizqia Chandra Wiguno Portfolio">
     <meta property="og:url" content="https://hizqiachandra.site/">
     <meta property="og:title" content="Hizqia Chandra Wiguno | Graphic Designer &amp; Multimedia Specialist">
-    <meta property="og:description" content="Eksplorasi karya visual, rekam jejak profesional, brand identity, photo retouching, video editing sinematik, dan interactive showcase oleh Hizqia Chandra Wiguno (IPK 3.76 Cum Laude).">
+    <meta property="og:description" content="Eksplorasi karya visual, rekam jejak profesional, brand identity, photo retouching, video editing sinematik, dan interactive showcase oleh Hizqia Chandra Wiguno (IPK 3.70).">
     <meta property="og:image" content="{{ asset('images/hizqia_profile.webp') }}">
     <meta property="og:image:width" content="800">
     <meta property="og:image:height" content="800">
@@ -44,7 +44,7 @@
     <meta name="twitter:card" content="summary_large_image">
     <meta name="twitter:url" content="https://hizqiachandra.site/">
     <meta name="twitter:title" content="Hizqia Chandra Wiguno | Graphic Designer &amp; Multimedia Specialist">
-    <meta name="twitter:description" content="Portofolio interaktif Graphic Design, UI/UX, dan Video Editing oleh Hizqia Chandra Wiguno (IPK 3.76 Cum Laude).">
+    <meta name="twitter:description" content="Portofolio interaktif Graphic Design, UI/UX, dan Video Editing oleh Hizqia Chandra Wiguno (IPK 3.70).">
     <meta name="twitter:image" content="{{ asset('images/hizqia_profile.webp') }}">
     <meta name="twitter:creator" content="@HizqiaChandra">
 
@@ -83,7 +83,7 @@
             'Motion Graphics',
             'Web Development'
           ],
-          'description' => 'Graphic Designer dan Multimedia Specialist lulusan Teknologi Rekayasa Multimedia Polimedia Jakarta dengan predikat Cum Laude (IPK 3.76) dan sertifikasi BNSP.'
+          'description' => 'Graphic Designer dan Multimedia Specialist lulusan Teknologi Rekayasa Multimedia Polimedia Jakarta (IPK 3.70) dengan sertifikasi BNSP.'
         ],
         [
           '@type' => 'WebSite',
@@ -221,7 +221,7 @@
             <img src="{{ $bio['photo'] }}" alt="{{ $bio['name'] }}" class="sidebar-user-avatar" loading="lazy" decoding="async">
             <div>
                 <h6 class="fw-bold text-dark mb-0 fs-6">{{ $bio['nickname'] }}</h6>
-                <span class="badge bg-accent text-white font-mono" style="font-size: 0.7rem;">IPK <span class="counter-number" data-target="{{ $bio['gpa'] ?? '3.76' }}" data-decimals="2">{{ $bio['gpa'] ?? '3.76' }}</span> Cum Laude</span>
+                <span class="badge bg-accent text-white font-mono" style="font-size: 0.7rem;">IPK <span class="counter-number" data-target="{{ $bio['gpa'] ?? '3.70' }}" data-decimals="2">{{ $bio['gpa'] ?? '3.70' }}</span></span>
                 <small class="d-block text-muted mt-1" style="font-size: 0.72rem;">{{ $bio['education'] }}</small>
             </div>
         </div>
@@ -398,8 +398,8 @@
                             <div class="floating-badge badge-gpa" data-parallax="0.08">
                                 <i class="fa-solid fa-award text-accent fs-5"></i>
                                 <div>
-                                    <div class="font-mono text-accent">IPK <span class="counter-number" data-target="{{ $bio['gpa'] ?? '3.76' }}" data-decimals="2">{{ $bio['gpa'] ?? '3.76' }}</span></div>
-                                    <small class="text-muted">Cum Laude</small>
+                                    <div class="font-mono text-accent">IPK <span class="counter-number" data-target="{{ $bio['gpa'] ?? '3.70' }}" data-decimals="2">{{ $bio['gpa'] ?? '3.70' }}</span></div>
+                                    <small class="text-muted">Polimedia Jakarta</small>
                                 </div>
                             </div>
 
@@ -453,50 +453,6 @@
 
             <div class="row g-4" id="projectsGrid">
                 
-                <!-- FEATURED SPOTLIGHT: BEFORE & AFTER PHOTO RETOUCHING (DIRECT INTERACTIVE SLIDER) -->
-                <div class="col-12 proj-card-col reveal-on-scroll" data-proj-category="graphic">
-                    <div class="spotlight-retouch-card p-3 p-md-4 p-lg-5" data-parallax="0.03">
-                        <div class="row align-items-center g-4">
-                            <div class="col-lg-5">
-                                <span class="badge bg-accent-subtle text-accent font-mono px-3 py-1.5 rounded-pill mb-2">
-                                    <i class="fa-solid fa-wand-magic-sparkles me-1"></i> DIRECT INTERACTIVE SHOWCASE
-                                </span>
-                                <h3 class="h4 fw-bold text-dark mb-2">TRAC Key Visual - Photo Retouching &amp; Composite</h3>
-                                <p class="text-muted small mb-3 lh-relaxed">
-                                    Materi foto mentah diolah menjadi key visual komersial 3D pop-out beresolusi tinggi dengan penyesuaian pencahayaan sinematik dan 48 layer masking di Photoshop.
-                                </p>
-                                <div class="d-flex align-items-center gap-2 mb-3 py-2 px-3 bg-light rounded-3 border small text-muted font-mono">
-                                    <i class="fa-solid fa-arrows-left-right text-accent fs-6"></i>
-                                    <span>Geser handle garis putih pada gambar untuk membandingkan!</span>
-                                </div>
-                                <div class="d-flex flex-wrap gap-1">
-                                    <span class="badge bg-light border text-muted font-mono" style="font-size: 0.72rem;">#PhotoshopCC</span>
-                                    <span class="badge bg-light border text-muted font-mono" style="font-size: 0.72rem;">#3DPopOut</span>
-                                    <span class="badge bg-light border text-muted font-mono" style="font-size: 0.72rem;">#ColorGrading</span>
-                                    <span class="badge bg-light border text-muted font-mono" style="font-size: 0.72rem;">#Compositing</span>
-                                </div>
-                            </div>
-                            <div class="col-lg-7">
-                                <div class="before-after-container rounded-4 shadow-sm" id="inlineBeforeAfterSlider">
-                                    <!-- After Image -->
-                                    <img src="{{ asset('images/trac_key_visual_pantai.webp') }}" alt="After Final Retouch" class="before-after-img">
-                                    <span class="before-after-tag tag-after">HASIL FINAL RETOUCH</span>
-
-                                    <!-- Before Image -->
-                                    <div class="before-after-overlay" id="inlineBeforeAfterOverlay">
-                                        <img src="{{ asset('images/trac_promo_booth.webp') }}" alt="Before Raw Materials" class="before-after-img" style="filter: grayscale(80%) contrast(85%);">
-                                        <span class="before-after-tag tag-before">RAW MATERIAL ASSET</span>
-                                    </div>
-
-                                    <!-- Draggable Handle -->
-                                    <div class="before-after-handle" id="inlineBeforeAfterHandle">
-                                        <i class="fa-solid fa-arrows-left-right"></i>
-                                    </div>
-                                </div>
-                            </div>
-                        </div>
-                    </div>
-                </div>
 
                 @foreach($projects as $index => $project)
                 <div class="col-md-6 col-lg-6 proj-card-col reveal-on-scroll reveal-delay-{{ ($index % 3) + 1 }}" data-proj-category="{{ $project['category'] }}">
@@ -1269,16 +1225,6 @@
                 </a>
 
                 <div class="cmd-group-label mt-2">Aksi Cepat & Proyek Unggulan</div>
-                <div class="cmd-item" onclick="closeCommandPalette(); openBeforeAfterModal();">
-                    <div class="cmd-item-left">
-                        <div class="cmd-item-icon"><i class="fa-solid fa-wand-magic-sparkles"></i></div>
-                        <div>
-                            <div class="cmd-item-title">Bandingkan Before & After Retouch</div>
-                            <div class="cmd-item-sub">Slider Interaktif Photo Retouching TRAC</div>
-                        </div>
-                    </div>
-                    <span class="badge bg-accent text-white font-mono" style="font-size: 0.65rem;">INTERAKTIF</span>
-                </div>
                 <div class="cmd-item" onclick="closeCommandPalette(); openProjectModal('pintarBacaDemoModal');">
                     <div class="cmd-item-left">
                         <div class="cmd-item-icon"><i class="fa-solid fa-gamepad"></i></div>
@@ -1317,62 +1263,7 @@
         </div>
     </div>
 
-    <!-- ========================================================================== -->
-    <!-- INTERACTIVE BEFORE/AFTER RETOUCH SLIDER MODAL                              -->
-    <!-- ========================================================================== -->
-    <div class="custom-modal-overlay" id="beforeAfterRetouchModal" onclick="if(event.target === this) closeProjectModal('beforeAfterRetouchModal')">
-        <div class="custom-modal-dialog" style="max-width: 860px;">
-            <div class="modal-header modal-header-studio d-flex justify-content-between align-items-center">
-                <div class="d-flex align-items-center gap-2">
-                    <span class="badge bg-accent text-white font-mono px-3 py-1.5 rounded-pill">
-                        <i class="fa-solid fa-wand-magic-sparkles me-1"></i> DESIGN PROCESS SHOWCASE
-                    </span>
-                    <h5 class="fw-bold mb-0 font-heading fs-6 text-dark">TRAC Key Visual - Photo Retouching &amp; Composite</h5>
-                </div>
-                <button type="button" class="btn-close-studio" onclick="closeProjectModal('beforeAfterRetouchModal')" aria-label="Close">
-                    <i class="fa-solid fa-xmark"></i>
-                </button>
-            </div>
-            <div class="p-4 bg-white">
-                <div class="alert alert-light border d-flex align-items-center gap-2.5 py-2 px-3 mb-3 rounded-3" style="font-size: 0.82rem;">
-                    <i class="fa-solid fa-hand-pointer text-accent fs-6"></i>
-                    <span><strong>Geser handle garis putih</strong> ke kiri atau ke kanan untuk membandingkan materi foto raw dengan hasil final compositing!</span>
-                </div>
 
-                <div class="before-after-container" id="beforeAfterSlider">
-                    <!-- After Image (Background) -->
-                    <img src="{{ asset('images/trac_key_visual_pantai.webp') }}" alt="After Final Retouch" class="before-after-img">
-                    <span class="before-after-tag tag-after">HASIL RETOUCH &amp; COMPOSITE</span>
-
-                    <!-- Before Image (Overlay clipped by width) -->
-                    <div class="before-after-overlay" id="beforeAfterOverlay">
-                        <img src="{{ asset('images/trac_promo_booth.webp') }}" alt="Before Raw Materials" class="before-after-img" style="filter: grayscale(85%) contrast(85%);">
-                        <span class="before-after-tag tag-before">RAW MATERIAL ASSET</span>
-                    </div>
-
-                    <!-- Draggable Handle -->
-                    <div class="before-after-handle" id="beforeAfterHandle">
-                        <i class="fa-solid fa-arrows-left-right"></i>
-                    </div>
-                </div>
-
-                <div class="row g-3 mt-3 pt-2 border-top">
-                    <div class="col-sm-4">
-                        <small class="text-muted font-mono d-block" style="font-size: 0.72rem;">TEKNIK</small>
-                        <span class="fw-bold small text-dark">3D Pop-Out &amp; Color Grading</span>
-                    </div>
-                    <div class="col-sm-4">
-                        <small class="text-muted font-mono d-block" style="font-size: 0.72rem;">SOFTWARE</small>
-                        <span class="fw-bold small text-dark">Adobe Photoshop CC</span>
-                    </div>
-                    <div class="col-sm-4">
-                        <small class="text-muted font-mono d-block" style="font-size: 0.72rem;">TOTAL LAYERS</small>
-                        <span class="fw-bold small text-dark">48 Masking &amp; Adjustment Layers</span>
-                    </div>
-                </div>
-            </div>
-        </div>
-    </div>
 
     <!-- Custom Interactive JS with Cache Busting for Instant Updates -->
     <script src="{{ asset('js/portfolio-interactive.js') }}?v={{ time() }}"></script>

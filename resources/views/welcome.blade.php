@@ -4,7 +4,7 @@
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=5.0">
     <title>Hizqia Chandra Wiguno | Creative Portfolio &amp; Graphic Designer</title>
-    <meta name="description" content="Selamat datang di Portofolio Resmi Hizqia Chandra Wiguno - Graphic Designer, UI/UX Designer &amp; Multimedia Engineer. Lulusan TRM Polimedia Cum Laude.">
+    <meta name="description" content="Selamat datang di Portofolio Resmi Hizqia Chandra Wiguno - Graphic Designer, UI/UX Designer &amp; Multimedia Engineer. Lulusan TRM Polimedia.">
     <meta name="author" content="Hizqia Chandra Wiguno">
     <meta name="robots" content="index, follow">
     <link rel="canonical" href="https://hizqiachandra.site/">

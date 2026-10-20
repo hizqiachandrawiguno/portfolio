@@ -413,22 +413,6 @@ window.closeCommandPalette = function () {
     }
 };
 
-// BEFORE/AFTER RETOUCH MODAL FUNCTIONS
-window.openBeforeAfterModal = function () {
-    const modal = document.getElementById('beforeAfterRetouchModal');
-    if (modal) {
-        modal.classList.add('active');
-        document.body.style.overflow = 'hidden';
-    }
-};
-
-window.closeBeforeAfterModal = function () {
-    const modal = document.getElementById('beforeAfterRetouchModal');
-    if (modal) {
-        modal.classList.remove('active');
-        document.body.style.overflow = '';
-    }
-};
 
 document.addEventListener('keydown', function (e) {
     // Open Command Palette with Ctrl + K or Cmd + K
@@ -447,11 +431,6 @@ document.addEventListener('keydown', function (e) {
         const cmdModal = document.getElementById('cmdPaletteBackdrop');
         if (cmdModal && cmdModal.classList.contains('active')) {
             closeCommandPalette();
-            return;
-        }
-        const retouchModal = document.getElementById('beforeAfterRetouchModal');
-        if (retouchModal && retouchModal.classList.contains('active')) {
-            closeProjectModal('beforeAfterRetouchModal');
             return;
         }
         const videoModal = document.getElementById('videoPlayerModal');
@@ -1105,8 +1084,6 @@ document.addEventListener('DOMContentLoaded', function () {
         }, { passive: true });
     }
 
-    initSliderInteraction('beforeAfterSlider', 'beforeAfterOverlay', 'beforeAfterHandle');
-    initSliderInteraction('inlineBeforeAfterSlider', 'inlineBeforeAfterOverlay', 'inlineBeforeAfterHandle');
 
     /* -------------------------------------------------------------------------- */
     /* 9. REAL-TIME AUDIO WAVEFORM CANVAS VISUALIZER                               */
