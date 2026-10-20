@@ -3212,79 +3212,7 @@ h6 {
     border-radius: 4px;
 }
 
-/* ========================================================================== */
-/* DARK MODE SYSTEM (prefers-color-scheme)                                     */
-/* ========================================================================== */
-@media (prefers-color-scheme: dark) {
-    :root {
-        --bg-main: #141210;
-        --bg-elevated: #1C1916;
-        --bg-surface: #241F1C;
-        --bg-card: #1C1916;
-        --bg-card-hover: #241F1C;
-        --bg-panel: #1C1916;
-        --bg-dark: #1C1916;
-        --bg-darker: #0E0C0A;
-        --bg-canvas: #1C1916;
-        --text-primary: #F5F0E8;
-        --text-secondary: #A89D93;
-        --text-main: #F5F0E8;
-        --text-muted: #A89D93;
-        --text-dim: #7A7068;
-        --border-color: #2E2924;
-        --border-modal: #3A342E;
-        --border-highlight: rgba(227, 107, 50, 0.4);
-    }
 
-    html, body {
-        background-color: #141210 !important;
-        background: #141210 !important;
-        color: #F5F0E8 !important;
-    }
-
-    .artboard-canvas,
-    .project-card,
-    .cert-showcase-card,
-    .exp-layer-item,
-    .skill-card-studio,
-    .cmd-palette-dialog,
-    .custom-modal-dialog,
-    .studio-sidebar-panel {
-        background: var(--bg-card) !important;
-        border-color: var(--border-color) !important;
-        color: var(--text-primary) !important;
-    }
-
-    .text-dark { color: var(--text-primary) !important; }
-    .text-muted { color: var(--text-muted) !important; }
-    .bg-light { background: var(--bg-surface) !important; }
-    .bg-white { background: var(--bg-elevated) !important; }
-    .border { border-color: var(--border-color) !important; }
-
-    .section-tag { color: var(--text-muted); }
-    .nav-studio { background: rgba(20, 18, 16, 0.95) !important; border-bottom-color: var(--border-color) !important; }
-    .nav-link-custom { color: var(--text-secondary) !important; }
-    .nav-link-custom:hover { color: var(--text-primary) !important; }
-    .hero-section, section.bg-light { background: var(--bg-main) !important; }
-    .marquee-ticker-banner { background: var(--bg-darker) !important; }
-    .journey-dot { background: var(--border-color) !important; }
-    .journey-dot.active { background: var(--accent-color) !important; }
-    .badge.bg-light { background: var(--bg-surface) !important; color: var(--text-muted) !important; }
-    .skill-tab-switcher { background: var(--bg-card) !important; border-color: var(--border-color) !important; }
-    .skill-tab-btn { color: var(--text-secondary) !important; }
-    .skill-tab-btn.active { background: var(--accent-color) !important; color: #fff !important; }
-    .btn-outline-studio { border-color: var(--border-color) !important; color: var(--text-secondary) !important; }
-    .btn-outline-studio:hover { background: var(--bg-surface) !important; color: var(--text-primary) !important; }
-    .cmd-palette-backdrop { background: rgba(0, 0, 0, 0.75) !important; }
-    .cmd-palette-input { background: var(--bg-surface) !important; color: var(--text-primary) !important; border-color: var(--border-color) !important; }
-    .cmd-item:hover { background: var(--bg-surface) !important; }
-    .modal-header-studio { background: var(--bg-card) !important; border-bottom-color: var(--border-color) !important; }
-    .exp-gallery-card { background: var(--bg-surface) !important; }
-    .exp-detail-section { background: var(--bg-elevated) !important; }
-    .audio-control-widget { background: var(--bg-card) !important; border-color: var(--border-color) !important; }
-    .studio-intro-screen { background: #0E0C0A !important; }
-    .counter-chip { background: var(--bg-surface) !important; border-color: var(--border-color) !important; }
-}
 
 /* ========================================================================== */
 /* TYPOGRAPHY UPGRADE — FLUID TYPE SCALE + PREMIUM HIERARCHY                  */
