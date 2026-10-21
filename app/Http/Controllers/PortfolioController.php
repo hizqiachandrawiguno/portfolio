@@ -16,9 +16,9 @@ class PortfolioController extends Controller
             'education' => 'Politeknik Negeri Media Kreatif Jakarta',
             'major' => 'Teknologi Rekayasa Multimedia (TRM)',
             'gpa' => '3.70',
-            'status' => 'Lulusan Terbaik / Ready for Hire',
+            'status' => 'Tersedia untuk Pekerjaan & Proyek Kreatif',
             'photo' => asset('images/hizqia_profile.webp'),
-            'catchy_summary' => 'I create Visual Identities and Communication pieces with direction, character, and intention behind every detail.',
+            'catchy_summary' => 'Saya menciptakan identitas visual yang berkarakter, tata letak tipografi yang presisi, dan pengalaman multimedia yang fungsional untuk brand dan produk digital.',
             'contact' => [
                 'email' => 'hizqiachandrawiguno@gmail.com',
                 'location' => 'Jakarta / Bogor, Indonesia',
@@ -32,151 +32,134 @@ class PortfolioController extends Controller
             'software' => [
                 [
                     'name' => 'Adobe Photoshop',
-                    'rating' => 8.5,
+                    'level_badge' => 'Daily Driver',
                     'code' => 'Ps',
                     'icon' => 'fa-solid fa-paintbrush',
                     'color' => '#31A8FF',
                     'category' => 'Graphic Design',
-                    'desc' => 'Social Media Design, Photo Retouching, Layouting & Compositing'
+                    'focus' => 'Key Visual & Compositing',
+                    'desc' => 'Photo retouching, social media visual systems, poster layouting, dan digital photo compositing berskala cetak & digital.'
                 ],
                 [
                     'name' => 'Adobe Illustrator',
-                    'rating' => 9.2,
+                    'level_badge' => 'Daily Driver',
                     'code' => 'Ai',
                     'icon' => 'fa-solid fa-pen-nib',
                     'color' => '#FF9A00',
                     'category' => 'Vector & Logo',
-                    'desc' => 'Vector Illustration, Brand Identity, Typography & Artboard Layout'
+                    'focus' => 'Brand Identity & Vector',
+                    'desc' => 'Perancangan logo, visual identity guideline, ilustrasi vektor presisi, tipografi kustom, dan materi POSM siap cetak.'
                 ],
                 [
                     'name' => 'Figma',
-                    'rating' => 8.5,
+                    'level_badge' => 'Advanced Workflow',
                     'code' => 'Fg',
                     'icon' => 'fa-brands fa-figma',
                     'color' => '#A259FF',
                     'category' => 'UI/UX Design',
-                    'desc' => 'High-Fidelity Wireframing, Interactive Prototyping & Design System'
+                    'focus' => 'Interface & Design Systems',
+                    'desc' => 'Wireframing, prototyping interaktif, penataan design tokens (warna, grid, spacing), dan handoff rapi untuk developer.'
                 ],
                 [
                     'name' => 'Adobe Premiere Pro',
-                    'rating' => 8.0,
+                    'level_badge' => 'Production Ready',
                     'code' => 'Pr',
                     'icon' => 'fa-solid fa-film',
                     'color' => '#9999FF',
                     'category' => 'Video Editing',
-                    'desc' => 'Timeline Editing, Cinematic Color Grading & Audio Synchronization'
+                    'focus' => 'Audio-Visual Production',
+                    'desc' => 'Timeline narrative cutting, pacing ritmis, color grading sinematik, serta sinkronisasi audio untuk video promosi & profil korporat.'
                 ],
                 [
                     'name' => 'Adobe After Effects',
-                    'rating' => 8.0,
+                    'level_badge' => 'Production Ready',
                     'code' => 'Ae',
                     'icon' => 'fa-solid fa-wand-magic-sparkles',
                     'color' => '#D291FF',
                     'category' => 'Motion Graphics',
-                    'desc' => 'Visual Effects, Keyframe Animation & Kinetic Typography'
+                    'focus' => 'Kinetic Motion & VFX',
+                    'desc' => 'Tipografi kinetik, animasi logo, visual effect compositing, dan transisi motion dinamis untuk kebutuhan media digital.'
                 ],
                 [
                     'name' => 'Canva',
-                    'rating' => 8.7,
+                    'level_badge' => 'Rapid Layout',
                     'code' => 'Cn',
                     'icon' => 'fa-solid fa-file-lines',
                     'color' => '#00B5E2',
                     'category' => 'Graphic Design',
-                    'desc' => 'Social Media Design & Layouting'
+                    'focus' => 'Fast Turnaround Design',
+                    'desc' => 'Produksi cepat aset promosi harian, template presentasi, dan materi visual kolaboratif untuk kebutuhan tim.'
                 ]
             ],
             'web' => [
                 [
-                    'name' => 'Bootstrap 5',
-                    'rating' => 9.0,
-                    'code' => 'Bs',
-                    'icon' => 'fa-brands fa-bootstrap',
-                    'color' => '#7952B3',
-                    'category' => 'Frontend',
-                    'desc' => 'Responsive Grid System, Custom Utility Classes & UI Styling'
-                ],
-                [
-                    'name' => 'JavaScript',
-                    'rating' => 8.5,
-                    'code' => 'JS',
-                    'icon' => 'fa-brands fa-js',
-                    'color' => '#EAB308',
-                    'category' => 'Frontend Logic',
-                    'desc' => 'DOM Manipulation, Interactive Widgets, Animation & Async APIs'
-                ],
-                [
-                    'name' => 'PHP & Laravel',
-                    'rating' => 8.5,
-                    'code' => 'LV',
-                    'icon' => 'fa-brands fa-laravel',
-                    'color' => '#FF2D20',
-                    'category' => 'Backend Framework',
-                    'desc' => 'MVC Architecture, Blade Engine, Routing & Dynamic Controllers'
-                ],
-                [
-                    'name' => 'HTML5',
-                    'rating' => 9.5,
+                    'name' => 'HTML5 & CSS3',
+                    'level_badge' => 'Core Foundation',
                     'code' => 'HC',
                     'icon' => 'fa-brands fa-html5',
                     'color' => '#0284C7',
                     'category' => 'Web Core',
-                    'desc' => 'Semantic Layouts, Flexbox/Grid Math, Custom Animations & CSS Variables'
+                    'focus' => 'Semantic & Precision Grid',
+                    'desc' => 'Struktur semantik ramah aksesibilitas, responsive grid & flexbox, animasi CSS fluid, dan custom CSS variable tokens.'
+                ],
+                [
+                    'name' => 'JavaScript (ES6+)',
+                    'level_badge' => 'Interactive UI',
+                    'code' => 'JS',
+                    'icon' => 'fa-brands fa-js',
+                    'color' => '#EAB308',
+                    'category' => 'Frontend Logic',
+                    'focus' => 'DOM & Micro-Interactions',
+                    'desc' => 'Manipulasi DOM, kontrol komponen interaktif, penanganan event dinamis, dan integrasi library animasi.'
+                ],
+                [
+                    'name' => 'PHP & Laravel',
+                    'level_badge' => 'Backend Framework',
+                    'code' => 'LV',
+                    'icon' => 'fa-brands fa-laravel',
+                    'color' => '#FF2D20',
+                    'category' => 'Web Architecture',
+                    'focus' => 'Blade Engine & MVC',
+                    'desc' => 'Arsitektur MVC, dynamic routing, templating modular Blade, dan manajemen controller data portofolio dinamis.'
+                ],
+                [
+                    'name' => 'Bootstrap 5',
+                    'level_badge' => 'CSS Framework',
+                    'code' => 'Bs',
+                    'icon' => 'fa-brands fa-bootstrap',
+                    'color' => '#7952B3',
+                    'category' => 'Frontend',
+                    'focus' => 'Responsive UI Systems',
+                    'desc' => 'Implementasi grid responsif 12 kolom, adaptasi breakpoint mobile-first, dan kustomisasi utility classes terstruktur.'
                 ]
             ],
             'soft' => [
                 [
-                    'name' => 'Creative Problem Solving',
-                    'tag' => 'CORE STRENGTH #01',
-                    'badge' => '100% Adaptable',
-                    'icon' => 'fa-solid fa-brain',
+                    'name' => 'Desain Berbasis Tujuan & Karakter',
+                    'tag' => 'PRINSIP 01',
+                    'badge' => 'Fondasi Desain',
+                    'icon' => 'fa-solid fa-compass-drafting',
                     'color' => '#E36B32',
                     'bg_gradient' => '#FFFFFF',
-                    'desc' => 'Mampu mentransformasi brief rumit menjadi solusi visual yang bersih, intuitif, dan berdampak tinggi bagi audiens.'
+                    'desc' => 'Setiap elemen visual—mulai dari grid, hierarki tipografi, hingga pemilihan warna—diciptakan dengan alasan terukur untuk menyampaikan pesan brand, bukan sekadar dekorasi acak.'
                 ],
                 [
-                    'name' => 'Team Collaboration & Communication',
-                    'tag' => 'CORE STRENGTH #02',
-                    'badge' => 'Synergy & Pitching',
-                    'icon' => 'fa-solid fa-comments',
+                    'name' => 'Empati Kolaborasi & Sinergi Tim',
+                    'tag' => 'PRINSIP 02',
+                    'badge' => 'Komunikasi & Eksekusi',
+                    'icon' => 'fa-solid fa-handshake-angle',
                     'color' => '#D97706',
                     'bg_gradient' => '#FFFFFF',
-                    'desc' => 'Komunikasi efektif dan artikulatif saat berkolaborasi dengan klien, tim developer, maupun tim desain cross-functional.'
+                    'desc' => 'Mampu menerjemahkan brief bisnis dan aspirasi klien menjadi arahan visual yang lugas, serta berkolaborasi erat bersama developer dan stakeholder lintas divisi.'
                 ],
                 [
-                    'name' => 'Fast Learner & Tech Adaptability',
-                    'tag' => 'CORE STRENGTH #03',
-                    'badge' => 'Future Ready',
-                    'icon' => 'fa-solid fa-bolt',
-                    'color' => '#EA580C',
-                    'bg_gradient' => '#FFFFFF',
-                    'desc' => 'Cepat beradaptasi dan menguasai software grafis baru, AI creative tools, hingga framework web modern tanpa hambatan.'
-                ],
-                [
-                    'name' => 'Time & Deadline Precision',
-                    'tag' => 'CORE STRENGTH #04',
-                    'badge' => 'On-Time Delivery',
-                    'icon' => 'fa-solid fa-stopwatch',
+                    'name' => 'Ketelitian & Standar Kualitas Tinggi',
+                    'tag' => 'PRINSIP 03',
+                    'badge' => 'Presisi Detail',
+                    'icon' => 'fa-solid fa-microscope',
                     'color' => '#C2410C',
                     'bg_gradient' => '#FFFFFF',
-                    'desc' => 'Manajemen waktu dan alur kerja (workflow) yang disiplin sehingga proyek selesai tepat waktu dengan kualitas maksimal.'
-                ],
-                [
-                    'name' => 'Design Thinking & User Empathy',
-                    'tag' => 'CORE STRENGTH #05',
-                    'badge' => 'User Centric',
-                    'icon' => 'fa-solid fa-lightbulb',
-                    'color' => '#D97706',
-                    'bg_gradient' => '#FFFFFF',
-                    'desc' => 'Pendekatan desain berbasis empati pengguna untuk memastikan setiap layout visual tidak hanya estetik tapi juga fungsional.'
-                ],
-                [
-                    'name' => 'Leadership & Project Ownership',
-                    'tag' => 'CORE STRENGTH #06',
-                    'badge' => 'High Responsibility',
-                    'icon' => 'fa-solid fa-users-gear',
-                    'color' => '#E36B32',
-                    'bg_gradient' => '#FFFFFF',
-                    'desc' => 'Tanggung jawab penuh dalam mengawal proyek dari konsep ide mentah, eksekusi visual, hingga final delivery.'
+                    'desc' => 'Perhatian mendalam pada detail mikro: kejelasan hierarki informasi, keselarasan tipografi, konsistensi design tokens, dan kesiapan file untuk tahap produksi akhir.'
                 ]
             ]
         ];

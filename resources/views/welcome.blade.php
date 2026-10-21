@@ -662,40 +662,34 @@
     <div class="ambient-glow glow-1" aria-hidden="true"></div>
     <div class="ambient-glow glow-2" aria-hidden="true"></div>
 
-    <!-- Architectural Millimeter HUD Corner Markers -->
+    <!-- Architectural Editorial Frame / Masthead -->
     <div class="canvas-guides" aria-hidden="true">
-        <!-- Top Row -->
+        <!-- Top Row: Studio Header -->
         <div class="hud-row">
             <div class="hud-group">
-                <span class="hud-accent">[+]</span>
-                <span>POS: 0.00, 0.00</span>
+                <span class="hud-accent">&bull;</span>
+                <span class="fw-bold">HIZQIA CHANDRA WIGUNO</span>
                 <span class="hud-taupe hide-mobile">/</span>
-                <span class="hide-mobile">CANVAS: ACTIVE</span>
+                <span class="hide-mobile">PORTFOLIO RESMI</span>
             </div>
             <div class="hud-group">
-                <span class="hide-mobile">GRID: 24PX</span>
                 <span class="status-ping-dot"></span>
-                <span class="hud-badge-ready">READY</span>
+                <span class="hide-mobile">JAKARTA &amp; BOGOR</span>
+                <span class="hud-taupe hide-mobile">&bull;</span>
+                <span class="hud-badge-ready">2026</span>
             </div>
         </div>
 
-        <!-- Bottom Row -->
+        <!-- Bottom Row: Studio Colophon -->
         <div class="hud-row">
             <div class="hud-group">
-                <!-- Inline Architectural Drafting Compass SVG -->
-                <svg width="13" height="13" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.2" stroke-linecap="round" stroke-linejoin="round" class="hud-accent">
-                    <path d="m16.5 3.5 1 1L5.5 16.5l-2.5 1 1-2.5L16.5 3.5z"/>
-                    <path d="m15 5 4 4"/>
-                    <circle cx="6" cy="18" r="2"/>
-                </svg>
-                <span class="hide-mobile">HIZQIA CHANDRA WIGUNO</span>
-                <span class="hide-desktop">HIZQIA</span>
+                <span class="hide-mobile">POLITEKNIK NEGERI MEDIA KREATIF</span>
+                <span class="hide-desktop">POLIMEDIA</span>
                 <span class="hud-taupe">&bull;</span>
+                <span>TEKNOLOGI REKAYASA MULTIMEDIA</span>
             </div>
             <div class="hud-group">
-                <span>V2.5</span>
-                <span class="hud-taupe">/</span>
-                <span>2026</span>
+                <span>GRAPHIC DESIGN &amp; MULTIMEDIA</span>
             </div>
         </div>
     </div>
@@ -707,100 +701,29 @@
         <div class="welcome-tag">
             <span class="tag-pulse-dot" aria-hidden="true"></span>
             <span class="tag-text">
-                <span class="hide-mobile">CREATIVE SPACE &bull; </span>HIZQIA CHANDRA WIGUNO
+                STUDIO DESAIN GRAFIS &bull; HIZQIA CHANDRA WIGUNO
             </span>
         </div>
 
-        <!-- Responsive Badges Group on Mobile (< 768px) -->
-        <div class="mobile-badges-group">
-            <div class="floating-badge badge-m1">
-                <span class="badge-icon-box" aria-hidden="true">
-                    <!-- Paintbrush SVG -->
-                    <svg width="10" height="10" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.2" stroke-linecap="round" stroke-linejoin="round">
-                        <path d="M18.375 2.625a3.875 3.875 0 0 0-5.48 0L3.5 12v5h5l9.375-9.375a3.875 3.875 0 0 0 0-5.48z"/>
-                        <path d="M14 7l3 3"/>
-                    </svg>
-                </span>
-                <span>Graphic Design</span>
-            </div>
-            <div class="floating-badge badge-m2">
-                <span class="badge-icon-box" aria-hidden="true">
-                    <!-- Wand Magic Sparkles SVG -->
-                    <svg width="10" height="10" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.2" stroke-linecap="round" stroke-linejoin="round">
-                        <path d="m15 4-2 4-4 2 4 2 2 4 2-4 4-2-4-2-2-4z"/>
-                        <path d="M4 14l-1 2-2 1 2 1 1 2 1-2 2-1-2-1-1-2z"/>
-                        <path d="M9 19l-.5 1-1 .5 1 .5.5 1 .5-1 1-.5-1-.5-.5-1z"/>
-                    </svg>
-                </span>
-                <span>UI/UX & Web</span>
-            </div>
-            <div class="floating-badge badge-m3">
-                <span class="badge-icon-box" aria-hidden="true">
-                    <!-- Video SVG -->
-                    <svg width="10" height="10" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.2" stroke-linecap="round" stroke-linejoin="round">
-                        <polygon points="23 7 16 12 23 17 23 7"/>
-                        <rect x="1" y="5" width="15" height="14" rx="2" ry="2"/>
-                    </svg>
-                </span>
-                <span>Motion & Multimedia</span>
-            </div>
-        </div>
-
-        <!-- Relative Wrapper for PORTFOLIO Display Text & Floating Badges on Desktop (>= 768px) -->
-        <div class="portfolio-title-wrapper">
-
-            <!-- Desktop Floating Badge 1: Graphic Design (Top Left) -->
-            <div class="floating-badge desktop-badge badge-d1">
-                <span class="badge-icon-box" aria-hidden="true">
-                    <svg width="12" height="12" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.2" stroke-linecap="round" stroke-linejoin="round">
-                        <path d="M18.375 2.625a3.875 3.875 0 0 0-5.48 0L3.5 12v5h5l9.375-9.375a3.875 3.875 0 0 0 0-5.48z"/>
-                        <path d="M14 7l3 3"/>
-                    </svg>
-                </span>
-                <span>Graphic Design</span>
-            </div>
-
-            <!-- Desktop Floating Badge 2: UI/UX & Web (Top Right) -->
-            <div class="floating-badge desktop-badge badge-d2">
-                <span class="badge-icon-box" aria-hidden="true">
-                    <svg width="12" height="12" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.2" stroke-linecap="round" stroke-linejoin="round">
-                        <path d="m15 4-2 4-4 2 4 2 2 4 2-4 4-2-4-2-2-4z"/>
-                        <path d="M4 14l-1 2-2 1 2 1 1 2 1-2 2-1-2-1-1-2z"/>
-                        <path d="M9 19l-.5 1-1 .5 1 .5.5 1 .5-1 1-.5-1-.5-.5-1z"/>
-                    </svg>
-                </span>
-                <span>UI/UX & Web</span>
-            </div>
-
-            <!-- Desktop Floating Badge 3: Motion & Multimedia (Bottom Left) -->
-            <div class="floating-badge desktop-badge badge-d3">
-                <span class="badge-icon-box" aria-hidden="true">
-                    <svg width="12" height="12" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.2" stroke-linecap="round" stroke-linejoin="round">
-                        <polygon points="23 7 16 12 23 17 23 7"/>
-                        <rect x="1" y="5" width="15" height="14" rx="2" ry="2"/>
-                    </svg>
-                </span>
-                <span>Motion & Multimedia</span>
-            </div>
-
-            <!-- Giant 'PORTFOLIO' Display Typography (Instant LCP & Semantic Accessibility) -->
+        <!-- Relative Wrapper for PORTFOLIO Display Text -->
+        <div class="portfolio-title-wrapper my-2 my-md-3">
+            <!-- Giant 'PORTFOLIO' Display Typography -->
             <h1 class="portfolio-title-text" aria-label="PORTFOLIO">
                 <span class="letter-char" aria-hidden="true">P</span>
                 <span class="letter-char" aria-hidden="true">O</span>
                 <span class="letter-char" aria-hidden="true">R</span>
                 <span class="letter-char" aria-hidden="true">T</span>
-                <span class="letter-char letter-highlight letter-loop-f" aria-hidden="true">F</span>
+                <span class="letter-char letter-highlight" aria-hidden="true">F</span>
                 <span class="letter-char" aria-hidden="true">O</span>
                 <span class="letter-char" aria-hidden="true">L</span>
                 <span class="letter-char" aria-hidden="true">I</span>
-                <span class="letter-char letter-highlight letter-loop-o" aria-hidden="true">O</span>
+                <span class="letter-char letter-highlight" aria-hidden="true">O</span>
             </h1>
-
         </div>
 
         <!-- Subtitle Description -->
         <p class="welcome-subtitle">
-            Visual Identity <span class="subtitle-dot" aria-hidden="true">&bull;</span> Interactive Multimedia <span class="subtitle-dot" aria-hidden="true">&bull;</span> Creative Engineering
+            Koleksi kurasi identitas visual, desain grafis editorial, perancangan antarmuka, dan produksi multimedia interaktif.
         </p>
 
         <!-- Call to Action: Pill-Shaped Expanding Button -->
@@ -808,30 +731,22 @@
             <a 
                 id="enterBtn"
                 href="{{ route('portfolio.home') }}" 
-                onclick="handleEnterClick(event)"
                 class="cta-btn-expand"
-                aria-label="Lihat Portofolio Lengkap Hizqia Chandra"
+                aria-label="Masuk ke Portofolio Lengkap Hizqia Chandra"
             >
                 <div class="cta-btn-inner">
                     <span class="cta-btn-text">
-                        Lihat Portofolio
+                        Masuk ke Portofolio
                     </span>
                     <span class="cta-btn-icon" aria-hidden="true">
                         <!-- Arrow Right SVG -->
-                        <svg width="13" height="13" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round">
+                        <svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round">
                             <line x1="5" y1="12" x2="19" y2="12"></line>
                             <polyline points="12 5 19 12 12 19"></polyline>
                         </svg>
                     </span>
                 </div>
             </a>
-        </div>
-
-        <!-- Keyboard Shortcut Hint -->
-        <div class="welcome-hint">
-            <span>Tekan</span>
-            <kbd class="welcome-kbd">Enter ↵</kbd>
-            <span>atau tap tombol</span>
         </div>
 
     </main>

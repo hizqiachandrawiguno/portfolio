@@ -366,17 +366,16 @@
                 <div class="row align-items-center gy-4 gy-lg-5">
                     <div class="col-lg-7">
                         <h1 class="hero-title mb-3 position-relative">
-                            Hi! I'm <br class="d-sm-none">
+                            Halo, Saya <br class="d-sm-none">
                             <span class="text-accent position-relative d-inline-block">
-                                <span id="typewriterName">Hizqia Chandra Wiguno</span>
+                                <span>Hizqia Chandra Wiguno</span>
                                 <svg class="hero-underline-vector" viewBox="0 0 240 12" fill="none" xmlns="http://www.w3.org/2000/svg">
                                     <path d="M3 9C60 3 180 3 237 9" stroke="currentColor" stroke-width="4" stroke-linecap="round"/>
                                 </svg>
-                            </span><span class="typewriter-cursor">|</span>
+                            </span>
                         </h1>
                         
-                        <!-- Catchy Clickbait Bio Summary -->
-                        <p class="lead fw-semibold text-dark mb-4 fs-5" style="max-width: 640px; line-height: 1.5;">
+                        <p class="lead fw-semibold text-dark mb-4 fs-5" style="max-width: 640px; line-height: 1.55;">
                             {{ $bio['catchy_summary'] }}
                         </p>
 
@@ -636,7 +635,7 @@
 
                             <div class="mb-3">
                                 <div class="d-flex align-items-center gap-2 mb-1">
-                                    <span class="layer-tag" style="background: {{ $exp['accent'] }}15; color: {{ $exp['accent'] }};">LAYER {{ $exp['layer_num'] }}</span>
+                                    <span class="layer-tag" style="background: {{ $exp['accent'] }}15; color: {{ $exp['accent'] }};">REKAM JEJAK 0{{ $index + 1 }}</span>
                                     <span class="text-muted font-mono small">{{ $exp['badge'] }}</span>
                                 </div>
                                 <h4 class="h5 fw-bold text-dark mb-1 lh-sm">{{ $exp['title'] }}</h4>
@@ -662,27 +661,27 @@
 
 
     <!-- ========================================================================== -->
-    <!-- SECTION 4: PANEL PROPERTIES (HARD SKILLS & SOFT SKILLS BENTO GRID)          -->
+    <!-- SECTION 4: CAPABILITIES & DESIGN WORKFLOW (SOFTWARE & DESIGN PRINCIPLES)   -->
     <!-- ========================================================================== -->
     <section id="properties" class="section-spacing bg-light">
         <div class="container">
             
             <div class="section-header text-center max-w-700 mx-auto reveal-on-scroll">
                 <div class="section-tag justify-content-center">
-                    <i class="fa-solid fa-sliders"></i> Capabilities
+                    <i class="fa-solid fa-compass-drafting text-accent"></i> KAPABILITAS &amp; DISIPLIN KERJA
                 </div>
-                <h2 class="display-6 fw-bold">Hard Skill &amp; Soft Skill</h2>
-                <p class="text-muted">Kombinasi keahlian teknis (Hard Skills software/coding) dan kemampuan interpersonal (Soft Skills) pendukung kualitas karya.</p>
+                <h2 class="display-6 fw-bold">Toolset &amp; Prinsip Desain</h2>
+                <p class="text-muted">Penguasaan software standar industri visual, arsitektur web semantik, serta prinsip eksekusi desain yang terarah dan bertanggung jawab.</p>
             </div>
 
-            <!-- Modern Gen-Z Dual Tab Mode Toggle Switcher -->
+            <!-- Tab Switcher -->
             <div class="d-flex justify-content-center mb-4 reveal-on-scroll">
                 <div class="skill-tab-switcher p-1 rounded-pill bg-white border d-inline-flex gap-1">
                     <button type="button" class="btn btn-sm rounded-pill font-mono px-4 py-2 skill-tab-btn active" data-tab="hard-skills" onclick="switchSkillTab('hard-skills')">
-                        <i class="fa-solid fa-bolt me-1 text-accent"></i> Hard Skills
+                        <i class="fa-solid fa-palette me-1 text-accent"></i> Software &amp; Tech Stack
                     </button>
                     <button type="button" class="btn btn-sm rounded-pill font-mono px-4 py-2 skill-tab-btn" data-tab="soft-skills" onclick="switchSkillTab('soft-skills')">
-                        <i class="fa-solid fa-brain me-1 text-accent"></i> Soft Skills
+                        <i class="fa-solid fa-lightbulb me-1 text-accent"></i> Prinsip Desain (3)
                     </button>
                 </div>
             </div>
@@ -693,23 +692,23 @@
                 <div class="row g-4 mb-4">
                     @foreach($skills['software'] as $index => $skill)
                     <div class="col-md-6 col-lg-4 skill-card-item reveal-on-scroll reveal-delay-{{ ($index % 3) + 1 }}" data-category="{{ $skill['category'] }}">
-                        <div class="skill-card">
+                        <div class="skill-card h-100 d-flex flex-column">
                             <div class="d-flex justify-content-between align-items-start mb-3">
                                 <div class="skill-icon-badge" style="background: {{ $skill['color'] }}14; color: {{ $skill['color'] }}; border: 1px solid {{ $skill['color'] }}28;">
                                     <i class="{{ $skill['icon'] }}"></i>
                                 </div>
                                 <div class="text-end">
                                     <span class="badge bg-light border text-muted font-mono mb-1">{{ $skill['code'] }}</span>
-                                    <div class="rating-score text-accent font-mono fw-bold"><span class="counter-number" data-target="{{ $skill['rating'] }}" data-decimals="1">0.0</span> / 10.0</div>
+                                    <div>
+                                        <span class="badge font-mono" style="background: {{ $skill['color'] }}18; color: {{ $skill['color'] }}; font-size: 0.72rem; border-radius: 6px;">
+                                            {{ $skill['level_badge'] ?? 'Daily Driver' }}
+                                        </span>
+                                    </div>
                                 </div>
                             </div>
                             <h4 class="h5 fw-bold text-dark mb-1">{{ $skill['name'] }}</h4>
-                            <small class="text-accent font-mono d-block mb-2 fw-semibold" style="font-size: 0.82rem;">{{ $skill['category'] }}</small>
-                            <p class="text-muted small mb-3">{{ $skill['desc'] }}</p>
-                            
-                            <div class="progress-bar-custom">
-                                <div class="progress-fill" data-progress="{{ ($skill['rating'] / 10) * 100 }}" style="width: 0%;"></div>
-                            </div>
+                            <small class="text-accent font-mono d-block mb-2 fw-semibold" style="font-size: 0.82rem;">{{ $skill['focus'] ?? $skill['category'] }}</small>
+                            <p class="text-muted small mb-0 lh-relaxed mt-auto">{{ $skill['desc'] }}</p>
                         </div>
                     </div>
                     @endforeach
@@ -718,41 +717,40 @@
                 <!-- Web Stack Skills Grid -->
                 <div class="row g-4">
                     <div class="col-12 text-center mb-2 reveal-on-scroll">
-                        <h3 class="h4 fw-bold font-heading text-dark"><i class="fa-solid fa-code text-accent me-2"></i> Web &amp; Development Stack</h3>
+                        <h3 class="h4 fw-bold font-heading text-dark"><i class="fa-solid fa-code text-accent me-2"></i> Web &amp; Creative Engineering</h3>
                     </div>
                     @foreach($skills['web'] as $index => $web)
                     <div class="col-md-6 col-lg-3 skill-card-item reveal-on-scroll reveal-delay-{{ ($index % 4) + 1 }}" data-category="Web Stack">
-                        <div class="skill-card">
+                        <div class="skill-card h-100 d-flex flex-column">
                             <div class="d-flex justify-content-between align-items-center mb-3">
-                                <div class="skill-icon-badge" style="background: {{ $web['color'] }}14; color: {{ $web['color'] }}; border: 1px solid {{ $web['color'] }}28; width: 40px; height: 40px; font-size: 1.1rem; margin-bottom: 0;">
+                                <div class="skill-icon-badge" style="background: {{ $web['color'] }}14; color: {{ $web['color'] }}; border: 1px solid {{ $web['color'] }}28; width: 42px; height: 42px; font-size: 1.15rem; margin-bottom: 0;">
                                     <i class="{{ $web['icon'] }}"></i>
                                 </div>
-                                <span class="rating-score fs-6 text-accent font-mono fw-bold"><span class="counter-number" data-target="{{ $web['rating'] }}" data-decimals="1">0.0</span> / 10</span>
+                                <span class="badge font-mono" style="background: {{ $web['color'] }}18; color: {{ $web['color'] }}; font-size: 0.72rem; border-radius: 6px;">
+                                    {{ $web['level_badge'] ?? 'Core Stack' }}
+                                </span>
                             </div>
                             <h5 class="fw-bold fs-6 text-dark mb-1">{{ $web['name'] }}</h5>
-                            <small class="text-accent font-mono d-block mb-2 fw-semibold" style="font-size: 0.75rem;">{{ $web['category'] }}</small>
-                            <p class="text-muted small mb-2">{{ $web['desc'] }}</p>
-                            <div class="progress-bar-custom">
-                                <div class="progress-fill" data-progress="{{ ($web['rating'] / 10) * 100 }}" style="width: 0%;"></div>
-                            </div>
+                            <small class="text-accent font-mono d-block mb-2 fw-semibold" style="font-size: 0.75rem;">{{ $web['focus'] ?? $web['category'] }}</small>
+                            <p class="text-muted small mb-0 lh-relaxed mt-auto">{{ $web['desc'] }}</p>
                         </div>
                     </div>
                     @endforeach
                 </div>
             </div>
 
-            <!-- SOFT SKILLS BENTO GRID VIEW -->
+            <!-- SOFT SKILLS / PRINSIP DESAIN BENTO GRID VIEW -->
             <div id="softSkillsView" class="skill-view-tab d-none">
                 <div class="row g-4">
                     @foreach($skills['soft'] as $index => $soft)
-                    <div class="col-md-6 col-lg-4 reveal-on-scroll reveal-delay-{{ ($index % 3) + 1 }}">
-                        <div class="soft-skill-bento-card">
+                    <div class="col-md-4 reveal-on-scroll reveal-delay-{{ ($index % 3) + 1 }}">
+                        <div class="soft-skill-bento-card h-100 d-flex flex-column">
                             <div class="d-flex justify-content-between align-items-center mb-3">
                                 <span class="soft-tag-pill font-mono" style="color: {{ $soft['color'] }}; background: {{ $soft['color'] }}14; border: 1px solid {{ $soft['color'] }}28;">
                                     {{ $soft['tag'] }}
                                 </span>
                                 <span class="badge bg-white border text-muted font-mono shadow-2xs" style="font-size: 0.72rem;">
-                                    <i class="fa-solid fa-sparkles me-1 text-accent"></i> {{ $soft['badge'] }}
+                                    <i class="fa-solid fa-check text-accent me-1"></i> {{ $soft['badge'] }}
                                 </span>
                             </div>
                             <div class="d-flex align-items-center gap-3 mb-3">
@@ -761,7 +759,7 @@
                                 </div>
                                 <h4 class="h5 fw-bold text-dark mb-0 lh-sm">{{ $soft['name'] }}</h4>
                             </div>
-                            <p class="text-muted small mb-0 lh-relaxed">{{ $soft['desc'] }}</p>
+                            <p class="text-muted small mb-0 lh-relaxed mt-auto">{{ $soft['desc'] }}</p>
                         </div>
                     </div>
                     @endforeach

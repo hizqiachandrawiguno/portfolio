@@ -611,50 +611,6 @@ document.addEventListener('DOMContentLoaded', function () {
     }
 
 
-    /* -------------------------------------------------------------------------- */
-    /* INFINITE LOOPING TYPEWRITER EFFECT FOR HERO NAME & CREATIVE ROLES          */
-    /* -------------------------------------------------------------------------- */
-    const nameEl = document.getElementById('typewriterName');
-    if (nameEl) {
-        const phrases = [
-            "Hizqia Chandra Wiguno",
-            "Graphic Designer",
-        ];
-
-        let phraseIndex = 0;
-        let charIndex = 0;
-        let isDeleting = false;
-        let typingSpeed = 90;
-
-        nameEl.textContent = "";
-
-        function loopTypewriter() {
-            const currentPhrase = phrases[phraseIndex];
-
-            if (isDeleting) {
-                nameEl.textContent = currentPhrase.substring(0, charIndex - 1);
-                charIndex--;
-                typingSpeed = 45;
-            } else {
-                nameEl.textContent = currentPhrase.substring(0, charIndex + 1);
-                charIndex++;
-                typingSpeed = 85 + Math.random() * 30;
-            }
-
-            if (!isDeleting && charIndex === currentPhrase.length) {
-                isDeleting = true;
-                typingSpeed = 2200; // Display duration
-            } else if (isDeleting && charIndex === 0) {
-                isDeleting = false;
-                phraseIndex = (phraseIndex + 1) % phrases.length;
-                typingSpeed = 400; // Brief pause before next phrase
-            }
-
-            setTimeout(loopTypewriter, typingSpeed);
-        }
-
-        setTimeout(loopTypewriter, 500);
-    }
 
 
     /* -------------------------------------------------------------------------- */
