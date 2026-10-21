@@ -6,7 +6,7 @@
 @source '../**/*.js';
 
 @theme {
-    --font-heading: 'Outfit', sans-serif;
+    --font-heading: 'Space Grotesk', sans-serif;
     --font-sans: 'Plus Jakarta Sans', ui-sans-serif, system-ui, sans-serif;
     --font-mono: 'Fira Code', ui-monospace, SFMono-Regular, Menlo, Monaco, Consolas, monospace;
 }

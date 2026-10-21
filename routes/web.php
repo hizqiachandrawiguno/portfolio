@@ -37,5 +37,11 @@ Route::get('/sitemap.xml', function () {
     return abort(404);
 });
 
+// Temporary Typography Sandbox Route (Isolated Test Page)
+Route::get('/type-test', function () {
+    return view('type-test');
+})->name('type-test');
+
+
 
 

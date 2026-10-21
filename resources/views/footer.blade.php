@@ -179,7 +179,7 @@
     }
 
     .studio-outro-title {
-        font-family: 'Outfit', sans-serif;
+        font-family: var(--font-heading), 'Space Grotesk', sans-serif;
         font-size: clamp(2rem, 4.2vw, 3.25rem);
         font-weight: 800;
         line-height: 1.18;

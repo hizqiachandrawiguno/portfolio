@@ -1,10 +1,10 @@
 /* ==========================================================================
    HIZQIA CHANDRA - MODERN PROFESSIONAL STUDIO STYLESHEET
    WARM STUDIO PALETTE & MINIMALIST DESIGN SYSTEM
-   TYPOGRAPHY: OUTFIT, PLUS JAKARTA SANS, FIRA CODE
+   TYPOGRAPHY: SPACE GROTESK, PLUS JAKARTA SANS, FIRA CODE
    ========================================================================== */
 
-@import url('https://fonts.googleapis.com/css2?family=Outfit:wght@300;400;500;600;700;800;900&family=Plus+Jakarta+Sans:ital,wght@0,300;0,400;0,500;0,600;0,700;0,800;1,400&family=Fira+Code:wght@400;500;600&display=swap');
+@import url('https://fonts.googleapis.com/css2?family=Fira+Code:wght@400;500;600&family=Plus+Jakarta+Sans:ital,wght@0,300;0,400;0,500;0,600;0,700;0,800;1,400&family=Space+Grotesk:wght@500;600;700&display=swap');
 
 :root {
     /* Accent Utama & Accent Hover */
@@ -52,8 +52,8 @@
     /* Soft Taupe (Modal border) */
     --border-highlight: rgba(227, 107, 50, 0.35);
 
-    /* Fonts Hierarchy (Reverted to Outfit + Plus Jakarta Sans + Fira Code) */
-    --font-heading: 'Outfit', sans-serif;
+    /* Fonts Hierarchy: Technical Studio (Space Grotesk + Plus Jakarta Sans + Fira Code) */
+    --font-heading: 'Space Grotesk', sans-serif;
     --font-body: 'Plus Jakarta Sans', sans-serif;
     --font-mono: 'Fira Code', monospace;
 
@@ -951,10 +951,11 @@ h6 {
 }
 
 .hero-title {
-    font-size: clamp(1.75rem, 4.5vw, 3.4rem);
-    font-weight: 800;
-    line-height: 1.2;
-    letter-spacing: -0.5px;
+    font-family: var(--font-heading);
+    font-size: clamp(2rem, 4.6vw, 3.4rem);
+    font-weight: 700;
+    line-height: 1.15;
+    letter-spacing: -0.03em;
     word-break: break-word;
 }
 
