@@ -28,6 +28,7 @@
     <link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Fira+Code:wght@500;600&family=Outfit:wght@700;800;900&family=Plus+Jakarta+Sans:wght@500;600;700&display=swap" media="print" onload="this.media='all'">
     <noscript>
         <link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Fira+Code:wght@500;600&family=Outfit:wght@700;800;900&family=Plus+Jakarta+Sans:wght@500;600;700&display=swap">
+        <meta http-equiv="refresh" content="5;url={{ route('portfolio.home') }}">
     </noscript>
 
     <!-- Scoped Standalone Design System CSS (Zero Render-Blocking JS/CSS) -->
@@ -731,6 +732,7 @@
             <a 
                 id="enterBtn"
                 href="{{ route('portfolio.home') }}" 
+                onclick="handleEnterClick(event)"
                 class="cta-btn-expand"
                 aria-label="Masuk ke Portofolio Lengkap Hizqia Chandra"
             >
@@ -747,6 +749,11 @@
                     </span>
                 </div>
             </a>
+        </div>
+
+        <!-- 5-Second Auto Redirect Note -->
+        <div class="auto-redirect-note" style="margin-top: 1.25rem; font-family: var(--font-mono); font-size: 0.78rem; color: var(--color-charcoal-dim); opacity: 0.85;">
+            Dialihkan otomatis dalam <span id="redirectSeconds" style="color: var(--color-terracotta); font-weight: 700;">5</span>s &bull; atau klik tombol
         </div>
 
     </main>
@@ -915,12 +922,19 @@
             initAnimation();
         });
 
-        // Smooth Exit Animation & Navigation
+        // Smooth Exit Animation & Navigation with 5-Second Auto Redirect
         let isExiting = false;
+        let autoRedirectInterval = null;
+
         function handleEnterClick(event) {
-            if (event) event.preventDefault();
+            if (event && event.preventDefault) event.preventDefault();
             if (isExiting) return;
             isExiting = true;
+
+            if (autoRedirectInterval) {
+                clearInterval(autoRedirectInterval);
+                autoRedirectInterval = null;
+            }
 
             const targetUrl = "{{ route('portfolio.home') }}";
 
@@ -936,36 +950,43 @@
             });
 
             exitTl
-                .to(".floating-badge", {
-                    scale: 0.6,
-                    opacity: 0,
-                    y: -20,
-                    duration: 0.22,
-                    stagger: 0.03,
-                    ease: "back.in(1.7)"
-                })
                 .to(".letter-char", {
-                    y: -50,
+                    y: -40,
                     opacity: 0,
-                    rotation: (i) => (i % 2 === 0 ? -10 : 10),
-                    scale: 0.85,
-                    duration: 0.3,
+                    scale: 0.9,
+                    duration: 0.28,
                     stagger: 0.02,
                     ease: "power3.in"
-                }, "-=0.12")
-                .to([".welcome-tag", ".welcome-subtitle", ".cta-btn-wrapper", ".welcome-hint", ".canvas-guides"], {
-                    y: -30,
+                })
+                .to([".welcome-tag", ".welcome-subtitle", ".cta-btn-wrapper", ".auto-redirect-note", ".canvas-guides"], {
+                    y: -20,
                     opacity: 0,
-                    duration: 0.25,
+                    duration: 0.22,
                     stagger: 0.02,
                     ease: "power2.in"
-                }, "-=0.2")
+                }, "-=0.18")
                 .to("body", {
                     opacity: 0,
-                    duration: 0.18,
+                    duration: 0.15,
                     ease: "power2.inOut"
                 }, "-=0.08");
         }
+
+        // 5-Second Auto-Redirect Countdown Timer
+        let secondsRemaining = 5;
+        const redirectSecondsEl = document.getElementById('redirectSeconds');
+
+        autoRedirectInterval = setInterval(() => {
+            secondsRemaining--;
+            if (redirectSecondsEl) {
+                redirectSecondsEl.textContent = secondsRemaining;
+            }
+            if (secondsRemaining <= 0) {
+                clearInterval(autoRedirectInterval);
+                autoRedirectInterval = null;
+                handleEnterClick();
+            }
+        }, 1000);
 
         // Support Keyboard 'Enter' and 'Space' Shortcuts
         document.addEventListener('keydown', (e) => {
