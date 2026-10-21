@@ -694,9 +694,15 @@
                     <div class="col-md-6 col-lg-4 skill-card-item reveal-on-scroll reveal-delay-{{ ($index % 3) + 1 }}" data-category="{{ $skill['category'] }}">
                         <div class="skill-card h-100 d-flex flex-column">
                             <div class="d-flex justify-content-between align-items-start mb-3">
+                                @if(!empty($skill['logo']))
+                                <div class="skill-icon-badge p-1 bg-white border shadow-2xs d-flex align-items-center justify-content-center" style="border-radius: 12px; width: 44px; height: 44px; margin-bottom: 0;">
+                                    <img src="{{ $skill['logo'] }}" alt="{{ $skill['name'] }} Logo" width="34" height="34" class="img-fluid" style="object-fit: contain; max-height: 34px; max-width: 34px;">
+                                </div>
+                                @else
                                 <div class="skill-icon-badge" style="background: {{ $skill['color'] }}14; color: {{ $skill['color'] }}; border: 1px solid {{ $skill['color'] }}28;">
                                     <i class="{{ $skill['icon'] }}"></i>
                                 </div>
+                                @endif
                                 <div class="text-end">
                                     <span class="badge bg-light border text-muted font-mono mb-1">{{ $skill['code'] }}</span>
                                     <div>
