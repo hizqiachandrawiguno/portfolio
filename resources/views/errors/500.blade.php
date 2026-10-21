@@ -6,10 +6,10 @@
     <title>500 - Server Error | Hizqia Chandra Wiguno Portfolio</title>
     <meta name="robots" content="noindex, follow">
 
-    <!-- Google Fonts: Outfit, Plus Jakarta Sans, Fira Code -->
+    <!-- Google Fonts: Space Grotesk & Plus Jakarta Sans -->
     <link rel="preconnect" href="https://fonts.googleapis.com">
     <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
-    <link href="https://fonts.googleapis.com/css2?family=Fira+Code:wght@400;500;600&family=Outfit:wght@600;700;800;900&family=Plus+Jakarta+Sans:wght@400;500;600;700&display=swap" rel="stylesheet">
+    <link href="https://fonts.googleapis.com/css2?family=Plus+Jakarta+Sans:wght@400;500;600;700&family=Space+Grotesk:wght@500;600;700&display=swap" rel="stylesheet">
 
     <!-- FontAwesome 6 -->
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.2/css/all.min.css">
@@ -25,9 +25,9 @@
             --color-charcoal: #2D2D2D;
             --color-muted: #6B655F;
             --border-color: #D6D0C5;
-            --font-heading: 'Outfit', sans-serif;
+            --font-heading: 'Space Grotesk', sans-serif;
             --font-body: 'Plus Jakarta Sans', sans-serif;
-            --font-mono: 'Fira Code', monospace;
+            --font-mono: 'Space Grotesk', sans-serif;
         }
 
         * {

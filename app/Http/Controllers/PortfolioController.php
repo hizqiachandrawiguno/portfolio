@@ -18,7 +18,7 @@ class PortfolioController extends Controller
             'gpa' => '3.70',
             'status' => 'Tersedia untuk Pekerjaan & Proyek Kreatif',
             'photo' => asset('images/hizqia_profile.webp'),
-            'catchy_summary' => 'Saya menciptakan identitas visual yang berkarakter, tata letak tipografi yang presisi, dan pengalaman multimedia yang fungsional untuk brand dan produk digital.',
+            'catchy_summary' => 'Saya Graphic Designer yang merancang key visual, materi booth event, dan media digital agar pesan brand tersampaikan jelas. Terbiasa bekerja dengan brand guideline korporat maupun kebutuhan event publik, dengan palet yang harmonis dan tipografi yang nyaman dibaca.',
             'contact' => [
                 'email' => 'hizqiachandrawiguno@gmail.com',
                 'location' => 'Jakarta / Bogor, Indonesia',
@@ -29,114 +29,45 @@ class PortfolioController extends Controller
         ];
 
         $skills = [
-            'software' => [
+            'output_groups' => [
                 [
-                    'name' => 'Adobe Photoshop',
-                    'level_badge' => 'Daily Driver',
-                    'code' => 'Ps',
-                    'icon' => 'fa-solid fa-paintbrush',
-                    'logo' => asset('images/logos/photoshop.svg'),
-                    'color' => '#31A8FF',
-                    'category' => 'Graphic Design',
-                    'focus' => 'Key Visual & Compositing',
-                    'desc' => 'Photo retouching, social media visual systems, poster layouting, dan digital photo compositing berskala cetak & digital.'
+                    'id' => 'group-graphic',
+                    'title' => 'Desain Grafis',
+                    'tools' => [
+                        ['name' => 'Adobe Photoshop', 'mono' => 'Ps'],
+                        ['name' => 'Adobe Illustrator', 'mono' => 'Ai'],
+                        ['name' => 'Canva', 'mono' => null],
+                    ],
+                    'examples' => [
+                        ['label' => 'TRAC Astra (Lalala Fest 2025)', 'url' => '#proj-trac-astra'],
+                        ['label' => 'DRP Teens', 'url' => '#proj-drp-social'],
+                        ['label' => 'Ritistic Project', 'url' => '#proj-ritistic'],
+                    ]
                 ],
                 [
-                    'name' => 'Adobe Illustrator',
-                    'level_badge' => 'Daily Driver',
-                    'code' => 'Ai',
-                    'icon' => 'fa-solid fa-pen-nib',
-                    'logo' => asset('images/logos/illustrator.svg'),
-                    'color' => '#FF9A00',
-                    'category' => 'Vector & Logo',
-                    'focus' => 'Brand Identity & Vector',
-                    'desc' => 'Perancangan logo, visual identity guideline, ilustrasi vektor presisi, tipografi kustom, dan materi POSM siap cetak.'
+                    'id' => 'group-video',
+                    'title' => 'Video & Motion',
+                    'tools' => [
+                        ['name' => 'Adobe Premiere Pro', 'mono' => 'Pr'],
+                        ['name' => 'Adobe After Effects', 'mono' => 'Ae'],
+                    ],
+                    'examples' => [
+                        ['label' => 'Eleccion Worship', 'url' => '#proj-eleccion'],
+                        ['label' => 'Anak Bertanya', 'url' => '#proj-anak-bertanya'],
+                    ]
                 ],
                 [
-                    'name' => 'Figma',
-                    'level_badge' => 'Advanced Workflow',
-                    'code' => 'Fg',
-                    'icon' => 'fa-brands fa-figma',
-                    'logo' => asset('images/logos/figma.svg'),
-                    'color' => '#A259FF',
-                    'category' => 'UI/UX Design',
-                    'focus' => 'Interface & Design Systems',
-                    'desc' => 'Wireframing, prototyping interaktif, penataan design tokens (warna, grid, spacing), dan handoff rapi untuk developer.'
-                ],
-                [
-                    'name' => 'Adobe Premiere Pro',
-                    'level_badge' => 'Production Ready',
-                    'code' => 'Pr',
-                    'icon' => 'fa-solid fa-film',
-                    'logo' => asset('images/logos/premiere.svg'),
-                    'color' => '#9999FF',
-                    'category' => 'Video Editing',
-                    'focus' => 'Audio-Visual Production',
-                    'desc' => 'Timeline narrative cutting, pacing ritmis, color grading sinematik, serta sinkronisasi audio untuk video promosi & profil korporat.'
-                ],
-                [
-                    'name' => 'Adobe After Effects',
-                    'level_badge' => 'Production Ready',
-                    'code' => 'Ae',
-                    'icon' => 'fa-solid fa-wand-magic-sparkles',
-                    'logo' => asset('images/logos/aftereffects.svg'),
-                    'color' => '#D291FF',
-                    'category' => 'Motion Graphics',
-                    'focus' => 'Kinetic Motion & VFX',
-                    'desc' => 'Tipografi kinetik, animasi logo, visual effect compositing, dan transisi motion dinamis untuk kebutuhan media digital.'
-                ],
-                [
-                    'name' => 'Canva',
-                    'level_badge' => 'Rapid Layout',
-                    'code' => 'Cn',
-                    'icon' => 'fa-solid fa-file-lines',
-                    'logo' => asset('images/logos/canva.svg'),
-                    'color' => '#00B5E2',
-                    'category' => 'Graphic Design',
-                    'focus' => 'Fast Turnaround Design',
-                    'desc' => 'Produksi cepat aset promosi harian, template presentasi, dan materi visual kolaboratif untuk kebutuhan tim.'
-                ]
-            ],
-            'web' => [
-                [
-                    'name' => 'HTML5 & CSS3',
-                    'level_badge' => 'Core Foundation',
-                    'code' => 'HC',
-                    'icon' => 'fa-brands fa-html5',
-                    'color' => '#0284C7',
-                    'category' => 'Web Core',
-                    'focus' => 'Semantic & Precision Grid',
-                    'desc' => 'Struktur semantik ramah aksesibilitas, responsive grid & flexbox, animasi CSS fluid, dan custom CSS variable tokens.'
-                ],
-                [
-                    'name' => 'JavaScript (ES6+)',
-                    'level_badge' => 'Interactive UI',
-                    'code' => 'JS',
-                    'icon' => 'fa-brands fa-js',
-                    'color' => '#EAB308',
-                    'category' => 'Frontend Logic',
-                    'focus' => 'DOM & Micro-Interactions',
-                    'desc' => 'Manipulasi DOM, kontrol komponen interaktif, penanganan event dinamis, dan integrasi library animasi.'
-                ],
-                [
-                    'name' => 'PHP & Laravel',
-                    'level_badge' => 'Backend Framework',
-                    'code' => 'LV',
-                    'icon' => 'fa-brands fa-laravel',
-                    'color' => '#FF2D20',
-                    'category' => 'Web Architecture',
-                    'focus' => 'Blade Engine & MVC',
-                    'desc' => 'Arsitektur MVC, dynamic routing, templating modular Blade, dan manajemen controller data portofolio dinamis.'
-                ],
-                [
-                    'name' => 'Bootstrap 5',
-                    'level_badge' => 'CSS Framework',
-                    'code' => 'Bs',
-                    'icon' => 'fa-brands fa-bootstrap',
-                    'color' => '#7952B3',
-                    'category' => 'Frontend',
-                    'focus' => 'Responsive UI Systems',
-                    'desc' => 'Implementasi grid responsif 12 kolom, adaptasi breakpoint mobile-first, dan kustomisasi utility classes terstruktur.'
+                    'id' => 'group-web',
+                    'title' => 'Web & Antarmuka',
+                    'tools' => [
+                        ['name' => 'Laravel', 'mono' => null],
+                        ['name' => 'Bootstrap', 'mono' => null],
+                        ['name' => 'Figma', 'mono' => null],
+                    ],
+                    'examples' => [
+                        ['label' => 'PintarBaca', 'url' => '#proj-pintarbaca'],
+                        ['label' => 'Portal web komunitas GBI ERC Sawangan', 'url' => '#proj-erc'],
+                    ]
                 ]
             ],
             'soft' => [
@@ -372,6 +303,7 @@ class PortfolioController extends Controller
         $certificates = [
             [
                 'id' => 'cert-bnsp-official',
+                'is_featured' => true,
                 'title' => 'Sertifikat Kompetensi BNSP - Junior Graphic Designer',
                 'issuer' => 'Badan Nasional Sertifikasi Profesi (BNSP) & LSP P3 Teknologi Digital',
                 'cert_num' => '62090 2166 3 0099707 2024',
@@ -379,92 +311,132 @@ class PortfolioController extends Controller
                 'year' => '02 Juli 2024 (Berlaku 3 Tahun)',
                 'badge' => 'Sertifikasi Profesi BNSP',
                 'icon' => 'fa-solid fa-award',
-                'color' => '#C2410C',
+                'color' => '#C24E19',
                 'pdf_url' => asset('images/cert_bnsp.pdf'),
                 'desc' => 'Sertifikat Kompetensi Profesi Resmi dari Badan Nasional Sertifikasi Profesi (BNSP) Republik Indonesia atas nama Hizqia Chandra Wiguno. Diterbitkan di Yogyakarta oleh Lembaga Sertifikasi Profesi Teknologi Digital.',
+                'competencies_sentence' => 'Unit kompetensi teruji mencakup pengaplikasian prinsip dasar desain, penerapan prinsip komunikasi dan design brief, pengoperasian perangkat lunak desain, hingga penciptaan karya desain grafis terstandar nasional.',
                 'competencies' => [
-                    'A. Mengaplikasikan Prinsip Dasar Desain',
-                    'B. Menerapkan Prinsip Dasar Komunikasi',
-                    'C. Menerapkan Design Brief',
-                    'D. Mengoperasikan Perangkat Lunak Desain',
-                    'E. Menciptakan Karya Desain'
+                    'Mengaplikasikan Prinsip Dasar Desain',
+                    'Menerapkan Prinsip Dasar Komunikasi',
+                    'Menerapkan Design Brief',
+                    'Mengoperasikan Perangkat Lunak Desain',
+                    'Menciptakan Karya Desain'
                 ]
             ],
             [
                 'id' => 'cert-kominfo-vsga',
+                'is_featured' => false,
                 'title' => 'Sertifikat Pelatihan Kominfo - Junior Graphic Designer',
                 'issuer' => 'BPSDMP Jakarta & Digital Talent Scholarship Kominfo RI',
-                'cert_num' => '19381291150-89/VSGA/BLSDM.Kominfo/2024',
-                'reg_num' => 'VSGA Digitalent 2024',
-                'year' => '04 Juli 2024 (24 Jam Pelatihan)',
-                'badge' => 'Kominfo RI Scholarship',
+                'cert_num' => null,
+                'reg_num' => null,
+                'year' => '04 Juli 2024',
+                'badge' => 'Pelatihan Kominfo RI',
                 'icon' => 'fa-solid fa-graduation-cap',
                 'color' => '#D97706',
                 'pdf_url' => asset('images/cert_kominfo.pdf'),
-                'desc' => 'Sertifikat Kelulusan Pelatihan Intensif Vocational School Graduate Academy (VSGA) Digital Talent Scholarship Kominfo RI untuk skema Junior Graphic Designer.',
-                'competencies' => [
-                    'A. Mengaplikasikan Prinsip Dasar Desain (4 JP)',
-                    'B. Menerapkan Prinsip Dasar Komunikasi (4 JP)',
-                    'C. Menerapkan Design Brief (4 JP)',
-                    'D. Mengoperasikan Perangkat Lunak Desain (4 JP)',
-                    'E. Menciptakan Karya Desain (8 JP)'
-                ]
+                'desc' => 'Sertifikat Kelulusan Pelatihan Intensif Vocational School Graduate Academy (VSGA) Digital Talent Scholarship Kominfo RI untuk skema Junior Graphic Designer (24 Jam Pelatihan).',
+                'competencies_sentence' => 'Pelatihan intensif 24 JP meliputi prinsip desain, komunikasi visual, perancangan brief, dan eksekusi karya desain.',
+                'competencies' => []
             ],
             [
                 'id' => 'cert-rubrik-ai',
+                'is_featured' => false,
                 'title' => 'Sertifikat Rubrik Grafis - Mastering Adobe Illustrator',
-                'issuer' => 'Rubrik Grafis (Digital Creative Online Class)',
-                'cert_num' => 'RG-AI-2024-0517',
-                'reg_num' => 'Digital Creative Class',
+                'issuer' => 'Rubrik Grafis (Kelas Kreatif Digital)',
+                'cert_num' => null,
+                'reg_num' => null,
                 'year' => '17 Mei 2024',
-                'badge' => 'Mastery Certification',
+                'badge' => 'Kelas Online Terverifikasi',
                 'icon' => 'fa-solid fa-pen-nib',
                 'color' => '#EA580C',
                 'pdf_url' => asset('images/cert_rubrik_ai.pdf'),
-                'desc' => 'Sertifikat Kelulusan Kelas Online Mastering Adobe Illustrator dari Rubrik Grafis. Memverifikasi penguasaan perangkat lunak vektor, pembuatan ilustrasi presisi, dan branding identity visual.',
-                'competencies' => [
-                    'A. Penguasaan Pen Tool, Pathfinder, & Shape Builder',
-                    'B. Teknik Gradients, Color Swatches, & Appearance Styles',
-                    'C. Desain Logo Vektor & Typography Artboard Layout'
-                ]
+                'desc' => 'Sertifikat Penguasaan Perangkat Lunak Adobe Illustrator dari Rubrik Grafis: teknik vektor presisi, manajemen warna, dan tata letak tipografi artboard.',
+                'competencies_sentence' => 'Penguasaan pen tool, pathfinder, shape builder, color swatches, dan typography artboard layout.',
+                'competencies' => []
             ],
             [
                 'id' => 'cert-rubrik-ui',
+                'is_featured' => false,
                 'title' => 'Sertifikat Rubrik Grafis - UI Design for Landing Page',
-                'issuer' => 'Rubrik Grafis (Digital Creative Online Class)',
-                'cert_num' => 'RG-UI-2024-0517',
-                'reg_num' => 'Digital Creative Class',
+                'issuer' => 'Rubrik Grafis (Kelas Kreatif Digital)',
+                'cert_num' => null,
+                'reg_num' => null,
                 'year' => '17 Mei 2024',
-                'badge' => 'UI/UX Specialization',
+                'badge' => 'Kelas Online Terverifikasi',
                 'icon' => 'fa-solid fa-laptop-code',
                 'color' => '#E36B32',
                 'pdf_url' => asset('images/cert_rubrik_ui.pdf'),
-                'desc' => 'Sertifikat Spesialisasi UI Design for Landing Page dari Rubrik Grafis. Memverifikasi kemampuan merancang tata letak web landing page yang modern, komunikatif, dan conversion-focused.',
-                'competencies' => [
-                    'A. User Journey Mapping & Wireframing Landing Page',
-                    'B. High-Fidelity Component UI Layouting di Figma',
-                    'C. Penerapan Responsive Grid System & Micro-Interactions'
-                ]
+                'desc' => 'Sertifikat Perancangan Antarmuka Web Landing Page dari Rubrik Grafis: struktur hierarki visual, komponen modern, dan responsive grid layout.',
+                'competencies_sentence' => 'User journey mapping, wireframing, high-fidelity UI layouting, dan responsive grid.',
+                'competencies' => []
             ]
         ];
 
-        // 6 Flagship Projects categorized into Graphic Design, Video Editing & Web UI/UX
+        // 7 Curated Flagship Projects (TRAC Astra as Featured Hero + 6 Supporting Grid Projects)
         $projects = [
+            // --- 0. FEATURED FLAGSHIP CASE STUDY (KARYA UTAMA) ---
+            [
+                'id' => 'proj-trac-astra',
+                'title' => 'TRAC Astra (Lalala Festival 2025) - Key Visual & Materi Booth 3x3M',
+                'category' => 'graphic',
+                'category_label' => 'Key Visual & Materi Booth',
+                'action_type' => 'modal',
+                'modal_target' => '#tracAstraDemoModal',
+                'btn_text' => 'Lihat Galeri Aset & Booth TRAC Astra',
+                'btn_icon' => 'fa-images',
+                'image' => asset('images/trac_tenda_booth.webp'),
+                'is_featured' => true,
+                'short_desc' => 'Materi branding event booth TRAC (Astra) untuk Lalala Festival 2025, mencakup tenda booth 3x3 meter, standing banner promosi, meja registrasi & branding, serta hangtag merchandise. Bekerja dalam brand guideline korporat dengan tipografi yang terstruktur.',
+                'full_desc' => 'Perancangan materi 3D Spatial & POSM event fisik berskala 3x3 meter serta key visual digital untuk aktivasi brand TRAC (Member of Astra) pada Lalala Festival 2025. Mengintegrasikan brand guidelines resmi TRAC Astra Group (warna korporat, logo clearance, dan hierarki informasi promo) dengan palet dinamis festival publik.',
+                'tags' => ['Photoshop', 'Illustrator'],
+                'accent' => '#E36B32',
+                'gallery_items' => [
+                    [
+                        'id' => 'trac-tenda',
+                        'title' => 'Tenda Booth TRAC (3x3 M)',
+                        'category' => 'Spatial & Event Booth',
+                        'image' => asset('images/trac_tenda_booth.webp'),
+                        'desc' => 'Desain spatial 3D mockup booth resmi TRAC untuk aktivasi offline Lalala Festival 2025, lengkap dengan spesifikasi teknis 3x3 M.'
+                    ],
+                    [
+                        'id' => 'trac-standing-banner',
+                        'title' => 'Standing Banner TRACtoGo Promo',
+                        'category' => 'Print Collateral / POSM',
+                        'image' => asset('images/trac_standing_banner.webp'),
+                        'desc' => 'Materi promosi cetak ukuran 60x160 cm dengan hierarki informasi promo sewa mobil & download app.'
+                    ],
+                    [
+                        'id' => 'trac-kv-pantai',
+                        'title' => 'Key Visual: Teman di Setiap Kilometer',
+                        'category' => 'Creative Photo Manipulation',
+                        'image' => asset('images/trac_key_visual_pantai.webp'),
+                        'desc' => 'Digital photo compositing efek 3D pop-out smartphone menghubungkan suasana penat kantor menuju liburan santai di pantai.'
+                    ],
+                    [
+                        'id' => 'trac-promo-booth',
+                        'title' => 'Flyer & Aktivasi Booth Promo',
+                        'category' => 'Event Promo & Merchandising',
+                        'image' => asset('images/trac_promo_booth.webp'),
+                        'desc' => 'Desain materi promosi aktivasi booth dengan showcase merchandise kit dan voucher rental mobil.'
+                    ]
+                ]
+            ],
+
             // --- 1. GRAPHIC & SOCIAL MEDIA DESIGN ---
             [
                 'id' => 'proj-drp-social',
                 'title' => 'DRP Outstanding Teens - Social Media & Event Visuals',
                 'category' => 'graphic',
-                'category_label' => 'Social Media & Community Branding',
+                'category_label' => 'Desain Media Sosial & Acara',
                 'action_type' => 'modal',
                 'modal_target' => '#drpTeensDemoModal',
                 'btn_text' => 'Lihat Galeri Feed DRP Teens',
                 'btn_icon' => 'fa-images',
-                'image' => asset('images/drp_teens_showcase_hero.webp') . '?v=2.2',
-                'badge' => 'Social Media & Event Branding',
-                'short_desc' => 'Perancangan materi visual feed Instagram DRP Outstanding Teens: poster kebaktian remaja, kartu tema khotbah, dan ucapan hari raya dengan beragam eksplorasi visual.',
+                'image' => asset('images/drp_teens_dependable.webp'),
+                'short_desc' => 'Feed Instagram dan poster event remaja dengan eksplorasi gaya retro, pop-comic, dan kolase kertas. Judul dibuat kontras supaya topik mingguan langsung terbaca di layar ponsel.',
                 'full_desc' => 'Perancangan identitas dan materi publikasi media sosial untuk komunitas remaja DRP Outstanding Teens (DOT Teens). Mengeksplorasi fleksibilitas gaya visual yang dinamis dan relevan bagi audiens Gen-Z: mulai dari pendekatan pop-comic halftone pada tema "Self Improvement", tata letak editorial ripped-paper & tape pada tema "Dependable", frame polaroid retro pada "Iman, Pengharapan dan Kasih", street-poster grunge pada "Jeremiah Gen vs Everybody", hingga perayaan natal elegan bertema "Merry Christmas & Happy New Year".',
-                'tags' => ['Social Media Feed', 'Photoshop', 'Illustrator', 'Youth Branding', 'Event Poster', 'Typography'],
+                'tags' => ['Photoshop', 'Illustrator'],
                 'accent' => '#E36B32',
                 'gallery_items' => [
                     [
@@ -508,16 +480,15 @@ class PortfolioController extends Controller
                 'id' => 'proj-ritistic',
                 'title' => 'Ritistic Project - Visual Communication & Social Media Branding',
                 'category' => 'graphic',
-                'category_label' => 'Social Media Branding & Graphic Art',
+                'category_label' => 'Identitas Visual & Desain Grafis',
                 'action_type' => 'modal',
                 'modal_target' => '#ritisticDemoModal',
                 'btn_text' => 'Lihat Galeri Karya Ritistic',
                 'btn_icon' => 'fa-images',
-                'image' => asset('images/ritistic_showcase_hero.webp') . '?v=2.2',
-                'badge' => 'Social Media & Graphic Art',
-                'short_desc' => 'Perancangan materi komunikasi visual Ritistic Project: poster peringatan hari nasional & keagamaan, serta kartu visual profiling mahasiswa bernuansa warm terracotta.',
+                'image' => asset('images/ritistic_sumpah_pemuda.webp'),
+                'short_desc' => 'Seri poster peringatan hari besar dan kartu profil anggota dalam palet warm terracotta. Penempatan logo dan tata letak teks dijaga konsisten di setiap desain.',
                 'full_desc' => 'Produksi materi desain grafis multi-format untuk Ritistic Project. Proyek ini mencakup perancangan visual commemorative days (Hari Sumpah Pemuda 2024 bergaya retro-modern hand-drawn dan Hari Besar Tahun Baru Islam 1446 H), serta visual profiling anggota/mahasiswa dengan komposisi foto subjek, tipografi bold, dan ornamen buku ilustratif dengan konsistensi penempatan logo Ritistic.',
-                'tags' => ['Social Media Design', 'Illustrator', 'Photoshop', 'Typography', 'Commemorative Art', 'Profiling Card'],
+                'tags' => ['Illustrator', 'Photoshop'],
                 'accent' => '#EA580C',
                 'gallery_items' => [
                     [
@@ -556,14 +527,13 @@ class PortfolioController extends Controller
                 'id' => 'proj-eleccion',
                 'title' => 'Video Editing: Eleccion Worship - Allah Roh Kudus',
                 'category' => 'video',
-                'category_label' => 'Live Music Production & Multicam Editing',
+                'category_label' => 'Editing Video Live Worship',
                 'action_type' => 'video',
                 'modal_target' => '#videoPlayerModal',
                 'btn_text' => 'Tonton Video Eleccion Worship',
                 'btn_icon' => 'fa-circle-play',
                 'image' => asset('images/eleccion_worship_hero.webp'),
-                'badge' => 'Live Studio Worship 4K',
-                'short_desc' => 'Penyuntingan video live recording performa musik "Allah Roh Kudus" oleh Eleccion Worship dengan sinkronisasi multicam 4K, cinematic color grading, dan audio mastering sync.',
+                'short_desc' => 'Editing video live worship multi-kamera di Premiere Pro dan After Effects. Pergantian sudut kamera mengikuti tempo lagu, dengan pencahayaan panggung yang tetap seimbang.',
                 'full_desc' => 'Produksi dan penyuntingan video live recording cover lagu "Allah Roh Kudus" oleh Eleccion Worship di Diwangkoro Music Production. Bertanggung jawab sebagai Videographer, Video Editor, dan Thumbnail Designer. Mengintegrasikan sinkronisasi multi-angle camera secara presisi, penyesuaian mood lighting studio panggung bernuansa warm & cinematic, integrasi subtitle lirik dinamis, serta audio-visual mastering synchronization.',
                 'video_url' => 'https://www.youtube.com/watch?v=skzC2-_f090',
                 'video_embed_url' => 'https://www.youtube.com/embed/skzC2-_f090',
@@ -572,21 +542,20 @@ class PortfolioController extends Controller
                 'video_client' => 'Eleccion Worship (@eleccionworship2016)',
                 'video_role' => 'Videographer, Video Editor & Thumbnail Designer',
                 'video_workflow' => "1. Multicam Sync & Dynamic Angle Switching: Sinkronisasi waveform audio multi-kamera (Wide Stage, Vocalist Close-up, Guitarist, & Drummer).\n2. Cinematic Color Grading & Studio Mood: Pengolahan pencahayaan studio dengan LUT warm amber & deep contrast yang sinematik.\n3. Audio-Visual Mastering Alignment: Sinkronisasi presisi antara rekaman visual dengan output master audio Diwangkoro Music Production.\n4. Kinetic Lyrics & Cover Thumbnail: Integrasi subtitle lirik terstruktur serta perancangan poster thumbnail YouTube dengan CTR tinggi.",
-                'tags' => ['Premiere Pro', 'Multicam Editing', 'Color Grading', 'Live Worship', 'Audio Sync', 'Videography', 'Thumbnail Design'],
+                'tags' => ['Premiere Pro', 'After Effects'],
                 'accent' => '#C2410C'
             ],
             [
                 'id' => 'proj-anak-bertanya',
                 'title' => 'Video Editing: Anak Bertanya - Eps 1 (GBI ERC Sawangan)',
                 'category' => 'video',
-                'category_label' => 'Kids Educational Talkshow & Motion Graphics',
+                'category_label' => 'Video Edukasi Anak & Motion Graphic',
                 'action_type' => 'video',
                 'modal_target' => '#videoPlayerModal',
                 'btn_text' => 'Tonton Video Anak Bertanya',
                 'btn_icon' => 'fa-circle-play',
                 'image' => asset('images/anak_bertanya_hero.webp'),
-                'badge' => 'Kids Series & Motion Typography',
-                'short_desc' => 'Penyuntingan video series edukasi rohani anak "Anak Bertanya" (Eps 1) dengan motion graphics interaktif, pop-up text ilustratif, animasi dinamis, dan sound FX ceria.',
+                'short_desc' => 'Video edukasi anak berdurasi 10:49, diedit di Premiere Pro dan After Effects. Teks kinetik dan ilustrasi balon kata membantu anak mengikuti alur tanya-jawab.',
                 'full_desc' => 'Penyuntingan program series edukasi rohani anak "Anak Bertanya" Episode 1: "Siapakah Yang Menciptakan Tuhan?" untuk El-Roi Kids Church - GBI ERC Sawangan. Menggabungkan talkshow interaktif host & narasumber dengan motion graphics edukatif, kinetic text, visual bubble penjelas konsep, serta tata suara ceria dengan SFX komikal untuk menjaga retensi penonton anak dan keluarga.',
                 'video_url' => 'https://www.youtube.com/watch?v=bF9YZt4dRGY',
                 'video_embed_url' => 'https://www.youtube.com/embed/bF9YZt4dRGY',
@@ -595,7 +564,7 @@ class PortfolioController extends Controller
                 'video_client' => 'El-Roi Kids Church (GBI ERC Sawangan)',
                 'video_role' => 'Video Editor & Motion Designer',
                 'video_workflow' => "1. Interactive Pacing & Retention Cut: Pacing editing dinamis dan jump-cut removal untuk mempertahankan retensi fokus anak-anak selama 10+ menit.\n2. Kinetic Motion Graphics & Word Bubble: Pembuatan animasi teks, pop-up icon ilustrasi, dan visual balloon penjelas poin-poin penting di After Effects.\n3. Comic Sound FX & BGM Layering: Penataan efek suara kartun lucu (pop, whoosh, ding) sinkron visual serta pemilihan musik latar ceria dan ramah anak.\n4. Visual Polish & Color Vibrance: Color grading terang, kontras seimbang, serta integrasi lower-thirds & branding El-Roi Kids Church yang konsisten.",
-                'tags' => ['After Effects', 'Premiere Pro', 'Motion Graphics', 'Kinetic Typography', 'Kids Edu Series', 'Sound Design'],
+                'tags' => ['Premiere Pro', 'After Effects'],
                 'accent' => '#D97706'
             ],
 
@@ -604,32 +573,30 @@ class PortfolioController extends Controller
                 'id' => 'proj-pintarbaca',
                 'title' => 'Website Media Pembelajaran PintarBaca',
                 'category' => 'uiux',
-                'category_label' => 'UI/UX & EduTech Platform',
+                'category_label' => 'Media Pembelajaran Interaktif',
                 'action_type' => 'modal',
                 'modal_target' => '#pintarBacaDemoModal',
                 'btn_text' => 'Mainkan Demo PintarBaca',
                 'btn_icon' => 'fa-gamepad',
                 'image' => asset('images/pintarbaca_hero.webp'),
-                'badge' => 'Interactive Web EduTech',
-                'short_desc' => 'Platform edukasi web interaktif bagi anak-anak untuk belajar mengeja dan membaca suku kata bahasa Indonesia.',
+                'short_desc' => 'Media belajar membaca suku kata untuk Tugas Akhir di Polimedia, dibangun dengan Laravel dan Bootstrap. Tombol suku kata dibuat besar dan berkontras tinggi supaya mudah disentuh anak.',
                 'full_desc' => 'PintarBaca dirancang khusus untuk mempermudah anak usia dini belajar membaca suku kata. Menggabungkan ilustrasi visual beresolusi tinggi, skema warna ceria, serta widget interaktif pembentuk kata.',
-                'tags' => ['PintarBaca', 'EduTech', 'Suku Kata', 'Bootstrap 5', 'JS Interactive'],
+                'tags' => ['Laravel', 'Bootstrap', 'Figma'],
                 'accent' => '#EA580C'
             ],
             [
                 'id' => 'proj-erc',
                 'title' => 'Website ERC Sawangan',
                 'category' => 'uiux',
-                'category_label' => 'UI/UX & Community Portal',
+                'category_label' => 'Portal Web Komunitas',
                 'action_type' => 'modal',
                 'modal_target' => '#ercDemoModal',
                 'btn_text' => 'Lihat Demo Portal Web',
                 'btn_icon' => 'fa-globe',
                 'image' => asset('images/erc_sawangan_hero.webp'),
-                'badge' => 'Community Web Platform',
-                'short_desc' => 'Portal web informatif untuk komunitas gereja ERC Sawangan dengan fitur jadwal ibadah dan warta digital.',
+                'short_desc' => 'Portal web komunitas GBI ERC Sawangan, dibangun dengan Laravel dan Bootstrap. Jadwal ibadah dan warta mingguan disusun dalam kartu responsif agar mudah dibaca dari ponsel oleh jemaat segala usia.',
                 'full_desc' => 'Perancangan antarmuka pengguna (UI/UX) untuk platform komunitas ERC Sawangan. Menampilkan jadwal ibadah, portal artikel warta mingguan, dan sistem navigasi yang rapi serta fully responsive.',
-                'tags' => ['UI/UX Design', 'Community Portal', 'Figma', 'Bootstrap 5', 'Responsive Web'],
+                'tags' => ['Laravel', 'Bootstrap', 'Figma'],
                 'accent' => '#B45309'
             ]
         ];

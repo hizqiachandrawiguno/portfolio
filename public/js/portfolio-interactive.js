@@ -175,11 +175,20 @@ window.closeImageLightbox = function () {
     }
 };
 
+let lastFocusedModalTrigger = null;
+
 window.openProjectModal = function (modalId) {
     const modalOverlay = document.getElementById(modalId);
     if (modalOverlay) {
+        lastFocusedModalTrigger = document.activeElement;
         modalOverlay.classList.add('active');
         document.body.style.overflow = 'hidden';
+
+        // Focus first focusable element inside modal
+        const focusable = modalOverlay.querySelectorAll('button:not([disabled]), [href], input, select, textarea, [tabindex]:not([tabindex="-1"])');
+        if (focusable.length > 0) {
+            focusable[0].focus();
+        }
     }
 };
 
@@ -188,8 +197,61 @@ window.closeProjectModal = function (modalId) {
     if (modalOverlay) {
         modalOverlay.classList.remove('active');
         document.body.style.overflow = '';
+        if (lastFocusedModalTrigger && typeof lastFocusedModalTrigger.focus === 'function') {
+            lastFocusedModalTrigger.focus();
+        }
     }
 };
+
+// Global ESC Key Listener & Focus Trap for Modals (A11y Compliance)
+document.addEventListener('keydown', function (e) {
+    const activeModal = document.querySelector('.custom-modal-overlay.active');
+    if (!activeModal) return;
+
+    // 1. Close on ESC key
+    if (e.key === 'Escape' || e.key === 'Esc') {
+        e.preventDefault();
+        if (activeModal.id === 'videoPlayerModal' && typeof window.closeVideoModal === 'function') {
+            window.closeVideoModal();
+        } else if (activeModal.id === 'experienceDetailModal' && typeof window.closeExpModal === 'function') {
+            window.closeExpModal();
+        } else if (activeModal.id === 'imageLightboxModal' && typeof window.closeImageLightbox === 'function') {
+            window.closeImageLightbox();
+        } else if (activeModal.id && typeof window.closeProjectModal === 'function') {
+            window.closeProjectModal(activeModal.id);
+        } else {
+            activeModal.classList.remove('active');
+            document.body.style.overflow = '';
+        }
+        return;
+    }
+
+    // 2. Trap focus inside modal
+    if (e.key === 'Tab') {
+        const focusables = Array.from(activeModal.querySelectorAll('button:not([disabled]), [href], input:not([disabled]), select:not([disabled]), textarea:not([disabled]), [tabindex]:not([tabindex="-1"])'));
+        if (focusables.length === 0) {
+            e.preventDefault();
+            return;
+        }
+
+        const firstEl = focusables[0];
+        const lastEl = focusables[focusables.length - 1];
+
+        if (e.shiftKey) {
+            // Shift + Tab: Wrap from first to last
+            if (document.activeElement === firstEl || !activeModal.contains(document.activeElement)) {
+                e.preventDefault();
+                lastEl.focus();
+            }
+        } else {
+            // Tab: Wrap from last to first
+            if (document.activeElement === lastEl || !activeModal.contains(document.activeElement)) {
+                e.preventDefault();
+                firstEl.focus();
+            }
+        }
+    }
+});
 
 // STUDIO CINEMA VIDEO PLAYER MODAL FUNCTIONS
 function getYoutubeVideoId(url) {
@@ -389,50 +451,30 @@ window.filterExperiences = function (category, btn) {
     });
 };
 
-// COMMAND PALETTE (CTRL + K) FUNCTIONS
-window.openCommandPalette = function () {
-    const backdrop = document.getElementById('cmdPaletteBackdrop');
-    const input = document.getElementById('cmdPaletteInput');
-    if (backdrop) {
-        backdrop.classList.add('active');
-        document.body.style.overflow = 'hidden';
-        if (input) {
-            input.value = '';
-            setTimeout(() => input.focus(), 50);
-            // Reset filter view
-            document.querySelectorAll('#cmdPaletteList .cmd-item').forEach(el => el.style.display = 'flex');
-        }
-    }
-};
+// TRAC ASTRA ARTWORK SELECTOR MODAL FUNCTION
+window.selectTracArtwork = function (imgSrc, title, desc, category, element) {
+    const activeImg = document.getElementById('tracActiveImg');
+    const activeTitle = document.getElementById('tracActiveTitle');
+    const activeDesc = document.getElementById('tracActiveDesc');
+    const activeCat = document.getElementById('tracActiveCategory');
 
-window.closeCommandPalette = function () {
-    const backdrop = document.getElementById('cmdPaletteBackdrop');
-    if (backdrop) {
-        backdrop.classList.remove('active');
-        document.body.style.overflow = '';
+    if (activeImg) {
+        activeImg.style.opacity = '0';
+        setTimeout(() => {
+            activeImg.src = imgSrc;
+            activeImg.style.opacity = '1';
+        }, 150);
     }
-};
+    if (activeTitle) activeTitle.textContent = title;
+    if (activeDesc) activeDesc.textContent = desc;
+    if (activeCat) activeCat.textContent = category;
 
+    document.querySelectorAll('#tracAstraDemoModal .ritistic-thumb-card').forEach(el => el.classList.remove('active'));
+    if (element) element.classList.add('active');
+};
 
 document.addEventListener('keydown', function (e) {
-    // Open Command Palette with Ctrl + K or Cmd + K
-    if ((e.ctrlKey || e.metaKey) && (e.key === 'k' || e.key === 'K')) {
-        e.preventDefault();
-        const backdrop = document.getElementById('cmdPaletteBackdrop');
-        if (backdrop && backdrop.classList.contains('active')) {
-            closeCommandPalette();
-        } else {
-            openCommandPalette();
-        }
-        return;
-    }
-
     if (e.key === 'Escape') {
-        const cmdModal = document.getElementById('cmdPaletteBackdrop');
-        if (cmdModal && cmdModal.classList.contains('active')) {
-            closeCommandPalette();
-            return;
-        }
         const videoModal = document.getElementById('videoPlayerModal');
         if (videoModal && videoModal.classList.contains('active')) {
             closeVideoModal();
@@ -458,54 +500,7 @@ document.addEventListener('DOMContentLoaded', function () {
     const introTextEl = document.getElementById('introTypewriterText');
     const introProgress = document.getElementById('introProgressBar');
 
-    /* -------------------------------------------------------------------------- */
-    /* NO-COPYRIGHT BACKGROUND AUDIO PLAYER (VOLUME LOCKED AT 10%)               */
-    /* -------------------------------------------------------------------------- */
-    const bgAudio = document.getElementById('bgMusic');
-    const audioWidget = document.getElementById('audioControlWidget');
-    const audioIcon = document.getElementById('audioIcon');
-    const audioStatus = document.getElementById('audioStatusText');
-
-    let isAudioPlaying = false;
-
-    if (bgAudio) {
-        bgAudio.volume = 0.10; // Exactly 10% volume as requested
-    }
-
-    window.playBgMusic = function () {
-        if (!bgAudio || isAudioPlaying) return;
-        bgAudio.volume = 0.10;
-        bgAudio.play().then(() => {
-            isAudioPlaying = true;
-            if (audioWidget) audioWidget.classList.add('playing');
-            if (audioIcon) audioIcon.className = 'fa-solid fa-volume-high text-accent';
-            if (audioStatus) audioStatus.textContent = 'BGM 10%';
-            if (window.startWaveformVisualizer) window.startWaveformVisualizer();
-        }).catch(err => {
-            console.log('Autoplay deferred until user interaction:', err);
-        });
-    };
-
-    window.toggleBgMusic = function () {
-        if (!bgAudio) return;
-        if (isAudioPlaying) {
-            bgAudio.pause();
-            isAudioPlaying = false;
-            if (audioWidget) audioWidget.classList.remove('playing');
-            if (audioIcon) audioIcon.className = 'fa-solid fa-volume-xmark text-muted';
-            if (audioStatus) audioStatus.textContent = 'MUTED';
-            if (window.stopWaveformVisualizer) window.stopWaveformVisualizer();
-        } else {
-            playBgMusic();
-        }
-    };
-
-    // Auto-start audio on first user gesture
-    document.addEventListener('click', function () {
-        if (!isAudioPlaying) {
-            playBgMusic();
-        }
-    }, { once: true });
+    /* BACKGROUND AUDIO REMOVED AS PER POLISH AUDIT */
 
     window.dismissStudioIntro = function () {
         if (!introOverlay) return;
@@ -1021,64 +1016,7 @@ document.addEventListener('DOMContentLoaded', function () {
     }
 
 
-    /* -------------------------------------------------------------------------- */
-    /* 9. REAL-TIME AUDIO WAVEFORM CANVAS VISUALIZER                               */
-    /* -------------------------------------------------------------------------- */
-    const waveCanvas = document.getElementById('audioWaveCanvas');
-    if (waveCanvas) {
-        const ctx = waveCanvas.getContext('2d');
-        const barCount = 7;
-        let heights = new Array(barCount).fill(4);
-        let waveRafId = null;
 
-        function renderWaveform() {
-            ctx.clearRect(0, 0, waveCanvas.width, waveCanvas.height);
-            const barWidth = 4;
-            const gap = 5;
-            const startX = (waveCanvas.width - (barCount * (barWidth + gap) - gap)) / 2;
-
-            for (let i = 0; i < barCount; i++) {
-                let targetHeight = 4;
-                if (isAudioPlaying) {
-                    targetHeight = 4 + Math.sin(Date.now() * 0.009 + i * 1.3) * 8 + Math.random() * 5;
-                }
-                heights[i] += (targetHeight - heights[i]) * 0.25;
-                const h = Math.max(3, Math.min(22, heights[i]));
-                const y = (waveCanvas.height - h) / 2;
-
-                ctx.fillStyle = isAudioPlaying ? '#E36B32' : '#8C847B';
-                ctx.beginPath();
-                if (ctx.roundRect) {
-                    ctx.roundRect(startX + i * (barWidth + gap), y, barWidth, h, 2);
-                } else {
-                    ctx.rect(startX + i * (barWidth + gap), y, barWidth, h);
-                }
-                ctx.fill();
-            }
-
-            if (isAudioPlaying) {
-                waveRafId = requestAnimationFrame(renderWaveform);
-            } else {
-                waveRafId = null;
-            }
-        }
-
-        window.startWaveformVisualizer = function () {
-            if (!waveRafId) {
-                waveRafId = requestAnimationFrame(renderWaveform);
-            }
-        };
-
-        window.stopWaveformVisualizer = function () {
-            if (waveRafId) {
-                cancelAnimationFrame(waveRafId);
-                waveRafId = null;
-            }
-            renderWaveform(); // Draw idle frame once
-        };
-
-        renderWaveform(); // Initial static frame draw
-    }
 
 });
 

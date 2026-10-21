@@ -42,6 +42,18 @@ Route::get('/type-test', function () {
     return view('type-test');
 })->name('type-test');
 
+// Dedicated Direct CV Download Route
+Route::get('/cv', function () {
+    $path = public_path('images/cv_hizqia_chandra.pdf');
+    if (file_exists($path)) {
+        return response()->download($path, 'CV_Hizqia_Chandra_Wiguno.pdf', [
+            'Content-Type' => 'application/pdf',
+        ]);
+    }
+    return abort(404);
+})->name('download.cv');
+
+
 
 
 

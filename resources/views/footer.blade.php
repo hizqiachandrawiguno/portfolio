@@ -13,26 +13,26 @@
             
             <!-- Section Kicker / Tag -->
             <div class="d-inline-flex align-items-center studio-outro-tag mb-4">
-                <span>MARI BERKOLABORASI &bull; GET IN TOUCH</span>
+                <span>MARI BERKOLABORASI</span>
             </div>
 
             <!-- Big Confident Typographic Headline -->
             <h2 class="studio-outro-title mb-3">
-                Mari Buat Karya Visual yang <br class="d-none d-md-block">
+                Mari Bicara Soal Posisi <br class="d-none d-md-block">
                 <span class="text-terracotta position-relative d-inline-block">
-                    Berkarakter &amp; Bermakna
-                </span> Bersama.
+                    Graphic Designer
+                </span> di Tim Anda.
             </h2>
 
             <!-- Human Conversational Subtitle -->
             <p class="studio-outro-desc mb-4">
-                Terbuka untuk peluang kerja full-time, proyek lepas <em>brand identity</em>, desain grafis editorial, maupun pengembangan pengalaman multimedia. Ceritakan visi proyek Anda, dan mari kita wujudkan.
+                Tersedia untuk posisi full-time sebagai Graphic Designer atau Marketing Graphic Designer mulai 2 November 2026. Siap membantu tim Anda merancang materi promosi, key visual kampanye, maupun kebutuhan grafis harian yang terstruktur dan sesuai guideline.
             </p>
 
             <!-- Status Availability Pill -->
             <div class="studio-availability-badge mb-5">
                 <span class="pulse-indicator"></span>
-                <span>Tersedia untuk Posisi Full-Time &amp; Proyek Kreatif Baru</span>
+                <span>Tersedia Full-Time &bull; Mulai 2 November 2026</span>
             </div>
 
             <!-- Primary Contact & Channels Grid -->
@@ -171,9 +171,10 @@
         border-radius: 9999px;
         background: #FFFFFF;
         border: 1px solid #E2DDD5;
-        font-family: 'Fira Code', monospace;
+        font-family: var(--font-mono), 'Space Grotesk', sans-serif;
         font-size: 0.75rem;
         font-weight: 700;
+        letter-spacing: 0.08em;
         color: #5A544E;
         box-shadow: 0 2px 8px rgba(0, 0, 0, 0.03);
     }
@@ -205,21 +206,21 @@
         align-items: center;
         gap: 10px;
         padding: 8px 20px;
-        background: #FFFFFF;
-        border: 1px solid #D8EAD9;
+        background: #FFF8F3;
+        border: 1px solid #F5D5C4;
         border-radius: 9999px;
         font-family: 'Plus Jakarta Sans', sans-serif;
         font-size: 0.84rem;
         font-weight: 600;
-        color: #1E6B2C;
-        box-shadow: 0 4px 12px rgba(30, 107, 44, 0.06);
+        color: #A83C0C;
+        box-shadow: 0 4px 12px rgba(227, 107, 50, 0.08);
     }
 
     .pulse-indicator {
         width: 9px;
         height: 9px;
         border-radius: 50%;
-        background-color: #16A34A;
+        background-color: #E36B32;
         position: relative;
     }
 
@@ -228,13 +229,20 @@
         position: absolute;
         inset: -3px;
         border-radius: 50%;
-        background-color: rgba(22, 163, 74, 0.4);
+        background-color: rgba(227, 107, 50, 0.4);
         animation: pulseRing 1.8s cubic-bezier(0.24, 0, 0.38, 1) infinite;
     }
 
     @keyframes pulseRing {
         0% { transform: scale(0.8); opacity: 0.8; }
         100% { transform: scale(2); opacity: 0; }
+    }
+
+    @media (prefers-reduced-motion: reduce) {
+        .pulse-indicator::after {
+            animation: none !important;
+            display: none !important;
+        }
     }
 
     .studio-channels-wrapper {
