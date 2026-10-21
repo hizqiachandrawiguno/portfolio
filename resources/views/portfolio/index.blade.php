@@ -120,10 +120,14 @@
     <link rel="dns-prefetch" href="//cdnjs.cloudflare.com">
     <link rel="dns-prefetch" href="//cdn.jsdelivr.net">
 
-    <!-- Google Fonts: Outfit, Plus Jakarta Sans, Fira Code -->
+    <!-- Google Fonts: Outfit, Plus Jakarta Sans, Fira Code (Asynchronous Non-Blocking) -->
     <link rel="preconnect" href="https://fonts.googleapis.com">
     <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
-    <link href="https://fonts.googleapis.com/css2?family=Outfit:wght@300;400;500;600;700;800;900&family=Plus+Jakarta+Sans:ital,wght@0,300;0,400;0,500;0,600;0,700;0,800;1,400&family=Fira+Code:wght@400;500;600&display=swap" rel="stylesheet">
+    <link rel="preload" as="style" href="https://fonts.googleapis.com/css2?family=Outfit:wght@400;600;700;800&family=Plus+Jakarta+Sans:wght@400;500;600;700&family=Fira+Code:wght@400;500;600&display=swap">
+    <link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Outfit:wght@400;600;700;800&family=Plus+Jakarta+Sans:wght@400;500;600;700&family=Fira+Code:wght@400;500;600&display=swap" media="print" onload="this.media='all'">
+    <noscript>
+        <link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Outfit:wght@400;600;700;800&family=Plus+Jakarta+Sans:wght@400;500;600;700&family=Fira+Code:wght@400;500;600&display=swap">
+    </noscript>
 
     <!-- Bootstrap 5 CSS -->
     <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.2/dist/css/bootstrap.min.css" rel="stylesheet">
@@ -136,8 +140,8 @@
     <link rel="icon" type="image/png" href="{{ asset('images/hizqia_logo_orange.png') }}">
     <link rel="shortcut icon" type="image/png" href="{{ asset('images/hizqia_logo_orange.png') }}">
 
-    <!-- Custom Designer Workspace CSS -->
-    <link rel="stylesheet" href="{{ asset('css/custom-designer.css') }}?v={{ time() }}">
+    <!-- Custom Designer Workspace CSS (Cached Version) -->
+    <link rel="stylesheet" href="{{ asset('css/custom-designer.css') }}?v=2.5.0">
 
     <!-- Inject Experiences & Projects Data Objects early & Global Filter Functions -->
     <script>
@@ -864,7 +868,7 @@
                 <button type="button" class="btn-close" onclick="closeProjectModal('pintarBacaDemoModal')" aria-label="Close"></button>
             </div>
             <div class="modal-body modal-body-studio">
-                <img src="{{ asset('images/pintarbaca_hero.jpg') }}?v={{ time() }}" alt="PintarBaca UI Mockup" class="img-fluid rounded-4 mb-4 border shadow-sm" loading="lazy" decoding="async">
+                <img src="{{ asset('images/pintarbaca_hero.jpg') }}?v=2.5.0" alt="PintarBaca UI Mockup" class="img-fluid rounded-4 mb-4 border shadow-sm" loading="lazy" decoding="async">
                 
                 <div class="pintarbaca-game-container">
                     <div class="d-flex justify-content-between align-items-center mb-3">
@@ -925,7 +929,7 @@
                 <button type="button" class="btn-close" onclick="closeProjectModal('ercDemoModal')" aria-label="Close"></button>
             </div>
             <div class="modal-body modal-body-studio">
-                <img src="{{ asset('images/erc_sawangan_hero.jpg') }}?v={{ time() }}" alt="ERC Sawangan Preview" class="img-fluid rounded-4 mb-4 border shadow-sm" loading="lazy" decoding="async">
+                <img src="{{ asset('images/erc_sawangan_hero.jpg') }}?v=2.5.0" alt="ERC Sawangan Preview" class="img-fluid rounded-4 mb-4 border shadow-sm" loading="lazy" decoding="async">
                 <h5 class="fw-bold text-dark mb-2">Desain Antarmuka Komunitas & Jadwal Ibadah</h5>
                 <p class="text-muted mb-3">Portal web ERC Sawangan dirancang untuk memudahkan jemaat mengakses warta gereja digital, pengumuman kegiatan, dan informasi jadwal ibadah dengan sistem navigasi yang rapi dan hangat.</p>
                 <div class="p-3 bg-light rounded-3 border font-mono small mb-4">
@@ -1265,7 +1269,7 @@
 
 
 
-    <!-- Custom Interactive JS with Cache Busting for Instant Updates -->
-    <script src="{{ asset('js/portfolio-interactive.js') }}?v={{ time() }}"></script>
+    <!-- Custom Interactive JS with Cache Versioning -->
+    <script src="{{ asset('js/portfolio-interactive.js') }}?v=2.5.0"></script>
 </body>
 </html>
