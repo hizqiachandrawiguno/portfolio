@@ -12,8 +12,7 @@
         <div class="studio-outro-card">
             
             <!-- Section Kicker / Tag -->
-            <div class="d-inline-flex align-items-center gap-2 studio-outro-tag mb-4">
-                <span class="status-live-dot" aria-hidden="true"></span>
+            <div class="d-inline-flex align-items-center studio-outro-tag mb-4">
                 <span>MARI BERKOLABORASI &bull; GET IN TOUCH</span>
             </div>
 
@@ -177,13 +176,6 @@
         font-weight: 700;
         color: #5A544E;
         box-shadow: 0 2px 8px rgba(0, 0, 0, 0.03);
-    }
-
-    .status-live-dot {
-        width: 8px;
-        height: 8px;
-        border-radius: 50%;
-        background-color: #D85A24;
     }
 
     .studio-outro-title {

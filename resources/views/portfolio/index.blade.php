@@ -141,7 +141,7 @@
     <link rel="shortcut icon" type="image/png" href="{{ asset('images/hizqia_logo_orange.png') }}">
 
     <!-- Custom Designer Workspace CSS (Cached Version) -->
-    <link rel="stylesheet" href="{{ asset('css/custom-designer.css') }}?v=2.5.0">
+    <link rel="stylesheet" href="{{ asset('css/custom-designer.css') }}?v=2.6.0">
 
     <!-- Inject Experiences & Projects Data Objects early & Global Filter Functions -->
     <script>
@@ -273,7 +273,7 @@
                 </div>
                 <div class="sidebar-nav-text">
                     <span class="nav-title">Capabilities</span>
-                    <small class="nav-desc">Rating Tools & Tech Stack</small>
+                    <small class="nav-desc">Tools & Tech Stack</small>
                 </div>
                 <i class="fa-solid fa-chevron-right nav-arrow"></i>
             </a>
@@ -345,18 +345,6 @@
                 <div class="vector-handle handle-bl"></div>
                 <div class="vector-handle handle-br"></div>
 
-                <!-- Floating Decorative Looping Graphics -->
-                <div class="hero-loop-graphic hero-graphic-sparkle-1" title="Creative Sparkle">
-                    <svg viewBox="0 0 24 24" width="26" height="26" fill="currentColor">
-                        <path d="M12 0C12 6.627 6.627 12 0 12C6.627 12 12 17.373 12 24C12 17.373 17.373 12 24 12C17.373 12 12 6.627 12 0Z"/>
-                    </svg>
-                </div>
-                <div class="hero-loop-graphic hero-graphic-sparkle-2" title="Design Vector">
-                    <svg viewBox="0 0 24 24" width="20" height="20" fill="currentColor">
-                        <path d="M12 0C12 6.627 6.627 12 0 12C6.627 12 12 17.373 12 24C12 17.373 17.373 12 24 12C17.373 12 12 6.627 12 0Z"/>
-                    </svg>
-                </div>
-
                 <div class="d-flex align-items-center justify-content-between mb-4">
                     <div class="artboard-header-tag mb-0">
                         <i class="fa-solid fa-crop-simple"></i> Portfolio
@@ -365,14 +353,9 @@
 
                 <div class="row align-items-center gy-4 gy-lg-5">
                     <div class="col-lg-7">
-                        <h1 class="hero-title mb-3 position-relative">
+                        <h1 class="hero-title mb-3">
                             Halo, Saya <br class="d-sm-none">
-                            <span class="text-accent position-relative d-inline-block">
-                                <span>Hizqia Chandra Wiguno</span>
-                                <svg class="hero-underline-vector" viewBox="0 0 240 12" fill="none" xmlns="http://www.w3.org/2000/svg">
-                                    <path d="M3 9C60 3 180 3 237 9" stroke="currentColor" stroke-width="4" stroke-linecap="round"/>
-                                </svg>
-                            </span>
+                            <span class="text-accent">Hizqia Chandra Wiguno</span>
                         </h1>
                         
                         <p class="lead fw-semibold text-dark mb-4 fs-5" style="max-width: 640px; line-height: 1.55;">
@@ -396,23 +379,6 @@
                             <div class="avatar-orbit-ring avatar-orbit-2"></div>
 
                             <img src="{{ $bio['photo'] }}" alt="{{ $bio['name'] }}" class="avatar-artboard img-fluid position-relative" style="z-index: 2;" loading="eager" fetchpriority="high" decoding="async">
-                            
-                            <!-- Floating Studio Badges Around Avatar with Parallax -->
-                            <div class="floating-badge badge-gpa" data-parallax="0.08">
-                                <i class="fa-solid fa-award text-accent fs-5"></i>
-                                <div>
-                                    <div class="font-mono text-accent">IPK <span class="counter-number" data-target="{{ $bio['gpa'] ?? '3.70' }}" data-decimals="2">{{ $bio['gpa'] ?? '3.70' }}</span></div>
-                                    <small class="text-muted">Polimedia Jakarta</small>
-                                </div>
-                            </div>
-
-                            <div class="floating-badge badge-major" data-parallax="-0.04">
-                                <i class="fa-solid fa-graduation-cap text-accent fs-5"></i>
-                                <div>
-                                    <div class="font-mono text-dark">Fresh Graduate</div>
-                                </div>
-                            </div>
-
                         </div>
                     </div>
                 </div>
@@ -555,31 +521,6 @@
 
         </div>
     </section>
-
-
-    <!-- ========================================================================== -->
-    <!-- ELEGANT RUNNING TICKER MARQUEE DIVIDER                                     -->
-    <!-- ========================================================================== -->
-    <div class="marquee-ticker-banner" aria-label="Creative Roles Marquee Slider">
-        <div class="marquee-ticker-body">
-            <div class="marquee-ticker-track">
-                <div class="marquee-ticker-group">
-                    <div class="marquee-ticker-item"><span class="text-white-word">Motion Designer</span></div>
-                    <div class="marquee-ticker-item"><span class="text-white-word">Creative Multimedia</span></div>
-                    <div class="marquee-ticker-item"><span class="text-white-word">Graphic Designer</span></div>
-                    <div class="marquee-ticker-item"><span class="text-white-word">UI/UX Designer</span></div>
-                    <div class="marquee-ticker-item"><span class="text-white-word">Visual Branding</span></div>
-                </div>
-                <div class="marquee-ticker-group" aria-hidden="true">
-                    <div class="marquee-ticker-item"><span class="text-white-word">Motion Designer</span></div>
-                    <div class="marquee-ticker-item"><span class="text-white-word">Creative Multimedia</span></div>
-                    <div class="marquee-ticker-item"><span class="text-white-word">Graphic Designer</span></div>
-                    <div class="marquee-ticker-item"><span class="text-white-word">UI/UX Designer</span></div>
-                    <div class="marquee-ticker-item"><span class="text-white-word">Visual Branding</span></div>
-                </div>
-            </div>
-        </div>
-    </div>
 
 
     <!-- ========================================================================== -->
@@ -1444,6 +1385,6 @@
 
 
     <!-- Custom Interactive JS with Cache Versioning -->
-    <script src="{{ asset('js/portfolio-interactive.js') }}?v=2.5.0"></script>
+    <script src="{{ asset('js/portfolio-interactive.js') }}?v=2.6.0"></script>
 </body>
 </html>

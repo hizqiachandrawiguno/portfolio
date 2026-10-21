@@ -547,23 +547,7 @@ document.addEventListener('DOMContentLoaded', function () {
     // Run initial counters immediately for hero and sidebar badges
     animateNumberCounters(document);
 
-    /* -------------------------------------------------------------------------- */
-    /* 2. ANIMATED PROGRESS BARS (EXPAND FROM 0% TO TARGET PERCENTAGE)            */
-    /* -------------------------------------------------------------------------- */
-    function animateProgressBars(container = document) {
-        const progressBars = container.querySelectorAll('.progress-fill');
-        progressBars.forEach(bar => {
-            const targetWidth = bar.getAttribute('data-progress') || '0';
-            // Start at 0%
-            bar.style.width = '0%';
-            // Trigger animation on next frame
-            requestAnimationFrame(() => {
-                setTimeout(() => {
-                    bar.style.width = targetWidth + '%';
-                }, 60);
-            });
-        });
-    }
+
 
     /* -------------------------------------------------------------------------- */
     /* DUAL TAB SWITCHER FOR HARD SKILLS VS SOFT SKILLS (BENTO GRID)              */
@@ -587,7 +571,6 @@ document.addEventListener('DOMContentLoaded', function () {
                 // Re-trigger counter & progress bar animation when switching back
                 hardView.querySelectorAll('.counter-number').forEach(el => el.classList.remove('counted'));
                 animateNumberCounters(hardView);
-                animateProgressBars(hardView);
             }
             if (softView) softView.classList.add('d-none');
         } else if (tabName === 'soft-skills') {
@@ -630,7 +613,6 @@ document.addEventListener('DOMContentLoaded', function () {
                 if (entry.isIntersecting) {
                     entry.target.classList.add('revealed');
                     animateNumberCounters(entry.target);
-                    animateProgressBars(entry.target);
                     revealObserver.unobserve(entry.target);
                 }
             });
@@ -642,7 +624,6 @@ document.addEventListener('DOMContentLoaded', function () {
             if (rect.top < window.innerHeight) {
                 el.classList.add('revealed');
                 animateNumberCounters(el);
-                animateProgressBars(el);
             } else {
                 revealObserver.observe(el);
             }
@@ -651,7 +632,6 @@ document.addEventListener('DOMContentLoaded', function () {
         revealElements.forEach(el => {
             el.classList.add('revealed');
             animateNumberCounters(el);
-            animateProgressBars(el);
         });
     }
 

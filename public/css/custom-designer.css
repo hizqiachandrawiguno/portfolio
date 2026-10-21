@@ -947,48 +947,6 @@ h6 {
     }
 
     50% {
-        opacity: 0;
-    }
-}
-
-.floating-badge {
-    position: absolute;
-    background: #FFFDF8;
-    backdrop-filter: blur(12px);
-    -webkit-backdrop-filter: blur(12px);
-    border: 1px solid #D6D0C5;
-    color: #171311;
-    padding: 8px 16px;
-    border-radius: 30px;
-    font-size: clamp(0.72rem, 1.8vw, 0.82rem);
-    font-weight: 700;
-    display: flex;
-    align-items: center;
-    gap: 8px;
-    box-shadow: 0 8px 20px rgba(23, 19, 17, 0.08);
-    animation: floatAnim 4s ease-in-out infinite alternate;
-    white-space: nowrap;
-    z-index: 5;
-}
-
-.badge-gpa {
-    top: -12px;
-    right: -12px;
-}
-
-.badge-major {
-    bottom: -12px;
-    left: -12px;
-    animation-delay: -2s;
-}
-
-@keyframes floatAnim {
-    0% {
-        transform: translateY(0px);
-    }
-
-    100% {
-        transform: translateY(-8px);
     }
 }
 
@@ -998,41 +956,6 @@ h6 {
     line-height: 1.2;
     letter-spacing: -0.5px;
     word-break: break-word;
-}
-
-/* ========================================================================== */
-/* HERO LOOPING GRAPHICS & DECORATIVE ANIMATIONS                              */
-/* ========================================================================== */
-.hero-loop-graphic {
-    position: absolute;
-    color: var(--accent-color);
-    pointer-events: none;
-    z-index: 3;
-    opacity: 0.35;
-    transition: transform 0.4s ease, opacity 0.4s ease;
-}
-
-.hero-graphic-sparkle-1 {
-    top: 24px;
-    right: 28px;
-    animation: none;
-}
-
-.hero-graphic-sparkle-2 {
-    bottom: 24px;
-    left: 28px;
-    animation: none;
-}
-
-.hero-underline-vector {
-    position: absolute;
-    bottom: -6px;
-    left: 0;
-    width: 100%;
-    height: 10px;
-    color: var(--accent-color);
-    opacity: 0.85;
-    pointer-events: none;
 }
 
 .hero-live-badge {
@@ -1208,54 +1131,6 @@ h6 {
     font-weight: 800;
     margin-bottom: 14px;
     transition: var(--transition-fast);
-}
-
-.rating-score {
-    font-family: var(--font-mono);
-    font-size: 1.05rem;
-    font-weight: 700;
-    color: var(--accent-color);
-}
-
-.progress-bar-custom {
-    height: 7px;
-    background: #E9E4DB;
-    border-radius: 10px;
-    overflow: hidden;
-    margin-top: 12px;
-    position: relative;
-}
-
-.progress-fill {
-    height: 100%;
-    border-radius: 10px;
-    background: linear-gradient(90deg, var(--accent-color), var(--accent-hover));
-    width: 0%;
-    transition: width 1.3s cubic-bezier(0.22, 1, 0.36, 1);
-    position: relative;
-    overflow: hidden;
-    box-shadow: 0 0 10px rgba(227, 107, 50, 0.3);
-}
-
-.progress-fill::after {
-    content: '';
-    position: absolute;
-    top: 0;
-    left: 0;
-    right: 0;
-    bottom: 0;
-    background: linear-gradient(90deg, transparent, rgba(255, 255, 255, 0.45), transparent);
-    animation: progressShimmer 2.2s infinite;
-}
-
-@keyframes progressShimmer {
-    0% {
-        transform: translateX(-100%);
-    }
-
-    100% {
-        transform: translateX(100%);
-    }
 }
 
 /* SOFT SKILLS BENTO GRID & DUAL TAB SWITCHER */
@@ -2280,16 +2155,6 @@ h6 {
         object-position: 50% 60%;
         border-radius: 20px;
     }
-
-    .badge-gpa {
-        top: 6px;
-        right: -6px;
-    }
-
-    .badge-major {
-        bottom: 6px;
-        left: -6px;
-    }
 }
 
 @media (max-width: 575.98px) {
@@ -2390,16 +2255,6 @@ h6 {
         background: rgba(255, 253, 248, 0.96);
         box-shadow: 0 4px 14px rgba(23, 19, 17, 0.12);
         z-index: 6;
-    }
-
-    .badge-gpa {
-        top: 6px;
-        right: -6px;
-    }
-
-    .badge-major {
-        bottom: 6px;
-        left: -6px;
     }
 
     /* Material 3 Segmented Pill Filter Controls */
@@ -2747,112 +2602,6 @@ h6 {
     .connect-badge-bottom {
         padding: 6px 12px;
         font-size: 0.72rem;
-    }
-}
-
-/* ========================================================================== */
-/* INFINITE RUNNING TICKER / MARQUEE SLIDER BANNER                            */
-/* ========================================================================== */
-.marquee-ticker-banner {
-    width: 100%;
-    position: relative;
-    overflow: hidden;
-    background-color: #E26B38;
-    border-top: 2.5px solid #171311;
-    border-bottom: 2.5px solid #171311;
-    user-select: none;
-    box-shadow: 0 4px 16px rgba(226, 107, 56, 0.18);
-    z-index: 5;
-    margin: 0;
-}
-
-.marquee-ticker-topline {
-    display: none;
-}
-
-.marquee-ticker-body {
-    display: flex;
-    overflow: hidden;
-    padding: 10px 0;
-    position: relative;
-    width: 100%;
-}
-
-.marquee-ticker-track {
-    display: flex;
-    width: max-content;
-    will-change: transform;
-    animation: marqueeScroll 24s linear infinite;
-}
-
-.marquee-ticker-banner:hover .marquee-ticker-track {
-    animation-play-state: paused;
-}
-
-.marquee-ticker-group {
-    display: flex;
-    align-items: center;
-    gap: 2.2rem;
-    padding-right: 2.2rem;
-    flex-shrink: 0;
-}
-
-.marquee-ticker-item {
-    display: inline-flex;
-    align-items: center;
-    gap: 0.5rem;
-    font-family: var(--font-heading), 'Outfit', sans-serif;
-    font-size: clamp(1.02rem, 1.4vw, 1.22rem);
-    font-weight: 800;
-    font-style: italic;
-    letter-spacing: -0.01em;
-    line-height: 1;
-    white-space: nowrap;
-    color: #FFFFFF;
-}
-
-.marquee-ticker-item .text-white-word {
-    color: #FFFFFF;
-    text-shadow: 0 1px 2px rgba(0, 0, 0, 0.12);
-}
-
-.marquee-sparkle-icon {
-    width: clamp(13px, 1.25vw, 16px);
-    height: clamp(13px, 1.25vw, 16px);
-    color: #171311;
-    margin-left: 0.5rem;
-    flex-shrink: 0;
-    display: inline-block;
-    vertical-align: middle;
-}
-
-@keyframes marqueeScroll {
-    0% {
-        transform: translate3d(0, 0, 0);
-    }
-
-    100% {
-        transform: translate3d(-50%, 0, 0);
-    }
-}
-
-@media (max-width: 768px) {
-    .marquee-ticker-banner {
-        border-top-width: 2px;
-        border-bottom-width: 2px;
-    }
-
-    .marquee-ticker-body {
-        padding: 8px 0;
-    }
-
-    .marquee-ticker-group {
-        gap: 1.5rem;
-        padding-right: 1.5rem;
-    }
-
-    .marquee-ticker-item {
-        font-size: 0.95rem;
     }
 }
 
