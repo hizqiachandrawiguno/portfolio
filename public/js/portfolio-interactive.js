@@ -1102,3 +1102,39 @@ document.addEventListener('DOMContentLoaded', function () {
 
 });
 
+// RITISTIC PROJECT ARTWORK GALLERY SELECTOR
+window.selectRitisticArtwork = function (imgUrl, title, desc, category, cardEl) {
+    const activeImg = document.getElementById('ritisticActiveImg');
+    const activeTitle = document.getElementById('ritisticActiveTitle');
+    const activeDesc = document.getElementById('ritisticActiveDesc');
+    const activeCategory = document.getElementById('ritisticActiveCategory');
+
+    if (activeImg) {
+        activeImg.style.opacity = '0.4';
+        activeImg.src = imgUrl;
+        activeImg.onload = () => { activeImg.style.opacity = '1'; };
+    }
+    if (activeTitle) activeTitle.textContent = title;
+    if (activeDesc) activeDesc.textContent = desc;
+    if (activeCategory) activeCategory.textContent = category;
+
+    document.querySelectorAll('.ritistic-thumb-card').forEach(c => c.classList.remove('active'));
+    if (cardEl) cardEl.classList.add('active');
+};
+
+window.zoomActiveRitisticImage = function () {
+    const activeImg = document.getElementById('ritisticActiveImg');
+    const activeTitle = document.getElementById('ritisticActiveTitle');
+    const activeDesc = document.getElementById('ritisticActiveDesc');
+    const activeCategory = document.getElementById('ritisticActiveCategory');
+
+    if (activeImg && window.openImageLightbox) {
+        window.openImageLightbox(
+            activeImg.src,
+            activeTitle ? activeTitle.textContent : 'Ritistic Project Artwork',
+            activeDesc ? activeDesc.textContent : '',
+            activeCategory ? activeCategory.textContent : 'Graphic Art'
+        );
+    }
+};
+

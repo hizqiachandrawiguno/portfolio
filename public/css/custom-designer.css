@@ -3382,3 +3382,37 @@ a {
         transform: none !important;
     }
 }
+
+/* Ritistic Project Interactive Artwork Showcase */
+.ritistic-featured-stage img {
+    transition: opacity 0.25s ease;
+}
+.ritistic-thumb-card {
+    cursor: pointer;
+    border-radius: 12px;
+    padding: 6px;
+    background: #FFFFFF;
+    border: 2px solid #E8E2D8;
+    transition: all 0.2s cubic-bezier(0.2, 0, 0, 1);
+    text-align: center;
+}
+.ritistic-thumb-card:hover {
+    border-color: #EA580C;
+    transform: translateY(-2px);
+    box-shadow: 0 4px 12px rgba(234, 88, 12, 0.12);
+}
+.ritistic-thumb-card.active {
+    border-color: #EA580C;
+    background: rgba(234, 88, 12, 0.05);
+    box-shadow: 0 4px 14px rgba(234, 88, 12, 0.18);
+}
+.ritistic-thumb-card .thumb-label {
+    display: block;
+    font-size: 0.68rem;
+    font-weight: 600;
+    margin-top: 5px;
+    color: #4A4540;
+    white-space: nowrap;
+    overflow: hidden;
+    text-overflow: ellipsis;
+}

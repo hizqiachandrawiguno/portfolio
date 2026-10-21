@@ -497,11 +497,11 @@
                                 </div>
                             </div>
                         @else
-                            <!-- UI/UX Platform Interactive / Modal Demo -->
-                            <div class="project-img-wrapper cursor-pointer position-relative" onclick="openProjectModal('{{ ltrim($project['modal_target'], '#') }}')" title="Klik untuk demo interaktif">
+                            <!-- Project Interactive / Modal Showcase -->
+                            <div class="project-img-wrapper cursor-pointer position-relative" onclick="openProjectModal('{{ ltrim($project['modal_target'], '#') }}')" title="Klik untuk lihat detail karya">
                                 <img src="{{ $project['image'] }}" alt="{{ $project['title'] }}" class="project-img" loading="lazy" decoding="async">
                                 <div class="exp-gallery-zoom-hint">
-                                    <i class="fa-solid fa-laptop-code me-1"></i> Uji Coba Demo
+                                    <i class="fa-solid {{ $project['btn_icon'] ?? 'fa-eye' }} me-1"></i> {{ ($project['category'] ?? '') === 'graphic' ? 'Buka Galeri Karya' : 'Uji Coba Demo' }}
                                 </div>
                             </div>
                         @endif
@@ -941,6 +941,88 @@
                         <i class="fa-solid fa-arrow-up-right-from-square me-1"></i> Buka Website erc.ohito7.com
                     </a>
                 </div>
+            </div>
+        </div>
+    </div>
+
+
+    <!-- ========================================================================== -->
+    <!-- 2B. RITISTIC PROJECT INTERACTIVE ARTWORK GALLERY MODAL                     -->
+    <!-- ========================================================================== -->
+    <div class="custom-modal-overlay" id="ritisticDemoModal" onclick="if(event.target === this) closeProjectModal('ritisticDemoModal')">
+        <div class="custom-modal-dialog" style="max-width: 860px;">
+            <div class="modal-header modal-header-studio d-flex justify-content-between align-items-center">
+                <div class="d-flex align-items-center gap-2">
+                    <span class="badge bg-accent text-white font-mono px-3 py-2 rounded-pill">
+                        <i class="fa-solid fa-palette me-1"></i> DESAIN GRAFIS &amp; BRANDING
+                    </span>
+                    <h3 class="h4 fw-bold text-dark mb-0">Ritistic Project Showcase</h3>
+                </div>
+                <button type="button" class="btn-close" onclick="closeProjectModal('ritisticDemoModal')" aria-label="Close"></button>
+            </div>
+            <div class="modal-body modal-body-studio">
+                
+                <!-- Main Featured Artwork Display Box -->
+                <div class="ritistic-featured-stage mb-4 text-center bg-light p-3 rounded-4 border">
+                    <div class="position-relative d-inline-block">
+                        <img id="ritisticActiveImg" src="{{ asset('images/ritistic_sumpah_pemuda.webp') }}" alt="Ritistic Project Artwork" class="img-fluid rounded-3 border shadow-sm" style="max-height: 440px; width: auto; object-fit: contain;">
+                        <button type="button" class="btn btn-sm btn-dark bg-opacity-75 text-white position-absolute bottom-0 end-0 m-3 rounded-pill font-mono" onclick="zoomActiveRitisticImage()" title="Perbesar HD">
+                            <i class="fa-solid fa-magnifying-glass-plus me-1"></i> Perbesar HD
+                        </button>
+                    </div>
+                    <div class="mt-3 text-start px-2">
+                        <div class="d-flex align-items-center justify-content-between flex-wrap gap-2">
+                            <span class="badge font-mono" id="ritisticActiveCategory" style="background: rgba(234, 88, 12, 0.12); color: #EA580C; font-size: 0.75rem;">Commemorative Social Media Poster</span>
+                            <small class="text-muted font-mono" style="font-size: 0.72rem;">Resolusi Asli: 1024 &times; 1024 px &bull; Rasio 1:1 Feed</small>
+                        </div>
+                        <h4 class="h5 fw-bold text-dark mt-2 mb-1 font-heading" id="ritisticActiveTitle">Hari Sumpah Pemuda 2024</h4>
+                        <p class="text-muted small mb-0 lh-relaxed" id="ritisticActiveDesc">
+                            Desain feed Instagram dengan pendekatan ilustrasi garis hand-drawn, ornamen bendera merah putih bertekstur halftone, frame tepi organik, serta tipografi retro-modern.
+                        </p>
+                    </div>
+                </div>
+
+                <!-- 4 Interactive Artwork Selectors -->
+                <div class="mb-4">
+                    <small class="text-muted font-mono fw-bold text-uppercase d-block mb-2" style="font-size: 0.72rem; letter-spacing: 0.05em;">Pilih Karya untuk Dilihat:</small>
+                    <div class="row g-2">
+                        <div class="col-6 col-sm-3">
+                            <div class="ritistic-thumb-card active" onclick="selectRitisticArtwork('{{ asset('images/ritistic_sumpah_pemuda.webp') }}', 'Hari Sumpah Pemuda 2024', 'Desain feed Instagram dengan pendekatan ilustrasi garis hand-drawn, ornamen bendera merah putih bertekstur halftone, frame tepi organik, serta tipografi retro-modern.', 'Commemorative Social Media Poster', this)">
+                                <img src="{{ asset('images/ritistic_sumpah_pemuda.webp') }}" alt="Sumpah Pemuda" class="img-fluid rounded-2 border">
+                                <span class="thumb-label font-mono">Sumpah Pemuda</span>
+                            </div>
+                        </div>
+                        <div class="col-6 col-sm-3">
+                            <div class="ritistic-thumb-card" onclick="selectRitisticArtwork('{{ asset('images/ritistic_tahun_baru_islam.webp') }}', 'Tahun Baru Islam 1446 H / 2024', 'Visual peringatan Tahun Baru Islam dengan perpaduan siluet arsitektur masjid berwarna emas hangat, elemen bedug dan ketupat, serta border ornamen geometris Islam simetris.', 'Holiday Commemorative Visual', this)">
+                                <img src="{{ asset('images/ritistic_tahun_baru_islam.webp') }}" alt="Tahun Baru Islam" class="img-fluid rounded-2 border">
+                                <span class="thumb-label font-mono">Tahun Baru Islam</span>
+                            </div>
+                        </div>
+                        <div class="col-6 col-sm-3">
+                            <div class="ritistic-thumb-card" onclick="selectRitisticArtwork('{{ asset('images/ritistic_profiling_wida.webp') }}', 'Visual Profiling: Nur Fitria (Wida)', 'Kartu profil mahasiswa Polimedia dengan teknik photo cutting jas almamater ungu, kontras tipografi nama bold warna oranye hangat, script handwriting accents, dan doodle background edukatif.', 'Member Profile Card Layout', this)">
+                                <img src="{{ asset('images/ritistic_profiling_wida.webp') }}" alt="Nur Fitria" class="img-fluid rounded-2 border">
+                                <span class="thumb-label font-mono">Nur Fitria (Wida)</span>
+                            </div>
+                        </div>
+                        <div class="col-6 col-sm-3">
+                            <div class="ritistic-thumb-card" onclick="selectRitisticArtwork('{{ asset('images/ritistic_profiling_sukmawati.webp') }}', 'Visual Profiling: Sukmawati (Ira)', 'Sistem tata letak visual profil anggota Ritistic Project dengan konsistensi grid tipografi nama vertikal, ilustrasi buku di bagian bawah, serta penempatan handle media sosial di sudut kanan atas.', 'Member Profile Card Layout', this)">
+                                <img src="{{ asset('images/ritistic_profiling_sukmawati.webp') }}" alt="Sukmawati" class="img-fluid rounded-2 border">
+                                <span class="thumb-label font-mono">Sukmawati (Ira)</span>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+
+                <!-- Design Documentation & Context Notes -->
+                <div class="p-3 bg-light rounded-4 border font-mono small mb-0">
+                    <strong class="text-accent d-block mb-1"><i class="fa-solid fa-circle-info me-1"></i> Informasi Desain &amp; Workflow:</strong>
+                    <ul class="mb-0 ps-3 text-muted lh-base" style="font-size: 0.8rem;">
+                        <li><strong>Software:</strong> Adobe Illustrator &amp; Adobe Photoshop</li>
+                        <li><strong>Identitas Brand:</strong> Konsistensi logo Ritistic "R" di sudut kiri atas setiap konten visual.</li>
+                        <li><strong>Eksplorasi Gaya:</strong> Memadukan pendekatan retro hand-drawn, visual hari besar nasional, dan editorial personal profiling modern.</li>
+                    </ul>
+                </div>
+
             </div>
         </div>
     </div>

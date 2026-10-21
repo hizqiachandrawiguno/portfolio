@@ -463,19 +463,49 @@ class PortfolioController extends Controller
             ],
             [
                 'id' => 'proj-ritistic',
-                'title' => 'Ritistic Project - Brand & Vector Art',
+                'title' => 'Ritistic Project - Visual Communication & Social Media Branding',
                 'category' => 'graphic',
-                'category_label' => 'Brand Identity & Graphic Art',
-                'action_type' => 'lightbox',
-                'modal_target' => '#imageLightboxModal',
-                'btn_text' => 'Lihat Brand Identity & Art',
-                'btn_icon' => 'fa-palette',
+                'category_label' => 'Social Media Branding & Graphic Art',
+                'action_type' => 'modal',
+                'modal_target' => '#ritisticDemoModal',
+                'btn_text' => 'Lihat Galeri Karya Ritistic',
+                'btn_icon' => 'fa-images',
                 'image' => asset('images/ritistic_project_hero.webp'),
-                'badge' => 'Brand Identity & Vector Art',
-                'short_desc' => 'Eksplorasi identitas visual brand kreatif, custom lettering, merchandise tote bag, sticker pack, dan seni ilustrasi vektor.',
-                'full_desc' => 'Perancangan visual identity komprehensif untuk Ritistic Project. Mencakup logo lettering custom, palette warna ekspresif (warm coral, terracotta, & deep amber), panduan brand guidelines, serta visual merchandise komersial.',
-                'tags' => ['Brand Identity', 'Custom Lettering', 'Vector Art', 'Merchandise', 'Illustrator'],
-                'accent' => '#EA580C'
+                'badge' => 'Social Media & Graphic Art',
+                'short_desc' => 'Perancangan materi komunikasi visual Ritistic Project: poster peringatan hari nasional & keagamaan, serta kartu visual profiling mahasiswa bernuansa warm terracotta.',
+                'full_desc' => 'Produksi materi desain grafis multi-format untuk Ritistic Project. Proyek ini mencakup perancangan visual commemorative days (Hari Sumpah Pemuda 2024 bergaya retro-modern hand-drawn dan Hari Besar Tahun Baru Islam 1446 H), serta visual profiling anggota/mahasiswa dengan komposisi foto subjek, tipografi bold, dan ornamen buku ilustratif dengan konsistensi penempatan logo Ritistic.',
+                'tags' => ['Social Media Design', 'Illustrator', 'Photoshop', 'Typography', 'Commemorative Art', 'Profiling Card'],
+                'accent' => '#EA580C',
+                'gallery_items' => [
+                    [
+                        'id' => 'sumpah-pemuda',
+                        'title' => 'Hari Sumpah Pemuda 2024',
+                        'category' => 'Commemorative Social Media Poster',
+                        'image' => asset('images/ritistic_sumpah_pemuda.webp'),
+                        'desc' => 'Desain feed Instagram dengan pendekatan ilustrasi garis hand-drawn, ornamen bendera merah putih bertekstur halftone, frame tepi organik, serta tipografi retro-modern.'
+                    ],
+                    [
+                        'id' => 'tahun-baru-islam',
+                        'title' => 'Tahun Baru Islam 1446 H / 2024',
+                        'category' => 'Holiday Commemorative Visual',
+                        'image' => asset('images/ritistic_tahun_baru_islam.webp'),
+                        'desc' => 'Visual peringatan Tahun Baru Islam dengan perpaduan siluet arsitektur masjid berwarna emas hangat, elemen bedug dan ketupat, serta border ornamen geometris Islam simetris.'
+                    ],
+                    [
+                        'id' => 'profiling-wida',
+                        'title' => 'Visual Profiling: Nur Fitria (Wida)',
+                        'category' => 'Member Profile Card Layout',
+                        'image' => asset('images/ritistic_profiling_wida.webp'),
+                        'desc' => 'Kartu profil mahasiswa Polimedia dengan teknik photo cutting jas almamater ungu, kontras tipografi nama bold warna oranye hangat, script handwriting accents, dan doodle background edukatif.'
+                    ],
+                    [
+                        'id' => 'profiling-sukmawati',
+                        'title' => 'Visual Profiling: Sukmawati (Ira)',
+                        'category' => 'Member Profile Card Layout',
+                        'image' => asset('images/ritistic_profiling_sukmawati.webp'),
+                        'desc' => 'Sistem tata letak visual profil anggota Ritistic Project dengan konsistensi grid tipografi nama vertikal, ilustrasi buku di bagian bawah, serta penempatan handle media sosial di sudut kanan atas.'
+                    ]
+                ]
             ],
 
             // --- 2. VIDEO EDITING & MOTION PRODUCTION ---
