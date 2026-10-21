@@ -947,6 +947,94 @@
 
 
     <!-- ========================================================================== -->
+    <!-- 2A. DRP TEENS SOCIAL MEDIA & EVENT ARTWORK GALLERY MODAL                   -->
+    <!-- ========================================================================== -->
+    <div class="custom-modal-overlay" id="drpTeensDemoModal" onclick="if(event.target === this) closeProjectModal('drpTeensDemoModal')">
+        <div class="custom-modal-dialog" style="max-width: 880px;">
+            <div class="modal-header modal-header-studio d-flex justify-content-between align-items-center">
+                <div class="d-flex align-items-center gap-2">
+                    <span class="badge bg-accent text-white font-mono px-3 py-2 rounded-pill">
+                        <i class="fa-solid fa-palette me-1"></i> DESAIN GRAFIS &amp; SOCIAL MEDIA
+                    </span>
+                    <h3 class="h4 fw-bold text-dark mb-0">DRP Outstanding Teens Showcase</h3>
+                </div>
+                <button type="button" class="btn-close" onclick="closeProjectModal('drpTeensDemoModal')" aria-label="Close"></button>
+            </div>
+            <div class="modal-body modal-body-studio">
+                
+                <!-- Main Featured Artwork Display Box -->
+                <div class="ritistic-featured-stage mb-4 text-center bg-light p-3 rounded-4 border">
+                    <div class="position-relative d-inline-block">
+                        <img id="drpActiveImg" src="{{ asset('images/drp_teens_self_improvement.webp') }}" alt="DRP Teens Artwork" class="img-fluid rounded-3 border shadow-sm" style="max-height: 440px; width: auto; object-fit: contain;">
+                        <button type="button" class="btn btn-sm btn-dark bg-opacity-75 text-white position-absolute bottom-0 end-0 m-3 rounded-pill font-mono" onclick="zoomActiveDrpImage()" title="Perbesar HD">
+                            <i class="fa-solid fa-magnifying-glass-plus me-1"></i> Perbesar HD
+                        </button>
+                    </div>
+                    <div class="mt-3 text-start px-2">
+                        <div class="d-flex align-items-center justify-content-between flex-wrap gap-2">
+                            <span class="badge font-mono" id="drpActiveCategory" style="background: rgba(227, 107, 50, 0.12); color: #E36B32; font-size: 0.75rem;">Pop-Art &amp; Comic Grid Layout</span>
+                            <small class="text-muted font-mono" style="font-size: 0.72rem;">Resolusi Asli: 1024 &times; 1024 px &bull; Rasio 1:1 Feed</small>
+                        </div>
+                        <h4 class="h5 fw-bold text-dark mt-2 mb-1 font-heading" id="drpActiveTitle">Self Improvement - Ka Kayla (8 Okt 2023)</h4>
+                        <p class="text-muted small mb-0 lh-relaxed" id="drpActiveDesc">
+                            Desain feed bernuansa komik dengan panel multi-frame, speech bubble, garis sunburst dinamis, serta tipografi judul 3D pop warna kuning cerah.
+                        </p>
+                    </div>
+                </div>
+
+                <!-- 5 Interactive Artwork Selectors -->
+                <div class="mb-4">
+                    <small class="text-muted font-mono fw-bold text-uppercase d-block mb-2" style="font-size: 0.72rem; letter-spacing: 0.05em;">Pilih Seri Desain untuk Dilihat:</small>
+                    <div class="row g-2">
+                        <div class="col-4 col-sm">
+                            <div class="ritistic-thumb-card active" onclick="selectDrpArtwork('{{ asset('images/drp_teens_self_improvement.webp') }}', 'Self Improvement - Ka Kayla (8 Okt 2023)', 'Desain feed bernuansa komik dengan panel multi-frame, speech bubble, garis sunburst dinamis, serta tipografi judul 3D pop warna kuning cerah.', 'Pop-Art &amp; Comic Grid Layout', this)">
+                                <img src="{{ asset('images/drp_teens_self_improvement.webp') }}" alt="Self Improvement" class="img-fluid rounded-2 border">
+                                <span class="thumb-label font-mono">Self Improvement</span>
+                            </div>
+                        </div>
+                        <div class="col-4 col-sm">
+                            <div class="ritistic-thumb-card" onclick="selectDrpArtwork('{{ asset('images/drp_teens_dependable.webp') }}', 'Dependable - Ka Jonas (6 Ags 2023)', 'Eksplorasi gaya ripped-paper dengan aksen lakban hitam, palet warna olive green maskulin, tipografi bold berlapis, dan kolase foto dokumentasi ibadah.', 'Grunge Editorial &amp; Tape Collage', this)">
+                                <img src="{{ asset('images/drp_teens_dependable.webp') }}" alt="Dependable" class="img-fluid rounded-2 border">
+                                <span class="thumb-label font-mono">Dependable</span>
+                            </div>
+                        </div>
+                        <div class="col-4 col-sm">
+                            <div class="ritistic-thumb-card" onclick="selectDrpArtwork('{{ asset('images/drp_teens_iman_pengharapan_kasih.webp') }}', 'Iman, Pengharapan &amp; Kasih - Ka Jonas (11 Jun 2023)', 'Komposisi bertingkat frame polaroid putih dengan bayangan realistis, tipografi handwriting doodle, latar biru bersih, dan kutipan ayat Mazmur 127:4.', 'Polaroid Frame &amp; Paper Texture', this)">
+                                <img src="{{ asset('images/drp_teens_iman_pengharapan_kasih.webp') }}" alt="Iman, Pengharapan" class="img-fluid rounded-2 border">
+                                <span class="thumb-label font-mono">Iman &amp; Kasih</span>
+                            </div>
+                        </div>
+                        <div class="col-6 col-sm">
+                            <div class="ritistic-thumb-card" onclick="selectDrpArtwork('{{ asset('images/drp_teens_jeremiah_gen.webp') }}', 'Jeremiah Gen vs Everybody - Ka Kezia (7 Mei 2023)', 'Desain poster sesi QnA remaja dengan palet kontras ungu dan kuning neon, efek robekan kertas grunge, dan tekstur halftone pada latar belakang jemaat.', 'Street-Poster &amp; Halftone', this)">
+                                <img src="{{ asset('images/drp_teens_jeremiah_gen.webp') }}" alt="Jeremiah Gen" class="img-fluid rounded-2 border">
+                                <span class="thumb-label font-mono">Jeremiah Gen</span>
+                            </div>
+                        </div>
+                        <div class="col-6 col-sm">
+                            <div class="ritistic-thumb-card" onclick="selectDrpArtwork('{{ asset('images/drp_teens_merry_christmas.webp') }}', 'Merry Christmas &amp; Happy New Year', 'Visual ucapan Natal dan Tahun Baru bernuansa midnight blue elegan, tipografi 3D mewah dengan aksen emas, bintang bersinar, dan ilustrasi pohon cemara bersalju.', 'Festive 3D Typography', this)">
+                                <img src="{{ asset('images/drp_teens_merry_christmas.webp') }}" alt="Merry Christmas" class="img-fluid rounded-2 border">
+                                <span class="thumb-label font-mono">Christmas 3D</span>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+
+                <!-- Design Documentation & Context Notes -->
+                <div class="p-3 bg-light rounded-4 border font-mono small mb-0">
+                    <strong class="text-accent d-block mb-1"><i class="fa-solid fa-circle-info me-1"></i> Informasi Desain &amp; Workflow:</strong>
+                    <ul class="mb-0 ps-3 text-muted lh-base" style="font-size: 0.8rem;">
+                        <li><strong>Software:</strong> Adobe Photoshop &amp; Adobe Illustrator</li>
+                        <li><strong>Komunitas:</strong> DRP Outstanding Teens (DOT Teens)</li>
+                        <li><strong>Eksplorasi Gaya:</strong> Ragam pendekatan visual per sesi ibadah—mulai dari pop-comic, polaroid layer, street-grunge ripped-paper, hingga festive typography 3D dengan retensi engagement tinggi.</li>
+                    </ul>
+                </div>
+
+            </div>
+        </div>
+    </div>
+
+
+    <!-- ========================================================================== -->
     <!-- 2B. RITISTIC PROJECT INTERACTIVE ARTWORK GALLERY MODAL                     -->
     <!-- ========================================================================== -->
     <div class="custom-modal-overlay" id="ritisticDemoModal" onclick="if(event.target === this) closeProjectModal('ritisticDemoModal')">

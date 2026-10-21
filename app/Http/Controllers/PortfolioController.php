@@ -447,19 +447,56 @@ class PortfolioController extends Controller
             // --- 1. GRAPHIC & SOCIAL MEDIA DESIGN ---
             [
                 'id' => 'proj-drp-social',
-                'title' => 'Social Media DRP Outstanding Teens',
+                'title' => 'DRP Outstanding Teens - Social Media & Event Visuals',
                 'category' => 'graphic',
-                'category_label' => 'Graphic & Social Media Design',
-                'action_type' => 'lightbox',
-                'modal_target' => '#imageLightboxModal',
-                'btn_text' => 'Lihat Feed & Carousel Desain',
-                'btn_icon' => 'fa-magnifying-glass-plus',
+                'category_label' => 'Social Media & Community Branding',
+                'action_type' => 'modal',
+                'modal_target' => '#drpTeensDemoModal',
+                'btn_text' => 'Lihat Galeri Feed DRP Teens',
+                'btn_icon' => 'fa-images',
                 'image' => asset('images/drp_social_media_hero.webp'),
-                'badge' => 'Social Media Carousel & Feed',
-                'short_desc' => 'Perancangan aset visual feed Instagram, materi carousel edukasi, poster event kepemudaan, dan template story berkarakter dinamis.',
-                'full_desc' => 'Desain komunikasi visual media sosial untuk komunitas DRP Outstanding Teens. Menggunakan identitas warna oranye terracotta & warm amber yang dinamis, tipografi modern, serta sistem layout grid multi-slide yang konsisten untuk engagement Gen-Z.',
-                'tags' => ['Photoshop', 'Illustrator', 'Social Media Feed', 'Carousel', 'Youth Branding'],
-                'accent' => '#E36B32'
+                'badge' => 'Social Media & Event Branding',
+                'short_desc' => 'Perancangan materi visual feed Instagram DRP Outstanding Teens: poster kebaktian remaja, kartu tema khotbah, dan ucapan hari raya dengan beragam eksplorasi visual.',
+                'full_desc' => 'Perancangan identitas dan materi publikasi media sosial untuk komunitas remaja DRP Outstanding Teens (DOT Teens). Mengeksplorasi fleksibilitas gaya visual yang dinamis dan relevan bagi audiens Gen-Z: mulai dari pendekatan pop-comic halftone pada tema "Self Improvement", tata letak editorial ripped-paper & tape pada tema "Dependable", frame polaroid retro pada "Iman, Pengharapan dan Kasih", street-poster grunge pada "Jeremiah Gen vs Everybody", hingga perayaan natal elegan bertema "Merry Christmas & Happy New Year".',
+                'tags' => ['Social Media Feed', 'Photoshop', 'Illustrator', 'Youth Branding', 'Event Poster', 'Typography'],
+                'accent' => '#E36B32',
+                'gallery_items' => [
+                    [
+                        'id' => 'self-improvement',
+                        'title' => 'Self Improvement - Ka Kayla (8 Okt 2023)',
+                        'category' => 'Pop-Art & Comic Grid Layout',
+                        'image' => asset('images/drp_teens_self_improvement.webp'),
+                        'desc' => 'Desain feed bernuansa komik dengan panel multi-frame, speech bubble, garis sunburst dinamis, serta tipografi judul 3D pop warna kuning cerah.'
+                    ],
+                    [
+                        'id' => 'dependable',
+                        'title' => 'Dependable - Ka Jonas (6 Ags 2023)',
+                        'category' => 'Grunge Editorial & Tape Collage',
+                        'image' => asset('images/drp_teens_dependable.webp'),
+                        'desc' => 'Eksplorasi gaya ripped-paper dengan aksen lakban hitam, palet warna olive green maskulin, tipografi bold berlapis, dan kolase foto dokumentasi ibadah.'
+                    ],
+                    [
+                        'id' => 'iman-pengharapan-kasih',
+                        'title' => 'Iman, Pengharapan & Kasih - Ka Jonas (11 Jun 2023)',
+                        'category' => 'Polaroid Frame & Paper Texture',
+                        'image' => asset('images/drp_teens_iman_pengharapan_kasih.webp'),
+                        'desc' => 'Komposisi bertingkat frame polaroid putih dengan bayangan realistis, tipografi handwriting doodle, latar biru bersih, dan kutipan ayat Mazmur 127:4.'
+                    ],
+                    [
+                        'id' => 'jeremiah-gen',
+                        'title' => 'Jeremiah Gen vs Everybody - Ka Kezia (7 Mei 2023)',
+                        'category' => 'Street-Poster & Halftone Texture',
+                        'image' => asset('images/drp_teens_jeremiah_gen.webp'),
+                        'desc' => 'Desain poster sesi QnA remaja dengan palet kontras ungu dan kuning neon, efek robekan kertas grunge, dan tekstur halftone pada latar belakang jemaat.'
+                    ],
+                    [
+                        'id' => 'merry-christmas',
+                        'title' => 'Merry Christmas & Happy New Year',
+                        'category' => 'Festive 3D Typography & Winter Art',
+                        'image' => asset('images/drp_teens_merry_christmas.webp'),
+                        'desc' => 'Visual ucapan Natal dan Tahun Baru bernuansa midnight blue elegan, tipografi 3D mewah dengan aksen emas, bintang bersinar, dan ilustrasi pohon cemara bersalju.'
+                    ]
+                ]
             ],
             [
                 'id' => 'proj-ritistic',

@@ -1138,3 +1138,41 @@ window.zoomActiveRitisticImage = function () {
     }
 };
 
+// DRP OUTSTANDING TEENS ARTWORK GALLERY SELECTOR
+window.selectDrpArtwork = function (imgUrl, title, desc, category, cardEl) {
+    const activeImg = document.getElementById('drpActiveImg');
+    const activeTitle = document.getElementById('drpActiveTitle');
+    const activeDesc = document.getElementById('drpActiveDesc');
+    const activeCategory = document.getElementById('drpActiveCategory');
+
+    if (activeImg) {
+        activeImg.style.opacity = '0.4';
+        activeImg.src = imgUrl;
+        activeImg.onload = () => { activeImg.style.opacity = '1'; };
+    }
+    if (activeTitle) activeTitle.textContent = title;
+    if (activeDesc) activeDesc.textContent = desc;
+    if (activeCategory) activeCategory.textContent = category;
+
+    if (cardEl && cardEl.parentElement && cardEl.parentElement.parentElement) {
+        cardEl.parentElement.parentElement.querySelectorAll('.ritistic-thumb-card').forEach(c => c.classList.remove('active'));
+        cardEl.classList.add('active');
+    }
+};
+
+window.zoomActiveDrpImage = function () {
+    const activeImg = document.getElementById('drpActiveImg');
+    const activeTitle = document.getElementById('drpActiveTitle');
+    const activeDesc = document.getElementById('drpActiveDesc');
+    const activeCategory = document.getElementById('drpActiveCategory');
+
+    if (activeImg && window.openImageLightbox) {
+        window.openImageLightbox(
+            activeImg.src,
+            activeTitle ? activeTitle.textContent : 'DRP Teens Artwork',
+            activeDesc ? activeDesc.textContent : '',
+            activeCategory ? activeCategory.textContent : 'Social Media Design'
+        );
+    }
+};
+
