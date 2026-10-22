@@ -433,12 +433,33 @@ class PortfolioController extends Controller
                 'modal_target' => '#drpTeensDemoModal',
                 'btn_text' => 'Lihat Galeri Feed DRP Teens',
                 'btn_icon' => 'fa-images',
-                'image' => asset('images/drp_teens_dependable.webp'),
-                'short_desc' => 'Feed Instagram dan poster event remaja dengan eksplorasi gaya retro, pop-comic, dan kolase kertas. Judul dibuat kontras supaya topik mingguan langsung terbaca di layar ponsel.',
-                'full_desc' => 'Perancangan identitas dan materi publikasi media sosial untuk komunitas remaja DRP Outstanding Teens (DOT Teens). Mengeksplorasi fleksibilitas gaya visual yang dinamis dan relevan bagi audiens Gen-Z: mulai dari pendekatan pop-comic halftone pada tema "Self Improvement", tata letak editorial ripped-paper & tape pada tema "Dependable", frame polaroid retro pada "Iman, Pengharapan dan Kasih", street-poster grunge pada "Jeremiah Gen vs Everybody", hingga perayaan natal elegan bertema "Merry Christmas & Happy New Year".',
+                'image' => asset('images/drp_teens_chosen_gen.webp'),
+                'short_desc' => 'Identitas visual tahunan 2026 "The Chosen Generation", event flyer "Homecoming Worship Night", dan seri feed mingguan remaja dengan eksplorasi tipografi retro-pop, fluid shapes, dan kolase kertas.',
+                'full_desc' => 'Perancangan identitas dan materi publikasi media sosial untuk komunitas remaja DRP Outstanding Teens (DOT Teens). Mengeksplorasi fleksibilitas gaya visual yang dinamis bagi Gen-Z: poster tema tahunan 2026 "The Chosen Generation" dengan tipografi retro-pop & fluid gradient ribbons, flyer event revival "Homecoming Worship Night 2026", serta arsip feed mingguan multi-gaya (pop-comic halftone "Self Improvement", ripped-paper & tape "Dependable", frame polaroid retro "Iman, Pengharapan & Kasih", street-poster grunge "Jeremiah Gen", dan 3D typography "Merry Christmas").',
                 'tags' => ['Photoshop', 'Illustrator'],
                 'accent' => '#E36B32',
                 'gallery_items' => [
+                    [
+                        'id' => 'the-chosen-generation',
+                        'title' => 'The Chosen Generation (Tema Tahunan 2026)',
+                        'category' => 'Retro-Pop Typography & Fluid Shapes',
+                        'image' => asset('images/drp_teens_chosen_gen.webp'),
+                        'desc' => 'Eksplorasi visual tema tahunan 2026 memadukan tipografi sans-serif beraksen cut inline, pita fluida multi-warna gradien, badge tahun 2026, dan elemen retro starburst.'
+                    ],
+                    [
+                        'id' => 'homecoming-worship-night',
+                        'title' => 'Disciples Revival Night "Homecoming" 2026',
+                        'category' => 'Event Flyer & Speaker Showcase',
+                        'image' => asset('images/drp_teens_homecoming.webp'),
+                        'desc' => 'Flyer publikasi ibadah kebangunan rohani remaja bersama Kak Gamma di GBI Sawangan, menampilkan warm lighting studio, tipografi brush ekspresif, dan aksen cutout poligon oranye.'
+                    ],
+                    [
+                        'id' => 'flame-cross-mark',
+                        'title' => 'Flame & Cross Pixel Art Graphic Mark',
+                        'category' => 'Pixel Art & Geometric Brand Asset',
+                        'image' => asset('images/drp_teens_flame_cross.webp'),
+                        'desc' => 'Elemen grafis pendukung bertema revival berupa kobaran api bergaya pixel art 16-bit berpadu dengan radiant geometric shards dan simbol salib oranye minimalis.'
+                    ],
                     [
                         'id' => 'self-improvement',
                         'title' => 'Self Improvement - Ka Kayla (8 Okt 2023)',

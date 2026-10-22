@@ -1046,7 +1046,7 @@ window.selectRitisticArtwork = function (imgUrl, title, desc, category, cardEl) 
     if (activeDesc) activeDesc.textContent = desc;
     if (activeCategory) activeCategory.textContent = category;
 
-    document.querySelectorAll('.ritistic-thumb-card').forEach(c => c.classList.remove('active'));
+    document.querySelectorAll('#ritisticDemoModal .ritistic-thumb-card').forEach(c => c.classList.remove('active'));
     if (cardEl) cardEl.classList.add('active');
 };
 
@@ -1067,11 +1067,12 @@ window.zoomActiveRitisticImage = function () {
 };
 
 // DRP OUTSTANDING TEENS ARTWORK GALLERY SELECTOR
-window.selectDrpArtwork = function (imgUrl, title, desc, category, cardEl) {
+window.selectDrpArtwork = function (imgUrl, title, desc, category, cardEl, ratioInfo) {
     const activeImg = document.getElementById('drpActiveImg');
     const activeTitle = document.getElementById('drpActiveTitle');
     const activeDesc = document.getElementById('drpActiveDesc');
     const activeCategory = document.getElementById('drpActiveCategory');
+    const activeRatio = document.getElementById('drpActiveRatio');
 
     if (activeImg) {
         activeImg.style.opacity = '0.4';
@@ -1081,11 +1082,10 @@ window.selectDrpArtwork = function (imgUrl, title, desc, category, cardEl) {
     if (activeTitle) activeTitle.textContent = title;
     if (activeDesc) activeDesc.textContent = desc;
     if (activeCategory) activeCategory.textContent = category;
+    if (activeRatio && ratioInfo) activeRatio.innerHTML = ratioInfo;
 
-    if (cardEl && cardEl.parentElement && cardEl.parentElement.parentElement) {
-        cardEl.parentElement.parentElement.querySelectorAll('.ritistic-thumb-card').forEach(c => c.classList.remove('active'));
-        cardEl.classList.add('active');
-    }
+    document.querySelectorAll('#drpTeensDemoModal .ritistic-thumb-card').forEach(c => c.classList.remove('active'));
+    if (cardEl) cardEl.classList.add('active');
 };
 
 window.zoomActiveDrpImage = function () {

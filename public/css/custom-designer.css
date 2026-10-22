@@ -1545,20 +1545,27 @@ h3.text-accent,
     transition: transform 0.5s ease;
 }
 
-/* Graphic Posters: Tampil Utuh Tanpa Terpotong */
+/* Graphic Posters: 1:1 Full-Width Ratio Tanpa Ruang Kosong */
 .proj-card-col[data-proj-category="graphic"]:not(.col-12) .project-img-wrapper {
-    height: 300px;
-    background: #F4EFEB;
-    display: flex;
-    align-items: center;
-    justify-content: center;
+    height: auto;
+    width: 100%;
+    aspect-ratio: 1 / 1;
+    background: transparent;
+    display: block;
+    border-top-left-radius: var(--radius-lg);
+    border-top-right-radius: var(--radius-lg);
+    overflow: hidden;
 }
 
 .proj-card-col[data-proj-category="graphic"]:not(.col-12) .project-img {
-    object-fit: contain;
     width: 100%;
     height: 100%;
-    padding: 10px;
+    aspect-ratio: 1 / 1;
+    object-fit: cover;
+    padding: 0;
+    display: block;
+    border-top-left-radius: var(--radius-lg);
+    border-top-right-radius: var(--radius-lg);
 }
 
 .project-video-container .project-img,
@@ -3133,11 +3140,123 @@ a {
     }
 }
 
-/* Ritistic Project Interactive Artwork Showcase */
-.ritistic-featured-stage img {
+/* ========================================================================== */
+/* ARTWORK DETAIL MODAL 2-COLUMN LAYOUT & 1:1 RESPONSIVE DISPLAY              */
+/* ========================================================================== */
+.artwork-detail-dialog {
+    max-width: 980px;
+    width: 94vw;
+    max-height: 90vh;
+    display: flex;
+    flex-direction: column;
+    overflow: hidden;
+}
+
+.artwork-modal-body {
+    padding: 20px 24px;
+    flex: 1 1 auto;
+    min-height: 0;
+    overflow: hidden;
+}
+
+.artwork-modal-grid {
+    display: flex;
+    gap: 24px;
+    height: 100%;
+    min-height: 0;
+    align-items: stretch;
+}
+
+/* Kolom Kiri: Visual Stage (55-60%) */
+.artwork-modal-visual-col {
+    flex: 0 0 58%;
+    width: 58%;
+    max-width: 58%;
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+    min-height: 0;
+}
+
+.artwork-modal-img-wrap {
+    position: relative;
+    width: 100%;
+    max-width: calc(90vh - 120px);
+    aspect-ratio: 1 / 1;
+    background: #FAF6F0;
+    border: 1px solid #E8E2D8;
+    border-radius: 16px;
+    overflow: hidden;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    box-shadow: 0 8px 24px rgba(23, 19, 17, 0.06);
+    margin: auto;
+}
+
+.artwork-modal-img {
+    width: 100%;
+    height: 100%;
+    object-fit: contain;
+    display: block;
     transition: opacity 0.25s ease;
 }
+
+.artwork-modal-img-wrap .btn-zoom-hd {
+    position: absolute;
+    bottom: 12px;
+    right: 12px;
+    z-index: 5;
+    background: rgba(23, 19, 17, 0.82) !important;
+    backdrop-filter: blur(6px);
+    -webkit-backdrop-filter: blur(6px);
+    color: #FFFFFF !important;
+    border: 1px solid rgba(255, 255, 255, 0.25);
+    font-size: 0.75rem;
+    transition: var(--transition-fast);
+}
+
+.artwork-modal-img-wrap .btn-zoom-hd:hover {
+    background: var(--accent-color) !important;
+    border-color: var(--accent-color) !important;
+    transform: translateY(-1px);
+    box-shadow: 0 4px 12px rgba(194, 78, 25, 0.3);
+}
+
+/* Kolom Kanan: Detail & Scrollable Content */
+.artwork-modal-info-col {
+    flex: 1 1 42%;
+    width: 42%;
+    min-width: 0;
+    height: 100%;
+    overflow-y: auto;
+    -webkit-overflow-scrolling: touch;
+    display: flex;
+    flex-direction: column;
+    padding-right: 8px;
+    scrollbar-width: thin;
+    scrollbar-color: #C8C0B4 transparent;
+}
+
+.artwork-modal-info-col::-webkit-scrollbar {
+    width: 6px;
+}
+.artwork-modal-info-col::-webkit-scrollbar-track {
+    background: #F4EFEB;
+    border-radius: 6px;
+}
+.artwork-modal-info-col::-webkit-scrollbar-thumb {
+    background: #C8C0B4;
+    border-radius: 6px;
+}
+.artwork-modal-info-col::-webkit-scrollbar-thumb:hover {
+    background: var(--accent-color);
+}
+
+/* Thumbnails */
 .ritistic-thumb-card {
+    position: relative;
     cursor: pointer;
     border-radius: 12px;
     padding: 6px;
@@ -3145,6 +3264,10 @@ a {
     border: 2px solid #E8E2D8;
     transition: all 0.2s cubic-bezier(0.2, 0, 0, 1);
     text-align: center;
+    height: 100%;
+    display: flex;
+    flex-direction: column;
+    justify-content: space-between;
 }
 .ritistic-thumb-card:hover {
     border-color: #EA580C;
@@ -3156,6 +3279,14 @@ a {
     background: rgba(234, 88, 12, 0.05);
     box-shadow: 0 4px 14px rgba(234, 88, 12, 0.18);
 }
+.ritistic-thumb-card img {
+    width: 100%;
+    aspect-ratio: 1 / 1;
+    object-fit: contain;
+    background: #FAF6F0;
+    display: block;
+    border-radius: 6px;
+}
 .ritistic-thumb-card .thumb-label {
     display: block;
     font-size: 0.68rem;
@@ -3165,6 +3296,72 @@ a {
     white-space: nowrap;
     overflow: hidden;
     text-overflow: ellipsis;
+}
+.ritistic-thumb-card .thumb-badge-new {
+    position: absolute;
+    top: 3px;
+    right: 3px;
+    font-size: 0.55rem;
+    padding: 2px 5px;
+    border-radius: 4px;
+    font-weight: 700;
+    background: #EA580C;
+    color: #FFFFFF;
+    line-height: 1;
+    letter-spacing: 0.04em;
+    z-index: 2;
+    box-shadow: 0 2px 4px rgba(0,0,0,0.15);
+}
+
+/* Tablet & Mobile Breakpoints */
+@media (max-width: 991.98px) {
+    .artwork-detail-dialog {
+        max-width: 95vw;
+    }
+    .artwork-modal-visual-col {
+        flex: 0 0 54%;
+        width: 54%;
+        max-width: 54%;
+    }
+    .artwork-modal-info-col {
+        flex: 1 1 46%;
+        width: 46%;
+    }
+}
+
+@media (max-width: 767.98px) {
+    .artwork-detail-dialog {
+        max-height: 90vh;
+        overflow-y: auto !important;
+        display: block;
+        border-radius: 20px;
+        margin: 12px auto;
+    }
+    .artwork-modal-body {
+        overflow-y: visible !important;
+        padding: 16px;
+        height: auto;
+    }
+    .artwork-modal-grid {
+        flex-direction: column;
+        gap: 16px;
+        height: auto;
+    }
+    .artwork-modal-visual-col {
+        flex: 0 0 100%;
+        width: 100%;
+        max-width: 100%;
+    }
+    .artwork-modal-img-wrap {
+        max-width: 100%;
+        aspect-ratio: 1 / 1;
+    }
+    .artwork-modal-info-col {
+        width: 100%;
+        height: auto;
+        overflow-y: visible !important;
+        padding-right: 0;
+    }
 }
 
 /* ========================================================================== */
