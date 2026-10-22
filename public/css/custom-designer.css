@@ -381,9 +381,11 @@ h3.text-accent,
     color: #E36B32 !important;
 }
 
-.bg-accent {
+.bg-accent,
+.badge.bg-accent,
+.badge-accent {
     background-color: #C24E19 !important; /* AA compliant 4.78:1 with white text */
-    color: #FFFDF8 !important;
+    color: #FFFFFF !important;
 }
 
 /* ========================================================================== */

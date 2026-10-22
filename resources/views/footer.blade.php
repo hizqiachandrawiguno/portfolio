@@ -54,7 +54,7 @@
                         </div>
 
                         <div class="d-flex align-items-center gap-2">
-                            <button type="button" class="btn btn-studio-copy" id="copyEmailBtn" onclick="copyContactEmail('{{ $bio['contact']['email'] ?? 'hizqiachandrawiguno@gmail.com' }}')" title="Salin Alamat Email">
+                            <button type="button" class="btn btn-studio-copy" id="copyEmailBtn" onclick="copyContactEmail(this, '{{ $bio['contact']['email'] ?? 'hizqiachandrawiguno@gmail.com' }}')" title="Salin Alamat Email">
                                 <i class="fa-regular fa-copy me-1" id="copyEmailIcon"></i>
                                 <span id="copyEmailLabel">Salin Email</span>
                             </button>
@@ -123,7 +123,7 @@
             <div class="row align-items-center gy-2">
                 <div class="col-md-6 text-center text-md-start">
                     <p class="mb-0 text-muted small font-mono">
-                        &copy; {{ date('Y') }} <strong class="text-dark">Hizqia Chandra Wiguno</strong>. Dibuat dengan presisi tipografi &amp; Laravel.
+                        &copy; {{ date('Y') }} <strong class="text-dark">Hizqia Chandra Wiguno</strong>.
                     </p>
                 </div>
                 <div class="col-md-6 text-center text-md-end">

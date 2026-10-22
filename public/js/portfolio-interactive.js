@@ -877,8 +877,18 @@ document.addEventListener('DOMContentLoaded', function () {
     /* -------------------------------------------------------------------------- */
     /* 5. COPY CONTACT EMAIL TO CLIPBOARD HELPER                                  */
     /* -------------------------------------------------------------------------- */
-    window.copyContactEmail = function (btn) {
-        const email = 'hizqiachandrawiguno@gmail.com';
+    window.copyContactEmail = function (btnOrEmail, emailParam) {
+        let btn = btnOrEmail;
+        let email = emailParam;
+        if (typeof btnOrEmail === 'string') {
+            email = btnOrEmail;
+            btn = document.getElementById('copyEmailBtn') || (window.event && window.event.currentTarget);
+        }
+        if (!btn && typeof document !== 'undefined') {
+            btn = document.getElementById('copyEmailBtn');
+        }
+        email = email || 'hizqiachandrawiguno@gmail.com';
+
         if (navigator.clipboard && navigator.clipboard.writeText) {
             navigator.clipboard.writeText(email).then(() => {
                 showCopiedFeedback(btn);

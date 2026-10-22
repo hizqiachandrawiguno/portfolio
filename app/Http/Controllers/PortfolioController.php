@@ -18,7 +18,7 @@ class PortfolioController extends Controller
             'gpa' => '3.70',
             'status' => 'Tersedia untuk Pekerjaan & Proyek Kreatif',
             'photo' => asset('images/hizqia_profile.webp'),
-            'catchy_summary' => 'Saya Graphic Designer yang merancang key visual, materi booth event, dan media digital agar pesan brand tersampaikan jelas. Terbiasa bekerja dengan brand guideline korporat maupun kebutuhan event publik, dengan palet yang harmonis dan tipografi yang nyaman dibaca.',
+            'catchy_summary' => 'Saya Graphic Designer yang merancang key visual, materi booth event, dan media digital agar pesan brand tersampaikan jelas. Terbiasa bekerja mengikuti brand guideline perusahaan maupun kebutuhan event publik, dengan tipografi yang rapi dan kontras warna yang terjaga.',
             'contact' => [
                 'email' => 'hizqiachandrawiguno@gmail.com',
                 'location' => 'Jakarta / Bogor, Indonesia',
@@ -72,31 +72,31 @@ class PortfolioController extends Controller
             ],
             'soft' => [
                 [
-                    'name' => 'Desain Berbasis Tujuan & Karakter',
+                    'name' => 'Analisis Brief & Palet Warna Brand',
                     'tag' => 'PRINSIP 01',
-                    'badge' => 'Fondasi Desain',
+                    'badge' => 'Eksplorasi Warna',
                     'icon' => 'fa-solid fa-compass-drafting',
                     'color' => '#E36B32',
                     'bg_gradient' => '#FFFFFF',
-                    'desc' => 'Setiap elemen visual—mulai dari grid, hierarki tipografi, hingga pemilihan warna—diciptakan dengan alasan terukur untuk menyampaikan pesan brand, bukan sekadar dekorasi acak.'
+                    'desc' => 'Memulai proses dari menganalisis kebutuhan brief dan warna resmi brand, seperti memadukan identitas TRAC Astra dengan atmosfer visual Lalala Festival agar pesan promosi tersampaikan dan brand tetap mudah dikenali.'
                 ],
                 [
-                    'name' => 'Empati Kolaborasi & Sinergi Tim',
+                    'name' => 'Tipografi Rapi & Tidak Menumpuk',
                     'tag' => 'PRINSIP 02',
-                    'badge' => 'Komunikasi & Eksekusi',
+                    'badge' => 'Keterbacaan Teks',
                     'icon' => 'fa-solid fa-handshake-angle',
                     'color' => '#D97706',
                     'bg_gradient' => '#FFFFFF',
-                    'desc' => 'Mampu menerjemahkan brief bisnis dan aspirasi klien menjadi arahan visual yang lugas, serta berkolaborasi erat bersama developer dan stakeholder lintas divisi.'
+                    'desc' => 'Menjaga susunan teks dan hierarki informasi agar tidak menumpuk di bidang desain, sehingga judul promosi langsung terbaca jelas di layar ponsel maupun materi cetak fisik.'
                 ],
                 [
-                    'name' => 'Ketelitian & Standar Kualitas Tinggi',
+                    'name' => 'Kontras Warna & Keselarasan Identitas',
                     'tag' => 'PRINSIP 03',
-                    'badge' => 'Presisi Detail',
+                    'badge' => 'Kejelasan Visual',
                     'icon' => 'fa-solid fa-microscope',
                     'color' => '#C2410C',
                     'bg_gradient' => '#FFFFFF',
-                    'desc' => 'Perhatian mendalam pada detail mikro: kejelasan hierarki informasi, keselarasan tipografi, konsistensi design tokens, dan kesiapan file untuk tahap produksi akhir.'
+                    'desc' => 'Menjaga kontras warna antara teks dan latar belakang serta menghindari kombinasi warna yang bertabrakan, memastikan materi visual mewakili brand dan nyaman dilihat.'
                 ]
             ]
         ];
@@ -139,10 +139,10 @@ class PortfolioController extends Controller
                 'icon' => 'fa-solid fa-briefcase',
                 'accent' => '#C2410C',
                 'is_active' => false,
-                'short_desc' => 'Merancang aset visual branding, materi promosi digital korporat, dan kampanye media sosial berstandar Astra.',
+                'short_desc' => 'Merancang aset visual branding, materi promosi digital, dan materi kampanye media sosial berstandar Astra.',
                 'details' => [
                     'company' => 'PT Serasi Autoraya (SERA - Member of Astra)',
-                    'workflow' => "1. Menganalisis brief kebutuhan promosi dan menerapkan dokumen Brand Guidelines Astra (warna korporat, tipografi, & logo clearance).\n2. Merancang materi 3D Spatial & POSM Event fisik (Desain Tenda Booth 3x3 M, Standing Banner 60x160 cm, serta Backdrop Stage Sales Forum 2025 skala 1:10).\n3. Mengeksekusi Digital Key Visual (KV) dengan teknik photo compositing bertema liburan (efek 3D pop-out smartphone).\n4. Memproduksi materi promosi aktivasi booth, twibbon interaktif, dan kampanye seasonal kreatif (TRAC & IBID Christmas Trees).",
+                    'workflow' => "1. Menganalisis brief kebutuhan promosi dan menerapkan dokumen Brand Guidelines Astra (warna resmi brand, tipografi, & logo clearance).\n2. Merancang materi 3D Spatial & POSM Event fisik (Desain Tenda Booth 3x3 M, Standing Banner 60x160 cm, serta Backdrop Stage Sales Forum 2025 skala 1:10).\n3. Mengeksekusi Digital Key Visual (KV) dengan teknik photo compositing bertema liburan (efek 3D pop-out smartphone).\n4. Memproduksi materi promosi aktivasi booth, twibbon interaktif, dan kampanye seasonal kreatif (TRAC & IBID Christmas Trees).",
                     'tools' => ['Adobe Photoshop', 'Adobe Illustrator', 'Photo Compositing', '3D Spatial Mockup', 'Figma', 'Print Scale Layout'],
                     'learnings' => 'Menguasai ekosistem desain kampanye 360° (Spatial Event Stage, POSM Cetak, Digital Manipulation, hingga Social Engagement Twibbon) dengan kepatuhan tinggi terhadap Brand Guidelines Astra Group serta koordinasi efektif bersama tim Marketing Communication.',
                     'gallery' => [
@@ -220,7 +220,7 @@ class PortfolioController extends Controller
                     'company' => 'PT Pharos Indonesia',
                     'workflow' => "1. Riset & formulasi konten edukasi kesehatan digital (platform iDokter by Panakea) dengan pendekatan visual yang ramah dan mudah dipahami masyarakat.\n2. Merancang infografis kesehatan bertema edukasi HIV dengan tipografi dinamis, ilustrasi ekspresif, dan hierarki pertanyaan medis (Q&A).\n3. Mengembangkan ide kreatif & memproduksi video pendek TikTok/Reels interaktif (tren Gen-Z, komedi situasi kantor, & motion challenge).\n4. Menyunting visual cover, layout tipografi retro/grid, dan aset stiker digital untuk memaksimalkan rasio klik (CTR) & engagement.",
                     'tools' => ['Adobe Photoshop', 'Adobe Illustrator', 'Adobe Premiere Pro', 'Social Media Strategy', 'TikTok Analytics'],
-                    'learnings' => 'Mengasah visual storytelling dalam mentransformasi topik medis yang sensitif menjadi konten edukatif yang inklusif, serta menguasai tren algoritma video pendek (TikTok/Reels) untuk meningkatkan engagement audiens muda.',
+                    'learnings' => 'Mengasah visual storytelling dalam menerjemahkan topik medis yang sensitif menjadi konten edukatif yang mudah dipahami, serta menguasai alur video pendek (TikTok/Reels) untuk audiens muda.',
                     'gallery' => [
                         [
                             'title' => 'Edukasi: Menghapus Stigma HIV',
@@ -272,7 +272,7 @@ class PortfolioController extends Controller
                     'company' => 'Konselor Sebaya Politeknik Negeri Media Kreatif Jakarta',
                     'workflow' => "1. Mengorganisir program pendampingan konseling sebaya dan workshop kesehatan mental mahasiswa.\n2. Menjalin kemitraan dan koordinasi resmi dengan bagian Kemahasiswaan Polimedia.\n3. Memimpin rapat koordinasi pengurus serta monitoring evaluasi program kerja berkala.",
                     'tools' => ['Organizational Leadership', 'Counseling Ethics', 'Event Management', 'Public Relations'],
-                    'learnings' => 'Mengembangkan kepemimpinan yang suportif dan inklusif, kemampuan mendengarkan aktif (active listening), serta advokasi program kesehatan mental mahasiswa.',
+                    'learnings' => 'Mengembangkan kepemimpinan yang suportif dan terbuka bagi seluruh anggota, kemampuan mendengarkan aktif (active listening), serta koordinasi program kesehatan mental mahasiswa.',
                     'gallery' => []
                 ]
             ],
@@ -351,7 +351,7 @@ class PortfolioController extends Controller
                 'icon' => 'fa-solid fa-pen-nib',
                 'color' => '#EA580C',
                 'pdf_url' => asset('images/cert_rubrik_ai.pdf'),
-                'desc' => 'Sertifikat Penguasaan Perangkat Lunak Adobe Illustrator dari Rubrik Grafis: teknik vektor presisi, manajemen warna, dan tata letak tipografi artboard.',
+                'desc' => 'Sertifikat Penguasaan Perangkat Lunak Adobe Illustrator dari Rubrik Grafis: pembuatan aset vektor, manajemen warna, dan tata letak tipografi artboard.',
                 'competencies_sentence' => 'Penguasaan pen tool, pathfinder, shape builder, color swatches, dan typography artboard layout.',
                 'competencies' => []
             ],
@@ -387,8 +387,8 @@ class PortfolioController extends Controller
                 'btn_icon' => 'fa-images',
                 'image' => asset('images/trac_tenda_booth.webp'),
                 'is_featured' => true,
-                'short_desc' => 'Materi branding event booth TRAC (Astra) untuk Lalala Festival 2025, mencakup tenda booth 3x3 meter, standing banner promosi, meja registrasi & branding, serta hangtag merchandise. Bekerja dalam brand guideline korporat dengan tipografi yang terstruktur.',
-                'full_desc' => 'Perancangan materi 3D Spatial & POSM event fisik berskala 3x3 meter serta key visual digital untuk aktivasi brand TRAC (Member of Astra) pada Lalala Festival 2025. Mengintegrasikan brand guidelines resmi TRAC Astra Group (warna korporat, logo clearance, dan hierarki informasi promo) dengan palet dinamis festival publik.',
+                'short_desc' => 'Materi branding event booth TRAC (Astra) untuk Lalala Festival 2025, mencakup tenda booth 3x3 meter, standing banner promosi, meja registrasi & branding, serta hangtag merchandise. Bekerja mengikuti brand guideline resmi TRAC Astra dengan tipografi yang terstruktur.',
+                'full_desc' => 'Perancangan materi 3D Spatial & POSM event fisik berskala 3x3 meter serta key visual digital untuk aktivasi brand TRAC (Member of Astra) pada Lalala Festival 2025. Mengintegrasikan brand guidelines resmi TRAC Astra Group (warna identitas brand, logo clearance, dan hierarki informasi promo) dengan palet dinamis festival publik.',
                 'tags' => ['Photoshop', 'Illustrator'],
                 'accent' => '#E36B32',
                 'gallery_items' => [
@@ -534,14 +534,14 @@ class PortfolioController extends Controller
                 'btn_icon' => 'fa-circle-play',
                 'image' => asset('images/eleccion_worship_hero.webp'),
                 'short_desc' => 'Editing video live worship multi-kamera di Premiere Pro dan After Effects. Pergantian sudut kamera mengikuti tempo lagu, dengan pencahayaan panggung yang tetap seimbang.',
-                'full_desc' => 'Produksi dan penyuntingan video live recording cover lagu "Allah Roh Kudus" oleh Eleccion Worship di Diwangkoro Music Production. Bertanggung jawab sebagai Videographer, Video Editor, dan Thumbnail Designer. Mengintegrasikan sinkronisasi multi-angle camera secara presisi, penyesuaian mood lighting studio panggung bernuansa warm & cinematic, integrasi subtitle lirik dinamis, serta audio-visual mastering synchronization.',
+                'full_desc' => 'Produksi dan penyuntingan video live recording cover lagu "Allah Roh Kudus" oleh Eleccion Worship di Diwangkoro Music Production. Bertanggung jawab sebagai Videographer, Video Editor, dan Thumbnail Designer. Mengintegrasikan sinkronisasi multi-angle camera berdasarkan tempo lagu, penyesuaian mood lighting studio panggung bernuansa warm & cinematic, integrasi subtitle lirik dinamis, serta audio-visual mastering synchronization.',
                 'video_url' => 'https://www.youtube.com/watch?v=skzC2-_f090',
                 'video_embed_url' => 'https://www.youtube.com/embed/skzC2-_f090',
                 'video_ratio' => '16:9 Full HD',
                 'video_duration' => '04:39',
                 'video_client' => 'Eleccion Worship (@eleccionworship2016)',
                 'video_role' => 'Videographer, Video Editor & Thumbnail Designer',
-                'video_workflow' => "1. Multicam Sync & Dynamic Angle Switching: Sinkronisasi waveform audio multi-kamera (Wide Stage, Vocalist Close-up, Guitarist, & Drummer).\n2. Cinematic Color Grading & Studio Mood: Pengolahan pencahayaan studio dengan LUT warm amber & deep contrast yang sinematik.\n3. Audio-Visual Mastering Alignment: Sinkronisasi presisi antara rekaman visual dengan output master audio Diwangkoro Music Production.\n4. Kinetic Lyrics & Cover Thumbnail: Integrasi subtitle lirik terstruktur serta perancangan poster thumbnail YouTube dengan CTR tinggi.",
+                'video_workflow' => "1. Multicam Sync & Dynamic Angle Switching: Sinkronisasi waveform audio multi-kamera (Wide Stage, Vocalist Close-up, Guitarist, & Drummer).\n2. Cinematic Color Grading & Studio Mood: Pengolahan pencahayaan studio dengan LUT warm amber & deep contrast yang sinematik.\n3. Audio-Visual Mastering Alignment: Sinkronisasi rekaman visual dengan output master audio Diwangkoro Music Production.\n4. Kinetic Lyrics & Cover Thumbnail: Integrasi subtitle lirik terstruktur serta perancangan poster thumbnail YouTube dengan CTR tinggi.",
                 'tags' => ['Premiere Pro', 'After Effects'],
                 'accent' => '#C2410C'
             ],

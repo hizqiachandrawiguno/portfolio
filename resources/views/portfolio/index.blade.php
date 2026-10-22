@@ -555,7 +555,7 @@
                     <i class="fa-solid fa-layer-group"></i> REKAM JEJAK &amp; PENGALAMAN
                 </div>
                 <h2 class="display-6 fw-bold">Rekam Jejak Karier &amp; Organisasi</h2>
-                <p class="text-muted">Pengalaman magang marketing design dan kepemimpinan organisasi. Dinilai responsif dan terstruktur, serta terbiasa bekerja dalam brand guideline korporat.</p>
+                <p class="text-muted">Pengalaman magang marketing design dan kepemimpinan organisasi. Menurut pembimbing magang saya, kerja saya responsif dan terstruktur, serta terbiasa bekerja mengikuti brand guideline.</p>
             </div>
             <!-- Modern Category Filter Switcher (Plain Text Without Colored Icons) -->
             <div class="d-flex justify-content-center mb-4 reveal-on-scroll">
@@ -898,7 +898,7 @@
                     <strong class="text-accent">Highlight Fitur UI/UX:</strong><br>
                     • Responsive Schedule Cards (Otomatis menyesuaikan layar HP/Tablet)<br>
                     • Portal Artikel & Warta Mingguan Berbasis Grid<br>
-                    • Skema Warna Bersih & Modern yang Inklusif
+                    • Skema Warna Bersih & Kontras Nyaman untuk Jemaat
                 </div>
                 <div class="text-end">
                     <a href="https://erc.ohito7.com/" target="_blank" class="btn btn-accent btn-sm rounded-pill font-mono">
@@ -935,7 +935,7 @@
                     </div>
                     <div class="mt-3 text-start px-2">
                         <div class="d-flex align-items-center justify-content-between flex-wrap gap-2">
-                            <span class="badge font-mono" id="tracActiveCategory" style="background: rgba(227, 107, 50, 0.12); color: #E36B32; font-size: 0.75rem;">Spatial &amp; Event Booth 3x3M</span>
+                            <span class="badge font-mono" id="tracActiveCategory" style="background: rgba(194, 78, 25, 0.12); color: #C24E19; font-size: 0.75rem;">Spatial &amp; Event Booth 3x3M</span>
                             <small class="text-muted font-mono" style="font-size: 0.72rem;">Event: Lalala Festival 2025 &bull; PT Serasi Autoraya (Astra)</small>
                         </div>
                         <h4 class="h5 fw-bold text-dark mt-2 mb-1 font-heading" id="tracActiveTitle">Tenda Booth TRAC (3x3 M)</h4>
@@ -983,7 +983,7 @@
                         <li><strong>Software:</strong> Adobe Photoshop &amp; Adobe Illustrator</li>
                         <li><strong>Brand:</strong> TRAC Astra (PT Serasi Autoraya - Member of Astra)</li>
                         <li><strong>Event:</strong> Lalala Festival 2025 &bull; Skala 3x3 Meter</li>
-                        <li><strong>Keputusan Visual:</strong> Menerapkan brand guideline korporat Astra Group dan palet festival agar visual menarik bagi pengunjung dan pesan brand tersampaikan jelas. Tipografi disusun agar tidak menumpuk dan kontras warna terjaga.</li>
+                        <li><strong>Keputusan Visual:</strong> Menerapkan brand guideline resmi Astra Group dan palet festival agar visual menarik bagi pengunjung dan pesan brand tersampaikan jelas. Tipografi disusun agar tidak menumpuk dan kontras warna terjaga.</li>
                     </ul>
                 </div>
             </div>
@@ -1017,7 +1017,7 @@
                     </div>
                     <div class="mt-3 text-start px-2">
                         <div class="d-flex align-items-center justify-content-between flex-wrap gap-2">
-                            <span class="badge font-mono" id="drpActiveCategory" style="background: rgba(227, 107, 50, 0.12); color: #E36B32; font-size: 0.75rem;">Pop-Art &amp; Comic Grid Layout</span>
+                            <span class="badge font-mono" id="drpActiveCategory" style="background: rgba(194, 78, 25, 0.12); color: #C24E19; font-size: 0.75rem;">Pop-Art &amp; Comic Grid Layout</span>
                             <small class="text-muted font-mono" style="font-size: 0.72rem;">Resolusi Asli: 1024 &times; 1024 px &bull; Rasio 1:1 Feed</small>
                         </div>
                         <h4 class="h5 fw-bold text-dark mt-2 mb-1 font-heading" id="drpActiveTitle">Self Improvement - Ka Kayla (8 Okt 2023)</h4>
@@ -1174,8 +1174,8 @@
                         <i class="fa-solid fa-clapperboard me-1"></i> VIDEO SHOWCASE
                     </span>
                     <div>
-                        <h3 class="h5 fw-bold text-white mb-0" id="modalVideoTitle">Video Title</h3>
-                        <small class="text-white-50 font-mono" id="modalVideoClient" style="font-size: 0.75rem;">Client / Channel</small>
+                        <h3 class="h5 fw-bold text-white mb-0" id="modalVideoTitle"></h3>
+                        <small class="text-white-50 font-mono" id="modalVideoClient" style="font-size: 0.75rem;"></small>
                     </div>
                 </div>
                 <button type="button" class="btn-close btn-close-white" onclick="closeVideoModal()" aria-label="Tutup Video"></button>
@@ -1201,9 +1201,7 @@
                                     <span class="badge bg-secondary bg-opacity-50 text-white font-mono px-3 py-1.5 rounded-pill" id="modalVideoDuration">04:18</span>
                                     <span class="badge bg-accent text-white font-mono px-3 py-1.5 rounded-pill" id="modalVideoRole">Lead Editor</span>
                                 </div>
-                                <p class="text-white-50 mb-4 lh-relaxed video-desc-text" id="modalVideoDesc">
-                                    Deskripsi video editing...
-                                </p>
+                                <p class="text-white-50 mb-4 lh-relaxed video-desc-text" id="modalVideoDesc"></p>
                                 <div class="mb-4" id="modalVideoActions">
                                     <a id="modalYoutubeExternalLink" href="#" target="_blank" class="btn btn-sm btn-danger font-mono rounded-pill px-4 py-2 d-inline-flex align-items-center gap-2" style="font-size: 0.82rem;">
                                         <i class="fa-brands fa-youtube fs-6"></i> Buka & Tonton di YouTube
@@ -1256,9 +1254,9 @@
                         <span class="layer-tag text-accent" id="modalExpNumber">LAYER 01</span>
                         <span class="badge bg-light border text-muted font-mono" id="modalExpPeriod">2024</span>
                     </div>
-                    <h3 class="fw-bold text-dark mb-1 fs-4" id="modalExpTitle">Company Title</h3>
+                    <h3 class="fw-bold text-dark mb-1 fs-4" id="modalExpTitle"></h3>
                     <div class="text-accent font-heading fw-bold fs-6 d-flex align-items-center gap-2">
-                        <i class="fa-solid fa-briefcase"></i> <span id="modalExpRole">Role</span>
+                        <i class="fa-solid fa-briefcase"></i> <span id="modalExpRole"></span>
                     </div>
                 </div>
                 <button type="button" class="btn-close-custom" onclick="closeExpModal()" aria-label="Tutup">
@@ -1293,7 +1291,7 @@
                         <!-- Perusahaan / Organisasi Info Card -->
                         <div class="exp-info-card p-3 rounded-4 bg-light border">
                             <small class="text-muted font-mono text-uppercase d-block mb-1" style="font-size: 0.7rem;">Perusahaan / Client</small>
-                            <h6 class="fw-bold text-dark mb-0 fs-6" id="modalExpCompany">Company Name</h6>
+                            <h6 class="fw-bold text-dark mb-0 fs-6" id="modalExpCompany"></h6>
                         </div>
 
                         <!-- Workflow & Process Section -->
@@ -1321,7 +1319,7 @@
                             <small class="text-accent font-mono text-uppercase d-block mb-2 fw-bold" style="font-size: 0.75rem; letter-spacing: 1px;">
                                 <i class="fa-solid fa-lightbulb me-1"></i> Key Learnings &amp; Impact
                             </small>
-                            <p class="text-dark mb-0 small lh-base fw-medium" id="modalExpLearnings">Learnings...</p>
+                            <p class="text-dark mb-0 small lh-base fw-medium" id="modalExpLearnings"></p>
                         </div>
 
                     </div>
@@ -1343,9 +1341,9 @@
             </button>
             <img id="lightboxImg" src="" alt="High-Res Artwork Preview" class="lightbox-img">
             <div class="lightbox-caption-bar mt-3 p-3 text-center rounded-4 shadow-sm">
-                <span class="badge bg-accent text-white font-mono mb-2 px-3 py-1 rounded-pill" id="lightboxCategory" style="font-size: 0.72rem;">Category</span>
-                <h5 class="text-white fw-bold mb-1 fs-6 font-heading" id="lightboxTitle">Judul Karya</h5>
-                <p class="text-white-50 small mb-0 lh-sm" id="lightboxCaption" style="font-size: 0.8rem;">Deskripsi karya...</p>
+                <span class="badge bg-accent text-white font-mono mb-2 px-3 py-1 rounded-pill" id="lightboxCategory" style="font-size: 0.72rem;"></span>
+                <h5 class="text-white fw-bold mb-1 fs-6 font-heading" id="lightboxTitle"></h5>
+                <p class="text-white-50 small mb-0 lh-sm" id="lightboxCaption" style="font-size: 0.8rem;"></p>
             </div>
         </div>
     </div>
