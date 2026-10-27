@@ -373,9 +373,50 @@ class PortfolioController extends Controller
             ]
         ];
 
-        // 7 Curated Flagship Projects (TRAC Astra as Featured Hero + 6 Supporting Grid Projects)
+        // 8 Curated Flagship Projects (Traveloka as Featured Flagship Hero + Supporting Grid Projects)
         $projects = [
-            // --- 0. FEATURED FLAGSHIP CASE STUDY (KARYA UTAMA) ---
+            // --- 0. FEATURED FLAGSHIP CASE STUDY (KARYA UTAMA TER-HIGHLIGHT) ---
+            [
+                'id' => 'proj-traveloka',
+                'title' => 'Traveloka Campaign Visuals - Social Media Key Visual',
+                'category' => 'graphic',
+                'category_label' => 'Social Media & Campaign Design',
+                'action_type' => 'modal',
+                'modal_target' => '#travelokaDemoModal',
+                'btn_text' => 'Lihat Galeri Karya Traveloka (3 Key Visual)',
+                'btn_icon' => 'fa-images',
+                'image' => asset('images/traveloka_pergi_kapan_saja.jpg'),
+                'is_featured' => true,
+                'short_desc' => 'Tiga seri key visual kampanye media sosial Traveloka resolusi tinggi (Artboard 2000 × 2000 px): photo compositing smartphone 3D pop-out, jendela pesawat menuju Raja Ampat, dan banner rekomendasi wisata akhir tahun. Dibuat di Adobe Photoshop dengan teknik layer masking, realistic drop-shadow, blending mode, dan integrasi UI mockup smartphone.',
+                'full_desc' => 'Perancangan tiga seri key visual sosial media bertema kampanye perjalanan Traveloka pada artboard beresolusi tinggi 2000 × 2000 px. Setiap desain mengaplikasikan teknik photo compositing realistis tingkat lanjut, konsistensi palet biru korporat Traveloka, hierarki tipografi bersih, serta integrasi elemen UI mockup smartphone untuk memperkuat pesan brand.',
+                'tags' => ['Photoshop', 'Photo Compositing', 'Artboard 2000×2000px'],
+                'accent' => '#0064D2',
+                'gallery_items' => [
+                    [
+                        'id' => 'traveloka-pergi-kapan-saja',
+                        'title' => 'Key Visual: "Pergi Kapan Saja, Traveloka Aja"',
+                        'category' => 'Photo Compositing & App Mockup',
+                        'image' => asset('images/traveloka_pergi_kapan_saja.jpg'),
+                        'desc' => 'Key visual utama kampanye dengan teknik photo compositing: tangan memegang smartphone yang menampilkan UI Traveloka, dikelilingi pesawat, koper, dan paspor 3D pop-out. Tipografi headline besar berlapis bayangan memperkuat call-to-action download aplikasi.'
+                    ],
+                    [
+                        'id' => 'traveloka-yang-lain-berangkat',
+                        'title' => 'Key Visual: "Yang Lain Udah Berangkat, Kamu?"',
+                        'category' => 'Conceptual Photo Manipulation',
+                        'image' => asset('images/traveloka_yang_lain_berangkat.jpg'),
+                        'desc' => 'Konsep visual jendela pesawat sebagai frame untuk destinasi Raja Ampat, Papua. Koper putih dan pesawat berbentuk lengkungan dinamis keluar dari bingkai, menciptakan ilusi kedalaman 3D yang dramatis dengan langit biru cerah khas identitas Traveloka.'
+                    ],
+                    [
+                        'id' => 'traveloka-rekomendasi-wisata',
+                        'title' => 'Key Visual: "Rekomendasi Tempat Wisata Akhir Tahun"',
+                        'category' => 'Photo Compositing & Lifestyle',
+                        'image' => asset('images/traveloka_rekomendasi_wisata.jpg'),
+                        'desc' => 'Komposisi lifestyle fotografis: model memegang smartphone Traveloka dengan background split antara interior hotel mewah dan Machu Picchu Peru, dipersatukan oleh search bar rekomendasi wisata. Visual memperkuat pesan "semua perjalananmu dimulai dari satu genggaman".'
+                    ]
+                ]
+            ],
+
+            // --- 1. GRAPHIC & SOCIAL MEDIA DESIGN ---
             [
                 'id' => 'proj-trac-astra',
                 'title' => 'TRAC Astra (Lalala Festival 2025) - Key Visual & Materi Booth 3x3M',
@@ -386,7 +427,7 @@ class PortfolioController extends Controller
                 'btn_text' => 'Lihat Galeri Aset & Booth TRAC Astra',
                 'btn_icon' => 'fa-images',
                 'image' => asset('images/trac_tenda_booth.webp'),
-                'is_featured' => true,
+                'is_featured' => false,
                 'short_desc' => 'Materi branding event booth TRAC (Astra) untuk Lalala Festival 2025, mencakup tenda booth 3x3 meter, standing banner promosi, meja registrasi & branding, serta hangtag merchandise. Bekerja mengikuti brand guideline resmi TRAC Astra dengan tipografi yang terstruktur.',
                 'full_desc' => 'Perancangan materi 3D Spatial & POSM event fisik berskala 3x3 meter serta key visual digital untuk aktivasi brand TRAC (Member of Astra) pada Lalala Festival 2025. Mengintegrasikan brand guidelines resmi TRAC Astra Group (warna identitas brand, logo clearance, dan hierarki informasi promo) dengan palet dinamis festival publik.',
                 'tags' => ['Photoshop', 'Illustrator'],
@@ -423,7 +464,6 @@ class PortfolioController extends Controller
                 ]
             ],
 
-            // --- 1. GRAPHIC & SOCIAL MEDIA DESIGN ---
             [
                 'id' => 'proj-drp-social',
                 'title' => 'DRP Outstanding Teens - Social Media & Event Visuals',
@@ -539,46 +579,6 @@ class PortfolioController extends Controller
                         'category' => 'Member Profile Card Layout',
                         'image' => asset('images/ritistic_profiling_sukmawati.webp'),
                         'desc' => 'Sistem tata letak visual profil anggota Ritistic Project dengan konsistensi grid tipografi nama vertikal, ilustrasi buku di bagian bawah, serta penempatan handle media sosial di sudut kanan atas.'
-                    ]
-                ]
-            ],
-
-            // --- 1B. TRAVELOKA CAMPAIGN VISUALS (SOCIAL MEDIA - PHOTOSHOP) ---
-            [
-                'id' => 'proj-traveloka',
-                'title' => 'Traveloka Campaign Visuals - Social Media Key Visual',
-                'category' => 'graphic',
-                'category_label' => 'Social Media & Campaign Design',
-                'action_type' => 'modal',
-                'modal_target' => '#travelokaDemoModal',
-                'btn_text' => 'Lihat Galeri Karya Traveloka',
-                'btn_icon' => 'fa-images',
-                'image' => asset('images/traveloka_pergi_kapan_saja.jpg'),
-                'short_desc' => 'Tiga seri key visual kampanye sosial media Traveloka: photo compositing smartphone 3D pop-out, jendela pesawat menuju Raja Ampat, dan banner rekomendasi wisata akhir tahun. Teknik layer masking, blending mode, dan photo manipulation di Photoshop.',
-                'full_desc' => 'Perancangan tiga seri key visual sosial media bertema kampanye perjalanan Traveloka. Setiap desain mengaplikasikan teknik photo compositing realistis, konsistensi palet biru Traveloka, hierarki tipografi bersih, serta integrasi elemen UI mockup smartphone untuk memperkuat pesan brand.',
-                'tags' => ['Photoshop'],
-                'accent' => '#0064D2',
-                'gallery_items' => [
-                    [
-                        'id' => 'traveloka-pergi-kapan-saja',
-                        'title' => 'Key Visual: "Pergi Kapan Saja, Traveloka Aja"',
-                        'category' => 'Photo Compositing & App Mockup',
-                        'image' => asset('images/traveloka_pergi_kapan_saja.jpg'),
-                        'desc' => 'Key visual utama kampanye dengan teknik photo compositing: tangan memegang smartphone yang menampilkan UI Traveloka, dikelilingi pesawat, koper, dan paspor 3D pop-out. Tipografi headline besar berlapis bayangan memperkuat call-to-action download aplikasi.'
-                    ],
-                    [
-                        'id' => 'traveloka-yang-lain-berangkat',
-                        'title' => 'Key Visual: "Yang Lain Udah Berangkat, Kamu?"',
-                        'category' => 'Conceptual Photo Manipulation',
-                        'image' => asset('images/traveloka_yang_lain_berangkat.jpg'),
-                        'desc' => 'Konsep visual jendela pesawat sebagai frame untuk destinasi Raja Ampat, Papua. Koper putih dan pesawat berbentuk lengkungan dinamis keluar dari bingkai, menciptakan ilusi kedalaman 3D yang dramatis dengan langit biru cerah khas identitas Traveloka.'
-                    ],
-                    [
-                        'id' => 'traveloka-rekomendasi-wisata',
-                        'title' => 'Key Visual: "Rekomendasi Tempat Wisata Akhir Tahun"',
-                        'category' => 'Photo Compositing & Lifestyle',
-                        'image' => asset('images/traveloka_rekomendasi_wisata.jpg'),
-                        'desc' => 'Komposisi lifestyle fotografis: model memegang smartphone Traveloka dengan background split antara interior hotel mewah dan Machu Picchu Peru, dipersatukan oleh search bar rekomendasi wisata. Visual memperkuat pesan "semua perjalananmu dimulai dari satu genggaman".'
                     ]
                 ]
             ],

@@ -184,6 +184,12 @@ window.openProjectModal = function (modalId) {
         modalOverlay.classList.add('active');
         document.body.style.overflow = 'hidden';
 
+        // Reset scroll position to top
+        const infoCol = modalOverlay.querySelector('.artwork-modal-info-col');
+        if (infoCol) infoCol.scrollTop = 0;
+        const modalBody = modalOverlay.querySelector('.artwork-modal-body');
+        if (modalBody) modalBody.scrollTop = 0;
+
         // Focus first focusable element inside modal
         const focusable = modalOverlay.querySelectorAll('button:not([disabled]), [href], input, select, textarea, [tabindex]:not([tabindex="-1"])');
         if (focusable.length > 0) {
@@ -1107,11 +1113,12 @@ window.zoomActiveDrpImage = function () {
 
 
 // TRAVELOKA CAMPAIGN VISUALS ARTWORK GALLERY SELECTOR
-window.selectTravelokaArtwork = function (imgUrl, title, desc, category, cardEl) {
+window.selectTravelokaArtwork = function (imgUrl, title, desc, category, cardEl, ratioText) {
     const activeImg = document.getElementById('travelokaActiveImg');
     const activeTitle = document.getElementById('travelokaActiveTitle');
     const activeDesc = document.getElementById('travelokaActiveDesc');
     const activeCategory = document.getElementById('travelokaActiveCategory');
+    const activeRatio = document.getElementById('travelokaActiveRatio');
 
     if (activeImg) {
         activeImg.style.opacity = '0.4';
@@ -1121,6 +1128,7 @@ window.selectTravelokaArtwork = function (imgUrl, title, desc, category, cardEl)
     if (activeTitle) activeTitle.innerHTML = title;
     if (activeDesc) activeDesc.textContent = desc;
     if (activeCategory) activeCategory.textContent = category;
+    if (activeRatio && ratioText) activeRatio.innerHTML = ratioText;
 
     document.querySelectorAll('#travelokaDemoModal .ritistic-thumb-card').forEach(c => c.classList.remove('active'));
     if (cardEl) cardEl.classList.add('active');

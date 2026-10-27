@@ -3150,40 +3150,45 @@ a {
     display: flex;
     flex-direction: column;
     overflow: hidden;
+    position: relative;
 }
 
 .artwork-modal-body {
-    padding: 20px 24px;
+    padding: 20px 24px !important;
     flex: 1 1 auto;
     min-height: 0;
+    max-height: calc(90vh - 70px);
     overflow-y: auto;
     -webkit-overflow-scrolling: touch;
     scrollbar-width: thin;
-    scrollbar-color: #C8C0B4 transparent;
+    scrollbar-color: #C8C0B4 #F4EFEB;
 }
 
 .artwork-modal-grid {
     display: flex;
     gap: 24px;
-    min-height: 420px;
+    min-height: 0;
     align-items: flex-start;
 }
 
-/* Kolom Kiri: Visual Stage (55-60%) */
+/* Kolom Kiri: Visual Stage (54%) - Sticky di Atas */
 .artwork-modal-visual-col {
-    flex: 0 0 58%;
-    width: 58%;
-    max-width: 58%;
+    flex: 0 0 54%;
+    width: 54%;
+    max-width: 54%;
     display: flex;
     flex-direction: column;
     justify-content: flex-start;
     align-items: center;
+    position: sticky;
+    top: 0;
+    z-index: 2;
 }
 
 .artwork-modal-img-wrap {
     position: relative;
     width: 100%;
-    max-width: calc(90vh - 120px);
+    max-width: calc(90vh - 130px);
     aspect-ratio: 1 / 1;
     background: #FAF6F0;
     border: 1px solid #E8E2D8;
@@ -3225,29 +3230,39 @@ a {
     box-shadow: 0 4px 12px rgba(194, 78, 25, 0.3);
 }
 
-/* Kolom Kanan: Detail & Scrollable Content */
+/* Kolom Kanan: Detail & Scrollable Content (46%) */
 .artwork-modal-info-col {
-    flex: 1 1 42%;
-    width: 42%;
+    flex: 1 1 46%;
+    width: 46%;
     min-width: 0;
-    overflow-y: visible;
+    max-height: calc(90vh - 120px);
+    overflow-y: auto !important;
+    overflow-x: hidden;
     display: flex;
     flex-direction: column;
-    padding-right: 4px;
+    padding-right: 8px;
+    scrollbar-width: thin;
+    scrollbar-color: #C8C0B4 #F4EFEB;
+    -webkit-overflow-scrolling: touch;
 }
 
-.artwork-modal-info-col::-webkit-scrollbar {
-    width: 6px;
+.artwork-modal-info-col::-webkit-scrollbar,
+.artwork-modal-body::-webkit-scrollbar {
+    width: 7px;
+    display: block;
 }
-.artwork-modal-info-col::-webkit-scrollbar-track {
+.artwork-modal-info-col::-webkit-scrollbar-track,
+.artwork-modal-body::-webkit-scrollbar-track {
     background: #F4EFEB;
     border-radius: 6px;
 }
-.artwork-modal-info-col::-webkit-scrollbar-thumb {
+.artwork-modal-info-col::-webkit-scrollbar-thumb,
+.artwork-modal-body::-webkit-scrollbar-thumb {
     background: #C8C0B4;
     border-radius: 6px;
 }
-.artwork-modal-info-col::-webkit-scrollbar-thumb:hover {
+.artwork-modal-info-col::-webkit-scrollbar-thumb:hover,
+.artwork-modal-body::-webkit-scrollbar-thumb:hover {
     background: var(--accent-color);
 }
 
@@ -3356,6 +3371,7 @@ a {
     .artwork-modal-info-col {
         width: 100%;
         height: auto;
+        max-height: none !important;
         overflow-y: visible !important;
         padding-right: 0;
     }

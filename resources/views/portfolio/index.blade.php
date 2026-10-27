@@ -433,15 +433,20 @@
                         
                         <div class="row g-0 align-items-stretch h-100">
                             <div class="col-lg-7 featured-img-col">
-                                <div class="project-img-wrapper h-100 cursor-pointer position-relative" onclick="openProjectModal('{{ ltrim($project['modal_target'], '#') }}')" title="Klik untuk lihat galeri booth &amp; KV TRAC Astra">
+                                <div class="project-img-wrapper h-100 cursor-pointer position-relative" onclick="openProjectModal('{{ ltrim($project['modal_target'], '#') }}')" title="Klik untuk lihat detail {{ $project['title'] }}">
                                     <img src="{{ $project['image'] }}" alt="{{ $project['title'] }}" class="project-img featured-img" loading="eager" decoding="async">
                                 </div>
                             </div>
                             <div class="col-lg-5 p-4 p-xl-5 d-flex flex-column justify-content-between">
                                 <div>
-                                    <span class="font-mono small fw-bold text-uppercase d-block mb-1" style="color: #A83C0C; font-size: 0.78rem; letter-spacing: 0.08em;">
-                                        {{ $project['category_label'] }}
-                                    </span>
+                                    <div class="d-flex align-items-center gap-2 mb-2 flex-wrap">
+                                        <span class="badge font-mono px-2 py-1" style="background: rgba(0, 100, 210, 0.12); color: #0064D2; font-size: 0.75rem; letter-spacing: 0.05em; font-weight: 700;">
+                                            <i class="fa-solid fa-star me-1 text-warning"></i> HIGHLIGHTED PROJECT
+                                        </span>
+                                        <span class="font-mono small fw-bold text-uppercase" style="color: #64748B; font-size: 0.75rem; letter-spacing: 0.08em;">
+                                            {{ $project['category_label'] }}
+                                        </span>
+                                    </div>
                                     <h3 class="h4 fw-bold mb-3 font-heading text-dark">{{ $project['title'] }}</h3>
                                     <p class="text-muted small mb-4 lh-relaxed" style="font-size: 0.92rem;">
                                         {{ $project['short_desc'] }}
@@ -449,12 +454,11 @@
                                 </div>
 
                                 <div class="pt-2">
-                                    <!-- Satu-satunya Tombol Oranye Penuh per Layar -->
                                     <button type="button" class="btn btn-accent btn-sm font-sans mb-0 w-100 justify-content-center" onclick="openProjectModal('{{ ltrim($project['modal_target'], '#') }}')">
-                                        <i class="fa-solid fa-images me-1"></i> Buka Galeri Booth &amp; Key Visual
+                                        <i class="fa-solid {{ $project['btn_icon'] ?? 'fa-images' }} me-1"></i> {{ $project['btn_text'] ?? 'Buka Galeri Karya' }}
                                     </button>
                                     <p class="small text-muted mb-0 font-sans mt-3">
-                                        <span class="fw-semibold text-dark">Software:</span> {{ implode(', ', $project['tags']) }}
+                                        <span class="fw-semibold text-dark">Spesifikasi:</span> {{ implode(', ', $project['tags']) }}
                                     </p>
                                 </div>
                             </div>
@@ -1249,7 +1253,7 @@
                         <!-- Label Kategori & Info Resolusi/Rasio -->
                         <div class="d-flex align-items-center justify-content-between flex-wrap gap-2 mb-2">
                             <span class="badge font-mono" id="travelokaActiveCategory" style="background: rgba(0, 100, 210, 0.12); color: #0064D2; font-size: 0.75rem;">Photo Compositing &amp; App Mockup</span>
-                            <small class="text-muted font-mono" style="font-size: 0.72rem;">Format: Feed 1:1 &bull; 1080 &times; 1080 px</small>
+                            <small class="text-muted font-mono" id="travelokaActiveRatio" style="font-size: 0.72rem;">Format: Feed 1:1 &bull; 2000 &times; 2000 px</small>
                         </div>
 
                         <!-- Judul & Deskripsi Karya -->
@@ -1263,19 +1267,19 @@
                             <small class="text-muted font-mono fw-bold text-uppercase d-block mb-2" style="font-size: 0.72rem; letter-spacing: 0.05em;">Pilih Key Visual untuk Dilihat:</small>
                             <div class="row g-2">
                                 <div class="col-4">
-                                    <div class="ritistic-thumb-card active" onclick="selectTravelokaArtwork('{{ asset('images/traveloka_pergi_kapan_saja.jpg') }}', 'Key Visual: &quot;Pergi Kapan Saja, Traveloka Aja&quot;', 'Key visual utama kampanye dengan teknik photo compositing: tangan memegang smartphone yang menampilkan UI Traveloka, dikelilingi pesawat, koper, dan paspor 3D pop-out.', 'Photo Compositing &amp; App Mockup', this)">
+                                    <div class="ritistic-thumb-card active" onclick="selectTravelokaArtwork('{{ asset('images/traveloka_pergi_kapan_saja.jpg') }}', 'Key Visual: &quot;Pergi Kapan Saja, Traveloka Aja&quot;', 'Key visual utama kampanye dengan teknik photo compositing: tangan memegang smartphone yang menampilkan UI Traveloka, dikelilingi pesawat, koper, dan paspor 3D pop-out.', 'Photo Compositing &amp; App Mockup', this, 'Format: Feed 1:1 &bull; 2000 &times; 2000 px')">
                                         <img src="{{ asset('images/traveloka_pergi_kapan_saja.jpg') }}" alt="Pergi Kapan Saja" class="img-fluid rounded-2 border">
                                         <span class="thumb-label font-mono">Pergi Kapan Saja</span>
                                     </div>
                                 </div>
                                 <div class="col-4">
-                                    <div class="ritistic-thumb-card" onclick="selectTravelokaArtwork('{{ asset('images/traveloka_yang_lain_berangkat.jpg') }}', 'Key Visual: &quot;Yang Lain Udah Berangkat, Kamu?&quot;', 'Konsep visual jendela pesawat sebagai frame untuk destinasi Raja Ampat, Papua. Koper putih dan pesawat berbentuk lengkungan dinamis keluar dari bingkai, menciptakan ilusi kedalaman 3D yang dramatis.', 'Conceptual Photo Manipulation', this)">
+                                    <div class="ritistic-thumb-card" onclick="selectTravelokaArtwork('{{ asset('images/traveloka_yang_lain_berangkat.jpg') }}', 'Key Visual: &quot;Yang Lain Udah Berangkat, Kamu?&quot;', 'Konsep visual jendela pesawat sebagai frame untuk destinasi Raja Ampat, Papua. Koper putih dan pesawat berbentuk lengkungan dinamis keluar dari bingkai, menciptakan ilusi kedalaman 3D yang dramatis.', 'Conceptual Photo Manipulation', this, 'Format: Feed 1:1 &bull; 2000 &times; 2000 px')">
                                         <img src="{{ asset('images/traveloka_yang_lain_berangkat.jpg') }}" alt="Yang Lain Berangkat" class="img-fluid rounded-2 border">
                                         <span class="thumb-label font-mono">Yang Lain Berangkat</span>
                                     </div>
                                 </div>
                                 <div class="col-4">
-                                    <div class="ritistic-thumb-card" onclick="selectTravelokaArtwork('{{ asset('images/traveloka_rekomendasi_wisata.jpg') }}', 'Key Visual: &quot;Rekomendasi Tempat Wisata Akhir Tahun&quot;', 'Komposisi lifestyle fotografis: model memegang smartphone Traveloka dengan background split antara interior hotel mewah dan Machu Picchu Peru, dipersatukan oleh search bar rekomendasi wisata.', 'Photo Compositing &amp; Lifestyle', this)">
+                                    <div class="ritistic-thumb-card" onclick="selectTravelokaArtwork('{{ asset('images/traveloka_rekomendasi_wisata.jpg') }}', 'Key Visual: &quot;Rekomendasi Tempat Wisata Akhir Tahun&quot;', 'Komposisi lifestyle fotografis: model memegang smartphone Traveloka dengan background split antara interior hotel mewah dan Machu Picchu Peru, dipersatukan oleh search bar rekomendasi wisata.', 'Photo Compositing &amp; Lifestyle', this, 'Format: Feed 1:1 &bull; 2000 &times; 2000 px')">
                                         <img src="{{ asset('images/traveloka_rekomendasi_wisata.jpg') }}" alt="Rekomendasi Wisata" class="img-fluid rounded-2 border">
                                         <span class="thumb-label font-mono">Rekomendasi Wisata</span>
                                     </div>
@@ -1289,7 +1293,7 @@
                             <ul class="mb-0 ps-3 text-muted lh-base" style="font-size: 0.8rem;">
                                 <li><strong>Software:</strong> Adobe Photoshop</li>
                                 <li><strong>Brand:</strong> Traveloka (Platform Perjalanan Online)</li>
-                                <li><strong>Format:</strong> Social Media Feed 1:1 &bull; 1080 &times; 1080 px</li>
+                                <li><strong>Format:</strong> Social Media Feed 1:1 &bull; 2000 &times; 2000 px (High-Resolution Artboard)</li>
                                 <li><strong>Teknik Utama:</strong> Photo compositing multi-layer, masking realistis, blending mode, efek 3D pop-out elemen props, dan hierarki tipografi kampanye brand.</li>
                             </ul>
                         </div>
