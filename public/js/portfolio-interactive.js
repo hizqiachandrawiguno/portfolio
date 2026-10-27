@@ -1104,3 +1104,24 @@ window.zoomActiveDrpImage = function () {
     }
 };
 
+
+
+// TRAVELOKA CAMPAIGN VISUALS ARTWORK GALLERY SELECTOR
+window.selectTravelokaArtwork = function (imgUrl, title, desc, category, cardEl) {
+    const activeImg = document.getElementById('travelokaActiveImg');
+    const activeTitle = document.getElementById('travelokaActiveTitle');
+    const activeDesc = document.getElementById('travelokaActiveDesc');
+    const activeCategory = document.getElementById('travelokaActiveCategory');
+
+    if (activeImg) {
+        activeImg.style.opacity = '0.4';
+        activeImg.src = imgUrl;
+        activeImg.onload = () => { activeImg.style.opacity = '1'; };
+    }
+    if (activeTitle) activeTitle.innerHTML = title;
+    if (activeDesc) activeDesc.textContent = desc;
+    if (activeCategory) activeCategory.textContent = category;
+
+    document.querySelectorAll('#travelokaDemoModal .ritistic-thumb-card').forEach(c => c.classList.remove('active'));
+    if (cardEl) cardEl.classList.add('active');
+};

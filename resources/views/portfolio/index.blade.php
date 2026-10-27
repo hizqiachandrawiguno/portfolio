@@ -413,7 +413,7 @@
                         Semua Karya ({{ count($projects) }})
                     </button>
                     <button type="button" class="btn btn-sm rounded-pill font-mono px-3 py-2 skill-tab-btn proj-filter-btn" onclick="filterProjects('graphic', this)">
-                        Desain Grafis (3)
+                        Desain Grafis (4)
                     </button>
                     <button type="button" class="btn btn-sm rounded-pill font-mono px-3 py-2 skill-tab-btn proj-filter-btn" onclick="filterProjects('video', this)">
                         Video &amp; Motion (2)
@@ -1207,6 +1207,90 @@
                                 <li><strong>Software:</strong> Adobe Illustrator &amp; Adobe Photoshop</li>
                                 <li><strong>Identitas Brand:</strong> Konsistensi logo Ritistic "R" di sudut kiri atas setiap konten visual.</li>
                                 <li><strong>Eksplorasi Gaya:</strong> Memadukan pendekatan retro hand-drawn, visual hari besar nasional, dan editorial personal profiling modern.</li>
+                            </ul>
+                        </div>
+                    </div>
+
+                </div>
+            </div>
+        </div>
+    </div>
+
+
+    <!-- ========================================================================== -->
+    <!-- 2C. TRAVELOKA CAMPAIGN VISUALS ARTWORK GALLERY MODAL                       -->
+    <!-- ========================================================================== -->
+    <div class="custom-modal-overlay" id="travelokaDemoModal" onclick="if(event.target === this) closeProjectModal('travelokaDemoModal')">
+        <div class="custom-modal-dialog artwork-detail-dialog">
+            <div class="modal-header modal-header-studio d-flex justify-content-between align-items-center">
+                <div class="d-flex align-items-center gap-2">
+                    <span class="badge text-white font-mono px-3 py-2 rounded-pill" style="background: #0064D2;">
+                        <i class="fa-solid fa-palette me-1"></i> SOCIAL MEDIA &amp; CAMPAIGN DESIGN
+                    </span>
+                    <h3 class="h4 fw-bold text-dark mb-0">Traveloka Campaign Visuals</h3>
+                </div>
+                <button type="button" class="btn-close" onclick="closeProjectModal('travelokaDemoModal')" aria-label="Close"></button>
+            </div>
+            <div class="modal-body modal-body-studio artwork-modal-body">
+                <div class="artwork-modal-grid">
+
+                    <!-- Kolom Kiri: Visual Stage (55-60%) -->
+                    <div class="artwork-modal-visual-col">
+                        <div class="artwork-modal-img-wrap">
+                            <img id="travelokaActiveImg" src="{{ asset('images/traveloka_pergi_kapan_saja.jpg') }}" alt="Traveloka Campaign Visual" class="artwork-modal-img" loading="eager" decoding="async">
+                            <button type="button" class="btn btn-sm btn-dark bg-opacity-75 text-white position-absolute bottom-0 end-0 m-3 rounded-pill font-mono btn-zoom-hd" onclick="openImageLightbox(document.getElementById('travelokaActiveImg').src, document.getElementById('travelokaActiveTitle').textContent, document.getElementById('travelokaActiveDesc').textContent, document.getElementById('travelokaActiveCategory').textContent)" title="Perbesar HD">
+                                <i class="fa-solid fa-magnifying-glass-plus me-1"></i> Perbesar HD
+                            </button>
+                        </div>
+                    </div>
+
+                    <!-- Kolom Kanan: Detail & Info Konten (Scrollable) -->
+                    <div class="artwork-modal-info-col">
+                        <!-- Label Kategori & Info Resolusi/Rasio -->
+                        <div class="d-flex align-items-center justify-content-between flex-wrap gap-2 mb-2">
+                            <span class="badge font-mono" id="travelokaActiveCategory" style="background: rgba(0, 100, 210, 0.12); color: #0064D2; font-size: 0.75rem;">Photo Compositing &amp; App Mockup</span>
+                            <small class="text-muted font-mono" style="font-size: 0.72rem;">Format: Feed 1:1 &bull; 1080 &times; 1080 px</small>
+                        </div>
+
+                        <!-- Judul & Deskripsi Karya -->
+                        <h4 class="h5 fw-bold text-dark mt-1 mb-2 font-heading" id="travelokaActiveTitle">Key Visual: &ldquo;Pergi Kapan Saja, Traveloka Aja&rdquo;</h4>
+                        <p class="text-muted small mb-3 lh-relaxed" id="travelokaActiveDesc">
+                            Key visual utama kampanye dengan teknik photo compositing: tangan memegang smartphone yang menampilkan UI Traveloka, dikelilingi pesawat, koper, dan paspor 3D pop-out. Tipografi headline besar berlapis bayangan memperkuat call-to-action download aplikasi.
+                        </p>
+
+                        <!-- 3 Interactive Artwork Selectors -->
+                        <div class="mb-3">
+                            <small class="text-muted font-mono fw-bold text-uppercase d-block mb-2" style="font-size: 0.72rem; letter-spacing: 0.05em;">Pilih Key Visual untuk Dilihat:</small>
+                            <div class="row g-2">
+                                <div class="col-4">
+                                    <div class="ritistic-thumb-card active" onclick="selectTravelokaArtwork('{{ asset('images/traveloka_pergi_kapan_saja.jpg') }}', 'Key Visual: &quot;Pergi Kapan Saja, Traveloka Aja&quot;', 'Key visual utama kampanye dengan teknik photo compositing: tangan memegang smartphone yang menampilkan UI Traveloka, dikelilingi pesawat, koper, dan paspor 3D pop-out.', 'Photo Compositing &amp; App Mockup', this)">
+                                        <img src="{{ asset('images/traveloka_pergi_kapan_saja.jpg') }}" alt="Pergi Kapan Saja" class="img-fluid rounded-2 border">
+                                        <span class="thumb-label font-mono">Pergi Kapan Saja</span>
+                                    </div>
+                                </div>
+                                <div class="col-4">
+                                    <div class="ritistic-thumb-card" onclick="selectTravelokaArtwork('{{ asset('images/traveloka_yang_lain_berangkat.jpg') }}', 'Key Visual: &quot;Yang Lain Udah Berangkat, Kamu?&quot;', 'Konsep visual jendela pesawat sebagai frame untuk destinasi Raja Ampat, Papua. Koper putih dan pesawat berbentuk lengkungan dinamis keluar dari bingkai, menciptakan ilusi kedalaman 3D yang dramatis.', 'Conceptual Photo Manipulation', this)">
+                                        <img src="{{ asset('images/traveloka_yang_lain_berangkat.jpg') }}" alt="Yang Lain Berangkat" class="img-fluid rounded-2 border">
+                                        <span class="thumb-label font-mono">Yang Lain Berangkat</span>
+                                    </div>
+                                </div>
+                                <div class="col-4">
+                                    <div class="ritistic-thumb-card" onclick="selectTravelokaArtwork('{{ asset('images/traveloka_rekomendasi_wisata.jpg') }}', 'Key Visual: &quot;Rekomendasi Tempat Wisata Akhir Tahun&quot;', 'Komposisi lifestyle fotografis: model memegang smartphone Traveloka dengan background split antara interior hotel mewah dan Machu Picchu Peru, dipersatukan oleh search bar rekomendasi wisata.', 'Photo Compositing &amp; Lifestyle', this)">
+                                        <img src="{{ asset('images/traveloka_rekomendasi_wisata.jpg') }}" alt="Rekomendasi Wisata" class="img-fluid rounded-2 border">
+                                        <span class="thumb-label font-mono">Rekomendasi Wisata</span>
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+
+                        <!-- Design Documentation & Context Notes -->
+                        <div class="p-3 bg-light rounded-4 border font-mono small mt-auto">
+                            <strong class="d-block mb-1" style="color: #0064D2;"><i class="fa-solid fa-circle-info me-1"></i> Informasi Desain &amp; Workflow:</strong>
+                            <ul class="mb-0 ps-3 text-muted lh-base" style="font-size: 0.8rem;">
+                                <li><strong>Software:</strong> Adobe Photoshop</li>
+                                <li><strong>Brand:</strong> Traveloka (Platform Perjalanan Online)</li>
+                                <li><strong>Format:</strong> Social Media Feed 1:1 &bull; 1080 &times; 1080 px</li>
+                                <li><strong>Teknik Utama:</strong> Photo compositing multi-layer, masking realistis, blending mode, efek 3D pop-out elemen props, dan hierarki tipografi kampanye brand.</li>
                             </ul>
                         </div>
                     </div>

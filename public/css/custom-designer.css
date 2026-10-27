@@ -3156,15 +3156,17 @@ a {
     padding: 20px 24px;
     flex: 1 1 auto;
     min-height: 0;
-    overflow: hidden;
+    overflow-y: auto;
+    -webkit-overflow-scrolling: touch;
+    scrollbar-width: thin;
+    scrollbar-color: #C8C0B4 transparent;
 }
 
 .artwork-modal-grid {
     display: flex;
     gap: 24px;
-    height: 100%;
-    min-height: 0;
-    align-items: stretch;
+    min-height: 420px;
+    align-items: flex-start;
 }
 
 /* Kolom Kiri: Visual Stage (55-60%) */
@@ -3174,9 +3176,8 @@ a {
     max-width: 58%;
     display: flex;
     flex-direction: column;
-    justify-content: center;
+    justify-content: flex-start;
     align-items: center;
-    min-height: 0;
 }
 
 .artwork-modal-img-wrap {
@@ -3229,14 +3230,10 @@ a {
     flex: 1 1 42%;
     width: 42%;
     min-width: 0;
-    height: 100%;
-    overflow-y: auto;
-    -webkit-overflow-scrolling: touch;
+    overflow-y: visible;
     display: flex;
     flex-direction: column;
-    padding-right: 8px;
-    scrollbar-width: thin;
-    scrollbar-color: #C8C0B4 transparent;
+    padding-right: 4px;
 }
 
 .artwork-modal-info-col::-webkit-scrollbar {
