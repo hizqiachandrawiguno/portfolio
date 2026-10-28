@@ -141,7 +141,7 @@
     <link rel="shortcut icon" type="image/png" href="{{ asset('images/hizqia_logo_orange.png') }}">
 
     <!-- Custom Designer Workspace CSS (Cached Version) -->
-    <link rel="stylesheet" href="{{ asset('css/custom-designer.css') }}?v=2.11.0">
+    <link rel="stylesheet" href="{{ asset('css/custom-designer.css') }}?v=2.12.0">
 
     <!-- Inject Experiences & Projects Data Objects early & Global Filter Functions -->
     <script>
@@ -426,53 +426,97 @@
 
             <div class="row g-4" id="projectsGrid">
                 @foreach($projects as $index => $project)
-                @if(!empty($project['is_featured']))
-                <!-- FEATURED FLAGSHIP CASE STUDY (KARTU LEBAR PENUH) -->
+                @php
+                    $colClass = $project['grid_class'] ?? 'col-lg-4 col-md-6';
+                    $layout = $project['card_layout'] ?? ($project['is_featured'] ? 'featured' : (($project['action_type'] ?? '') === 'video' ? 'video' : 'vertical'));
+                @endphp
+
+                @if($layout === 'featured')
+                <!-- ========================================================== -->
+                <!-- BARIS 1: FULL SIZE 3 GRID (TRAC ASTRA HIGHLIGHTED FLAGSHIP)-->
+                <!-- ========================================================== -->
                 <div id="{{ $project['id'] }}" class="col-12 proj-card-col reveal-on-scroll" data-proj-category="{{ $project['category'] }}" style="scroll-margin-top: 100px;">
-                    <div class="project-card project-card-featured h-100" style="--proj-accent: {{ $project['accent'] }};">
-                        
+                    <div class="project-card project-card-featured project-card-compact h-100" style="--proj-accent: {{ $project['accent'] }};">
                         <div class="row g-0 align-items-stretch h-100">
-                            <div class="col-lg-7 featured-img-col">
+                            <div class="col-lg-6 featured-img-col">
                                 <div class="project-img-wrapper h-100 cursor-pointer position-relative" onclick="openProjectModal('{{ ltrim($project['modal_target'], '#') }}')" title="Klik untuk lihat detail {{ $project['title'] }}">
                                     <img src="{{ $project['image'] }}" alt="{{ $project['title'] }}" class="project-img featured-img" loading="eager" decoding="async">
                                 </div>
                             </div>
-                            <div class="col-lg-5 p-4 p-xl-5 d-flex flex-column justify-content-between">
+                            <div class="col-lg-6 p-3.5 p-md-4 d-flex flex-column justify-content-between">
                                 <div>
                                     <div class="d-flex align-items-center gap-2 mb-2 flex-wrap">
-                                        <span class="badge font-mono px-2 py-1" style="background: rgba(0, 100, 210, 0.12); color: #0064D2; font-size: 0.75rem; letter-spacing: 0.05em; font-weight: 700;">
+                                        <span class="badge font-mono px-2 py-1" style="background: rgba(227, 107, 50, 0.12); color: #E36B32; font-size: 0.72rem; letter-spacing: 0.05em; font-weight: 700;">
                                             <i class="fa-solid fa-star me-1 text-warning"></i> HIGHLIGHTED PROJECT
                                         </span>
-                                        <span class="font-mono small fw-bold text-uppercase" style="color: #64748B; font-size: 0.75rem; letter-spacing: 0.08em;">
+                                        <span class="font-mono small fw-bold text-uppercase" style="color: #64748B; font-size: 0.74rem; letter-spacing: 0.08em;">
                                             {{ $project['category_label'] }}
                                         </span>
                                     </div>
-                                    <h3 class="h4 fw-bold mb-3 font-heading text-dark">{{ $project['title'] }}</h3>
-                                    <p class="text-muted small mb-4 lh-relaxed" style="font-size: 0.92rem;">
+                                    <h3 class="h5 fw-bold mb-2 font-heading text-dark lh-sm" style="font-size: 1.15rem;">{{ $project['title'] }}</h3>
+                                    <p class="text-muted small mb-3 lh-relaxed line-clamp-3" style="font-size: 0.88rem;">
                                         {{ $project['short_desc'] }}
                                     </p>
                                 </div>
 
-                                <div class="pt-2">
-                                    <button type="button" class="btn btn-accent btn-sm font-sans mb-0 w-100 justify-content-center" onclick="openProjectModal('{{ ltrim($project['modal_target'], '#') }}')">
-                                        <i class="fa-solid {{ $project['btn_icon'] ?? 'fa-images' }} me-1"></i> {{ $project['btn_text'] ?? 'Buka Galeri Karya' }}
-                                    </button>
-                                    <p class="small text-muted mb-0 font-sans mt-3">
+                                <div class="pt-2 mt-auto">
+                                    <p class="small text-muted mb-2.5 font-sans" style="font-size: 0.78rem;">
                                         <span class="fw-semibold text-dark">Spesifikasi:</span> {{ implode(', ', $project['tags']) }}
                                     </p>
+                                    <button type="button" class="btn btn-accent btn-sm font-sans mb-0 w-100 justify-content-center py-2" onclick="openProjectModal('{{ ltrim($project['modal_target'], '#') }}')">
+                                        <i class="fa-solid {{ $project['btn_icon'] ?? 'fa-images' }} me-1.5"></i> {{ $project['btn_text'] ?? 'Buka Galeri Karya' }}
+                                    </button>
                                 </div>
                             </div>
                         </div>
                     </div>
                 </div>
+
+                @elseif($layout === 'horizontal')
+                <!-- ========================================================== -->
+                <!-- BARIS 2 (PART 1): 2 GRID HORIZONTAL CARD (TRAVELOKA)       -->
+                <!-- ========================================================== -->
+                <div id="{{ $project['id'] }}" class="col-12 {{ $colClass }} proj-card-col reveal-on-scroll reveal-delay-1" data-proj-category="{{ $project['category'] }}" style="scroll-margin-top: 100px;">
+                    <div class="project-card project-card-horizontal project-card-compact h-100" style="--proj-accent: {{ $project['accent'] }};">
+                        <div class="row g-0 align-items-stretch h-100">
+                            <div class="col-md-6 col-lg-6">
+                                <div class="project-img-wrapper h-100 cursor-pointer position-relative" onclick="openProjectModal('{{ ltrim($project['modal_target'], '#') }}')" title="Klik untuk lihat detail {{ $project['title'] }}">
+                                    <img src="{{ $project['image'] }}" alt="{{ $project['title'] }}" class="project-img" loading="lazy" decoding="async">
+                                </div>
+                            </div>
+                            <div class="col-md-6 col-lg-6 p-3.5 p-xl-4 d-flex flex-column justify-content-between">
+                                <div>
+                                    <div class="d-flex align-items-center justify-content-between mb-1.5 flex-wrap gap-1">
+                                        <span class="font-mono small fw-bold text-uppercase" style="color: {{ $project['accent'] }}; font-size: 0.74rem; letter-spacing: 0.08em;">
+                                            {{ $project['category_label'] }}
+                                        </span>
+                                        <span class="badge font-mono px-2 py-0.5" style="background: rgba(0, 100, 210, 0.1); color: #0064D2; font-size: 0.68rem; font-weight: 700;">
+                                            2 GRID &bull; KEY VISUAL
+                                        </span>
+                                    </div>
+                                    <h3 class="h5 fw-bold mb-2 text-dark font-heading lh-sm" style="font-size: 1.05rem;">{{ $project['title'] }}</h3>
+                                    <p class="text-muted small mb-2.5 lh-relaxed line-clamp-3" style="font-size: 0.85rem;">{{ $project['short_desc'] }}</p>
+                                </div>
+
+                                <div class="pt-2 mt-auto">
+                                    <p class="small text-muted mb-2 font-sans" style="font-size: 0.76rem;">
+                                        <span class="fw-semibold text-dark">Software:</span> {{ implode(', ', $project['tags']) }}
+                                    </p>
+                                    <button type="button" class="btn-text-link p-0 border-0 bg-transparent fw-semibold font-sans d-inline-flex align-items-center gap-1" onclick="openProjectModal('{{ ltrim($project['modal_target'], '#') }}')">
+                                        {{ $project['btn_text'] ?? 'Lihat Galeri Traveloka' }} <span aria-hidden="true">&nearr;</span>
+                                    </button>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+
                 @else
-                <!-- SUPPORTING GRID PROJECTS (ASIMETRIS 7:5 / 5:7) -->
-                @php
-                    // Asymmetric grid layout: index 1 (DRP) = 7, index 2 (Ritistic) = 5 | index 3 (Eleccion) = 5, index 4 (Anak Bertanya) = 7 | index 5 (PintarBaca) = 7, index 6 (ERC) = 5
-                    $colClass = in_array($index, [1, 4, 5]) ? 'col-lg-7' : 'col-lg-5';
-                @endphp
-                <div id="{{ $project['id'] }}" class="col-md-6 {{ $colClass }} proj-card-col reveal-on-scroll reveal-delay-{{ ($index % 2) + 1 }}" data-proj-category="{{ $project['category'] }}" style="scroll-margin-top: 100px;">
-                    <div class="project-card h-100 d-flex flex-column" style="--proj-accent: {{ $project['accent'] }};">
+                <!-- ========================================================== -->
+                <!-- SUPPORTING VERTICAL & VIDEO CARDS (1 GRID / HALF GRID)      -->
+                <!-- ========================================================== -->
+                <div id="{{ $project['id'] }}" class="col-12 {{ $colClass }} proj-card-col reveal-on-scroll reveal-delay-{{ ($index % 3) + 1 }}" data-proj-category="{{ $project['category'] }}" style="scroll-margin-top: 100px;">
+                    <div class="project-card project-card-compact h-100 d-flex flex-column" style="--proj-accent: {{ $project['accent'] }};">
                         
                         <!-- Visual Display / Inline Player Container -->
                         @if(($project['action_type'] ?? '') === 'video')
@@ -503,26 +547,25 @@
                             </div>
                         @endif
 
-                        <div class="p-4 d-flex flex-column justify-content-between flex-grow-1">
+                        <div class="p-3.5 d-flex flex-column justify-content-between flex-grow-1">
                             <div>
-                                <div class="d-flex align-items-center justify-content-between mb-1">
-                                    <span class="font-mono small fw-bold text-uppercase" style="color: #A83C0C; font-size: 0.78rem; letter-spacing: 0.08em;">
+                                <div class="d-flex align-items-center justify-content-between mb-1.5 flex-wrap gap-1">
+                                    <span class="font-mono small fw-bold text-uppercase" style="color: {{ $project['accent'] ?? '#A83C0C' }}; font-size: 0.74rem; letter-spacing: 0.08em;">
                                         {{ $project['category_label'] }}
                                     </span>
                                     @if(!empty($project['video_client']))
-                                    <small class="text-muted font-sans" style="font-size: 0.75rem;">{{ $project['video_client'] }}</small>
+                                    <small class="text-muted font-sans" style="font-size: 0.72rem;">{{ $project['video_client'] }}</small>
                                     @endif
                                 </div>
-                                <h3 class="h5 fw-bold mb-2 text-dark">{{ $project['title'] }}</h3>
-                                <p class="text-muted small mb-3 lh-relaxed">{{ $project['short_desc'] }}</p>
+                                <h3 class="h5 fw-bold mb-2 text-dark font-heading lh-sm" style="font-size: 1.02rem;">{{ $project['title'] }}</h3>
+                                <p class="text-muted small mb-2.5 lh-relaxed line-clamp-2" style="font-size: 0.84rem;">{{ $project['short_desc'] }}</p>
                             </div>
 
                             <div class="pt-2 mt-auto">
-                                <p class="small text-muted mb-3 font-sans">
+                                <p class="small text-muted mb-2 font-sans" style="font-size: 0.75rem;">
                                     <span class="fw-semibold text-dark">Software:</span> {{ implode(', ', $project['tags']) }}
                                 </p>
 
-                                <!-- Single Text Arrow Link (Anti-AI Look: No full buttons on secondary cards) -->
                                 @if(($project['action_type'] ?? '') === 'video')
                                     <button type="button" class="btn-text-link p-0 border-0 bg-transparent fw-semibold font-sans d-inline-flex align-items-center gap-1" onclick="playInlineVideo('{{ $project['id'] }}', '{{ $project['video_url'] }}')">
                                         Tonton Video <span aria-hidden="true">&nearr;</span>

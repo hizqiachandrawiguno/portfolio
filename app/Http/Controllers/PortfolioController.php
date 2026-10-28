@@ -373,50 +373,11 @@ class PortfolioController extends Controller
             ]
         ];
 
-        // 8 Curated Flagship Projects (Traveloka as Featured Flagship Hero + Supporting Grid Projects)
+        // 8 Curated Flagship Projects (Ordered according to editorial grid rows: Baris 1 TRAC Astra, Baris 2 Traveloka & DRP, Baris 3 PintarBaca, ERC & Ritistic, Baris 4 Eleccion & Anak Bertanya)
         $projects = [
-            // --- 0. FEATURED FLAGSHIP CASE STUDY (KARYA UTAMA TER-HIGHLIGHT) ---
-            [
-                'id' => 'proj-traveloka',
-                'title' => 'Traveloka Campaign Visuals - Social Media Key Visual',
-                'category' => 'graphic',
-                'category_label' => 'Social Media & Campaign Design',
-                'action_type' => 'modal',
-                'modal_target' => '#travelokaDemoModal',
-                'btn_text' => 'Lihat Galeri Karya Traveloka (3 Key Visual)',
-                'btn_icon' => 'fa-images',
-                'image' => asset('images/traveloka_pergi_kapan_saja.jpg'),
-                'is_featured' => true,
-                'short_desc' => 'Tiga seri key visual kampanye media sosial Traveloka resolusi tinggi (Artboard 2000 × 2000 px): photo compositing smartphone 3D pop-out, jendela pesawat menuju Raja Ampat, dan banner rekomendasi wisata akhir tahun. Dibuat di Adobe Photoshop dengan teknik layer masking, realistic drop-shadow, blending mode, dan integrasi UI mockup smartphone.',
-                'full_desc' => 'Perancangan tiga seri key visual sosial media bertema kampanye perjalanan Traveloka pada artboard beresolusi tinggi 2000 × 2000 px. Setiap desain mengaplikasikan teknik photo compositing realistis tingkat lanjut, konsistensi palet biru korporat Traveloka, hierarki tipografi bersih, serta integrasi elemen UI mockup smartphone untuk memperkuat pesan brand.',
-                'tags' => ['Photoshop', 'Photo Compositing', 'Artboard 2000×2000px'],
-                'accent' => '#0064D2',
-                'gallery_items' => [
-                    [
-                        'id' => 'traveloka-pergi-kapan-saja',
-                        'title' => 'Key Visual: "Pergi Kapan Saja, Traveloka Aja"',
-                        'category' => 'Photo Compositing & App Mockup',
-                        'image' => asset('images/traveloka_pergi_kapan_saja.jpg'),
-                        'desc' => 'Key visual utama kampanye dengan teknik photo compositing: tangan memegang smartphone yang menampilkan UI Traveloka, dikelilingi pesawat, koper, dan paspor 3D pop-out. Tipografi headline besar berlapis bayangan memperkuat call-to-action download aplikasi.'
-                    ],
-                    [
-                        'id' => 'traveloka-yang-lain-berangkat',
-                        'title' => 'Key Visual: "Yang Lain Udah Berangkat, Kamu?"',
-                        'category' => 'Conceptual Photo Manipulation',
-                        'image' => asset('images/traveloka_yang_lain_berangkat.jpg'),
-                        'desc' => 'Konsep visual jendela pesawat sebagai frame untuk destinasi Raja Ampat, Papua. Koper putih dan pesawat berbentuk lengkungan dinamis keluar dari bingkai, menciptakan ilusi kedalaman 3D yang dramatis dengan langit biru cerah khas identitas Traveloka.'
-                    ],
-                    [
-                        'id' => 'traveloka-rekomendasi-wisata',
-                        'title' => 'Key Visual: "Rekomendasi Tempat Wisata Akhir Tahun"',
-                        'category' => 'Photo Compositing & Lifestyle',
-                        'image' => asset('images/traveloka_rekomendasi_wisata.jpg'),
-                        'desc' => 'Komposisi lifestyle fotografis: model memegang smartphone Traveloka dengan background split antara interior hotel mewah dan Machu Picchu Peru, dipersatukan oleh search bar rekomendasi wisata. Visual memperkuat pesan "semua perjalananmu dimulai dari satu genggaman".'
-                    ]
-                ]
-            ],
-
-            // --- 1. GRAPHIC & SOCIAL MEDIA DESIGN ---
+            // =========================================================================
+            // BARIS 1: FULL SIZE 3 GRID (TRAC ASTRA HIGHLIGHTED FLAGSHIP)
+            // =========================================================================
             [
                 'id' => 'proj-trac-astra',
                 'title' => 'TRAC Astra (Lalala Festival 2025) - Key Visual & Materi Booth 3x3M',
@@ -427,8 +388,10 @@ class PortfolioController extends Controller
                 'btn_text' => 'Lihat Galeri Aset & Booth TRAC Astra',
                 'btn_icon' => 'fa-images',
                 'image' => asset('images/trac_tenda_booth.webp'),
-                'is_featured' => false,
-                'short_desc' => 'Materi branding event booth TRAC (Astra) untuk Lalala Festival 2025, mencakup tenda booth 3x3 meter, standing banner promosi, meja registrasi & branding, serta hangtag merchandise. Bekerja mengikuti brand guideline resmi TRAC Astra dengan tipografi yang terstruktur.',
+                'is_featured' => true,
+                'grid_class' => 'col-12',
+                'card_layout' => 'featured',
+                'short_desc' => 'Materi branding event booth TRAC (Astra) untuk Lalala Festival 2025: tenda booth 3x3 meter, standing banner promosi, meja registrasi & branding, serta hangtag merchandise berpedoman pada brand guideline resmi Astra.',
                 'full_desc' => 'Perancangan materi 3D Spatial & POSM event fisik berskala 3x3 meter serta key visual digital untuk aktivasi brand TRAC (Member of Astra) pada Lalala Festival 2025. Mengintegrasikan brand guidelines resmi TRAC Astra Group (warna identitas brand, logo clearance, dan hierarki informasi promo) dengan palet dinamis festival publik.',
                 'tags' => ['Photoshop', 'Illustrator'],
                 'accent' => '#E36B32',
@@ -464,6 +427,50 @@ class PortfolioController extends Controller
                 ]
             ],
 
+            // =========================================================================
+            // BARIS 2: PROJECT TRAVELOKA (2 GRID) & DRP OUTSTANDING TEENS (1 GRID)
+            // =========================================================================
+            [
+                'id' => 'proj-traveloka',
+                'title' => 'Traveloka Campaign Visuals - Social Media Key Visual',
+                'category' => 'graphic',
+                'category_label' => 'Social Media & Campaign Design',
+                'action_type' => 'modal',
+                'modal_target' => '#travelokaDemoModal',
+                'btn_text' => 'Lihat Galeri Traveloka (3 Key Visual)',
+                'btn_icon' => 'fa-images',
+                'image' => asset('images/traveloka_pergi_kapan_saja.jpg'),
+                'is_featured' => false,
+                'grid_class' => 'col-lg-8',
+                'card_layout' => 'horizontal',
+                'short_desc' => 'Tiga seri key visual kampanye media sosial Traveloka resolusi tinggi (Artboard 2000 × 2000 px): photo compositing smartphone 3D pop-out, jendela pesawat Raja Ampat, dan rekomendasi wisata akhir tahun.',
+                'full_desc' => 'Perancangan tiga seri key visual sosial media bertema kampanye perjalanan Traveloka pada artboard beresolusi tinggi 2000 × 2000 px. Setiap desain mengaplikasikan teknik photo compositing realistis tingkat lanjut, konsistensi palet biru korporat Traveloka, hierarki tipografi bersih, serta integrasi elemen UI mockup smartphone untuk memperkuat pesan brand.',
+                'tags' => ['Photoshop', 'Photo Compositing', 'Artboard 2000×2000px'],
+                'accent' => '#0064D2',
+                'gallery_items' => [
+                    [
+                        'id' => 'traveloka-pergi-kapan-saja',
+                        'title' => 'Key Visual: "Pergi Kapan Saja, Traveloka Aja"',
+                        'category' => 'Photo Compositing & App Mockup',
+                        'image' => asset('images/traveloka_pergi_kapan_saja.jpg'),
+                        'desc' => 'Key visual utama kampanye dengan teknik photo compositing: tangan memegang smartphone yang menampilkan UI Traveloka, dikelilingi pesawat, koper, dan paspor 3D pop-out. Tipografi headline besar berlapis bayangan memperkuat call-to-action download aplikasi.'
+                    ],
+                    [
+                        'id' => 'traveloka-yang-lain-berangkat',
+                        'title' => 'Key Visual: "Yang Lain Udah Berangkat, Kamu?"',
+                        'category' => 'Conceptual Photo Manipulation',
+                        'image' => asset('images/traveloka_yang_lain_berangkat.jpg'),
+                        'desc' => 'Konsep visual jendela pesawat sebagai frame untuk destinasi Raja Ampat, Papua. Koper putih dan pesawat berbentuk lengkungan dinamis keluar dari bingkai, menciptakan ilusi kedalaman 3D yang dramatis dengan langit biru cerah khas identitas Traveloka.'
+                    ],
+                    [
+                        'id' => 'traveloka-rekomendasi-wisata',
+                        'title' => 'Key Visual: "Rekomendasi Tempat Wisata Akhir Tahun"',
+                        'category' => 'Photo Compositing & Lifestyle',
+                        'image' => asset('images/traveloka_rekomendasi_wisata.jpg'),
+                        'desc' => 'Komposisi lifestyle fotografis: model memegang smartphone Traveloka dengan background split antara interior hotel mewah dan Machu Picchu Peru, dipersatukan oleh search bar rekomendasi wisata. Visual memperkuat pesan "semua perjalananmu dimulai dari satu genggaman".'
+                    ]
+                ]
+            ],
             [
                 'id' => 'proj-drp-social',
                 'title' => 'DRP Outstanding Teens - Social Media & Event Visuals',
@@ -474,8 +481,11 @@ class PortfolioController extends Controller
                 'btn_text' => 'Lihat Galeri Feed DRP Teens',
                 'btn_icon' => 'fa-images',
                 'image' => asset('images/drp_teens_chosen_gen.webp'),
-                'short_desc' => 'Identitas visual tahunan 2026 "The Chosen Generation", event flyer "Homecoming Worship Night", dan seri feed mingguan remaja dengan eksplorasi tipografi retro-pop, fluid shapes, dan kolase kertas.',
-                'full_desc' => 'Perancangan identitas dan materi publikasi media sosial untuk komunitas remaja DRP Outstanding Teens (DOT Teens). Mengeksplorasi fleksibilitas gaya visual yang dinamis bagi Gen-Z: poster tema tahunan 2026 "The Chosen Generation" dengan tipografi retro-pop & fluid gradient ribbons, flyer event revival "Homecoming Worship Night 2026", serta arsip feed mingguan multi-gaya (pop-comic halftone "Self Improvement", ripped-paper & tape "Dependable", frame polaroid retro "Iman, Pengharapan & Kasih", street-poster grunge "Jeremiah Gen", dan 3D typography "Merry Christmas").',
+                'is_featured' => false,
+                'grid_class' => 'col-lg-4',
+                'card_layout' => 'vertical',
+                'short_desc' => 'Identitas visual tahunan 2026 "The Chosen Generation", event flyer "Homecoming Worship Night", dan seri feed mingguan remaja beraksen tipografi retro-pop & fluid shapes.',
+                'full_desc' => 'Perancangan identitas dan materi publikasi media sosial untuk komunitas remaja DRP Outstanding Teens (DOT Teens). Mengeksplorasi fleksibilitas gaya visual yang dinamis bagi Gen-Z: poster tema tahunan 2026 "The Chosen Generation" dengan tipografi retro-pop & fluid gradient ribbons, flyer event revival "Homecoming Worship Night 2026", serta arsip feed mingguan multi-gaya.',
                 'tags' => ['Photoshop', 'Illustrator'],
                 'accent' => '#E36B32',
                 'gallery_items' => [
@@ -537,6 +547,46 @@ class PortfolioController extends Controller
                     ]
                 ]
             ],
+
+            // =========================================================================
+            // BARIS 3: PINTARBACA (1 GRID), ERC SAWANGAN (1 GRID) & RITISTIC (1 GRID)
+            // =========================================================================
+            [
+                'id' => 'proj-pintarbaca',
+                'title' => 'Website Media Pembelajaran PintarBaca',
+                'category' => 'uiux',
+                'category_label' => 'Media Pembelajaran Interaktif',
+                'action_type' => 'modal',
+                'modal_target' => '#pintarBacaDemoModal',
+                'btn_text' => 'Mainkan Demo PintarBaca',
+                'btn_icon' => 'fa-gamepad',
+                'image' => asset('images/pintarbaca_hero.webp'),
+                'is_featured' => false,
+                'grid_class' => 'col-lg-4 col-md-6',
+                'card_layout' => 'vertical',
+                'short_desc' => 'Media belajar membaca suku kata interaktif untuk anak usia dini dengan Laravel & Bootstrap. Tombol suku kata berukuran besar dengan kontras tinggi untuk kemudahan interaksi.',
+                'full_desc' => 'PintarBaca dirancang khusus untuk mempermudah anak usia dini belajar membaca suku kata. Menggabungkan ilustrasi visual beresolusi tinggi, skema warna ceria, serta widget interaktif pembentuk kata.',
+                'tags' => ['Laravel', 'Bootstrap', 'Figma'],
+                'accent' => '#EA580C'
+            ],
+            [
+                'id' => 'proj-erc',
+                'title' => 'Website ERC Sawangan',
+                'category' => 'uiux',
+                'category_label' => 'Portal Web Komunitas',
+                'action_type' => 'modal',
+                'modal_target' => '#ercDemoModal',
+                'btn_text' => 'Lihat Demo Portal Web',
+                'btn_icon' => 'fa-globe',
+                'image' => asset('images/erc_sawangan_hero.webp'),
+                'is_featured' => false,
+                'grid_class' => 'col-lg-4 col-md-6',
+                'card_layout' => 'vertical',
+                'short_desc' => 'Portal web komunitas GBI ERC Sawangan. Jadwal ibadah dan warta mingguan disusun dalam layout responsif agar nyaman diakses jemaat dari berbagai ukuran layar.',
+                'full_desc' => 'Perancangan antarmuka pengguna (UI/UX) untuk platform komunitas ERC Sawangan. Menampilkan jadwal ibadah, portal artikel warta mingguan, dan sistem navigasi yang rapi serta fully responsive.',
+                'tags' => ['Laravel', 'Bootstrap', 'Figma'],
+                'accent' => '#B45309'
+            ],
             [
                 'id' => 'proj-ritistic',
                 'title' => 'Ritistic Project - Visual Communication & Social Media Branding',
@@ -547,7 +597,10 @@ class PortfolioController extends Controller
                 'btn_text' => 'Lihat Galeri Karya Ritistic',
                 'btn_icon' => 'fa-images',
                 'image' => asset('images/ritistic_sumpah_pemuda.webp'),
-                'short_desc' => 'Seri poster peringatan hari besar dan kartu profil anggota dalam palet warm terracotta. Penempatan logo dan tata letak teks dijaga konsisten di setiap desain.',
+                'is_featured' => false,
+                'grid_class' => 'col-lg-4 col-md-6',
+                'card_layout' => 'vertical',
+                'short_desc' => 'Seri poster peringatan hari besar dan kartu profil anggota dalam palet warm terracotta, menjaga konsistensi penempatan logo Ritistic dan hierarki tipografi.',
                 'full_desc' => 'Produksi materi desain grafis multi-format untuk Ritistic Project. Proyek ini mencakup perancangan visual commemorative days (Hari Sumpah Pemuda 2024 bergaya retro-modern hand-drawn dan Hari Besar Tahun Baru Islam 1446 H), serta visual profiling anggota/mahasiswa dengan komposisi foto subjek, tipografi bold, dan ornamen buku ilustratif dengan konsistensi penempatan logo Ritistic.',
                 'tags' => ['Illustrator', 'Photoshop'],
                 'accent' => '#EA580C',
@@ -583,7 +636,9 @@ class PortfolioController extends Controller
                 ]
             ],
 
-            // --- 2. VIDEO EDITING & MOTION PRODUCTION ---
+            // =========================================================================
+            // BARIS 4: ELECCION WORSHIP (HALF GRID) & ANAK BERTANYA (HALF GRID)
+            // =========================================================================
             [
                 'id' => 'proj-eleccion',
                 'title' => 'Video Editing: Eleccion Worship - Allah Roh Kudus',
@@ -594,7 +649,10 @@ class PortfolioController extends Controller
                 'btn_text' => 'Tonton Video Eleccion Worship',
                 'btn_icon' => 'fa-circle-play',
                 'image' => asset('images/eleccion_worship_hero.webp'),
-                'short_desc' => 'Editing video live worship multi-kamera di Premiere Pro dan After Effects. Pergantian sudut kamera mengikuti tempo lagu, dengan pencahayaan panggung yang tetap seimbang.',
+                'is_featured' => false,
+                'grid_class' => 'col-lg-6 col-md-6',
+                'card_layout' => 'video',
+                'short_desc' => 'Editing video live worship multi-kamera di Premiere Pro dan After Effects. Pergantian sudut kamera mengikuti tempo lagu dengan pencahayaan sinematik yang seimbang.',
                 'full_desc' => 'Produksi dan penyuntingan video live recording cover lagu "Allah Roh Kudus" oleh Eleccion Worship di Diwangkoro Music Production. Bertanggung jawab sebagai Videographer, Video Editor, dan Thumbnail Designer. Mengintegrasikan sinkronisasi multi-angle camera berdasarkan tempo lagu, penyesuaian mood lighting studio panggung bernuansa warm & cinematic, integrasi subtitle lirik dinamis, serta audio-visual mastering synchronization.',
                 'video_url' => 'https://www.youtube.com/watch?v=skzC2-_f090',
                 'video_embed_url' => 'https://www.youtube.com/embed/skzC2-_f090',
@@ -616,7 +674,10 @@ class PortfolioController extends Controller
                 'btn_text' => 'Tonton Video Anak Bertanya',
                 'btn_icon' => 'fa-circle-play',
                 'image' => asset('images/anak_bertanya_hero.webp'),
-                'short_desc' => 'Video edukasi anak berdurasi 10:49, diedit di Premiere Pro dan After Effects. Teks kinetik dan ilustrasi balon kata membantu anak mengikuti alur tanya-jawab.',
+                'is_featured' => false,
+                'grid_class' => 'col-lg-6 col-md-6',
+                'card_layout' => 'video',
+                'short_desc' => 'Video edukasi anak 10:49 di Premiere Pro & After Effects. Animasi teks kinetik dan balon kata ilustratif membantu menjaga fokus dan retensi anak.',
                 'full_desc' => 'Penyuntingan program series edukasi rohani anak "Anak Bertanya" Episode 1: "Siapakah Yang Menciptakan Tuhan?" untuk El-Roi Kids Church - GBI ERC Sawangan. Menggabungkan talkshow interaktif host & narasumber dengan motion graphics edukatif, kinetic text, visual bubble penjelas konsep, serta tata suara ceria dengan SFX komikal untuk menjaga retensi penonton anak dan keluarga.',
                 'video_url' => 'https://www.youtube.com/watch?v=bF9YZt4dRGY',
                 'video_embed_url' => 'https://www.youtube.com/embed/bF9YZt4dRGY',
@@ -627,38 +688,6 @@ class PortfolioController extends Controller
                 'video_workflow' => "1. Interactive Pacing & Retention Cut: Pacing editing dinamis dan jump-cut removal untuk mempertahankan retensi fokus anak-anak selama 10+ menit.\n2. Kinetic Motion Graphics & Word Bubble: Pembuatan animasi teks, pop-up icon ilustrasi, dan visual balloon penjelas poin-poin penting di After Effects.\n3. Comic Sound FX & BGM Layering: Penataan efek suara kartun lucu (pop, whoosh, ding) sinkron visual serta pemilihan musik latar ceria dan ramah anak.\n4. Visual Polish & Color Vibrance: Color grading terang, kontras seimbang, serta integrasi lower-thirds & branding El-Roi Kids Church yang konsisten.",
                 'tags' => ['Premiere Pro', 'After Effects'],
                 'accent' => '#D97706'
-            ],
-
-            // --- 3. UI/UX & WEB PLATFORMS ---
-            [
-                'id' => 'proj-pintarbaca',
-                'title' => 'Website Media Pembelajaran PintarBaca',
-                'category' => 'uiux',
-                'category_label' => 'Media Pembelajaran Interaktif',
-                'action_type' => 'modal',
-                'modal_target' => '#pintarBacaDemoModal',
-                'btn_text' => 'Mainkan Demo PintarBaca',
-                'btn_icon' => 'fa-gamepad',
-                'image' => asset('images/pintarbaca_hero.webp'),
-                'short_desc' => 'Media belajar membaca suku kata untuk Tugas Akhir di Polimedia, dibangun dengan Laravel dan Bootstrap. Tombol suku kata dibuat besar dan berkontras tinggi supaya mudah disentuh anak.',
-                'full_desc' => 'PintarBaca dirancang khusus untuk mempermudah anak usia dini belajar membaca suku kata. Menggabungkan ilustrasi visual beresolusi tinggi, skema warna ceria, serta widget interaktif pembentuk kata.',
-                'tags' => ['Laravel', 'Bootstrap', 'Figma'],
-                'accent' => '#EA580C'
-            ],
-            [
-                'id' => 'proj-erc',
-                'title' => 'Website ERC Sawangan',
-                'category' => 'uiux',
-                'category_label' => 'Portal Web Komunitas',
-                'action_type' => 'modal',
-                'modal_target' => '#ercDemoModal',
-                'btn_text' => 'Lihat Demo Portal Web',
-                'btn_icon' => 'fa-globe',
-                'image' => asset('images/erc_sawangan_hero.webp'),
-                'short_desc' => 'Portal web komunitas GBI ERC Sawangan, dibangun dengan Laravel dan Bootstrap. Jadwal ibadah dan warta mingguan disusun dalam kartu responsif agar mudah dibaca dari ponsel oleh jemaat segala usia.',
-                'full_desc' => 'Perancangan antarmuka pengguna (UI/UX) untuk platform komunitas ERC Sawangan. Menampilkan jadwal ibadah, portal artikel warta mingguan, dan sistem navigasi yang rapi serta fully responsive.',
-                'tags' => ['Laravel', 'Bootstrap', 'Figma'],
-                'accent' => '#B45309'
             ]
         ];
 
