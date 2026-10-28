@@ -1529,42 +1529,84 @@ h3.text-accent,
 .project-img-wrapper {
     position: relative;
     overflow: hidden;
-    height: 185px;
+    height: 190px;
     background: #FAF6F0;
 }
 
-.project-card-featured .project-img-wrapper {
-    height: 100% !important;
-    min-height: 240px;
-    max-height: 310px;
-}
-
-.project-card-horizontal .project-img-wrapper {
-    height: 100% !important;
-    min-height: 230px;
-    max-height: 300px;
-}
-
+/* Horizontal Cards (Traveloka & TRAC Astra Featured) - Image fills 100% of height without any bottom white gap */
 .project-card-horizontal,
 .project-card-featured {
     border-radius: var(--radius-lg);
     overflow: hidden;
 }
 
+.project-card-horizontal .horizontal-img-col,
+.project-card-featured .featured-img-col {
+    display: flex !important;
+    flex-direction: column !important;
+    height: 100% !important;
+    min-height: 100% !important;
+    align-self: stretch !important;
+}
+
+.project-card-horizontal .project-img-wrapper,
+.project-card-featured .project-img-wrapper {
+    height: 100% !important;
+    width: 100% !important;
+    min-height: 100% !important;
+    max-height: none !important;
+    flex: 1 1 100% !important;
+    display: flex !important;
+    position: relative !important;
+    overflow: hidden !important;
+    background: transparent !important;
+}
+
+.project-card-horizontal .project-img,
+.project-card-featured .project-img {
+    width: 100% !important;
+    height: 100% !important;
+    min-height: 100% !important;
+    max-height: none !important;
+    object-fit: cover !important;
+    object-position: center !important;
+    display: block !important;
+    flex: 1 1 100% !important;
+}
+
 @media (max-width: 767.98px) {
+    .project-card-horizontal .horizontal-img-col,
+    .project-card-featured .featured-img-col {
+        height: auto !important;
+        min-height: auto !important;
+    }
     .project-card-horizontal .project-img-wrapper,
     .project-card-featured .project-img-wrapper {
-        height: 200px !important;
-        min-height: 200px;
-        max-height: 200px;
+        height: 220px !important;
+        min-height: 220px !important;
+        max-height: 220px !important;
+        flex: none !important;
     }
 }
 
+/* Video Containers (16:9 Clean Aspect Ratio with No Gaps) */
 .project-video-container .project-img-wrapper,
 .project-video-wrapper .project-img-wrapper {
+    width: 100% !important;
     height: auto !important;
-    aspect-ratio: 16 / 9;
-    max-height: 220px;
+    aspect-ratio: 16 / 9 !important;
+    max-height: none !important;
+    position: relative !important;
+    overflow: hidden !important;
+    background: #171311 !important;
+}
+
+.project-video-container .project-img,
+.project-video-wrapper .project-img {
+    width: 100% !important;
+    height: 100% !important;
+    object-fit: cover !important;
+    display: block !important;
 }
 
 .project-img {
@@ -1575,24 +1617,23 @@ h3.text-accent,
     transition: transform 0.5s ease;
 }
 
-/* Graphic Cards Compact Styling (Clean 185px height instead of giant 1:1) */
-.proj-card-col[data-proj-category="graphic"]:not(.col-12):not(.col-lg-8) .project-img-wrapper {
-    height: 185px;
-    width: 100%;
-    aspect-ratio: auto;
+/* Vertical Cards Uniform Image Wrapper */
+.project-card:not(.project-card-featured):not(.project-card-horizontal) .project-img-wrapper {
+    height: 190px !important;
+    width: 100% !important;
+    position: relative;
+    overflow: hidden;
     background: #FAF6F0;
     display: block;
     border-top-left-radius: var(--radius-lg);
     border-top-right-radius: var(--radius-lg);
-    overflow: hidden;
 }
 
-.proj-card-col[data-proj-category="graphic"]:not(.col-12):not(.col-lg-8) .project-img {
-    width: 100%;
-    height: 100%;
-    aspect-ratio: auto;
-    object-fit: cover;
-    object-position: top center;
+.project-card:not(.project-card-featured):not(.project-card-horizontal) .project-img {
+    width: 100% !important;
+    height: 100% !important;
+    object-fit: cover !important;
+    object-position: top center !important;
     padding: 0;
     display: block;
 }
@@ -3342,6 +3383,16 @@ a {
     border-color: #EA580C;
     background: rgba(234, 88, 12, 0.05);
     box-shadow: 0 4px 14px rgba(234, 88, 12, 0.18);
+}
+#travelokaDemoModal .ritistic-thumb-card:hover {
+    border-color: #0064D2 !important;
+    transform: translateY(-2px);
+    box-shadow: 0 4px 12px rgba(0, 100, 210, 0.15) !important;
+}
+#travelokaDemoModal .ritistic-thumb-card.active {
+    border-color: #0064D2 !important;
+    background: rgba(0, 100, 210, 0.08) !important;
+    box-shadow: 0 4px 14px rgba(0, 100, 210, 0.22) !important;
 }
 .ritistic-thumb-card img {
     width: 100%;

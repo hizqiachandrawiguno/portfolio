@@ -141,7 +141,7 @@
     <link rel="shortcut icon" type="image/png" href="{{ asset('images/hizqia_logo_orange.png') }}">
 
     <!-- Custom Designer Workspace CSS (Cached Version) -->
-    <link rel="stylesheet" href="{{ asset('css/custom-designer.css') }}?v=2.12.0">
+    <link rel="stylesheet" href="{{ asset('css/custom-designer.css') }}?v=2.13.0">
 
     <!-- Inject Experiences & Projects Data Objects early & Global Filter Functions -->
     <script>
@@ -187,6 +187,33 @@
                 }
             });
         }
+
+        // Traveloka Key Visual Gallery Switcher (Immediate definition for zero-error interactivity)
+        function selectTravelokaArtwork(imgUrl, title, desc, category, cardEl, ratioText) {
+            var activeImg = document.getElementById('travelokaActiveImg');
+            var activeTitle = document.getElementById('travelokaActiveTitle');
+            var activeDesc = document.getElementById('travelokaActiveDesc');
+            var activeCategory = document.getElementById('travelokaActiveCategory');
+            var activeRatio = document.getElementById('travelokaActiveRatio');
+
+            if (activeImg) {
+                activeImg.style.opacity = '0.35';
+                activeImg.src = imgUrl;
+                activeImg.onload = function() { activeImg.style.opacity = '1'; };
+            }
+            if (activeTitle) activeTitle.textContent = title ? title.replace(/&quot;/g, '"') : '';
+            if (activeDesc) activeDesc.textContent = desc || '';
+            if (activeCategory) activeCategory.textContent = category || '';
+            if (activeRatio && ratioText) activeRatio.innerHTML = ratioText;
+
+            var allThumbs = document.querySelectorAll('#travelokaDemoModal .ritistic-thumb-card');
+            allThumbs.forEach(function(c) { c.classList.remove('active'); });
+            if (cardEl) {
+                var targetCard = cardEl.closest ? (cardEl.closest('.ritistic-thumb-card') || cardEl) : cardEl;
+                targetCard.classList.add('active');
+            }
+        }
+        window.selectTravelokaArtwork = selectTravelokaArtwork;
     </script>
 <body>
 
@@ -438,7 +465,7 @@
                 <div id="{{ $project['id'] }}" class="col-12 proj-card-col reveal-on-scroll" data-proj-category="{{ $project['category'] }}" style="scroll-margin-top: 100px;">
                     <div class="project-card project-card-featured project-card-compact h-100" style="--proj-accent: {{ $project['accent'] }};">
                         <div class="row g-0 align-items-stretch h-100">
-                            <div class="col-lg-6 featured-img-col">
+                            <div class="col-lg-6 featured-img-col d-flex flex-column h-100">
                                 <div class="project-img-wrapper h-100 cursor-pointer position-relative" onclick="openProjectModal('{{ ltrim($project['modal_target'], '#') }}')" title="Klik untuk lihat detail {{ $project['title'] }}">
                                     <img src="{{ $project['image'] }}" alt="{{ $project['title'] }}" class="project-img featured-img" loading="eager" decoding="async">
                                 </div>
@@ -479,7 +506,7 @@
                 <div id="{{ $project['id'] }}" class="col-12 {{ $colClass }} proj-card-col reveal-on-scroll reveal-delay-1" data-proj-category="{{ $project['category'] }}" style="scroll-margin-top: 100px;">
                     <div class="project-card project-card-horizontal project-card-compact h-100" style="--proj-accent: {{ $project['accent'] }};">
                         <div class="row g-0 align-items-stretch h-100">
-                            <div class="col-md-6 col-lg-6">
+                            <div class="col-md-6 col-lg-6 horizontal-img-col d-flex flex-column h-100">
                                 <div class="project-img-wrapper h-100 cursor-pointer position-relative" onclick="openProjectModal('{{ ltrim($project['modal_target'], '#') }}')" title="Klik untuk lihat detail {{ $project['title'] }}">
                                     <img src="{{ $project['image'] }}" alt="{{ $project['title'] }}" class="project-img" loading="lazy" decoding="async">
                                 </div>
@@ -1537,6 +1564,6 @@
 
 
     <!-- Custom Interactive JS with Cache Versioning -->
-    <script src="{{ asset('js/portfolio-interactive.js') }}?v=2.10.0"></script>
+    <script src="{{ asset('js/portfolio-interactive.js') }}?v=2.13.0"></script>
 </body>
 </html>

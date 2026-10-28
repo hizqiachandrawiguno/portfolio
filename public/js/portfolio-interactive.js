@@ -1121,15 +1121,35 @@ window.selectTravelokaArtwork = function (imgUrl, title, desc, category, cardEl,
     const activeRatio = document.getElementById('travelokaActiveRatio');
 
     if (activeImg) {
-        activeImg.style.opacity = '0.4';
+        activeImg.style.opacity = '0.35';
         activeImg.src = imgUrl;
         activeImg.onload = () => { activeImg.style.opacity = '1'; };
     }
-    if (activeTitle) activeTitle.innerHTML = title;
-    if (activeDesc) activeDesc.textContent = desc;
-    if (activeCategory) activeCategory.textContent = category;
+    if (activeTitle) activeTitle.textContent = title ? title.replace(/&quot;/g, '"') : '';
+    if (activeDesc) activeDesc.textContent = desc || '';
+    if (activeCategory) activeCategory.textContent = category || '';
     if (activeRatio && ratioText) activeRatio.innerHTML = ratioText;
 
     document.querySelectorAll('#travelokaDemoModal .ritistic-thumb-card').forEach(c => c.classList.remove('active'));
-    if (cardEl) cardEl.classList.add('active');
+    if (cardEl) {
+        const targetCard = cardEl.closest ? (cardEl.closest('.ritistic-thumb-card') || cardEl) : cardEl;
+        targetCard.classList.add('active');
+    }
 };
+
+window.zoomActiveTravelokaImage = function () {
+    const activeImg = document.getElementById('travelokaActiveImg');
+    const activeTitle = document.getElementById('travelokaActiveTitle');
+    const activeDesc = document.getElementById('travelokaActiveDesc');
+    const activeCategory = document.getElementById('travelokaActiveCategory');
+
+    if (activeImg && window.openImageLightbox) {
+        window.openImageLightbox(
+            activeImg.src,
+            activeTitle ? activeTitle.textContent : 'Traveloka Campaign Visual',
+            activeDesc ? activeDesc.textContent : '',
+            activeCategory ? activeCategory.textContent : 'Social Media & Campaign Design'
+        );
+    }
+};
+
