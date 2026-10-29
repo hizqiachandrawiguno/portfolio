@@ -18,7 +18,7 @@ class PortfolioController extends Controller
             'gpa' => '3.70',
             'status' => 'Tersedia untuk Pekerjaan & Proyek Kreatif',
             'photo' => asset('images/hizqia_profile.webp'),
-            'catchy_summary' => 'Saya mendesain key visual, materi booth, dan konten media sosial yang harus bekerja di dunia nyata: terbaca oleh orang yang sedang lewat, sesuai standar brand, dan siap diproduksi. Proyek terakhir saya adalah materi booth TRAC (Astra) untuk Lalala Festival 2025. Saya juga mengedit video dan membangun website dengan Laravel, jadi saya paham bagaimana sebuah desain dipakai sampai tahap akhir.',
+            'catchy_summary' => 'Saya mendesain key visual, materi booth, dan konten media sosial yang jelas terbaca, konsisten dengan brand, dan siap produksi. Terbaru: booth TRAC (Astra) di Lalala Festival 2025.',
             'contact' => [
                 'email' => 'hizqiachandrawiguno@gmail.com',
                 'location' => 'Jakarta / Bogor, Indonesia',
@@ -120,11 +120,7 @@ class PortfolioController extends Controller
                     'company' => 'EGuards Indonesia',
                     'workflow' => "1. Memproduksi visual content untuk media cetak dan platform digital (website, media sosial, serta materi kampanye).\n2. Berkolaborasi dalam penyusunan visual promosi kampanye bersama instansi terkait.\n3. Memperkuat citra dan konsistensi identitas visual brand EGuards di berbagai platform online.",
                     'tools' => ['Adobe Photoshop', 'Adobe Illustrator', 'Canva', 'Digital Media Design'],
-                    'learnings' => 'Mengasah keahlian eksekusi desain grafis multi-platform (print & digital), adaptasi visual identity brand, serta alur kerja produksi materi promosi profesional.',
-                    'gallery' => [
-                        ['title' => 'Materi Marketing Campaign', 'image' => asset('images/pharos_indonesia.webp'), 'caption' => 'Desain Banner & Visual Promosi EGuards Indonesia'],
-                        ['title' => 'Social Media Content', 'image' => asset('images/pintarbaca_hero.webp'), 'caption' => 'Materi Publikasi & Infografis Digital']
-                    ]
+                    'learnings' => 'Mengasah keahlian eksekusi desain grafis multi-platform (print & digital), adaptasi visual identity brand, serta alur kerja produksi materi promosi profesional.'
                 ]
             ],
             [

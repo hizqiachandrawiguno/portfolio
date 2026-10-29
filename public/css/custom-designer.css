@@ -966,22 +966,48 @@ h3.text-accent,
 
 .hero-title {
     font-family: var(--font-heading);
-    font-size: clamp(1.85rem, 5.2vw, 3.4rem);
+    font-size: clamp(1.85rem, 6vw, 4.4rem);
     font-weight: 700;
-    line-height: 1.15;
-    letter-spacing: -0.03em;
+    line-height: 1.05;
+    letter-spacing: -0.04em;
     text-wrap: balance;
     word-break: normal;
     overflow-wrap: normal;
 }
 
+.hero-title .text-accent {
+    display: block !important;
+}
+
 .hero-lead-text {
     font-family: var(--font-body);
     font-weight: 500;
-    font-size: clamp(0.98rem, 2.1vw, 1.15rem);
-    line-height: 1.65;
+    font-size: clamp(1rem, 2.1vw, 1.25rem);
+    line-height: 1.6;
     color: #3D3833;
-    max-width: 640px;
+    max-width: 520px;
+    padding-left: 14px;
+    border-left: 3px solid var(--accent-color);
+}
+
+/* Section headings: same scale language as hero */
+.section-header h2 {
+    font-size: clamp(1.75rem, 4.5vw, 3rem);
+    line-height: 1.1;
+    letter-spacing: -0.035em;
+}
+
+/* Hero reveal on load */
+.hero-title, .hero-lead-text {
+    animation: heroReveal 0.5s cubic-bezier(0.4, 0, 0.2, 1) both;
+}
+.hero-lead-text { animation-delay: 0.12s; }
+@keyframes heroReveal {
+    from { opacity: 0; transform: translateY(16px); }
+    to { opacity: 1; transform: none; }
+}
+@media (prefers-reduced-motion: reduce) {
+    .hero-title, .hero-lead-text { animation: none; }
 }
 
 .hero-availability-note {
