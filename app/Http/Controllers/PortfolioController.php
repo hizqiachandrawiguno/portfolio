@@ -18,7 +18,7 @@ class PortfolioController extends Controller
             'gpa' => '3.70',
             'status' => 'Tersedia untuk Pekerjaan & Proyek Kreatif',
             'photo' => asset('images/hizqia_profile.webp'),
-            'catchy_summary' => 'Saya mendesain key visual, materi booth, dan konten media sosial yang jelas terbaca, konsisten dengan brand, dan siap produksi. Terbaru: booth TRAC (Astra) di Lalala Festival 2025.',
+            'catchy_summary' => 'Graphic Designer & Multimedia Specialist — membuat identitas visual dan materi komunikasi dengan arah, karakter, dan tujuan di balik setiap detail.',
             'contact' => [
                 'email' => 'hizqiachandrawiguno@gmail.com',
                 'location' => 'Jakarta / Bogor, Indonesia',
