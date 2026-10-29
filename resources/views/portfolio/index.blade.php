@@ -975,8 +975,8 @@
                     • Skema Warna Bersih & Kontras Nyaman untuk Jemaat
                 </div>
                 <div class="text-end">
-                    <a href="https://erc.ohito7.com/" target="_blank" class="btn btn-accent btn-sm rounded-pill font-mono">
-                        <i class="fa-solid fa-arrow-up-right-from-square me-1"></i> Buka Website erc.ohito7.com
+                    <a href="https://gbisawangan.com/" target="_blank" rel="noopener" class="btn btn-accent btn-sm rounded-pill font-mono">
+                        <i class="fa-solid fa-arrow-up-right-from-square me-1"></i> Buka Website ERC
                     </a>
                 </div>
             </div>
