@@ -1004,7 +1004,7 @@
                     <!-- Kolom Kiri: Visual Stage (55-60%) -->
                     <div class="artwork-modal-visual-col">
                         <div class="artwork-modal-img-wrap">
-                            <img id="tracActiveImg" src="{{ asset('images/trac_tenda_booth.webp') }}" alt="TRAC Astra Booth" class="artwork-modal-img" loading="eager" decoding="async">
+                            <img id="tracActiveImg" src="{{ asset('images/trac_tenda_booth.webp') }}" alt="TRAC Astra Booth" class="artwork-modal-img" loading="lazy" decoding="async">
                             <button type="button" class="btn btn-sm btn-dark bg-opacity-75 text-white position-absolute bottom-0 end-0 m-3 rounded-pill font-mono btn-zoom-hd" onclick="openImageLightbox(document.getElementById('tracActiveImg').src, 'TRAC Astra', 'Materi Booth &amp; Key Visual', 'Spatial &amp; Event POSM')" title="Perbesar HD">
                                 <i class="fa-solid fa-magnifying-glass-plus me-1"></i> Perbesar HD
                             </button>
@@ -1031,25 +1031,25 @@
                             <div class="row g-2">
                                 <div class="col-6">
                                     <div class="ritistic-thumb-card active" onclick="selectTracArtwork('{{ asset('images/trac_tenda_booth.webp') }}', 'Tenda Booth TRAC (3x3 M)', 'Desain spatial 3D mockup booth resmi TRAC untuk aktivasi offline Lalala Festival 2025, lengkap dengan spesifikasi teknis 3x3 M.', 'Spatial &amp; Event Booth 3x3M', this)">
-                                        <img src="{{ asset('images/trac_tenda_booth.webp') }}" alt="Thumbnail 3D Mockup Tenda Booth TRAC Astra Lalala Festival 3x3 Meter" width="72" height="54" class="img-fluid rounded-2 border">
+                                        <img src="{{ asset('images/trac_tenda_booth.webp') }}" alt="Thumbnail 3D Mockup Tenda Booth TRAC Astra Lalala Festival 3x3 Meter" width="72" height="54" class="img-fluid rounded-2 border" loading="lazy" decoding="async">
                                         <span class="thumb-label font-mono">Tenda Booth 3x3M</span>
                                     </div>
                                 </div>
                                 <div class="col-6">
                                     <div class="ritistic-thumb-card" onclick="selectTracArtwork('{{ asset('images/trac_standing_banner.webp') }}', 'Standing Banner TRACtoGo Promo', 'Materi promosi cetak ukuran 60x160 cm dengan hierarki informasi promo sewa mobil &amp; download app.', 'Print Collateral / POSM', this)">
-                                        <img src="{{ asset('images/trac_standing_banner.webp') }}" alt="Thumbnail Standing Banner Promosi TRACtoGo 60x160 cm" width="72" height="54" class="img-fluid rounded-2 border">
+                                        <img src="{{ asset('images/trac_standing_banner.webp') }}" alt="Thumbnail Standing Banner Promosi TRACtoGo 60x160 cm" width="72" height="54" class="img-fluid rounded-2 border" loading="lazy" decoding="async">
                                         <span class="thumb-label font-mono">Standing Banner</span>
                                     </div>
                                 </div>
                                 <div class="col-6">
                                     <div class="ritistic-thumb-card" onclick="selectTracArtwork('{{ asset('images/trac_key_visual_pantai.webp') }}', 'Key Visual: Teman di Setiap Kilometer', 'Digital photo compositing efek 3D pop-out smartphone menghubungkan suasana penat kantor menuju liburan santai di pantai.', 'Creative Photo Manipulation', this)">
-                                        <img src="{{ asset('images/trac_key_visual_pantai.webp') }}" alt="Thumbnail Key Visual Teman di Setiap Kilometer Digital Compositing" width="72" height="54" class="img-fluid rounded-2 border">
+                                        <img src="{{ asset('images/trac_key_visual_pantai.webp') }}" alt="Thumbnail Key Visual Teman di Setiap Kilometer Digital Compositing" width="72" height="54" class="img-fluid rounded-2 border" loading="lazy" decoding="async">
                                         <span class="thumb-label font-mono">Key Visual Pantai</span>
                                     </div>
                                 </div>
                                 <div class="col-6">
                                     <div class="ritistic-thumb-card" onclick="selectTracArtwork('{{ asset('images/trac_promo_booth.webp') }}', 'Flyer &amp; Aktivasi Booth Promo', 'Desain materi promosi aktivasi booth dengan showcase merchandise kit dan voucher rental mobil.', 'Event Merchandising', this)">
-                                        <img src="{{ asset('images/trac_promo_booth.webp') }}" alt="Thumbnail Flyer Materi Promosi Merchandise Kit & Voucher Booth TRAC" width="72" height="54" class="img-fluid rounded-2 border">
+                                        <img src="{{ asset('images/trac_promo_booth.webp') }}" alt="Thumbnail Flyer Materi Promosi Merchandise Kit & Voucher Booth TRAC" width="72" height="54" class="img-fluid rounded-2 border" loading="lazy" decoding="async">
                                         <span class="thumb-label font-mono">Flyer Promo</span>
                                     </div>
                                 </div>
@@ -1057,6 +1057,7 @@
                         </div>
 
                         <!-- Design Documentation & Context Notes -->
+                        @include('portfolio.partials.case-study', ['cs' => collect($projects)->firstWhere('id', 'proj-trac-astra')['case_study']])
                         <div class="p-3 bg-light rounded-4 border font-mono small mt-auto">
                             <strong class="text-accent d-block mb-1"><i class="fa-solid fa-circle-info me-1"></i> Informasi Desain &amp; Workflow:</strong>
                             <ul class="mb-0 ps-3 text-muted lh-base" style="font-size: 0.8rem;">
@@ -1094,7 +1095,7 @@
                     <!-- Kolom Kiri: Visual Stage (55-60%) -->
                     <div class="artwork-modal-visual-col">
                         <div class="artwork-modal-img-wrap">
-                            <img id="drpActiveImg" src="{{ asset('images/drp_teens_chosen_gen.webp') }}" alt="DRP Teens Artwork" class="artwork-modal-img" loading="eager" decoding="async">
+                            <img id="drpActiveImg" src="{{ asset('images/drp_teens_chosen_gen.webp') }}" alt="DRP Teens Artwork" class="artwork-modal-img" loading="lazy" decoding="async">
                             <button type="button" class="btn btn-sm btn-dark bg-opacity-75 text-white position-absolute bottom-0 end-0 m-3 rounded-pill font-mono btn-zoom-hd" onclick="zoomActiveDrpImage()" title="Perbesar HD">
                                 <i class="fa-solid fa-magnifying-glass-plus me-1"></i> Perbesar HD
                             </button>
@@ -1127,21 +1128,21 @@
                                 <div class="col-4">
                                     <div class="ritistic-thumb-card active" onclick="selectDrpArtwork('{{ asset('images/drp_teens_chosen_gen.webp') }}', 'The Chosen Generation (Tema Tahunan 2026)', 'Eksplorasi visual tema tahunan 2026 memadukan tipografi sans-serif beraksen cut inline, pita fluida multi-warna gradien, badge tahun 2026, dan elemen retro starburst.', 'Retro-Pop Typography &amp; Fluid Shapes', this, 'Format: Poster Portrait &bull; 721 &times; 1024 px')">
                                         <span class="thumb-badge-new">2026</span>
-                                        <img src="{{ asset('images/drp_teens_chosen_gen.webp') }}" alt="The Chosen Gen 2026" class="img-fluid rounded-2 border">
+                                        <img src="{{ asset('images/drp_teens_chosen_gen.webp') }}" alt="The Chosen Gen 2026" class="img-fluid rounded-2 border" loading="lazy" decoding="async">
                                         <span class="thumb-label font-mono">Chosen Gen</span>
                                     </div>
                                 </div>
                                 <div class="col-4">
                                     <div class="ritistic-thumb-card" onclick="selectDrpArtwork('{{ asset('images/drp_teens_homecoming.webp') }}', 'Disciples Revival Night &quot;Homecoming&quot; 2026', 'Flyer publikasi ibadah kebangunan rohani remaja bersama Kak Gamma di GBI Sawangan, menampilkan warm lighting studio, tipografi brush ekspresif, dan aksen cutout poligon oranye.', 'Event Flyer &amp; Speaker Showcase', this, 'Format: Story Flyer 9:16 &bull; 576 &times; 1024 px')">
                                         <span class="thumb-badge-new">2026</span>
-                                        <img src="{{ asset('images/drp_teens_homecoming.webp') }}" alt="Homecoming Worship Night" class="img-fluid rounded-2 border">
+                                        <img src="{{ asset('images/drp_teens_homecoming.webp') }}" alt="Homecoming Worship Night" class="img-fluid rounded-2 border" loading="lazy" decoding="async">
                                         <span class="thumb-label font-mono">Homecoming</span>
                                     </div>
                                 </div>
                                 <div class="col-4">
                                     <div class="ritistic-thumb-card" onclick="selectDrpArtwork('{{ asset('images/drp_teens_flame_cross.webp') }}', 'Flame &amp; Cross Pixel Art Graphic Mark', 'Elemen grafis pendukung bertema revival berupa kobaran api bergaya pixel art 16-bit berpadu dengan radiant geometric shards dan simbol salib oranye minimalis.', 'Pixel Art &amp; Geometric Brand Asset', this, 'Format: Brand Asset 1:1 &bull; 1024 &times; 997 px')">
                                         <span class="thumb-badge-new" style="background: #D97706;">ASSET</span>
-                                        <img src="{{ asset('images/drp_teens_flame_cross.webp') }}" alt="Flame &amp; Cross Mark" class="img-fluid rounded-2 border">
+                                        <img src="{{ asset('images/drp_teens_flame_cross.webp') }}" alt="Flame &amp; Cross Mark" class="img-fluid rounded-2 border" loading="lazy" decoding="async">
                                         <span class="thumb-label font-mono">Flame Mark</span>
                                     </div>
                                 </div>
@@ -1154,31 +1155,31 @@
                             <div class="row g-2">
                                 <div class="col-4">
                                     <div class="ritistic-thumb-card" onclick="selectDrpArtwork('{{ asset('images/drp_teens_self_improvement.webp') }}', 'Self Improvement - Ka Kayla (8 Okt 2023)', 'Desain feed bernuansa komik dengan panel multi-frame, speech bubble, garis sunburst dinamis, serta tipografi judul 3D pop warna kuning cerah.', 'Pop-Art &amp; Comic Grid Layout', this, 'Format: Feed Instagram 1:1 &bull; 1024 &times; 1024 px')">
-                                        <img src="{{ asset('images/drp_teens_self_improvement.webp') }}" alt="Self Improvement" class="img-fluid rounded-2 border">
+                                        <img src="{{ asset('images/drp_teens_self_improvement.webp') }}" alt="Self Improvement" class="img-fluid rounded-2 border" loading="lazy" decoding="async">
                                         <span class="thumb-label font-mono">Self Improvement</span>
                                     </div>
                                 </div>
                                 <div class="col-4">
                                     <div class="ritistic-thumb-card" onclick="selectDrpArtwork('{{ asset('images/drp_teens_dependable.webp') }}', 'Dependable - Ka Jonas (6 Ags 2023)', 'Eksplorasi gaya ripped-paper dengan aksen lakban hitam, palet warna olive green maskulin, tipografi bold berlapis, dan kolase foto dokumentasi ibadah.', 'Grunge Editorial &amp; Tape Collage', this, 'Format: Feed Instagram 1:1 &bull; 1024 &times; 1024 px')">
-                                        <img src="{{ asset('images/drp_teens_dependable.webp') }}" alt="Dependable" class="img-fluid rounded-2 border">
+                                        <img src="{{ asset('images/drp_teens_dependable.webp') }}" alt="Dependable" class="img-fluid rounded-2 border" loading="lazy" decoding="async">
                                         <span class="thumb-label font-mono">Dependable</span>
                                     </div>
                                 </div>
                                 <div class="col-4">
                                     <div class="ritistic-thumb-card" onclick="selectDrpArtwork('{{ asset('images/drp_teens_iman_pengharapan_kasih.webp') }}', 'Iman, Pengharapan &amp; Kasih - Ka Jonas (11 Jun 2023)', 'Komposisi bertingkat frame polaroid putih dengan bayangan realistis, tipografi handwriting doodle, latar biru bersih, dan kutipan ayat Mazmur 127:4.', 'Polaroid Frame &amp; Paper Texture', this, 'Format: Feed Instagram 1:1 &bull; 1024 &times; 1024 px')">
-                                        <img src="{{ asset('images/drp_teens_iman_pengharapan_kasih.webp') }}" alt="Iman, Pengharapan" class="img-fluid rounded-2 border">
+                                        <img src="{{ asset('images/drp_teens_iman_pengharapan_kasih.webp') }}" alt="Iman, Pengharapan" class="img-fluid rounded-2 border" loading="lazy" decoding="async">
                                         <span class="thumb-label font-mono">Iman &amp; Kasih</span>
                                     </div>
                                 </div>
                                 <div class="col-6">
                                     <div class="ritistic-thumb-card" onclick="selectDrpArtwork('{{ asset('images/drp_teens_jeremiah_gen.webp') }}', 'Jeremiah Gen vs Everybody - Ka Kezia (7 Mei 2023)', 'Desain poster sesi QnA remaja dengan palet kontras ungu dan kuning neon, efek robekan kertas grunge, dan tekstur halftone pada latar belakang jemaat.', 'Street-Poster &amp; Halftone', this, 'Format: Feed Instagram 1:1 &bull; 1024 &times; 1024 px')">
-                                        <img src="{{ asset('images/drp_teens_jeremiah_gen.webp') }}" alt="Jeremiah Gen" class="img-fluid rounded-2 border">
+                                        <img src="{{ asset('images/drp_teens_jeremiah_gen.webp') }}" alt="Jeremiah Gen" class="img-fluid rounded-2 border" loading="lazy" decoding="async">
                                         <span class="thumb-label font-mono">Jeremiah Gen</span>
                                     </div>
                                 </div>
                                 <div class="col-6">
                                     <div class="ritistic-thumb-card" onclick="selectDrpArtwork('{{ asset('images/drp_teens_merry_christmas.webp') }}', 'Merry Christmas &amp; Happy New Year', 'Visual ucapan Natal dan Tahun Baru bernuansa midnight blue elegan, tipografi 3D mewah dengan aksen emas, bintang bersinar, dan ilustrasi pohon cemara bersalju.', 'Festive 3D Typography', this, 'Format: Feed Instagram 1:1 &bull; 1024 &times; 1024 px')">
-                                        <img src="{{ asset('images/drp_teens_merry_christmas.webp') }}" alt="Merry Christmas" class="img-fluid rounded-2 border">
+                                        <img src="{{ asset('images/drp_teens_merry_christmas.webp') }}" alt="Merry Christmas" class="img-fluid rounded-2 border" loading="lazy" decoding="async">
                                         <span class="thumb-label font-mono">Christmas 3D</span>
                                     </div>
                                 </div>
@@ -1186,6 +1187,7 @@
                         </div>
 
                         <!-- Design Documentation & Context Notes -->
+                        @include('portfolio.partials.case-study', ['cs' => collect($projects)->firstWhere('id', 'proj-drp-social')['case_study']])
                         <div class="p-3 bg-light rounded-4 border font-mono small mt-auto">
                             <strong class="text-accent d-block mb-1"><i class="fa-solid fa-circle-info me-1"></i> Informasi Desain &amp; Workflow:</strong>
                             <ul class="mb-0 ps-3 text-muted lh-base" style="font-size: 0.8rem;">
@@ -1222,7 +1224,7 @@
                     <!-- Kolom Kiri: Visual Stage (55-60%) -->
                     <div class="artwork-modal-visual-col">
                         <div class="artwork-modal-img-wrap">
-                            <img id="ritisticActiveImg" src="{{ asset('images/ritistic_sumpah_pemuda.webp') }}" alt="Ritistic Project Artwork" class="artwork-modal-img" loading="eager" decoding="async">
+                            <img id="ritisticActiveImg" src="{{ asset('images/ritistic_sumpah_pemuda.webp') }}" alt="Ritistic Project Artwork" class="artwork-modal-img" loading="lazy" decoding="async">
                             <button type="button" class="btn btn-sm btn-dark bg-opacity-75 text-white position-absolute bottom-0 end-0 m-3 rounded-pill font-mono btn-zoom-hd" onclick="zoomActiveRitisticImage()" title="Perbesar HD">
                                 <i class="fa-solid fa-magnifying-glass-plus me-1"></i> Perbesar HD
                             </button>
@@ -1249,25 +1251,25 @@
                             <div class="row g-2">
                                 <div class="col-6">
                                     <div class="ritistic-thumb-card active" onclick="selectRitisticArtwork('{{ asset('images/ritistic_sumpah_pemuda.webp') }}', 'Hari Sumpah Pemuda 2024', 'Desain feed Instagram dengan pendekatan ilustrasi garis hand-drawn, ornamen bendera merah putih bertekstur halftone, frame tepi organik, serta tipografi retro-modern.', 'Commemorative Social Media Poster', this)">
-                                        <img src="{{ asset('images/ritistic_sumpah_pemuda.webp') }}" alt="Thumbnail Desain Poster Peringatan Hari Sumpah Pemuda 2024 Ritistic" width="72" height="54" class="img-fluid rounded-2 border">
+                                        <img src="{{ asset('images/ritistic_sumpah_pemuda.webp') }}" alt="Thumbnail Desain Poster Peringatan Hari Sumpah Pemuda 2024 Ritistic" width="72" height="54" class="img-fluid rounded-2 border" loading="lazy" decoding="async">
                                         <span class="thumb-label font-mono">Sumpah Pemuda</span>
                                     </div>
                                 </div>
                                 <div class="col-6">
                                     <div class="ritistic-thumb-card" onclick="selectRitisticArtwork('{{ asset('images/ritistic_tahun_baru_islam.webp') }}', 'Tahun Baru Islam 1446 H / 2024', 'Visual peringatan Tahun Baru Islam dengan perpaduan siluet arsitektur masjid berwarna emas hangat, elemen bedug dan ketupat, serta border ornamen geometris Islam simetris.', 'Holiday Commemorative Visual', this)">
-                                        <img src="{{ asset('images/ritistic_tahun_baru_islam.webp') }}" alt="Thumbnail Desain Poster Peringatan Tahun Baru Islam 1446 H Ritistic" width="72" height="54" class="img-fluid rounded-2 border">
+                                        <img src="{{ asset('images/ritistic_tahun_baru_islam.webp') }}" alt="Thumbnail Desain Poster Peringatan Tahun Baru Islam 1446 H Ritistic" width="72" height="54" class="img-fluid rounded-2 border" loading="lazy" decoding="async">
                                         <span class="thumb-label font-mono">Tahun Baru Islam</span>
                                     </div>
                                 </div>
                                 <div class="col-6">
                                     <div class="ritistic-thumb-card" onclick="selectRitisticArtwork('{{ asset('images/ritistic_profiling_wida.webp') }}', 'Visual Profiling: Nur Fitria (Wida)', 'Kartu profil mahasiswa Polimedia dengan teknik photo cutting jas almamater ungu, kontras tipografi nama bold warna oranye hangat, script handwriting accents, dan doodle background edukatif.', 'Member Profile Card Layout', this)">
-                                        <img src="{{ asset('images/ritistic_profiling_wida.webp') }}" alt="Thumbnail Kartu Profil Anggota Nur Fitria Wida Ritistic" width="72" height="54" class="img-fluid rounded-2 border">
+                                        <img src="{{ asset('images/ritistic_profiling_wida.webp') }}" alt="Thumbnail Kartu Profil Anggota Nur Fitria Wida Ritistic" width="72" height="54" class="img-fluid rounded-2 border" loading="lazy" decoding="async">
                                         <span class="thumb-label font-mono">Nur Fitria (Wida)</span>
                                     </div>
                                 </div>
                                 <div class="col-6">
                                     <div class="ritistic-thumb-card" onclick="selectRitisticArtwork('{{ asset('images/ritistic_profiling_sukmawati.webp') }}', 'Visual Profiling: Sukmawati (Ira)', 'Sistem tata letak visual profil anggota Ritistic Project dengan konsistensi grid tipografi nama vertikal, ilustrasi buku di bagian bawah, serta penempatan handle media sosial di sudut kanan atas.', 'Member Profile Card Layout', this)">
-                                        <img src="{{ asset('images/ritistic_profiling_sukmawati.webp') }}" alt="Thumbnail Kartu Profil Anggota Sukmawati Ira Ritistic" width="72" height="54" class="img-fluid rounded-2 border">
+                                        <img src="{{ asset('images/ritistic_profiling_sukmawati.webp') }}" alt="Thumbnail Kartu Profil Anggota Sukmawati Ira Ritistic" width="72" height="54" class="img-fluid rounded-2 border" loading="lazy" decoding="async">
                                         <span class="thumb-label font-mono">Sukmawati (Ira)</span>
                                     </div>
                                 </div>
@@ -1275,6 +1277,7 @@
                         </div>
 
                         <!-- Design Documentation & Context Notes -->
+                        @include('portfolio.partials.case-study', ['cs' => collect($projects)->firstWhere('id', 'proj-ritistic')['case_study']])
                         <div class="p-3 bg-light rounded-4 border font-mono small mt-auto">
                             <strong class="text-accent d-block mb-1"><i class="fa-solid fa-circle-info me-1"></i> Informasi Desain &amp; Workflow:</strong>
                             <ul class="mb-0 ps-3 text-muted lh-base" style="font-size: 0.8rem;">
@@ -1311,7 +1314,7 @@
                     <!-- Kolom Kiri: Visual Stage (55-60%) -->
                     <div class="artwork-modal-visual-col">
                         <div class="artwork-modal-img-wrap">
-                            <img id="travelokaActiveImg" src="{{ asset('images/traveloka_pergi_kapan_saja.jpg') }}" alt="Traveloka Campaign Visual" class="artwork-modal-img" loading="eager" decoding="async">
+                            <img id="travelokaActiveImg" src="{{ asset('images/traveloka_pergi_kapan_saja.webp') }}" alt="Traveloka Campaign Visual" class="artwork-modal-img" loading="lazy" decoding="async">
                             <button type="button" class="btn btn-sm btn-dark bg-opacity-75 text-white position-absolute bottom-0 end-0 m-3 rounded-pill font-mono btn-zoom-hd" onclick="openImageLightbox(document.getElementById('travelokaActiveImg').src, document.getElementById('travelokaActiveTitle').textContent, document.getElementById('travelokaActiveDesc').textContent, document.getElementById('travelokaActiveCategory').textContent)" title="Perbesar HD">
                                 <i class="fa-solid fa-magnifying-glass-plus me-1"></i> Perbesar HD
                             </button>
@@ -1323,7 +1326,7 @@
                         <!-- Label Kategori & Info Resolusi/Rasio -->
                         <div class="d-flex align-items-center justify-content-between flex-wrap gap-2 mb-2">
                             <span class="badge font-mono" id="travelokaActiveCategory" style="background: rgba(0, 100, 210, 0.12); color: #0064D2; font-size: 0.75rem;">Photo Compositing &amp; App Mockup</span>
-                            <small class="text-muted font-mono" id="travelokaActiveRatio" style="font-size: 0.72rem;">Format: Feed 1:1 &bull; 2000 &times; 2000 px</small>
+                            <small class="text-muted font-mono" id="travelokaActiveRatio" style="font-size: 0.72rem;">Format: Feed 1:1 &bull; 1024 &times; 1024 px</small>
                         </div>
 
                         <!-- Judul & Deskripsi Karya -->
@@ -1337,20 +1340,20 @@
                             <small class="text-muted font-mono fw-bold text-uppercase d-block mb-2" style="font-size: 0.72rem; letter-spacing: 0.05em;">Pilih Key Visual untuk Dilihat:</small>
                             <div class="row g-2">
                                 <div class="col-4">
-                                    <div class="ritistic-thumb-card active" onclick="selectTravelokaArtwork('{{ asset('images/traveloka_pergi_kapan_saja.jpg') }}', 'Key Visual: &quot;Pergi Kapan Saja, Traveloka Aja&quot;', 'Key visual utama kampanye dengan teknik photo compositing: tangan memegang smartphone yang menampilkan UI Traveloka, dikelilingi pesawat, koper, dan paspor 3D pop-out.', 'Photo Compositing &amp; App Mockup', this, 'Format: Feed 1:1 &bull; 2000 &times; 2000 px')">
-                                        <img src="{{ asset('images/traveloka_pergi_kapan_saja.jpg') }}" alt="Pergi Kapan Saja" class="img-fluid rounded-2 border">
+                                    <div class="ritistic-thumb-card active" onclick="selectTravelokaArtwork('{{ asset('images/traveloka_pergi_kapan_saja.webp') }}', 'Key Visual: &quot;Pergi Kapan Saja, Traveloka Aja&quot;', 'Key visual utama kampanye dengan teknik photo compositing: tangan memegang smartphone yang menampilkan UI Traveloka, dikelilingi pesawat, koper, dan paspor 3D pop-out.', 'Photo Compositing &amp; App Mockup', this, 'Format: Feed 1:1 &bull; 1024 &times; 1024 px')">
+                                        <img src="{{ asset('images/traveloka_pergi_kapan_saja.webp') }}" alt="Pergi Kapan Saja" class="img-fluid rounded-2 border" loading="lazy" decoding="async">
                                         <span class="thumb-label font-mono">Pergi Kapan Saja</span>
                                     </div>
                                 </div>
                                 <div class="col-4">
-                                    <div class="ritistic-thumb-card" onclick="selectTravelokaArtwork('{{ asset('images/traveloka_yang_lain_berangkat.jpg') }}', 'Key Visual: &quot;Yang Lain Udah Berangkat, Kamu?&quot;', 'Konsep visual jendela pesawat sebagai frame untuk destinasi Raja Ampat, Papua. Koper putih dan pesawat berbentuk lengkungan dinamis keluar dari bingkai, menciptakan ilusi kedalaman 3D yang dramatis.', 'Conceptual Photo Manipulation', this, 'Format: Feed 1:1 &bull; 2000 &times; 2000 px')">
-                                        <img src="{{ asset('images/traveloka_yang_lain_berangkat.jpg') }}" alt="Yang Lain Berangkat" class="img-fluid rounded-2 border">
+                                    <div class="ritistic-thumb-card" onclick="selectTravelokaArtwork('{{ asset('images/traveloka_yang_lain_berangkat.webp') }}', 'Key Visual: &quot;Yang Lain Udah Berangkat, Kamu?&quot;', 'Konsep visual jendela pesawat sebagai frame untuk destinasi Raja Ampat, Papua. Koper putih dan pesawat berbentuk lengkungan dinamis keluar dari bingkai, menciptakan ilusi kedalaman 3D yang dramatis.', 'Conceptual Photo Manipulation', this, 'Format: Feed 1:1 &bull; 1024 &times; 1024 px')">
+                                        <img src="{{ asset('images/traveloka_yang_lain_berangkat.webp') }}" alt="Yang Lain Berangkat" class="img-fluid rounded-2 border" loading="lazy" decoding="async">
                                         <span class="thumb-label font-mono">Yang Lain Berangkat</span>
                                     </div>
                                 </div>
                                 <div class="col-4">
-                                    <div class="ritistic-thumb-card" onclick="selectTravelokaArtwork('{{ asset('images/traveloka_rekomendasi_wisata.jpg') }}', 'Key Visual: &quot;Rekomendasi Tempat Wisata Akhir Tahun&quot;', 'Komposisi lifestyle fotografis: model memegang smartphone Traveloka dengan background split antara interior hotel mewah dan Machu Picchu Peru, dipersatukan oleh search bar rekomendasi wisata.', 'Photo Compositing &amp; Lifestyle', this, 'Format: Feed 1:1 &bull; 2000 &times; 2000 px')">
-                                        <img src="{{ asset('images/traveloka_rekomendasi_wisata.jpg') }}" alt="Rekomendasi Wisata" class="img-fluid rounded-2 border">
+                                    <div class="ritistic-thumb-card" onclick="selectTravelokaArtwork('{{ asset('images/traveloka_rekomendasi_wisata.webp') }}', 'Key Visual: &quot;Rekomendasi Tempat Wisata Akhir Tahun&quot;', 'Komposisi lifestyle fotografis: model memegang smartphone Traveloka dengan background split antara interior hotel mewah dan Machu Picchu Peru, dipersatukan oleh search bar rekomendasi wisata.', 'Photo Compositing &amp; Lifestyle', this, 'Format: Feed 1:1 &bull; 1024 &times; 1024 px')">
+                                        <img src="{{ asset('images/traveloka_rekomendasi_wisata.webp') }}" alt="Rekomendasi Wisata" class="img-fluid rounded-2 border" loading="lazy" decoding="async">
                                         <span class="thumb-label font-mono">Rekomendasi Wisata</span>
                                     </div>
                                 </div>
@@ -1358,12 +1361,13 @@
                         </div>
 
                         <!-- Design Documentation & Context Notes -->
+                        @include('portfolio.partials.case-study', ['cs' => collect($projects)->firstWhere('id', 'proj-traveloka')['case_study']])
                         <div class="p-3 bg-light rounded-4 border font-mono small mt-auto">
                             <strong class="d-block mb-1" style="color: #0064D2;"><i class="fa-solid fa-circle-info me-1"></i> Informasi Desain &amp; Workflow:</strong>
                             <ul class="mb-0 ps-3 text-muted lh-base" style="font-size: 0.8rem;">
                                 <li><strong>Software:</strong> Adobe Photoshop</li>
-                                <li><strong>Brand:</strong> Traveloka (Platform Perjalanan Online)</li>
-                                <li><strong>Format:</strong> Social Media Feed 1:1 &bull; 2000 &times; 2000 px (High-Resolution Artboard)</li>
+                                <li><strong>Brand:</strong> Traveloka (proyek konsep mandiri, bukan pekerjaan klien)</li>
+                                <li><strong>Format:</strong> Social Media Feed 1:1 &bull; 1024 &times; 1024 px</li>
                                 <li><strong>Teknik Utama:</strong> Photo compositing multi-layer, masking realistis, blending mode, efek 3D pop-out elemen props, dan hierarki tipografi kampanye brand.</li>
                             </ul>
                         </div>
@@ -1553,7 +1557,7 @@
             <button type="button" class="btn-lightbox-close" onclick="closeImageLightbox()" aria-label="Tutup Fullscreen">
                 <i class="fa-solid fa-xmark"></i>
             </button>
-            <img id="lightboxImg" src="" alt="High-Res Artwork Preview" class="lightbox-img">
+            <img id="lightboxImg" alt="High-Res Artwork Preview" class="lightbox-img">
             <div class="lightbox-caption-bar mt-3 p-3 text-center rounded-4 shadow-sm">
                 <span class="badge bg-accent text-white font-mono mb-2 px-3 py-1 rounded-pill" id="lightboxCategory" style="font-size: 0.72rem;"></span>
                 <h5 class="text-white fw-bold mb-1 fs-6 font-heading" id="lightboxTitle"></h5>

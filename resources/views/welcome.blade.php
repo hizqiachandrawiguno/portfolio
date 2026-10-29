@@ -336,84 +336,6 @@
             }
         }
 
-        /* Floating Capsule Badge Styling */
-        .floating-badge {
-            display: inline-flex;
-            align-items: center;
-            gap: 0.375rem;
-            padding: 0.25rem 0.625rem;
-            border-radius: 9999px;
-            background: rgba(255, 255, 255, 0.95);
-            border: 1px solid rgba(220, 215, 206, 0.9);
-            box-shadow: 0 2px 6px rgba(0, 0, 0, 0.04);
-            font-size: 11px;
-            font-weight: 600;
-            color: var(--color-charcoal);
-            backdrop-filter: blur(8px);
-            -webkit-backdrop-filter: blur(8px);
-            will-change: transform;
-        }
-
-        .badge-icon-box {
-            width: 1rem;
-            height: 1rem;
-            border-radius: 50%;
-            background: #FEEADB;
-            color: var(--color-terracotta);
-            display: flex;
-            align-items: center;
-            justify-content: center;
-            flex-shrink: 0;
-        }
-
-        /* Desktop Floating Badges (>= 768px) */
-        .desktop-badge {
-            display: none;
-        }
-
-        @media (min-width: 768px) {
-            .desktop-badge {
-                display: flex;
-                position: absolute;
-                z-index: 30;
-                padding: 0.4rem 0.9rem;
-                font-size: 12px;
-                gap: 0.5rem;
-                box-shadow: 0 4px 16px rgba(0, 0, 0, 0.06);
-            }
-
-            .desktop-badge .badge-icon-box {
-                width: 1.5rem;
-                height: 1.5rem;
-            }
-
-            .badge-d1 {
-                top: -3rem;
-                left: -2rem;
-            }
-
-            .badge-d2 {
-                top: -3rem;
-                right: -2rem;
-            }
-
-            .badge-d3 {
-                bottom: -2.5rem;
-                left: -1rem;
-            }
-        }
-
-        @media (min-width: 1024px) {
-            .desktop-badge {
-                font-size: 13px;
-                padding: 0.45rem 1rem;
-            }
-
-            .badge-d1 { left: -3rem; }
-            .badge-d2 { right: -3rem; }
-            .badge-d3 { left: -2rem; }
-        }
-
         /* Typography & Giant 'PORTFOLIO' Display */
         .portfolio-title-wrapper {
             position: relative;
@@ -586,45 +508,6 @@
 
         .cta-btn-expand:hover .cta-btn-icon {
             transform: translateX(3px);
-        }
-
-        /* Keyboard Shortcut Hint */
-        .welcome-hint {
-            margin-top: 1.25rem;
-            font-family: var(--font-mono);
-            font-size: 11px;
-            color: var(--color-charcoal-dim);
-            display: flex;
-            align-items: center;
-            justify-content: center;
-            gap: 0.375rem;
-            opacity: 0.85;
-        }
-
-        @media (min-width: 640px) {
-            .welcome-hint {
-                font-size: 12px;
-                margin-top: 1.5rem;
-            }
-        }
-
-        .welcome-kbd {
-            display: inline-block;
-            padding: 0.125rem 0.375rem;
-            border-radius: 4px;
-            background: #FFFFFF;
-            border: 1px solid #DCD7CE;
-            color: var(--color-charcoal);
-            font-size: 10px;
-            font-family: var(--font-mono);
-            font-weight: 600;
-            box-shadow: 0 1px 2px rgba(0, 0, 0, 0.05);
-        }
-
-        @media (min-width: 640px) {
-            .welcome-kbd {
-                font-size: 11px;
-            }
         }
 
         /* Helper Responsive Classes */
@@ -817,13 +700,6 @@
                     stagger: 0.035,
                     ease: "back.out(1.8)"
                 }, "-=0.25")
-                .from(".floating-badge", {
-                    scale: 0.6,
-                    opacity: 0.2,
-                    duration: 0.45,
-                    stagger: 0.08,
-                    ease: "back.out(2)"
-                }, "-=0.4")
                 .from(".welcome-subtitle", {
                     y: 12,
                     opacity: 0.3,
@@ -834,26 +710,9 @@
                     scale: 0.9,
                     duration: 0.45,
                     ease: "back.out(2)"
-                }, "-=0.2")
-                .from(".welcome-hint", {
-                    y: 8,
-                    opacity: 0.2,
-                    duration: 0.4,
-                    ease: "power2.out"
-                }, "-=0.15");
+                }, "-=0.2");
 
-                // 2. Continuous Ambient Floating Movement for Badges
-                if (!isMobile) {
-                    gsap.to(".badge-d1", { y: "-=5", duration: 2.6, repeat: -1, yoyo: true, ease: "sine.inOut" });
-                    gsap.to(".badge-d2", { y: "+=7", duration: 3.2, repeat: -1, yoyo: true, ease: "sine.inOut", delay: 0.3 });
-                    gsap.to(".badge-d3", { y: "-=6", duration: 2.9, repeat: -1, yoyo: true, ease: "sine.inOut", delay: 0.6 });
-                } else {
-                    gsap.to(".badge-m1", { y: "-=3", duration: 2.2, repeat: -1, yoyo: true, ease: "sine.inOut" });
-                    gsap.to(".badge-m2", { y: "+=3", duration: 2.5, repeat: -1, yoyo: true, ease: "sine.inOut", delay: 0.2 });
-                    gsap.to(".badge-m3", { y: "-=3", duration: 2.4, repeat: -1, yoyo: true, ease: "sine.inOut", delay: 0.4 });
-                }
-
-                // 3. Playful Loop for Highlighted Letters 'O' & 'F'
+                // 2. Playful Loop for Highlighted Letters 'O' & 'F'
                 masterTl.call(() => {
                     gsap.to(".letter-loop-o", {
                         y: "-=5",

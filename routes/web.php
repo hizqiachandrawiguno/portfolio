@@ -9,12 +9,12 @@ use App\Http\Controllers\PortfolioController;
 |--------------------------------------------------------------------------
 */
 
-// 1. Landing Welcome Screen (Root URL: portfolio.test /)
+// 1. Landing Welcome Screen (/)
 Route::get('/', function () {
     return view('welcome');
 })->name('welcome');
 
-// 2. Main Portfolio Interactive Page (portfolio.test/portfolio)
+// 2. Main Portfolio Interactive Page (/portfolio)
 Route::get('/portfolio', [PortfolioController::class, 'index'])->name('portfolio.home');
 
 // Optional alias for /welcome

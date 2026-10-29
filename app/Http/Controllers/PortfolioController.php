@@ -18,7 +18,7 @@ class PortfolioController extends Controller
             'gpa' => '3.70',
             'status' => 'Tersedia untuk Pekerjaan & Proyek Kreatif',
             'photo' => asset('images/hizqia_profile.webp'),
-            'catchy_summary' => 'Saya Graphic Designer yang merancang key visual, materi booth event, dan media digital agar pesan brand tersampaikan jelas. Terbiasa bekerja mengikuti brand guideline perusahaan maupun kebutuhan event publik, dengan tipografi yang rapi dan kontras warna yang terjaga.',
+            'catchy_summary' => 'Saya mendesain key visual, materi booth, dan konten media sosial yang harus bekerja di dunia nyata: terbaca oleh orang yang sedang lewat, sesuai standar brand, dan siap diproduksi. Proyek terakhir saya adalah materi booth TRAC (Astra) untuk Lalala Festival 2025. Saya juga mengedit video dan membangun website dengan Laravel, jadi saya paham bagaimana sebuah desain dipakai sampai tahap akhir.',
             'contact' => [
                 'email' => 'hizqiachandrawiguno@gmail.com',
                 'location' => 'Jakarta / Bogor, Indonesia',
@@ -380,6 +380,12 @@ class PortfolioController extends Controller
             // =========================================================================
             [
                 'id' => 'proj-trac-astra',
+                'case_study' => [
+                    'context' => 'TRAC (member of Astra) membuka booth aktivasi di Lalala Festival 2025, festival musik yang pengunjungnya sebagian besar anak muda dan sedang tidak memikirkan sewa mobil.',
+                    'problem' => 'Booth harus patuh pada brand guideline Astra yang ketat, tapi juga harus bersaing dengan visual festival yang ramai. Pesan promo (sewa mobil + download app) perlu terbaca dalam hitungan detik oleh orang yang sedang lewat.',
+                    'solution' => 'Saya mengunci warna identitas dan logo clearance TRAC, lalu memakai palet festival hanya sebagai aksen. Satu headline per media, info promo di zona pandang mata, dan semua aset (tenda 3x3 m, standing banner 60x160 cm, flyer, hangtag) memakai sistem yang sama supaya booth terlihat utuh dari kejauhan.',
+                    'result' => 'Seluruh aset mengikuti standar visual brand TRAC (warna, logo clearance, hierarki informasi) dan diserahkan dalam format siap produksi untuk promosi lapangan di Lalala Festival 2025.', // TODO: tambahkan angka nyata (reach, engagement, pengunjung booth) bila tersedia
+                ],
                 'title' => 'TRAC Astra (Lalala Festival 2025) - Key Visual & Materi Booth 3x3M',
                 'category' => 'graphic',
                 'category_label' => 'Key Visual & Materi Booth',
@@ -432,47 +438,59 @@ class PortfolioController extends Controller
             // =========================================================================
             [
                 'id' => 'proj-traveloka',
-                'title' => 'Traveloka Campaign Visuals - Social Media Key Visual',
+                'case_study' => [
+                    'context' => 'Proyek konsep mandiri (self-initiated), bukan pekerjaan klien dan tidak dipublikasikan oleh Traveloka. Saya membuat seri tiga key visual feed Instagram bertema perjalanan untuk melatih penerapan identitas brand besar dalam satu kampanye.',
+                    'problem' => 'Feed travel di media sosial penuh foto destinasi yang mirip satu sama lain. Visual harus menghentikan scroll sekaligus mengarahkan orang ke aplikasi, bukan sekadar memamerkan pemandangan.',
+                    'solution' => 'Saya menjadikan aplikasi sebagai pusat cerita: smartphone dengan UI Traveloka sebagai pintu ke destinasi, elemen 3D pop-out keluar dari frame, dan headline pendek bernada percakapan. Biru Traveloka dijaga konsisten agar ketiganya terbaca sebagai satu seri.',
+                    'result' => 'Tiga visual dengan satu sistem visual yang konsisten, menunjukkan cara saya menerjemahkan identitas brand yang sudah ada ke format kampanye media sosial.',
+                ],
+                'title' => 'Traveloka Campaign Visuals (Proyek Konsep) - Social Media Key Visual',
                 'category' => 'graphic',
-                'category_label' => 'Social Media & Campaign Design',
+                'category_label' => 'Proyek Konsep · Social Media Campaign',
                 'action_type' => 'modal',
                 'modal_target' => '#travelokaDemoModal',
                 'btn_text' => 'Lihat Galeri Traveloka (3 Key Visual)',
                 'btn_icon' => 'fa-images',
-                'image' => asset('images/traveloka_pergi_kapan_saja.jpg'),
+                'image' => asset('images/traveloka_pergi_kapan_saja.webp'),
                 'is_featured' => false,
                 'grid_class' => 'col-lg-8',
                 'card_layout' => 'horizontal',
-                'short_desc' => 'Tiga seri key visual kampanye media sosial Traveloka resolusi tinggi (Artboard 2000 × 2000 px): photo compositing smartphone 3D pop-out, jendela pesawat Raja Ampat, dan rekomendasi wisata akhir tahun.',
-                'full_desc' => 'Perancangan tiga seri key visual sosial media bertema kampanye perjalanan Traveloka pada artboard beresolusi tinggi 2000 × 2000 px. Setiap desain mengaplikasikan teknik photo compositing realistis tingkat lanjut, konsistensi palet biru korporat Traveloka, hierarki tipografi bersih, serta integrasi elemen UI mockup smartphone untuk memperkuat pesan brand.',
-                'tags' => ['Photoshop', 'Photo Compositing', 'Artboard 2000×2000px'],
+                'short_desc' => 'Tiga seri key visual kampanye media sosial Traveloka resolusi tinggi (feed 1:1): photo compositing smartphone 3D pop-out, jendela pesawat Raja Ampat, dan rekomendasi wisata akhir tahun.',
+                'full_desc' => 'Perancangan tiga seri key visual sosial media bertema kampanye perjalanan Traveloka pada artboard feed 1:1. Setiap desain mengaplikasikan teknik photo compositing realistis tingkat lanjut, konsistensi palet biru korporat Traveloka, hierarki tipografi bersih, serta integrasi elemen UI mockup smartphone untuk memperkuat pesan brand.',
+                'tags' => ['Photoshop', 'Photo Compositing', 'Feed 1:1'],
                 'accent' => '#0064D2',
                 'gallery_items' => [
                     [
                         'id' => 'traveloka-pergi-kapan-saja',
                         'title' => 'Key Visual: "Pergi Kapan Saja, Traveloka Aja"',
                         'category' => 'Photo Compositing & App Mockup',
-                        'image' => asset('images/traveloka_pergi_kapan_saja.jpg'),
+                        'image' => asset('images/traveloka_pergi_kapan_saja.webp'),
                         'desc' => 'Key visual utama kampanye dengan teknik photo compositing: tangan memegang smartphone yang menampilkan UI Traveloka, dikelilingi pesawat, koper, dan paspor 3D pop-out. Tipografi headline besar berlapis bayangan memperkuat call-to-action download aplikasi.'
                     ],
                     [
                         'id' => 'traveloka-yang-lain-berangkat',
                         'title' => 'Key Visual: "Yang Lain Udah Berangkat, Kamu?"',
                         'category' => 'Conceptual Photo Manipulation',
-                        'image' => asset('images/traveloka_yang_lain_berangkat.jpg'),
+                        'image' => asset('images/traveloka_yang_lain_berangkat.webp'),
                         'desc' => 'Konsep visual jendela pesawat sebagai frame untuk destinasi Raja Ampat, Papua. Koper putih dan pesawat berbentuk lengkungan dinamis keluar dari bingkai, menciptakan ilusi kedalaman 3D yang dramatis dengan langit biru cerah khas identitas Traveloka.'
                     ],
                     [
                         'id' => 'traveloka-rekomendasi-wisata',
                         'title' => 'Key Visual: "Rekomendasi Tempat Wisata Akhir Tahun"',
                         'category' => 'Photo Compositing & Lifestyle',
-                        'image' => asset('images/traveloka_rekomendasi_wisata.jpg'),
+                        'image' => asset('images/traveloka_rekomendasi_wisata.webp'),
                         'desc' => 'Komposisi lifestyle fotografis: model memegang smartphone Traveloka dengan background split antara interior hotel mewah dan Machu Picchu Peru, dipersatukan oleh search bar rekomendasi wisata. Visual memperkuat pesan "semua perjalananmu dimulai dari satu genggaman".'
                     ]
                 ]
             ],
             [
                 'id' => 'proj-drp-social',
+                'case_study' => [
+                    'context' => 'DRP Outstanding Teens adalah komunitas remaja gereja yang aktif di Instagram dengan konten mingguan sejak 2023.',
+                    'problem' => 'Konten mingguan mudah terasa monoton bagi audiens Gen-Z, sementara tema tahunan 2026 butuh identitas yang cukup kuat untuk dipakai sepanjang tahun.',
+                    'solution' => 'Untuk feed mingguan saya sengaja berganti gaya (pop-comic, torn-paper, polaroid, halftone) sesuai topik. Untuk 2026 saya membangun identitas "The Chosen Generation" dengan tipografi retro-pop dan pita gradien, lalu menurunkannya ke flyer event seperti "Homecoming Worship Night".',
+                    'result' => 'Komunitas punya arsip konten mingguan yang terbit konsisten dan satu identitas tahunan yang dipakai ulang di poster, flyer, dan aset pendukung.', // TODO: tambahkan angka nyata (reach, engagement, pengunjung booth) bila tersedia
+                ],
                 'title' => 'DRP Outstanding Teens - Social Media & Event Visuals',
                 'category' => 'graphic',
                 'category_label' => 'Desain Media Sosial & Acara',
@@ -589,6 +607,12 @@ class PortfolioController extends Controller
             ],
             [
                 'id' => 'proj-ritistic',
+                'case_study' => [
+                    'context' => 'Ritistic Project adalah komunitas mahasiswa yang rutin butuh konten hari besar dan kartu profil anggota.',
+                    'problem' => 'Desain dibuat oleh orang yang berbeda-beda, sehingga logo, warna, dan susunan nama sering tidak seragam antar unggahan.',
+                    'solution' => 'Saya menetapkan palet warm terracotta, posisi logo tetap, dan grid tipografi nama untuk kartu profil. Poster hari besar (Sumpah Pemuda, Tahun Baru Islam) mengikuti aturan yang sama walau gaya ilustrasinya berbeda.',
+                    'result' => 'Kartu profil disusun sebagai sistem modular: grid, posisi logo, dan gaya tipografi menjadi komponen tetap, sementara foto dan nama menjadi slot yang bisa diganti. Hasilnya, kartu anggota berikutnya dapat dibuat dari komponen yang sama dengan tampilan yang konsisten.', // TODO: tambahkan angka nyata (reach, engagement, pengunjung booth) bila tersedia
+                ],
                 'title' => 'Ritistic Project - Visual Communication & Social Media Branding',
                 'category' => 'graphic',
                 'category_label' => 'Identitas Visual & Desain Grafis',

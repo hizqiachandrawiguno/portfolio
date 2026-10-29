@@ -3614,3 +3614,26 @@ a {
     color: #8C847B;
     margin-right: 4px;
 }
+/* Case study (Konteks -> Masalah -> Solusi -> Hasil) inside gallery modals */
+.case-study {
+    display: grid;
+    gap: 0.75rem;
+    padding-left: 0.9rem;
+    border-left: 2px solid var(--accent-color);
+}
+
+.case-study-label {
+    display: block;
+    font-size: 0.68rem;
+    font-weight: 700;
+    letter-spacing: 0.08em;
+    text-transform: uppercase;
+    color: var(--accent-color);
+    margin-bottom: 0.15rem;
+}
+
+.case-study-text {
+    font-size: 0.86rem;
+    line-height: 1.6;
+    color: var(--text-primary);
+}
