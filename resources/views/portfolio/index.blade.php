@@ -141,7 +141,7 @@
     <link rel="shortcut icon" type="image/png" href="{{ asset('images/hizqia_logo_orange.png') }}">
 
     <!-- Custom Designer Workspace CSS (Cached Version) -->
-    <link rel="stylesheet" href="{{ asset('css/custom-designer.css') }}?v=2.13.0">
+    <link rel="stylesheet" href="{{ asset('css/custom-designer.css') }}?v=2.14.0">
 
     <!-- Inject Experiences & Projects Data Objects early & Global Filter Functions -->
     <script>
@@ -1275,7 +1275,7 @@
                 <div class="artwork-modal-grid">
                     <div class="artwork-modal-visual-col">
                         <div class="artwork-modal-img-wrap">
-                            <img id="kenanganActiveImg" src="{{ $kenangan['gallery_items'][0]['image'] }}" alt="Materi kampanye Kopi Kenangan Paket Kumpul" class="artwork-modal-img" loading="lazy" decoding="async">
+                            <img id="kenanganActiveImg" src="{{ $kenangan['gallery_items'][0]['image'] }}" alt="Materi kampanye Kopi Kenangan Paket Kumpul" class="artwork-modal-img cursor-pointer" onclick="zoomActiveKenanganImage()" title="Klik untuk perbesar" loading="lazy" decoding="async">
                             <button type="button" class="btn btn-sm btn-dark bg-opacity-75 text-white position-absolute bottom-0 end-0 m-3 rounded-pill font-mono btn-zoom-hd" onclick="zoomActiveKenanganImage()" title="Perbesar HD">
                                 <i class="fa-solid fa-magnifying-glass-plus me-1"></i> Perbesar HD
                             </button>
@@ -1754,6 +1754,6 @@
 
 
     <!-- Custom Interactive JS with Cache Versioning -->
-    <script src="{{ asset('js/portfolio-interactive.js') }}?v=2.13.0"></script>
+    <script src="{{ asset('js/portfolio-interactive.js') }}?v=2.14.0"></script>
 </body>
 </html>
