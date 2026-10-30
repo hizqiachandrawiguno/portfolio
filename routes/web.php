@@ -17,6 +17,8 @@ Route::get('/', function () {
 // 2. Main Portfolio Interactive Page (/portfolio)
 Route::get('/portfolio', [PortfolioController::class, 'index'])->name('portfolio.home');
 
+Route::get('/portfolio/trac-astra', [PortfolioController::class, 'trac'])->name('portfolio.trac');
+
 // Optional alias for /welcome
 Route::get('/welcome', function () {
     return view('welcome');

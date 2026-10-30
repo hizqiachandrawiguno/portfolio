@@ -671,14 +671,19 @@
                         <div class="small fw-semibold mb-2" style="color: #A83C0C;">
                             {{ $exp['role'] }}
                         </div>
-                        <p class="text-muted small mb-4 lh-relaxed flex-grow-1" style="font-size: 0.88rem;">
+                        <p class="text-muted small mb-3 lh-relaxed flex-grow-1" style="font-size: 0.88rem;">
                             {{ $exp['short_desc'] }}
                         </p>
+                        <div class="exp-stat-grid mb-3">
+                            @foreach(array_slice($exp['details']['achievements'] ?? [], 0, 3) as $stat)
+                            <div class="exp-stat"><strong>{{ $stat['value'] }}</strong><span>{{ $stat['label'] }}</span></div>
+                            @endforeach
+                        </div>
                         
                         <div class="pt-2 mt-auto border-top">
                             @if($exp['id'] === 'exp-sera')
-                            <a href="#proj-trac-astra" class="btn-text-link">
-                                Lihat Karya TRAC Astra <span aria-hidden="true">&nearr;</span>
+                            <a href="{{ route('portfolio.trac') }}" class="btn-text-link">
+                                Lihat Semua Karya TRAC Astra <span aria-hidden="true">&nearr;</span>
                             </a>
                             @elseif($exp['id'] === 'exp-drp-wakil')
                             <a href="#proj-drp-social" class="btn-text-link">
@@ -1063,6 +1068,7 @@
                         <p class="text-muted small mb-3 lh-relaxed" id="tracActiveDesc">
                             Desain spatial 3D mockup booth resmi TRAC untuk aktivasi offline Lalala Festival 2025, lengkap dengan spesifikasi teknis 3x3 M.
                         </p>
+                        <a href="{{ route('portfolio.trac') }}" class="btn-text-link d-inline-block mb-3">Lihat semua karya TRAC Astra <span aria-hidden="true">&nearr;</span></a>
 
                         <!-- 4 Interactive Artwork Selectors -->
                         <div class="mb-3">
@@ -1551,10 +1557,18 @@
                             <h6 class="fw-bold text-dark mb-0 fs-6" id="modalExpCompany"></h6>
                         </div>
 
+                        <!-- Hasil Karya & Achievement (Angka) -->
+                        <div>
+                            <small class="text-muted font-mono text-uppercase d-block mb-2 fw-bold" style="font-size: 0.75rem; letter-spacing: 1px;">
+                                <i class="fa-solid fa-chart-simple text-accent me-1"></i> Hasil Karya &amp; Pencapaian
+                            </small>
+                            <div class="exp-stat-grid" id="modalExpAchievements"></div>
+                        </div>
+
                         <!-- Workflow & Process Section -->
                         <div>
                             <small class="text-muted font-mono text-uppercase d-block mb-2 fw-bold" style="font-size: 0.75rem; letter-spacing: 1px;">
-                                <i class="fa-solid fa-diagram-project text-accent me-1"></i> Alur Pengerjaan &amp; Workflow
+                                <i class="fa-solid fa-diagram-project text-accent me-1"></i> Tahapan Proses Development
                             </small>
                             <ul class="exp-workflow-list list-unstyled mb-0" id="modalExpWorkflowList">
                                 <!-- Workflow List Items -->
@@ -1574,7 +1588,7 @@
                         <!-- Key Learnings & Growth Card -->
                         <div class="exp-growth-card p-3 rounded-4">
                             <small class="text-accent font-mono text-uppercase d-block mb-2 fw-bold" style="font-size: 0.75rem; letter-spacing: 1px;">
-                                <i class="fa-solid fa-lightbulb me-1"></i> Key Learnings &amp; Impact
+                                <i class="fa-solid fa-lightbulb me-1"></i> Pembelajaran
                             </small>
                             <p class="text-dark mb-0 small lh-base fw-medium" id="modalExpLearnings"></p>
                         </div>

@@ -121,6 +121,9 @@ class PortfolioController extends Controller
                 'details' => [
                     'company' => 'EGuards Indonesia',
                     'workflow' => "1. Memproduksi visual content untuk media cetak dan platform digital (website, media sosial, serta materi kampanye).\n2. Berkolaborasi dalam penyusunan visual promosi kampanye bersama instansi terkait.\n3. Memperkuat citra dan konsistensi identitas visual brand EGuards di berbagai platform online.",
+                    'achievements' => [
+                        ['value' => '6 Bulan', 'label' => 'Durasi magang desain grafis'],
+                    ],
                     'tools' => ['Adobe Photoshop', 'Adobe Illustrator', 'Canva', 'Digital Media Design'],
                     'learnings' => 'Mengasah keahlian eksekusi desain grafis multi-platform (print & digital), adaptasi visual identity brand, serta alur kerja produksi materi promosi profesional.'
                 ]
@@ -141,64 +144,14 @@ class PortfolioController extends Controller
                 'details' => [
                     'company' => 'PT Serasi Autoraya (SERA - Member of Astra)',
                     'workflow' => "1. Menganalisis brief kebutuhan promosi dan menerapkan dokumen Brand Guidelines Astra (warna resmi brand, tipografi, & logo clearance).\n2. Merancang materi 3D Spatial & POSM Event fisik (Desain Tenda Booth 3x3 M, Standing Banner 60x160 cm, serta Backdrop Stage Sales Forum 2025 skala 1:10).\n3. Mengeksekusi Digital Key Visual (KV) dengan teknik photo compositing bertema liburan (efek 3D pop-out smartphone).\n4. Memproduksi materi promosi aktivasi booth, twibbon interaktif, dan kampanye seasonal kreatif (TRAC & IBID Christmas Trees).",
+                    'achievements' => [
+                        ['value' => '9', 'label' => 'Aset desain di galeri'],
+                        ['value' => '2', 'label' => 'Brand Member of Astra (TRAC & IBID)'],
+                        ['value' => '3x3 M', 'label' => 'Booth Lalala Festival 2025'],
+                    ],
                     'tools' => ['Adobe Photoshop', 'Adobe Illustrator', 'Photo Compositing', '3D Spatial Mockup', 'Figma', 'Print Scale Layout'],
                     'learnings' => 'Menguasai ekosistem desain kampanye 360° (Spatial Event Stage, POSM Cetak, Digital Manipulation, hingga Social Engagement Twibbon) dengan kepatuhan tinggi terhadap Brand Guidelines Astra Group serta koordinasi efektif bersama tim Marketing Communication.',
-                    'gallery' => [
-                        [
-                            'title' => 'Tenda Booth TRAC (3x3 M)',
-                            'category' => 'Spatial & Event Booth',
-                            'image' => asset('images/trac_tenda_booth.webp'),
-                            'caption' => 'Desain spatial 3D mockup booth resmi TRAC untuk event offline & shuttle stop, lengkap dengan spesifikasi teknis 3x3 M.'
-                        ],
-                        [
-                            'title' => 'Standing Banner TRACtoGo Promo',
-                            'category' => 'Print Collateral / POSM',
-                            'image' => asset('images/trac_standing_banner.webp'),
-                            'caption' => 'Materi promosi cetak ukuran 60x160 cm (Albatross Dopp) dengan hierarki informasi promo sewa mobil & download app.'
-                        ],
-                        [
-                            'title' => 'Key Visual: Teman di Setiap Kilometer',
-                            'category' => 'Creative Photo Manipulation',
-                            'image' => asset('images/trac_key_visual_pantai.webp'),
-                            'caption' => 'Digital photo compositing efek 3D pop-out smartphone menghubungkan suasana penat kantor menuju liburan santai di pantai.'
-                        ],
-                        [
-                            'title' => 'Flyer Event: Liburan Banyak Bonusnya',
-                            'category' => 'Event Promo & Merchandising',
-                            'image' => asset('images/trac_promo_booth.webp'),
-                            'caption' => 'Desain aktivasi booth event dengan showcase merchandise kit resmi (lanyard, fan, tote bag) & voucher rental mobil.'
-                        ],
-                        [
-                            'title' => 'Seasonal Flyer: TRAC Holiday Gift',
-                            'category' => 'Corporate Internal Campaign',
-                            'image' => asset('images/trac_holiday_gift.webp'),
-                            'caption' => 'Materi promosi libur Natal & Tahun Baru khusus karyawan Astra Group dengan metafora kado pita Menara Astra.'
-                        ],
-                        [
-                            'title' => 'Backdrop Stage: Sales Forum 2025',
-                            'category' => 'Spatial & Event Stage',
-                            'image' => asset('images/trac_sales_forum_backdrop.webp'),
-                            'caption' => 'Perancangan backdrop panggung modular Sales Forum 2025 di Crowne Plaza Bandung dengan tema retro-futuristic grid & skala teknis 1:10.'
-                        ],
-                        [
-                            'title' => 'Twibbon: Sales Forum 2025',
-                            'category' => 'Event Branding & Engagement',
-                            'image' => asset('images/trac_sales_forum_twibbon.webp'),
-                            'caption' => 'Desain photo frame twibbon 1:1 untuk engagement media sosial peserta & karyawan Sales Forum TRAC 2025.'
-                        ],
-                        [
-                            'title' => 'Creative Poster: TRAC Christmas Tree (Red)',
-                            'category' => 'Creative Concept / Social Media',
-                            'image' => asset('images/trac_christmas_red.webp'),
-                            'caption' => 'Desain poster ucapan Natal minimalis & cerdas: sorot lampu mobil putih membentuk siluet pohon natal berujung bintang.'
-                        ],
-                        [
-                            'title' => 'Creative Poster: IBID Christmas Tree (Green)',
-                            'category' => 'Creative Concept / Social Media',
-                            'image' => asset('images/ibid_christmas_tree.webp'),
-                            'caption' => 'Visualisasi pohon natal kreatif tersusun dari tumpukan mobil lelang IBID (Member of Astra) bergradasi warna hijau festive.'
-                        ]
-                    ]
+                    'gallery' => $this->tracWorks()
                 ]
             ],
             [
@@ -217,6 +170,10 @@ class PortfolioController extends Controller
                 'details' => [
                     'company' => 'PT Pharos Indonesia',
                     'workflow' => "1. Riset & formulasi konten edukasi kesehatan digital (platform iDokter by Panakea) dengan pendekatan visual yang ramah dan mudah dipahami masyarakat.\n2. Merancang infografis kesehatan bertema edukasi HIV dengan tipografi dinamis, ilustrasi ekspresif, dan hierarki pertanyaan medis (Q&A).\n3. Mengembangkan ide kreatif & memproduksi video pendek TikTok/Reels interaktif (tren Gen-Z, komedi situasi kantor, & motion challenge).\n4. Menyunting visual cover, layout tipografi retro/grid, dan aset stiker digital untuk memaksimalkan rasio klik (CTR) & engagement.",
+                    'achievements' => [
+                        ['value' => '30+', 'label' => 'Konten visual/video per bulan'],
+                        ['value' => '3', 'label' => 'Format: infografis, TikTok, Reels'],
+                    ],
                     'tools' => ['Adobe Photoshop', 'Adobe Illustrator', 'Adobe Premiere Pro', 'Social Media Strategy', 'TikTok Analytics'],
                     'learnings' => 'Mengasah visual storytelling dalam menerjemahkan topik medis yang sensitif menjadi konten edukatif yang mudah dipahami, serta menguasai alur video pendek (TikTok/Reels) untuk audiens muda.',
                     'gallery' => [
@@ -269,9 +226,21 @@ class PortfolioController extends Controller
                 'details' => [
                     'company' => 'Konselor Sebaya Politeknik Negeri Media Kreatif Jakarta',
                     'workflow' => "1. Mengorganisir program pendampingan konseling sebaya dan workshop kesehatan mental mahasiswa.\n2. Menjalin kemitraan dan koordinasi resmi dengan bagian Kemahasiswaan Polimedia.\n3. Memimpin rapat koordinasi pengurus serta monitoring evaluasi program kerja berkala.",
+                    'achievements' => [
+                        ['value' => '15', 'label' => 'Anggota Konselor Sebaya'],
+                        ['value' => '20+', 'label' => 'Konseli yang ditangani'],
+                        ['value' => '3', 'label' => 'Edisi Psychology Fest (2023 - 2025)'],
+                    ],
                     'tools' => ['Organizational Leadership', 'Counseling Ethics', 'Event Management', 'Public Relations'],
                     'learnings' => 'Mengembangkan kepemimpinan yang suportif dan terbuka bagi seluruh anggota, kemampuan mendengarkan aktif (active listening), serta koordinasi program kesehatan mental mahasiswa.',
-                    'gallery' => []
+                    'gallery' => [
+                        [
+                            'title' => 'Tim Konselor Sebaya & Psychology Fest 2026',
+                            'category' => 'Dokumentasi Kepanitiaan',
+                            'image' => asset('images/konselor_psychology_fest.webp'),
+                            'caption' => 'Foto bersama tim Konselor Sebaya Polimedia dan panitia Psychology Fest 2026 "Reality Check".'
+                        ]
+                    ]
                 ]
             ],
             [
@@ -290,6 +259,12 @@ class PortfolioController extends Controller
                 'details' => [
                     'company' => 'DRP Outstanding Teens Community',
                     'workflow' => "1. Menetapkan visi strategis dan sasaran target komunitas.\n2. Memimpin perencanaan dan eksekusi 15+ event per tahun, termasuk annual retreat untuk 300+ peserta.\n3. Mendelegasikan dan mengoordinasikan tanggung jawab kepada 30 pengerja agar seluruh program berjalan lancar.\n4. Membimbing serta mementori 30 anggota remaja melalui program kepemimpinan untuk mencetak calon-calon pemimpin baru.",
+                    'achievements' => [
+                        ['value' => '15+', 'label' => 'Event per tahun'],
+                        ['value' => '30', 'label' => 'Pengerja dikoordinasi'],
+                        ['value' => '300+', 'label' => 'Peserta annual retreat'],
+                        ['value' => '30', 'label' => 'Kader remaja dibina'],
+                    ],
                     'tools' => ['Leadership Management', 'Event Planning', 'Team Mentoring', 'Public Speaking'],
                     'learnings' => 'Mengasah kepemimpinan strategis, manajemen acara skala besar (300+ peserta), pembinaan talenta kepemimpinan, serta koordinasi tim cross-functional secara berkelanjutan.',
                     'gallery' => []
@@ -311,6 +286,10 @@ class PortfolioController extends Controller
                 'details' => [
                     'company' => 'DRP Outstanding Teens Community',
                     'workflow' => "1. Memimpin divisi social media sebagai Ketua Divisi, sekaligus menjabat Wakil Ketua komunitas.\n2. Merancang 70+ desain konten Instagram selama 1 tahun, termasuk arsip feed mingguan.\n3. Meningkatkan engagement rate Instagram sebesar 7%.",
+                    'achievements' => [
+                        ['value' => '+7%', 'label' => 'Engagement rate Instagram'],
+                        ['value' => '70+', 'label' => 'Desain konten dalam 1 tahun'],
+                    ],
                     'tools' => ['Photoshop', 'Illustrator', 'Content Design', 'Team Leadership'],
                     'learnings' => 'Menjaga konsistensi produksi konten mingguan, memimpin divisi kreatif, dan menghubungkan desain dengan hasil terukur (engagement).',
                     'gallery' => []
@@ -753,5 +732,84 @@ class PortfolioController extends Controller
         ];
 
         return view('portfolio.index', compact('bio', 'skills', 'experiences', 'certificates', 'projects'));
+    }
+
+    /**
+     * Semua karya TRAC Astra (sumber tunggal untuk galeri pengalaman SERA & halaman /portfolio/trac-astra).
+     * Tambah karya baru di sini: isi 'group', 'title', 'category', 'image', 'caption'.
+     */
+    private function tracWorks(): array
+    {
+        return [
+            [
+                'title' => 'Tenda Booth TRAC (3x3 M)',
+                'group' => 'Event & Spatial',
+                'category' => 'Spatial & Event Booth',
+                'image' => asset('images/trac_tenda_booth.webp'),
+                'caption' => 'Desain spatial 3D mockup booth resmi TRAC untuk event offline & shuttle stop, lengkap dengan spesifikasi teknis 3x3 M.'
+            ],
+            [
+                'title' => 'Standing Banner TRACtoGo Promo',
+                'group' => 'Print & POSM',
+                'category' => 'Print Collateral / POSM',
+                'image' => asset('images/trac_standing_banner.webp'),
+                'caption' => 'Materi promosi cetak ukuran 60x160 cm (Albatross Dopp) dengan hierarki informasi promo sewa mobil & download app.'
+            ],
+            [
+                'title' => 'Key Visual: Teman di Setiap Kilometer',
+                'group' => 'Digital & Social',
+                'category' => 'Creative Photo Manipulation',
+                'image' => asset('images/trac_key_visual_pantai.webp'),
+                'caption' => 'Digital photo compositing efek 3D pop-out smartphone menghubungkan suasana penat kantor menuju liburan santai di pantai.'
+            ],
+            [
+                'title' => 'Flyer Event: Liburan Banyak Bonusnya',
+                'group' => 'Print & POSM',
+                'category' => 'Event Promo & Merchandising',
+                'image' => asset('images/trac_promo_booth.webp'),
+                'caption' => 'Desain aktivasi booth event dengan showcase merchandise kit resmi (lanyard, fan, tote bag) & voucher rental mobil.'
+            ],
+            [
+                'title' => 'Seasonal Flyer: TRAC Holiday Gift',
+                'group' => 'Kampanye Internal & Seasonal',
+                'category' => 'Corporate Internal Campaign',
+                'image' => asset('images/trac_holiday_gift.webp'),
+                'caption' => 'Materi promosi libur Natal & Tahun Baru khusus karyawan Astra Group dengan metafora kado pita Menara Astra.'
+            ],
+            [
+                'title' => 'Backdrop Stage: Sales Forum 2025',
+                'group' => 'Event & Spatial',
+                'category' => 'Spatial & Event Stage',
+                'image' => asset('images/trac_sales_forum_backdrop.webp'),
+                'caption' => 'Perancangan backdrop panggung modular Sales Forum 2025 di Crowne Plaza Bandung dengan tema retro-futuristic grid & skala teknis 1:10.'
+            ],
+            [
+                'title' => 'Twibbon: Sales Forum 2025',
+                'group' => 'Digital & Social',
+                'category' => 'Event Branding & Engagement',
+                'image' => asset('images/trac_sales_forum_twibbon.webp'),
+                'caption' => 'Desain photo frame twibbon 1:1 untuk engagement media sosial peserta & karyawan Sales Forum TRAC 2025.'
+            ],
+            [
+                'title' => 'Creative Poster: TRAC Christmas Tree (Red)',
+                'group' => 'Kampanye Internal & Seasonal',
+                'category' => 'Creative Concept / Social Media',
+                'image' => asset('images/trac_christmas_red.webp'),
+                'caption' => 'Desain poster ucapan Natal minimalis & cerdas: sorot lampu mobil putih membentuk siluet pohon natal berujung bintang.'
+            ],
+            [
+                'title' => 'Creative Poster: IBID Christmas Tree (Green)',
+                'group' => 'Kampanye Internal & Seasonal',
+                'category' => 'Creative Concept / Social Media',
+                'image' => asset('images/ibid_christmas_tree.webp'),
+                'caption' => 'Visualisasi pohon natal kreatif tersusun dari tumpukan mobil lelang IBID (Member of Astra) bergradasi warna hijau festive.'
+            ]
+        ];
+    }
+
+    public function trac()
+    {
+        $works = $this->tracWorks();
+        return view('portfolio.trac', ['works' => $works, 'groups' => array_values(array_unique(array_column($works, 'group')))]);
     }
 }

@@ -3675,3 +3675,31 @@ a {
     line-height: 1.6;
     color: var(--text-primary);
 }
+
+.exp-stat-grid {
+    display: flex;
+    flex-wrap: wrap;
+    gap: 8px;
+}
+
+.exp-stat {
+    display: flex;
+    flex-direction: column;
+    padding: 8px 12px;
+    background: #F7F4EE;
+    border: 1px solid #E9E4DB;
+    border-radius: 10px;
+    min-width: 92px;
+}
+
+.exp-stat strong {
+    font-size: 1.05rem;
+    line-height: 1.2;
+    color: #A83C0C;
+}
+
+.exp-stat span {
+    font-size: 0.7rem;
+    color: #6b645b;
+    line-height: 1.25;
+}

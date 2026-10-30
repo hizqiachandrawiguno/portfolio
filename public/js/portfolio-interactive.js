@@ -45,6 +45,21 @@ window.openExpModal = function (expId) {
         });
     }
 
+    const achEl = document.getElementById('modalExpAchievements');
+    if (achEl) {
+        achEl.innerHTML = '';
+        (expData.details.achievements || []).forEach(a => {
+            const d = document.createElement('div');
+            d.className = 'exp-stat';
+            const v = document.createElement('strong');
+            v.textContent = a.value;
+            const l = document.createElement('span');
+            l.textContent = a.label;
+            d.append(v, l);
+            achEl.appendChild(d);
+        });
+    }
+
     // Populate Tools Badges
     const toolsContainer = document.getElementById('modalExpTools');
     if (toolsContainer) {
