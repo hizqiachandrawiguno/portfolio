@@ -440,7 +440,7 @@
                         Semua Karya ({{ count($projects) }})
                     </button>
                     <button type="button" class="btn btn-sm rounded-pill font-mono px-3 py-2 skill-tab-btn proj-filter-btn" onclick="filterProjects('graphic', this)">
-                        Desain Grafis (4)
+                        Desain Grafis ({{ collect($projects)->where('category', 'graphic')->count() }})
                     </button>
                     <button type="button" class="btn btn-sm rounded-pill font-mono px-3 py-2 skill-tab-btn proj-filter-btn" onclick="filterProjects('video', this)">
                         Video &amp; Motion (2)
@@ -1253,6 +1253,70 @@
         </div>
     </div>
 
+
+    <!-- ========================================================================== -->
+    <!-- 2A. ESTATE MANAGEMENT (RAWAT RUMAH KITA) GALLERY MODAL                     -->
+    <!-- ========================================================================== -->
+    @php
+        $estate = collect($projects)->firstWhere('id', 'proj-estate');
+    @endphp
+    <div class="custom-modal-overlay" id="estateDemoModal" onclick="if(event.target === this) closeProjectModal('estateDemoModal')">
+        <div class="custom-modal-dialog artwork-detail-dialog">
+            <div class="modal-header modal-header-studio d-flex justify-content-between align-items-center">
+                <div class="d-flex align-items-center gap-2">
+                    <span class="badge bg-accent text-white font-mono px-3 py-2 rounded-pill">
+                        <i class="fa-solid fa-palette me-1"></i> KAMPANYE &amp; SOSIAL MEDIA
+                    </span>
+                    <h3 class="h4 fw-bold text-dark mb-0">Rawat Rumah Kita (Konsep)</h3>
+                </div>
+                <button type="button" class="btn-close" onclick="closeProjectModal('estateDemoModal')" aria-label="Close"></button>
+            </div>
+            <div class="modal-body modal-body-studio artwork-modal-body">
+                <div class="artwork-modal-grid">
+                    <div class="artwork-modal-visual-col">
+                        <div class="artwork-modal-img-wrap">
+                            <img id="estateActiveImg" src="{{ $estate['gallery_items'][0]['image'] }}" alt="Materi kampanye Rawat Rumah Kita" class="artwork-modal-img" loading="lazy" decoding="async">
+                            <button type="button" class="btn btn-sm btn-dark bg-opacity-75 text-white position-absolute bottom-0 end-0 m-3 rounded-pill font-mono btn-zoom-hd" onclick="zoomActiveEstateImage()" title="Perbesar HD">
+                                <i class="fa-solid fa-magnifying-glass-plus me-1"></i> Perbesar HD
+                            </button>
+                        </div>
+                    </div>
+                    <div class="artwork-modal-info-col">
+                        <div class="d-flex align-items-center justify-content-between flex-wrap gap-2 mb-2">
+                            <span class="badge font-mono" id="estateActiveCategory" style="background: rgba(47, 107, 63, 0.12); color: #2F6B3F; font-size: 0.75rem;">{{ $estate['gallery_items'][0]['category'] }}</span>
+                            <small class="text-muted font-mono" style="font-size: 0.72rem;">Proyek konsep &bull; bukan materi resmi</small>
+                        </div>
+                        <h4 class="h5 fw-bold text-dark mt-1 mb-2 font-heading" id="estateActiveTitle">{{ $estate['gallery_items'][0]['title'] }}</h4>
+                        <p class="text-muted small mb-3 lh-relaxed" id="estateActiveDesc">{{ $estate['gallery_items'][0]['desc'] }}</p>
+
+                        <div class="mb-3">
+                            <small class="text-muted font-mono fw-bold text-uppercase d-block mb-2" style="font-size: 0.72rem; letter-spacing: 0.05em;">Pilih Karya untuk Dilihat:</small>
+                            <div class="row g-2">
+                                @foreach($estate['gallery_items'] as $i => $item)
+                                <div class="col-6">
+                                    <div class="ritistic-thumb-card {{ $i === 0 ? 'active' : '' }}" onclick="selectEstateArtwork({{ $i }}, this)">
+                                        <img src="{{ $item['image'] }}" alt="Thumbnail {{ $item['title'] }}" width="72" height="54" class="img-fluid rounded-2 border" loading="lazy" decoding="async">
+                                        <span class="thumb-label font-mono">{{ $item['title'] }}</span>
+                                    </div>
+                                </div>
+                                @endforeach
+                            </div>
+                        </div>
+
+                        @include('portfolio.partials.case-study', ['cs' => $estate['case_study']])
+                        <div class="p-3 bg-light rounded-4 border font-mono small mt-auto">
+                            <strong class="text-accent d-block mb-1"><i class="fa-solid fa-circle-info me-1"></i> Informasi Desain &amp; Workflow:</strong>
+                            <ul class="mb-0 ps-3 text-muted lh-base" style="font-size: 0.8rem;">
+                                <li><strong>Software:</strong> Adobe Photoshop, Illustrator &amp; Figma</li>
+                                <li><strong>Format:</strong> Poster A4, feed 4:5, story 9:16, banner web 8:3</li>
+                                <li><strong>Sistem warna:</strong> hijau tua + kuning; organik hijau, anorganik biru, residu merah.</li>
+                            </ul>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
 
     <!-- ========================================================================== -->
     <!-- 2B. RITISTIC PROJECT INTERACTIVE ARTWORK GALLERY MODAL                     -->
