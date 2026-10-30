@@ -446,7 +446,7 @@
                         Video &amp; Motion (2)
                     </button>
                     <button type="button" class="btn btn-sm rounded-pill font-mono px-3 py-2 skill-tab-btn proj-filter-btn" onclick="filterProjects('uiux', this)">
-                        Web &amp; Antarmuka (2)
+                        Web &amp; Antarmuka ({{ collect($projects)->where('category', 'uiux')->count() }})
                     </button>
                 </div>
             </div>
@@ -641,7 +641,7 @@
                         Magang (3)
                     </button>
                     <button type="button" class="btn btn-sm rounded-pill font-mono px-3 py-2 skill-tab-btn exp-filter-btn" onclick="filterExperiences('Organisasi', this)">
-                        Organisasi (2)
+                        Organisasi ({{ collect($experiences)->where('category', 'Organisasi')->count() }})
                     </button>
                 </div>
             </div>
@@ -679,6 +679,10 @@
                             @if($exp['id'] === 'exp-sera')
                             <a href="#proj-trac-astra" class="btn-text-link">
                                 Lihat Karya TRAC Astra <span aria-hidden="true">&nearr;</span>
+                            </a>
+                            @elseif($exp['id'] === 'exp-drp-wakil')
+                            <a href="#proj-drp-social" class="btn-text-link">
+                                Lihat Arsip Feed DRP Teens <span aria-hidden="true">&nearr;</span>
                             </a>
                             @else
                             <button type="button" 
@@ -735,10 +739,13 @@
                             <div class="d-flex flex-wrap gap-2 mb-4">
                                 @foreach($group['tools'] as $tool)
                                 <span class="software-pill">
-                                    @if(!empty($tool['mono']))
-                                    <strong class="software-mono">{{ $tool['mono'] }}</strong>
+                                    @if(!empty($tool['logo']))
+                                    <img src="{{ asset('images/logos/' . $tool['logo']) }}" alt="" width="20" height="20" class="software-logo">
+                                    @else
+                                    <i class="{{ $tool['icon'] }} software-logo-icon"></i>
                                     @endif
                                     <span>{{ $tool['name'] }}</span>
+                                    <span class="software-score font-mono" title="Tingkat keahlian (skala 10)">{{ $tool['score'] }}</span>
                                 </span>
                                 @endforeach
                             </div>
@@ -977,6 +984,38 @@
                 <div class="text-end">
                     <a href="https://gbisawangan.com/" target="_blank" rel="noopener" class="btn btn-accent btn-sm rounded-pill font-mono">
                         <i class="fa-solid fa-arrow-up-right-from-square me-1"></i> Buka Website ERC
+                    </a>
+                </div>
+            </div>
+        </div>
+    </div>
+
+
+    <!-- DOT WEB PLATFORM DEMO MODAL -->
+    <div class="custom-modal-overlay" id="dotWebDemoModal" onclick="if(event.target === this) closeProjectModal('dotWebDemoModal')">
+        <div class="custom-modal-dialog">
+            <div class="modal-header modal-header-studio d-flex justify-content-between align-items-center">
+                <div class="d-flex align-items-center gap-2">
+                    <span class="badge bg-accent text-white font-mono px-3 py-2 rounded-pill">
+                        <i class="fa-solid fa-globe me-1"></i> WEB PLATFORM
+                    </span>
+                    <h3 class="h4 fw-bold text-dark mb-0">DOT Platform</h3>
+                </div>
+                <button type="button" class="btn-close" onclick="closeProjectModal('dotWebDemoModal')" aria-label="Close"></button>
+            </div>
+            <div class="modal-body modal-body-studio">
+                <img src="{{ asset('images/dot_platform_hero.webp') }}" alt="DOT Platform Preview" class="img-fluid rounded-4 mb-4 border shadow-sm" loading="lazy" decoding="async">
+                <h5 class="fw-bold text-dark mb-2">Platform Digital Komunitas Remaja DRP Outstanding Teens</h5>
+                <p class="text-muted mb-3">Website publik untuk informasi, cell, dan galeri komunitas, dilengkapi dashboard admin untuk mengelola aktivitas, jadwal cell, dan statistik dalam satu ekosistem.</p>
+                <div class="p-3 bg-light rounded-3 border font-mono small mb-4">
+                    <strong class="text-accent">Highlight:</strong><br>
+                    • Website Publik: informasi, cell, dan komunitas<br>
+                    • Dashboard Admin: aktivitas, jadwal, dan statistik<br>
+                    • Manajemen Cell: jadwal &amp; dokumentasi
+                </div>
+                <div class="text-end">
+                    <a href="https://dotsawangan.com/" target="_blank" rel="noopener" class="btn btn-accent btn-sm rounded-pill font-mono">
+                        <i class="fa-solid fa-arrow-up-right-from-square me-1"></i> Buka dotsawangan.com
                     </a>
                 </div>
             </div>

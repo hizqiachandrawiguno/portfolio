@@ -34,9 +34,9 @@ class PortfolioController extends Controller
                     'id' => 'group-graphic',
                     'title' => 'Desain Grafis',
                     'tools' => [
-                        ['name' => 'Adobe Photoshop', 'mono' => 'Ps'],
-                        ['name' => 'Adobe Illustrator', 'mono' => 'Ai'],
-                        ['name' => 'Canva', 'mono' => null],
+                        ['name' => 'Adobe Photoshop', 'logo' => 'photoshop.svg', 'score' => '9.0'],
+                        ['name' => 'Adobe Illustrator', 'logo' => 'illustrator.svg', 'score' => '8.8'],
+                        ['name' => 'Canva', 'logo' => 'canva.svg', 'score' => '8.5'],
                     ],
                     'examples' => [
                         ['label' => 'TRAC Astra (Lalala Fest 2025)', 'url' => '#proj-trac-astra'],
@@ -48,8 +48,8 @@ class PortfolioController extends Controller
                     'id' => 'group-video',
                     'title' => 'Video & Motion',
                     'tools' => [
-                        ['name' => 'Adobe Premiere Pro', 'mono' => 'Pr'],
-                        ['name' => 'Adobe After Effects', 'mono' => 'Ae'],
+                        ['name' => 'Adobe Premiere Pro', 'logo' => 'premiere.svg', 'score' => '8.0'],
+                        ['name' => 'Adobe After Effects', 'logo' => 'aftereffects.svg', 'score' => '7.8'],
                     ],
                     'examples' => [
                         ['label' => 'Eleccion Worship', 'url' => '#proj-eleccion'],
@@ -60,13 +60,15 @@ class PortfolioController extends Controller
                     'id' => 'group-web',
                     'title' => 'Web & Antarmuka',
                     'tools' => [
-                        ['name' => 'Laravel', 'mono' => null],
-                        ['name' => 'Bootstrap', 'mono' => null],
-                        ['name' => 'Figma', 'mono' => null],
+                        ['name' => 'Figma', 'logo' => 'figma.svg', 'score' => '9.0'],
+                        ['name' => 'Laravel', 'icon' => 'fa-brands fa-laravel', 'score' => '8.0'],
+                        ['name' => 'Bootstrap', 'icon' => 'fa-brands fa-bootstrap', 'score' => '8.0'],
+                        ['name' => 'HTML', 'icon' => 'fa-brands fa-html5', 'score' => '8.0'],
                     ],
                     'examples' => [
                         ['label' => 'PintarBaca', 'url' => '#proj-pintarbaca'],
                         ['label' => 'Portal web komunitas GBI ERC Sawangan', 'url' => '#proj-erc'],
+                        ['label' => 'Website DRP Outstanding Teens', 'url' => '#proj-dot-web'],
                     ]
                 ]
             ],
@@ -276,20 +278,41 @@ class PortfolioController extends Controller
                 'id' => 'exp-drp',
                 'layer_num' => '05',
                 'title' => 'DRP Outstanding Teens',
-                'role' => 'Wakil Ketua (Vice Chairman)',
-                'period' => '07/2020 - Sekarang',
+                'role' => 'Ketua',
+                'period' => '2025 - Sekarang',
                 'category' => 'Organisasi',
-                'badge' => 'Wakil Ketua',
+                'badge' => 'Ketua',
                 'type' => 'Leadership / Organisasi',
                 'icon' => 'fa-solid fa-users',
                 'accent' => '#EA580C',
                 'is_active' => true,
-                'short_desc' => 'Menetapkan visi departemen bersama Head of Department, memimpin perencanaan 15+ event per tahun, mengarahkan 30 panitia, serta membina 30 kader kepemimpinan remaja.',
+                'short_desc' => 'Memimpin komunitas remaja gereja: perencanaan 15+ event per tahun, 30 pengerja, annual retreat 300+ peserta, serta pembinaan 30 kader kepemimpinan remaja.',
                 'details' => [
                     'company' => 'DRP Outstanding Teens Community',
-                    'workflow' => "1. Menetapkan visi strategis dan sasaran target departemen bersama Head of Department.\n2. Memimpin perencanaan dan eksekusi 15+ event per tahun, termasuk annual retreat untuk 300 peserta.\n3. Mendelegasikan dan mengoordinasikan tanggung jawab kepada 30 anggota panitia agar seluruh program berjalan lancar.\n4. Membimbing serta mementori 30 anggota remaja melalui program kepemimpinan untuk mencetak calon-calon pemimpin baru.",
+                    'workflow' => "1. Menetapkan visi strategis dan sasaran target komunitas.\n2. Memimpin perencanaan dan eksekusi 15+ event per tahun, termasuk annual retreat untuk 300+ peserta.\n3. Mendelegasikan dan mengoordinasikan tanggung jawab kepada 30 pengerja agar seluruh program berjalan lancar.\n4. Membimbing serta mementori 30 anggota remaja melalui program kepemimpinan untuk mencetak calon-calon pemimpin baru.",
                     'tools' => ['Leadership Management', 'Event Planning', 'Team Mentoring', 'Public Speaking'],
-                    'learnings' => 'Mengasah kepemimpinan strategis, manajemen acara skala besar (300 peserta), pembinaan talenta kepemimpinan, serta koordinasi tim cross-functional secara berkelanjutan.',
+                    'learnings' => 'Mengasah kepemimpinan strategis, manajemen acara skala besar (300+ peserta), pembinaan talenta kepemimpinan, serta koordinasi tim cross-functional secara berkelanjutan.',
+                    'gallery' => []
+                ]
+            ],
+            [
+                'id' => 'exp-drp-wakil',
+                'layer_num' => '06',
+                'title' => 'DRP Outstanding Teens',
+                'role' => 'Wakil Ketua & Ketua Divisi Social Media',
+                'period' => '2020 - 2025',
+                'category' => 'Organisasi',
+                'badge' => 'Wakil Ketua',
+                'type' => 'Leadership / Social Media',
+                'icon' => 'fa-solid fa-hashtag',
+                'accent' => '#EA580C',
+                'is_active' => false,
+                'short_desc' => 'Memimpin divisi social media: engagement rate Instagram naik 7% dan 70+ desain konten dibuat dalam 1 tahun.',
+                'details' => [
+                    'company' => 'DRP Outstanding Teens Community',
+                    'workflow' => "1. Memimpin divisi social media sebagai Ketua Divisi, sekaligus menjabat Wakil Ketua komunitas.\n2. Merancang 70+ desain konten Instagram selama 1 tahun, termasuk arsip feed mingguan.\n3. Meningkatkan engagement rate Instagram sebesar 7%.",
+                    'tools' => ['Photoshop', 'Illustrator', 'Content Design', 'Team Leadership'],
+                    'learnings' => 'Menjaga konsistensi produksi konten mingguan, memimpin divisi kreatif, dan menghubungkan desain dengan hasil terukur (engagement).',
                     'gallery' => []
                 ]
             ]
@@ -602,6 +625,24 @@ class PortfolioController extends Controller
                 'accent' => '#B45309'
             ],
             [
+                'id' => 'proj-dot-web',
+                'title' => 'Website DRP Outstanding Teens (DOT Platform)',
+                'category' => 'uiux',
+                'category_label' => 'Platform Web Komunitas Remaja',
+                'action_type' => 'modal',
+                'modal_target' => '#dotWebDemoModal',
+                'btn_text' => 'Lihat Demo Platform DOT',
+                'btn_icon' => 'fa-globe',
+                'image' => asset('images/dot_platform_hero.webp'),
+                'is_featured' => false,
+                'grid_class' => 'col-lg-4 col-md-6',
+                'card_layout' => 'vertical',
+                'short_desc' => 'Platform digital komunitas remaja DRP Outstanding Teens: website publik, dashboard admin, dan manajemen cell (jadwal & dokumentasi) dalam satu ekosistem.',
+                'full_desc' => 'Perancangan dan pembangunan platform web DRP Outstanding Teens (dotsawangan.com) yang menyatukan informasi komunitas, daftar cell, galeri, dan dashboard admin untuk mengelola aktivitas, jadwal cell, serta statistik.',
+                'tags' => ['Figma', 'Tailwind CSS', 'React'],
+                'accent' => '#7C3AED'
+            ],
+            [
                 'id' => 'proj-ritistic',
                 'case_study' => [
                     'context' => 'Ritistic Project adalah komunitas mahasiswa yang rutin butuh konten hari besar dan kartu profil anggota.',
@@ -670,7 +711,7 @@ class PortfolioController extends Controller
                 'btn_icon' => 'fa-circle-play',
                 'image' => asset('images/eleccion_worship_hero.webp'),
                 'is_featured' => false,
-                'grid_class' => 'col-lg-6 col-md-6',
+                'grid_class' => 'col-lg-4 col-md-6',
                 'card_layout' => 'video',
                 'short_desc' => 'Editing video live worship multi-kamera di Premiere Pro dan After Effects. Pergantian sudut kamera mengikuti tempo lagu dengan pencahayaan sinematik yang seimbang.',
                 'full_desc' => 'Produksi dan penyuntingan video live recording cover lagu "Allah Roh Kudus" oleh Eleccion Worship di Diwangkoro Music Production. Bertanggung jawab sebagai Videographer, Video Editor, dan Thumbnail Designer. Mengintegrasikan sinkronisasi multi-angle camera berdasarkan tempo lagu, penyesuaian mood lighting studio panggung bernuansa warm & cinematic, integrasi subtitle lirik dinamis, serta audio-visual mastering synchronization.',
@@ -695,7 +736,7 @@ class PortfolioController extends Controller
                 'btn_icon' => 'fa-circle-play',
                 'image' => asset('images/anak_bertanya_hero.webp'),
                 'is_featured' => false,
-                'grid_class' => 'col-lg-6 col-md-6',
+                'grid_class' => 'col-lg-4 col-md-6',
                 'card_layout' => 'video',
                 'short_desc' => 'Video edukasi anak 10:49 di Premiere Pro & After Effects. Animasi teks kinetik dan balon kata ilustratif membantu menjaga fokus dan retensi anak.',
                 'full_desc' => 'Penyuntingan program series edukasi rohani anak "Anak Bertanya" Episode 1: "Siapakah Yang Menciptakan Tuhan?" untuk El-Roi Kids Church - GBI ERC Sawangan. Menggabungkan talkshow interaktif host & narasumber dengan motion graphics edukatif, kinetic text, visual bubble penjelas konsep, serta tata suara ceria dengan SFX komikal untuk menjaga retensi penonton anak dan keluarga.',

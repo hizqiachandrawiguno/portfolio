@@ -3597,6 +3597,18 @@ a {
     background: #FFFDF8;
 }
 
+.software-logo { width: 20px; height: 20px; object-fit: contain; }
+
+.software-logo-icon { font-size: 1.25rem; color: #171311; line-height: 1; }
+
+.software-score {
+    font-size: 0.74rem;
+    font-weight: 700;
+    color: var(--accent-color);
+    padding-left: 8px;
+    border-left: 1px solid #D6D0C5;
+}
+
 .software-mono {
     font-family: var(--font-mono);
     font-size: 0.74rem;
