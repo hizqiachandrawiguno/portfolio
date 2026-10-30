@@ -11,13 +11,18 @@
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.2/css/all.min.css">
     <link rel="stylesheet" href="{{ asset('css/custom-designer.css') }}?v=2.13.0">
     <style>
+        #tracGrid { column-count: 3; column-gap: 1.5rem; }
+        #tracGrid > div { break-inside: avoid; margin-bottom: 1.5rem; }
+        @media (max-width: 991px) { #tracGrid { column-count: 2; } }
+        @media (max-width: 575px) { #tracGrid { column-count: 1; } }
         .trac-work { background: #FFFDF8; border: 1px solid #D6D0C5; border-radius: var(--radius-md); overflow: hidden; cursor: zoom-in; }
-        .trac-work img { width: 100%; aspect-ratio: 4 / 3; object-fit: cover; display: block; background: #F7F4EE; }
+        .trac-work img { width: 100%; height: auto; display: block; background: #F7F4EE; }
         .trac-chip { border: 1px solid #D6D0C5; background: #fff; border-radius: 20px; padding: 6px 14px; font-size: .82rem; }
         .trac-chip.active { background: #171311; color: #fff; border-color: #171311; }
-        #tracLightbox { border: 0; padding: 0; background: transparent; max-width: 94vw; }
+        /* margin/inset eksplisit: reset CSS situs menghilangkan margin:auto bawaan <dialog> */
+        #tracLightbox { position: fixed; inset: 0; margin: auto; width: fit-content; height: fit-content; max-width: 94vw; max-height: 94vh; border: 0; padding: 12px; background: #171311; border-radius: 12px; }
         #tracLightbox::backdrop { background: rgba(23, 19, 17, .85); }
-        #tracLightbox img { max-width: 94vw; max-height: 80vh; border-radius: 8px; display: block; margin: 0 auto; }
+        #tracLightbox img { max-width: 100%; max-height: 80vh; border-radius: 8px; display: block; margin: 0 auto; }
     </style>
 </head>
 <body>
@@ -41,10 +46,10 @@
         @endforeach
     </div>
 
-    <div class="row g-4" id="tracGrid">
+    <div id="tracGrid">
         @foreach($works as $w)
-        <div class="col-md-6 col-lg-4" data-group="{{ $w['group'] }}">
-            <div class="trac-work h-100" data-full="{{ $w['image'] }}" data-title="{{ $w['title'] }}" data-caption="{{ $w['caption'] }}">
+        <div data-group="{{ $w['group'] }}">
+            <div class="trac-work" data-full="{{ $w['image'] }}" data-title="{{ $w['title'] }}">
                 <img src="{{ $w['image'] }}" alt="{{ $w['title'] }}" loading="lazy" decoding="async">
                 <div class="p-3">
                     <span class="font-mono small fw-bold text-uppercase" style="color:#A83C0C; font-size:.7rem; letter-spacing:.06em;">{{ $w['group'] }}</span>
@@ -72,7 +77,7 @@
         grid.querySelectorAll('[data-group]').forEach(c => c.hidden = b.dataset.group && c.dataset.group !== b.dataset.group);
     });
     grid.addEventListener('click', e => {
-        const w = e.target.closest('.trac-work');
+        const w = e.target.closest('[data-full]');
         if (!w) return;
         box.querySelector('img').src = w.dataset.full;
         document.getElementById('tracLightboxCap').textContent = w.dataset.title;

@@ -957,6 +957,11 @@
                         </button>
                     </div>
                 </div>
+                <div class="text-end mt-4">
+                    <a href="https://pintarbaca.fun/" target="_blank" rel="noopener" class="btn btn-accent btn-sm rounded-pill font-mono">
+                        <i class="fa-solid fa-arrow-up-right-from-square me-1"></i> Buka Website PintarBaca
+                    </a>
+                </div>
             </div>
         </div>
     </div>

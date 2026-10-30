@@ -1966,7 +1966,8 @@ h3.text-accent,
 
 .exp-gallery-img {
     width: 100%;
-    height: 135px;
+    height: auto;
+    max-height: 300px;
     object-fit: contain;
     display: block;
     transition: transform 0.3s cubic-bezier(0.16, 1, 0.3, 1);
@@ -2443,7 +2444,8 @@ h3.text-accent,
     }
 
     .exp-gallery-img {
-        height: 140px;
+        height: auto;
+        max-height: 280px;
     }
 
     /* COMPACT MATERIAL 3 FLOATING AUDIO PILL (NON-INTRUSIVE & SAFE AREA COMPLIANT) */

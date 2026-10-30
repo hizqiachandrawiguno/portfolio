@@ -145,7 +145,7 @@ class PortfolioController extends Controller
                     'company' => 'PT Serasi Autoraya (SERA - Member of Astra)',
                     'workflow' => "1. Menganalisis brief kebutuhan promosi dan menerapkan dokumen Brand Guidelines Astra (warna resmi brand, tipografi, & logo clearance).\n2. Merancang materi 3D Spatial & POSM Event fisik (Desain Tenda Booth 3x3 M, Standing Banner 60x160 cm, serta Backdrop Stage Sales Forum 2025 skala 1:10).\n3. Mengeksekusi Digital Key Visual (KV) dengan teknik photo compositing bertema liburan (efek 3D pop-out smartphone).\n4. Memproduksi materi promosi aktivasi booth, twibbon interaktif, dan kampanye seasonal kreatif (TRAC & IBID Christmas Trees).",
                     'achievements' => [
-                        ['value' => '9', 'label' => 'Aset desain di galeri'],
+                        ['value' => '15', 'label' => 'Aset desain di galeri'],
                         ['value' => '2', 'label' => 'Brand Member of Astra (TRAC & IBID)'],
                         ['value' => '3x3 M', 'label' => 'Booth Lalala Festival 2025'],
                     ],
@@ -798,11 +798,53 @@ class PortfolioController extends Controller
                 'caption' => 'Desain poster ucapan Natal minimalis & cerdas: sorot lampu mobil putih membentuk siluet pohon natal berujung bintang.'
             ],
             [
+                'title' => 'Creative Poster: SERA Christmas Tree (Red)',
+                'group' => 'Kampanye Internal & Seasonal',
+                'category' => 'Creative Concept / Social Media',
+                'image' => asset('images/sera_christmas_red.webp'),
+                'caption' => 'Ucapan Natal & Tahun Baru 2026 SERA: pohon natal dari pita kertas bayangan dengan lampu hias keemasan.'
+            ],
+            [
+                'title' => 'Creative Poster: SERA Christmas Gift (White)',
+                'group' => 'Kampanye Internal & Seasonal',
+                'category' => 'Creative Concept / Social Media',
+                'image' => asset('images/sera_christmas_white.webp'),
+                'caption' => 'Versi terang: mobil menarik kertas sobek yang membuka tema Natal, dengan tipografi serif biru khas SERA.'
+            ],
+            [
                 'title' => 'Creative Poster: IBID Christmas Tree (Green)',
                 'group' => 'Kampanye Internal & Seasonal',
                 'category' => 'Creative Concept / Social Media',
                 'image' => asset('images/ibid_christmas_tree.webp'),
                 'caption' => 'Visualisasi pohon natal kreatif tersusun dari tumpukan mobil lelang IBID (Member of Astra) bergradasi warna hijau festive.'
+            ],
+            [
+                'title' => 'Ilustrasi SELOG Warehouse',
+                'group' => 'Digital & Social',
+                'category' => 'Ilustrasi Isometrik / Infografis',
+                'image' => asset('images/selog_warehouse.webp'),
+                'caption' => 'Ilustrasi isometrik layanan SELOG Warehouse: gudang, rak, forklift, dan armada trucking dalam satu tata kota, dengan palet biru-abu khas SELOG.'
+            ],
+            [
+                'title' => 'Ilustrasi SELOG Shipping',
+                'group' => 'Digital & Social',
+                'category' => 'Ilustrasi Isometrik / Infografis',
+                'image' => asset('images/selog_shipping.webp'),
+                'caption' => 'Ilustrasi isometrik layanan SELOG Shipping: pelabuhan, kapal kontainer, crane, dan truk, sebagai seri pasangan dari visual SELOG Warehouse.'
+            ],
+            [
+                'title' => 'Kalender 2026 "Empowerment": Cover',
+                'group' => 'Print & POSM',
+                'category' => 'Corporate Print / Kalender',
+                'image' => asset('images/sera_kalender_cover_2026.webp'),
+                'caption' => 'Cover kalender meja SERA 2026 bertema "Empowerment": angka 2026 dan "NEW YEAR" dalam tipografi 3D ekstrusi biru-oranye, dengan deretan logo TRAC, IBID, dan SELOG.'
+            ],
+            [
+                'title' => 'Kalender 2026 "Empowerment": Lembar Januari',
+                'group' => 'Print & POSM',
+                'category' => 'Corporate Print / Kalender',
+                'image' => asset('images/sera_kalender_januari_2026.webp'),
+                'caption' => 'Lembar Januari 2026 dengan penanda hari (baik, biasa, kurang baik), keterangan aktivitas per tanggal, dan daftar hari libur nasional.'
             ]
         ];
     }
