@@ -473,8 +473,8 @@
                             <div class="col-lg-6 p-3.5 p-md-4 d-flex flex-column justify-content-between">
                                 <div>
                                     <div class="d-flex align-items-center gap-2 mb-2 flex-wrap">
-                                        <span class="badge font-mono px-2 py-1" style="background: rgba(227, 107, 50, 0.12); color: #E36B32; font-size: 0.72rem; letter-spacing: 0.05em; font-weight: 700;">
-                                            <i class="fa-solid fa-star me-1 text-warning"></i> HIGHLIGHTED PROJECT
+                                        <span class="badge font-mono px-2 py-1" style="background: color-mix(in srgb, {{ $project['accent'] }} 12%, transparent); color: {{ $project['accent'] }}; font-size: 0.72rem; letter-spacing: 0.05em; font-weight: 700;">
+                                            <i class="fa-solid fa-star me-1 text-warning"></i> {{ $project['badge'] ?? 'HIGHLIGHTED PROJECT' }}
                                         </span>
                                         <span class="font-mono small fw-bold text-uppercase" style="color: #64748B; font-size: 0.74rem; letter-spacing: 0.08em;">
                                             {{ $project['category_label'] }}
@@ -1253,6 +1253,70 @@
         </div>
     </div>
 
+
+    <!-- ========================================================================== -->
+    <!-- 2B. KOPI KENANGAN (PAKET KUMPUL) GALLERY MODAL                             -->
+    <!-- ========================================================================== -->
+    @php
+        $kenangan = collect($projects)->firstWhere('id', 'proj-kenangan');
+    @endphp
+    <div class="custom-modal-overlay" id="kenanganDemoModal" onclick="if(event.target === this) closeProjectModal('kenanganDemoModal')">
+        <div class="custom-modal-dialog artwork-detail-dialog">
+            <div class="modal-header modal-header-studio d-flex justify-content-between align-items-center">
+                <div class="d-flex align-items-center gap-2">
+                    <span class="badge bg-accent text-white font-mono px-3 py-2 rounded-pill">
+                        <i class="fa-solid fa-palette me-1"></i> KAMPANYE &amp; SOSIAL MEDIA
+                    </span>
+                    <h3 class="h4 fw-bold text-dark mb-0">Kopi Kenangan: Paket Kumpul (Konsep)</h3>
+                </div>
+                <button type="button" class="btn-close" onclick="closeProjectModal('kenanganDemoModal')" aria-label="Close"></button>
+            </div>
+            <div class="modal-body modal-body-studio artwork-modal-body">
+                <div class="artwork-modal-grid">
+                    <div class="artwork-modal-visual-col">
+                        <div class="artwork-modal-img-wrap">
+                            <img id="kenanganActiveImg" src="{{ $kenangan['gallery_items'][0]['image'] }}" alt="Materi kampanye Kopi Kenangan Paket Kumpul" class="artwork-modal-img" loading="lazy" decoding="async">
+                            <button type="button" class="btn btn-sm btn-dark bg-opacity-75 text-white position-absolute bottom-0 end-0 m-3 rounded-pill font-mono btn-zoom-hd" onclick="zoomActiveKenanganImage()" title="Perbesar HD">
+                                <i class="fa-solid fa-magnifying-glass-plus me-1"></i> Perbesar HD
+                            </button>
+                        </div>
+                    </div>
+                    <div class="artwork-modal-info-col">
+                        <div class="d-flex align-items-center justify-content-between flex-wrap gap-2 mb-2">
+                            <span class="badge font-mono" id="kenanganActiveCategory" style="background: rgba(127, 22, 24, 0.12); color: #7F1618; font-size: 0.75rem;">{{ $kenangan['gallery_items'][0]['category'] }}</span>
+                            <small class="text-muted font-mono" style="font-size: 0.72rem;">Proyek konsep &bull; bukan materi resmi</small>
+                        </div>
+                        <h4 class="h5 fw-bold text-dark mt-1 mb-2 font-heading" id="kenanganActiveTitle">{{ $kenangan['gallery_items'][0]['title'] }}</h4>
+                        <p class="text-muted small mb-3 lh-relaxed" id="kenanganActiveDesc">{{ $kenangan['gallery_items'][0]['desc'] }}</p>
+
+                        <div class="mb-3">
+                            <small class="text-muted font-mono fw-bold text-uppercase d-block mb-2" style="font-size: 0.72rem; letter-spacing: 0.05em;">Pilih Karya untuk Dilihat:</small>
+                            <div class="row g-2">
+                                @foreach($kenangan['gallery_items'] as $i => $item)
+                                <div class="col-6">
+                                    <div class="ritistic-thumb-card {{ $i === 0 ? 'active' : '' }}" onclick="selectKenanganArtwork({{ $i }}, this)">
+                                        <img src="{{ $item['image'] }}" alt="Thumbnail {{ $item['title'] }}" width="72" height="54" class="img-fluid rounded-2 border" loading="lazy" decoding="async">
+                                        <span class="thumb-label font-mono">{{ $item['title'] }}</span>
+                                    </div>
+                                </div>
+                                @endforeach
+                            </div>
+                        </div>
+
+                        @include('portfolio.partials.case-study', ['cs' => $kenangan['case_study']])
+                        <div class="p-3 bg-light rounded-4 border font-mono small mt-auto">
+                            <strong class="text-accent d-block mb-1"><i class="fa-solid fa-circle-info me-1"></i> Informasi Desain &amp; Workflow:</strong>
+                            <ul class="mb-0 ps-3 text-muted lh-base" style="font-size: 0.8rem;">
+                                <li><strong>Software:</strong> Adobe Photoshop &amp; Illustrator</li>
+                                <li><strong>Format:</strong> Poster A4, feed 4:5, story 9:16, materi meja landscape</li>
+                                <li><strong>Sistem warna:</strong> merah marun + krem; aksen kuning emas.</li>
+                            </ul>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
 
     <!-- ========================================================================== -->
     <!-- 2A. ESTATE MANAGEMENT (RAWAT RUMAH KITA) GALLERY MODAL                     -->

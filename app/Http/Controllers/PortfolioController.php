@@ -39,6 +39,7 @@ class PortfolioController extends Controller
                         ['name' => 'Canva', 'logo' => 'canva.svg', 'score' => '8.5'],
                     ],
                     'examples' => [
+                        ['label' => 'Kopi Kenangan (Paket Kumpul)', 'url' => '#proj-kenangan'],
                         ['label' => 'TRAC Astra (Lalala Fest 2025)', 'url' => '#proj-trac-astra'],
                         ['label' => 'DRP Teens', 'url' => '#proj-drp-social'],
                         ['label' => 'Ritistic Project', 'url' => '#proj-ritistic'],
@@ -374,6 +375,41 @@ class PortfolioController extends Controller
 
         // 8 Curated Flagship Projects (Ordered according to editorial grid rows: Baris 1 TRAC Astra, Baris 2 Traveloka & DRP, Baris 3 PintarBaca, ERC & Ritistic, Baris 4 Eleccion & Anak Bertanya)
         $projects = [
+            // =========================================================================
+            // SOROTAN ATAS: KOPI KENANGAN (KONSEP UNTUK LAMARAN MAGANGHUB)
+            // =========================================================================
+            [
+                'id' => 'proj-kenangan',
+                'case_study' => [
+                    'context' => 'Konsep kampanye "Paket Kumpul" (1 Seliter Kenangan + 4 Cerita Roti) untuk Kopi Kenangan, edisi Desember, dengan ajakan pesan lewat Kenangan App. Dibuat sebagai proyek konsep untuk portofolio.',
+                    'problem' => 'Satu promo paket harus langsung dipahami di banyak tempat sekaligus: poster, feed, story, dan materi meja. Pembaca hanya punya beberapa detik untuk menangkap isi paket, harga, dan cara pesannya.',
+                    'solution' => 'Saya memakai satu sistem visual: pola lingkaran konsentris merah marun, krem sebagai latar terang, kuning emas untuk aksen, headline serif besar, dan foto produk dalam lingkaran krem. Harga "150 RB" dibuat paling besar, ajakan "Scan, pesan dari meja" dan tombol Kenangan App selalu di posisi yang mudah ditemukan. Tagline "Kumpul lagi, kenangan lagi" dipakai di semua format, sementara story dibuat sebagai polling agar mengundang interaksi.',
+                    'result' => 'Satu paket 5 materi yang konsisten antar format dan siap dipakai. Ini proyek konsep untuk portofolio, bukan materi resmi Kopi Kenangan, jadi belum ada data hasil lapangan.',
+                ],
+                'title' => 'Kopi Kenangan - Kampanye Paket Kumpul (Konsep)',
+                'category' => 'graphic',
+                'category_label' => 'Kampanye Promo F&B (Konsep)',
+                'action_type' => 'modal',
+                'modal_target' => '#kenanganDemoModal',
+                'btn_text' => 'Lihat Galeri Kampanye Paket Kumpul',
+                'btn_icon' => 'fa-images',
+                'image' => asset('images/kenangan_materi_meja.png'),
+                'is_featured' => true,
+                'grid_class' => 'col-12',
+                'card_layout' => 'featured',
+                'short_desc' => 'Proyek konsep kampanye "Kumpul lagi, kenangan lagi" untuk Kopi Kenangan: poster A4, dua feed 4:5, story polling, dan materi meja dalam satu sistem visual merah marun dan krem.',
+                'full_desc' => 'Konsep kampanye Paket Kumpul untuk Kopi Kenangan. Terdiri dari poster A4, feed Instagram 4:5 (paket dan visual utama), story polling 9:16, dan materi meja landscape dengan ajakan pesan lewat aplikasi. Dibuat sebagai proyek portofolio, bukan materi resmi.',
+                'tags' => ['Photoshop', 'Illustrator'],
+                'accent' => '#7F1618',
+                'gallery_items' => [
+                    ['id' => 'kenangan-poster', 'title' => 'Poster A4: Kumpul lagi, kenangan lagi', 'category' => 'Key Visual Poster A4', 'image' => asset('images/kenangan_poster_a4.webp'), 'desc' => 'Poster utama: headline krem di atas pola lingkaran merah marun, foto produk dalam lingkaran krem, dan panel harga "150 RB" dengan ajakan scan QR di bagian bawah.'],
+                    ['id' => 'kenangan-paket', 'title' => 'Paket Kumpul', 'category' => 'Feed Instagram 4:5', 'image' => asset('images/kenangan_feed_paket_kumpul.png'), 'desc' => 'Feed informatif: isi paket dalam satu kartu krem, harga "150 RB" sebagai elemen terbesar, serta kode promo dan tombol Kenangan App di bawah.'],
+                    ['id' => 'kenangan-feed-hero', 'title' => 'Kumpul lagi, kenangan lagi', 'category' => 'Feed Instagram 4:5', 'image' => asset('images/kenangan_feed_hero.webp'), 'desc' => 'Feed pembuka bertema ajakan: latar krem terang, headline marun besar di kiri, dan foto produk dalam lingkaran yang memecah pola lingkaran marun.'],
+                    ['id' => 'kenangan-story', 'title' => 'Polling: Siapa Paling Sering Telat?', 'category' => 'Instagram Story 9:16', 'image' => asset('images/kenangan_story_polling.png'), 'desc' => 'Story interaktif dengan ruang untuk stiker polling Instagram, ditutup ajakan "Boleh telat dateng, asal jangan telat pesen" dan tombol Kenangan App.'],
+                    ['id' => 'kenangan-meja', 'title' => 'Materi Meja: Lagi kumpul? Tambah seliter lagi.', 'category' => 'Materi Meja Landscape', 'image' => asset('images/kenangan_materi_meja.png'), 'desc' => 'Materi landscape untuk meja gerai: headline besar di kiri, foto produk di lingkaran kanan, dan area QR "Scan, pesan dari meja" di kiri bawah.'],
+                ]
+            ],
+
             // =========================================================================
             // BARIS 1: FULL SIZE 3 GRID (TRAC ASTRA HIGHLIGHTED FLAGSHIP)
             // =========================================================================

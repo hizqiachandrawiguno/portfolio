@@ -1169,6 +1169,39 @@ window.zoomActiveTravelokaImage = function () {
 };
 
 
+// KOPI KENANGAN (PAKET KUMPUL) GALLERY SELECTOR
+window.selectKenanganArtwork = function (index, cardEl) {
+    const project = (window.projectsData || (typeof projectsData !== 'undefined' ? projectsData : [])).find(p => p.id === 'proj-kenangan');
+    const item = project && project.gallery_items[index];
+    if (!item) return;
+
+    const activeImg = document.getElementById('kenanganActiveImg');
+    if (activeImg) {
+        activeImg.style.opacity = '0.4';
+        activeImg.src = item.image;
+        activeImg.onload = () => { activeImg.style.opacity = '1'; };
+    }
+    document.getElementById('kenanganActiveTitle').textContent = item.title;
+    document.getElementById('kenanganActiveDesc').textContent = item.desc;
+    document.getElementById('kenanganActiveCategory').textContent = item.category;
+
+    document.querySelectorAll('#kenanganDemoModal .ritistic-thumb-card').forEach(c => c.classList.remove('active'));
+    if (cardEl) cardEl.classList.add('active');
+};
+
+window.zoomActiveKenanganImage = function () {
+    const img = document.getElementById('kenanganActiveImg');
+    if (img && window.openImageLightbox) {
+        window.openImageLightbox(
+            img.src,
+            document.getElementById('kenanganActiveTitle').textContent,
+            document.getElementById('kenanganActiveDesc').textContent,
+            document.getElementById('kenanganActiveCategory').textContent
+        );
+    }
+};
+
+
 // ESTATE MANAGEMENT (RAWAT RUMAH KITA) GALLERY SELECTOR
 window.selectEstateArtwork = function (index, cardEl) {
     const project = (window.projectsData || (typeof projectsData !== 'undefined' ? projectsData : [])).find(p => p.id === 'proj-estate');
