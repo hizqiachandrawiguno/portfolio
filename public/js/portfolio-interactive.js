@@ -1168,3 +1168,35 @@ window.zoomActiveTravelokaImage = function () {
     }
 };
 
+
+// ESTATE MANAGEMENT (RAWAT RUMAH KITA) GALLERY SELECTOR
+window.selectEstateArtwork = function (index, cardEl) {
+    const project = (window.projectsData || (typeof projectsData !== 'undefined' ? projectsData : [])).find(p => p.id === 'proj-estate');
+    const item = project && project.gallery_items[index];
+    if (!item) return;
+
+    const activeImg = document.getElementById('estateActiveImg');
+    if (activeImg) {
+        activeImg.style.opacity = '0.4';
+        activeImg.src = item.image;
+        activeImg.onload = () => { activeImg.style.opacity = '1'; };
+    }
+    document.getElementById('estateActiveTitle').textContent = item.title;
+    document.getElementById('estateActiveDesc').textContent = item.desc;
+    document.getElementById('estateActiveCategory').textContent = item.category;
+
+    document.querySelectorAll('#estateDemoModal .ritistic-thumb-card').forEach(c => c.classList.remove('active'));
+    if (cardEl) cardEl.classList.add('active');
+};
+
+window.zoomActiveEstateImage = function () {
+    const img = document.getElementById('estateActiveImg');
+    if (img && window.openImageLightbox) {
+        window.openImageLightbox(
+            img.src,
+            document.getElementById('estateActiveTitle').textContent,
+            document.getElementById('estateActiveDesc').textContent,
+            document.getElementById('estateActiveCategory').textContent
+        );
+    }
+};

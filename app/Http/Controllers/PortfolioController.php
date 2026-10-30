@@ -42,6 +42,7 @@ class PortfolioController extends Controller
                         ['label' => 'TRAC Astra (Lalala Fest 2025)', 'url' => '#proj-trac-astra'],
                         ['label' => 'DRP Teens', 'url' => '#proj-drp-social'],
                         ['label' => 'Ritistic Project', 'url' => '#proj-ritistic'],
+                        ['label' => 'Rawat Rumah Kita (Estate Management)', 'url' => '#proj-estate'],
                     ]
                 ],
                 [
@@ -673,6 +674,38 @@ class PortfolioController extends Controller
                         'image' => asset('images/ritistic_profiling_sukmawati.webp'),
                         'desc' => 'Sistem tata letak visual profil anggota Ritistic Project dengan konsistensi grid tipografi nama vertikal, ilustrasi buku di bagian bawah, serta penempatan handle media sosial di sudut kanan atas.'
                     ]
+                ]
+            ],
+
+            [
+                'id' => 'proj-estate',
+                'case_study' => [
+                    'context' => 'Konsep kampanye "Rawat Rumah Kita" untuk Estate Management Summarecon Bogor: gerakan warga memilah sampah (organik, anorganik, residu) mulai 2 Desember 2026.',
+                    'problem' => 'Pesan pemilahan sampah mudah dianggap rumit dan membosankan, sementara materinya harus tersebar di banyak format sekaligus (poster, feed, story, banner web).',
+                    'solution' => 'Saya memakai satu sistem visual: foto kawasan sebagai pembuka, headline dua warna (putih dan kuning), logo di kiri atas, serta kode warna tetap untuk tiga jenis sampah. Sistem yang sama diturunkan ke key visual, feed edukasi, teka-teki berhadiah, jadwal angkut (story), dan banner web.',
+                    'result' => 'Satu paket 5 materi yang konsisten antar format dan siap dipakai untuk peluncuran kampanye. Ini proyek konsep untuk portofolio, bukan materi resmi Summarecon, jadi belum ada data hasil lapangan.',
+                ],
+                'title' => 'Rawat Rumah Kita - Kampanye Pilah Sampah Estate Management (Konsep)',
+                'category' => 'graphic',
+                'category_label' => 'Kampanye Edukasi Warga (Konsep)',
+                'action_type' => 'modal',
+                'modal_target' => '#estateDemoModal',
+                'btn_text' => 'Lihat Galeri Kampanye',
+                'btn_icon' => 'fa-images',
+                'image' => asset('images/estate_kv_utama.webp'),
+                'is_featured' => false,
+                'grid_class' => 'col-lg-4 col-md-6',
+                'card_layout' => 'vertical',
+                'short_desc' => 'Proyek konsep kampanye pilah sampah warga untuk Estate Management: key visual, feed edukasi, teka-teki berhadiah, jadwal angkut (story), dan banner web dalam satu sistem visual.',
+                'full_desc' => 'Konsep kampanye "Rawat Rumah Kita" untuk Estate Management Summarecon Bogor. Terdiri dari key visual utama, konten feed edukasi, teka-teki warga berhadiah, story jadwal angkut sampah, dan banner web dengan palet hijau tua dan kuning serta kode warna organik, anorganik, residu. Dibuat sebagai proyek portofolio, bukan materi resmi.',
+                'tags' => ['Photoshop', 'Illustrator', 'Figma'],
+                'accent' => '#2F6B3F',
+                'gallery_items' => [
+                    ['id' => 'estate-kv', 'title' => 'Key Visual: Rawat Rumah Kita', 'category' => 'Key Visual Poster A4', 'image' => asset('images/estate_kv_utama.webp'), 'desc' => 'Poster utama dengan foto gunung dan kawasan sebagai latar, headline dua warna, badge tanggal mulai, dan tiga chip kategori sampah.'],
+                    ['id' => 'estate-pilah', 'title' => 'Pilah dari Rumah Sendiri', 'category' => 'Feed Instagram 4:5', 'image' => asset('images/estate_pilah_dari_rumah.webp'), 'desc' => 'Slide pembuka carousel edukasi: tiga tong sampah berwarna sebagai fokus, headline besar di area gelap bawah agar terbaca jelas.'],
+                    ['id' => 'estate-teka-teki', 'title' => 'Teka-Teki Warga: Pilah Sampah', 'category' => 'Feed Interaktif 4:5', 'image' => asset('images/estate_teka_teki.webp'), 'desc' => 'Konten interaktif berhadiah Rp3 juta: kartu miring berisi teka-teki huruf untuk jenis sampah, jawaban lewat kolom komentar.'],
+                    ['id' => 'estate-jadwal', 'title' => 'Jadwal Angkut Sampah', 'category' => 'Instagram Story 9:16', 'image' => asset('images/estate_jadwal_angkut.webp'), 'desc' => 'Story informatif: foto petugas angkut sebagai pembuka dan tiga kartu jadwal (Senin, Selasa, Rabu) berkode warna sesuai jenis sampah.'],
+                    ['id' => 'estate-banner', 'title' => 'Banner Web Kampanye', 'category' => 'Banner Web 8:3', 'image' => asset('images/estate_banner_web.webp'), 'desc' => 'Banner lebar dengan panel hijau di kiri untuk teks dan foto lanskap di kanan, tombol tanggal mulai dan kontak info.'],
                 ]
             ],
 
