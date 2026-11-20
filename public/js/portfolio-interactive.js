@@ -1169,34 +1169,34 @@ window.zoomActiveTravelokaImage = function () {
 };
 
 
-// KOPI KENANGAN (PAKET KUMPUL) GALLERY SELECTOR
-window.selectKenanganArtwork = function (index, cardEl) {
-    const project = (window.projectsData || (typeof projectsData !== 'undefined' ? projectsData : [])).find(p => p.id === 'proj-kenangan');
+// KOPI KENANGAN (AVOCADO COFFEE DESIGN TEST) GALLERY SELECTOR
+window.selectAvocadoArtwork = function (index, cardEl) {
+    const project = (window.projectsData || (typeof projectsData !== 'undefined' ? projectsData : [])).find(p => p.id === 'proj-avocado');
     const item = project && project.gallery_items[index];
     if (!item) return;
 
-    const activeImg = document.getElementById('kenanganActiveImg');
+    const activeImg = document.getElementById('avocadoActiveImg');
     if (activeImg) {
         activeImg.style.opacity = '0.4';
         activeImg.src = item.image;
         activeImg.onload = () => { activeImg.style.opacity = '1'; };
     }
-    document.getElementById('kenanganActiveTitle').textContent = item.title;
-    document.getElementById('kenanganActiveDesc').textContent = item.desc;
-    document.getElementById('kenanganActiveCategory').textContent = item.category;
+    document.getElementById('avocadoActiveTitle').textContent = item.title;
+    document.getElementById('avocadoActiveDesc').textContent = item.desc;
+    document.getElementById('avocadoActiveCategory').textContent = item.category;
 
-    document.querySelectorAll('#kenanganDemoModal .ritistic-thumb-card').forEach(c => c.classList.remove('active'));
+    document.querySelectorAll('#avocadoDemoModal .ritistic-thumb-card').forEach(c => c.classList.remove('active'));
     if (cardEl) cardEl.classList.add('active');
 };
 
-window.zoomActiveKenanganImage = function () {
-    const img = document.getElementById('kenanganActiveImg');
+window.zoomActiveAvocadoImage = function () {
+    const img = document.getElementById('avocadoActiveImg');
     if (img && window.openImageLightbox) {
         window.openImageLightbox(
             img.src,
-            document.getElementById('kenanganActiveTitle').textContent,
-            document.getElementById('kenanganActiveDesc').textContent,
-            document.getElementById('kenanganActiveCategory').textContent
+            document.getElementById('avocadoActiveTitle').textContent,
+            document.getElementById('avocadoActiveDesc').textContent,
+            document.getElementById('avocadoActiveCategory').textContent
         );
     }
 };

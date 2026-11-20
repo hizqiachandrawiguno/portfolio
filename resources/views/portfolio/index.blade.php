@@ -123,10 +123,10 @@
     <!-- Google Fonts: Space Grotesk & Plus Jakarta Sans (Asynchronous Non-Blocking) -->
     <link rel="preconnect" href="https://fonts.googleapis.com">
     <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
-    <link rel="preload" as="style" href="https://fonts.googleapis.com/css2?family=Plus+Jakarta+Sans:wght@400;500;600;700&family=Space+Grotesk:wght@500;600;700&display=swap">
-    <link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Plus+Jakarta+Sans:wght@400;500;600;700&family=Space+Grotesk:wght@500;600;700&display=swap" media="print" onload="this.media='all'">
+    <link rel="preload" as="style" href="https://fonts.googleapis.com/css2?family=Plus+Jakarta+Sans:wght@400;500;600;700&family=Space+Grotesk:wght@500;600;700&family=Anton&display=swap">
+    <link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Plus+Jakarta+Sans:wght@400;500;600;700&family=Space+Grotesk:wght@500;600;700&family=Anton&display=swap" media="print" onload="this.media='all'">
     <noscript>
-        <link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Plus+Jakarta+Sans:wght@400;500;600;700&family=Space+Grotesk:wght@500;600;700&display=swap">
+        <link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Plus+Jakarta+Sans:wght@400;500;600;700&family=Space+Grotesk:wght@500;600;700&family=Anton&display=swap">
     </noscript>
 
     <!-- Bootstrap 5 CSS -->
@@ -141,7 +141,7 @@
     <link rel="shortcut icon" type="image/png" href="{{ asset('images/hizqia_logo_orange.png') }}">
 
     <!-- Custom Designer Workspace CSS (Cached Version) -->
-    <link rel="stylesheet" href="{{ asset('css/custom-designer.css') }}?v=2.14.0">
+    <link rel="stylesheet" href="{{ asset('css/custom-designer.css') }}?v=2.34.4">
 
     <!-- Inject Experiences & Projects Data Objects early & Global Filter Functions -->
     <script>
@@ -365,56 +365,37 @@
     <!-- SECTION 1: HERO / CANVAS AREA                                              -->
     <!-- ========================================================================== -->
     <section id="hero" class="hero-section">
-        <div class="container">
-            <div class="artboard-canvas grid-overlay" id="artboardCanvasHero">
-                
-                <!-- Vector Corner Handles -->
-                <div class="vector-handle handle-tl"></div>
-                <div class="vector-handle handle-tr"></div>
-                <div class="vector-handle handle-bl"></div>
-                <div class="vector-handle handle-br"></div>
-
-                <div class="d-flex align-items-center justify-content-between mb-4">
-                    <div class="artboard-header-tag mb-0">
-                        <i class="fa-solid fa-crop-simple"></i> ARTBOARD 01 // GRAPHIC &amp; MARKETING DESIGNER
-                    </div>
-                </div>
-
-                <div class="row align-items-center gy-4 gy-lg-5">
-                    <div class="col-lg-7">
-                        <h1 class="hero-title mb-3">
-                            Halo, Saya <span class="text-accent d-inline-block">Hizqia Chandra Wiguno</span>
-                        </h1>
-                        
-                        <p class="hero-lead-text mb-4">
-                            {{ $bio['catchy_summary'] }}
-                        </p>
-
-                        <div class="d-flex flex-wrap gap-2 gap-sm-3 align-items-center mb-3">
-                            <a href="#assets" class="btn btn-accent">
-                                <i class="fa-solid fa-arrow-down me-1"></i> Lihat Karya
-                            </a>
-                            <a href="#contact" class="btn btn-outline-studio">
-                                <i class="fa-regular fa-envelope me-1"></i> Hubungi Saya
-                            </a>
-                        </div>
-
-                        <div class="hero-availability-note">
-                            <span class="availability-bullet" aria-hidden="true">&bull;</span>
-                            <span>Tersedia full-time mulai 2 November 2026</span>
-                        </div>
-                    </div>
-
-                    <div class="col-lg-5 text-center">
-                        <div class="avatar-artboard-wrapper">
-                            <div class="avatar-studio-frame">
-                                <img src="{{ $bio['photo'] }}" alt="{{ $bio['name'] }}" class="avatar-artboard img-fluid" loading="eager" fetchpriority="high" decoding="async">
-                            </div>
-                        </div>
-                    </div>
-                </div>
-
+        <div class="hero-world" aria-hidden="true">
+            <svg viewBox="0 0 1200 600" preserveAspectRatio="xMidYMax slice">
+                <g class="cl"><path fill="#FFE9C9" opacity=".3" d="M120 170a30 30 0 0 1 56-14a38 38 0 0 1 70 8a26 26 0 0 1 4 52H130a26 26 0 0 1-10-46Z"/></g>
+                <g class="cl cl2"><path fill="#FFE9C9" opacity=".25" d="M640 110a26 26 0 0 1 48-10a32 32 0 0 1 60 6a22 22 0 0 1 2 44H650a22 22 0 0 1-10-40Z"/></g>
+                <circle class="hw" data-k="140" cx="1060" cy="190" r="105" fill="#FFB347" opacity=".55"/>
+                <path class="hw" data-k="90" style="animation-delay:.1s" fill="#D14F18" d="M0 400L150 270 270 360 430 220 590 370 740 280 900 380 1050 300 1200 360V700H0Z"/>
+                <path class="hw" data-k="50" style="animation-delay:.2s" fill="#C24514" d="M0 470L170 380 330 450 500 350 680 460 850 390 1030 465 1200 410V700H0Z"/>
+                <path class="hw" data-k="20" style="animation-delay:.3s" fill="#B03C10" d="M0 540L200 485 380 535 560 480 760 545 960 490 1200 540V700H0Z"/>
+            </svg>
+        </div>
+        <h1 class="hero-mega" aria-label="Hizqia Chandra Wiguno"><span class="hm-top">Chandra Wiguno</span><span class="hm-big">Hizqia</span></h1>
+        <div class="hero-topbar"><span class="hchip hchip-cream">Portofolio {{ date('Y') }}</span><span class="hchip hchip-dark"><i class="fa-solid fa-location-dot"></i> Bogor, Indonesia</span></div>
+        <div class="hero-info hero-left">
+            <ul class="hero-tags">
+                <li><small>Peran</small><b>Graphic &amp; Marketing Designer</b></li>
+                <li><small>Juga</small><b>Multimedia Specialist</b></li>
+            </ul>
+            <div class="hero-cta">
+                <a href="#assets" class="hbtn hbtn-solid"><i class="fa-solid fa-arrow-down"></i> Lihat Karya</a>
+                <a href="#contact" class="hbtn hbtn-line"><i class="fa-regular fa-envelope"></i> Hubungi Saya</a>
             </div>
+        </div>
+        <div class="hero-info hero-right">
+            <ul class="hero-tags">
+                <li><small>Tersedia</small><b>Full-time 2 Nov 2026</b></li>
+                <li><small>Software</small><b>Photoshop &middot; Illustrator &middot; Premiere</b></li>
+                <li><small>Karya</small><b>{{ count($projects) }} proyek pilihan</b></li>
+            </ul>
+        </div>
+        <div class="hero-figure hw" data-k="25">
+            <img src="{{ asset('images/hizqia_hero.webp') }}?v=4" alt="{{ $bio['name'] }}" class="hero-char" width="993" height="1367" loading="eager" fetchpriority="high" decoding="async">
         </div>
     </section>
 
@@ -424,196 +405,105 @@
     <!-- ========================================================================== -->
     <section id="assets" class="section-spacing bg-light">
         <div class="container">
-            
-            <div class="section-header text-center max-w-700 mx-auto reveal-on-scroll">
-                <div class="section-tag justify-content-center">
-                    <i class="fa-solid fa-sparkles text-accent"></i> KARYA PILIHAN (2024 - {{ date('Y') }})
-                </div>
+            <div class="section-header text-center max-w-700 mx-auto">
+                <div class="section-tag justify-content-center">KARYA PILIHAN (2024 - {{ date('Y') }})</div>
                 <h2 class="display-6 fw-bold">Galeri Karya Desain &amp; Media Digital</h2>
-                <p class="text-muted">Pilihan karya desain grafis, editing video, dan platform web interaktif. Setiap karya menampilkan keputusan visual dan konteks penggunaannya.</p>
+                <p class="text-muted">Pilih proyek di daftar kiri untuk melihat visual dan studi kasusnya.</p>
             </div>
 
-            <!-- Multi-Category Creative Filter Tabs (Plain Text Without Colored Icons) -->
-            <div class="d-flex justify-content-center mb-4 reveal-on-scroll">
-                <div class="skill-tab-switcher p-1 rounded-pill bg-white border shadow-2xs d-inline-flex flex-wrap gap-1 justify-content-center">
-                    <button type="button" class="btn btn-sm rounded-pill font-mono px-3 py-2 skill-tab-btn proj-filter-btn active" onclick="filterProjects('all', this)">
-                        Semua Karya ({{ count($projects) }})
-                    </button>
-                    <button type="button" class="btn btn-sm rounded-pill font-mono px-3 py-2 skill-tab-btn proj-filter-btn" onclick="filterProjects('graphic', this)">
-                        Desain Grafis ({{ collect($projects)->where('category', 'graphic')->count() }})
-                    </button>
-                    <button type="button" class="btn btn-sm rounded-pill font-mono px-3 py-2 skill-tab-btn proj-filter-btn" onclick="filterProjects('video', this)">
-                        Video &amp; Motion (2)
-                    </button>
-                    <button type="button" class="btn btn-sm rounded-pill font-mono px-3 py-2 skill-tab-btn proj-filter-btn" onclick="filterProjects('uiux', this)">
-                        Web &amp; Antarmuka ({{ collect($projects)->where('category', 'uiux')->count() }})
-                    </button>
-                </div>
-            </div>
+            @php
+                $groupLabels = ['graphic' => 'Desain Grafis', 'uiux' => 'Web & Antarmuka', 'video' => 'Video & Motion'];
+                $grouped = collect($projects)->groupBy('category');
+            @endphp
 
-            <div class="row g-4" id="projectsGrid">
-                @foreach($projects as $index => $project)
-                @php
-                    $colClass = $project['grid_class'] ?? 'col-lg-4 col-md-6';
-                    $layout = $project['card_layout'] ?? ($project['is_featured'] ? 'featured' : (($project['action_type'] ?? '') === 'video' ? 'video' : 'vertical'));
-                @endphp
-
-                @if($layout === 'featured')
-                <!-- ========================================================== -->
-                <!-- BARIS 1: FULL SIZE 3 GRID (TRAC ASTRA HIGHLIGHTED FLAGSHIP)-->
-                <!-- ========================================================== -->
-                <div id="{{ $project['id'] }}" class="col-12 proj-card-col reveal-on-scroll" data-proj-category="{{ $project['category'] }}" style="scroll-margin-top: 100px;">
-                    <div class="project-card project-card-featured project-card-compact h-100" style="--proj-accent: {{ $project['accent'] }};">
-                        <div class="row g-0 align-items-stretch h-100">
-                            <div class="col-lg-6 featured-img-col d-flex flex-column h-100">
-                                <div class="project-img-wrapper h-100 cursor-pointer position-relative" onclick="openProjectModal('{{ ltrim($project['modal_target'], '#') }}')" title="Klik untuk lihat detail {{ $project['title'] }}">
-                                    <img src="{{ $project['image'] }}" alt="{{ $project['title'] }}" class="project-img featured-img" loading="eager" decoding="async">
-                                </div>
-                            </div>
-                            <div class="col-lg-6 p-3.5 p-md-4 d-flex flex-column justify-content-between">
-                                <div>
-                                    <div class="d-flex align-items-center gap-2 mb-2 flex-wrap">
-                                        <span class="badge font-mono px-2 py-1" style="background: color-mix(in srgb, {{ $project['accent'] }} 12%, transparent); color: {{ $project['accent'] }}; font-size: 0.72rem; letter-spacing: 0.05em; font-weight: 700;">
-                                            <i class="fa-solid fa-star me-1 text-warning"></i> {{ $project['badge'] ?? 'HIGHLIGHTED PROJECT' }}
-                                        </span>
-                                        <span class="font-mono small fw-bold text-uppercase" style="color: #64748B; font-size: 0.74rem; letter-spacing: 0.08em;">
-                                            {{ $project['category_label'] }}
-                                        </span>
-                                    </div>
-                                    <h3 class="h5 fw-bold mb-2 font-heading text-dark lh-sm" style="font-size: 1.15rem;">{{ $project['title'] }}</h3>
-                                    <p class="text-muted small mb-3 lh-relaxed line-clamp-3" style="font-size: 0.88rem;">
-                                        {{ $project['short_desc'] }}
-                                    </p>
-                                </div>
-
-                                <div class="pt-2 mt-auto">
-                                    <p class="small text-muted mb-2.5 font-sans" style="font-size: 0.78rem;">
-                                        <span class="fw-semibold text-dark">Spesifikasi:</span> {{ implode(', ', $project['tags']) }}
-                                    </p>
-                                    <button type="button" class="btn btn-accent btn-sm font-sans mb-0 w-100 justify-content-center py-2" onclick="openProjectModal('{{ ltrim($project['modal_target'], '#') }}')">
-                                        <i class="fa-solid {{ $project['btn_icon'] ?? 'fa-images' }} me-1.5"></i> {{ $project['btn_text'] ?? 'Buka Galeri Karya' }}
-                                    </button>
-                                </div>
-                            </div>
+            <div class="pw" id="projectsShowcase">
+                <!-- KIRI: indeks proyek (sticky) -->
+                <aside class="pw-index" aria-label="Daftar proyek">
+                    @foreach($groupLabels as $key => $label)
+                        @if($grouped->has($key))
+                        <div class="pw-group">
+                            <div class="pw-group-title font-mono">{{ $label }}</div>
+                            @foreach($grouped[$key] as $project)
+                            <a href="#{{ $project['id'] }}" class="pw-item" data-pw="{{ $project['id'] }}" style="--proj-accent: {{ $project['accent'] }};">
+                                <img src="{{ $project['image'] }}" alt="" loading="lazy" decoding="async" width="56" height="56">
+                                <span class="pw-item-txt">
+                                    <strong class="font-heading">{{ \Illuminate\Support\Str::before($project['title'], ' - ') }}</strong>
+                                    <small>{{ $project['category_label'] }}</small>
+                                    <em>{{ $project['short_desc'] }}</em>
+                                </span>
+                            </a>
+                            @endforeach
                         </div>
-                    </div>
-                </div>
+                        @endif
+                    @endforeach
+                </aside>
 
-                @elseif($layout === 'horizontal')
-                <!-- ========================================================== -->
-                <!-- BARIS 2 (PART 1): 2 GRID HORIZONTAL CARD (TRAVELOKA)       -->
-                <!-- ========================================================== -->
-                <div id="{{ $project['id'] }}" class="col-12 {{ $colClass }} proj-card-col reveal-on-scroll reveal-delay-1" data-proj-category="{{ $project['category'] }}" style="scroll-margin-top: 100px;">
-                    <div class="project-card project-card-horizontal project-card-compact h-100" style="--proj-accent: {{ $project['accent'] }};">
-                        <div class="row g-0 align-items-stretch h-100">
-                            <div class="col-md-6 col-lg-6 horizontal-img-col d-flex flex-column h-100">
-                                <div class="project-img-wrapper h-100 cursor-pointer position-relative" onclick="openProjectModal('{{ ltrim($project['modal_target'], '#') }}')" title="Klik untuk lihat detail {{ $project['title'] }}">
-                                    <img src="{{ $project['image'] }}" alt="{{ $project['title'] }}" class="project-img" loading="lazy" decoding="async">
-                                </div>
+                <!-- KANAN: visual + studi kasus per proyek -->
+                <div class="pw-main">
+                    @foreach($groupLabels as $key => $label)
+                    @foreach($grouped[$key] ?? [] as $project)
+                    @php
+                        $isVideo = ($project['action_type'] ?? '') === 'video';
+                        $isLight = ($project['action_type'] ?? '') === 'lightbox';
+                        $shots = $project['gallery_items'] ?? [['title' => $project['title'], 'image' => $project['image'], 'desc' => $project['short_desc']]];
+                        $modalId = ltrim($project['modal_target'] ?? '', '#');
+                        $open = $isLight
+                            ? "openImageLightbox('".$project['image']."', '".addslashes($project['title'])."', '".addslashes($project['short_desc'])."', '".addslashes($project['category_label'])."')"
+                            : "openProjectModal('".$modalId."')";
+                    @endphp
+                    <article class="pw-panel" id="{{ $project['id'] }}" data-proj-category="{{ $project['category'] }}" style="--proj-accent: {{ $project['accent'] }};">
+                        @if($isVideo)
+                        <div class="pw-stage" id="videoInlineWrap-{{ $project['id'] }}">
+                            <div class="pw-stage-btn" id="videoPoster-{{ $project['id'] }}" role="button" tabindex="0" onclick="playInlineVideo('{{ $project['id'] }}', '{{ $project['video_url'] }}')" title="Putar video">
+                                <img src="{{ $project['image'] }}" alt="{{ $project['title'] }}" loading="lazy" decoding="async">
+                                <span class="pw-play"><i class="fa-solid fa-play"></i></span>
                             </div>
-                            <div class="col-md-6 col-lg-6 p-3.5 p-xl-4 d-flex flex-column justify-content-between">
-                                <div>
-                                    <div class="d-flex align-items-center justify-content-between mb-1.5 flex-wrap gap-1">
-                                        <span class="font-mono small fw-bold text-uppercase" style="color: {{ $project['accent'] }}; font-size: 0.74rem; letter-spacing: 0.08em;">
-                                            {{ $project['category_label'] }}
-                                        </span>
-                                        <span class="badge font-mono px-2 py-0.5" style="background: rgba(0, 100, 210, 0.1); color: #0064D2; font-size: 0.68rem; font-weight: 700;">
-                                            2 GRID &bull; KEY VISUAL
-                                        </span>
-                                    </div>
-                                    <h3 class="h5 fw-bold mb-2 text-dark font-heading lh-sm" style="font-size: 1.05rem;">{{ $project['title'] }}</h3>
-                                    <p class="text-muted small mb-2.5 lh-relaxed line-clamp-3" style="font-size: 0.85rem;">{{ $project['short_desc'] }}</p>
-                                </div>
-
-                                <div class="pt-2 mt-auto">
-                                    <p class="small text-muted mb-2 font-sans" style="font-size: 0.76rem;">
-                                        <span class="fw-semibold text-dark">Software:</span> {{ implode(', ', $project['tags']) }}
-                                    </p>
-                                    <button type="button" class="btn-text-link p-0 border-0 bg-transparent fw-semibold font-sans d-inline-flex align-items-center gap-1" onclick="openProjectModal('{{ ltrim($project['modal_target'], '#') }}')">
-                                        {{ $project['btn_text'] ?? 'Lihat Galeri Traveloka' }} <span aria-hidden="true">&nearr;</span>
-                                    </button>
-                                </div>
-                            </div>
+                            <div class="video-inline-slot d-none" id="videoIframeSlot-{{ $project['id'] }}"></div>
                         </div>
-                    </div>
-                </div>
-
-                @else
-                <!-- ========================================================== -->
-                <!-- SUPPORTING VERTICAL & VIDEO CARDS (1 GRID / HALF GRID)      -->
-                <!-- ========================================================== -->
-                <div id="{{ $project['id'] }}" class="col-12 {{ $colClass }} proj-card-col reveal-on-scroll reveal-delay-{{ ($index % 3) + 1 }}" data-proj-category="{{ $project['category'] }}" style="scroll-margin-top: 100px;">
-                    <div class="project-card project-card-compact h-100 d-flex flex-column" style="--proj-accent: {{ $project['accent'] }};">
-                        
-                        <!-- Visual Display / Inline Player Container -->
-                        @if(($project['action_type'] ?? '') === 'video')
-                            <!-- Direct Inline Video Player Slot (aspect-ratio: 16/9) -->
-                            <div class="project-video-container" id="videoInlineWrap-{{ $project['id'] }}">
-                                <div class="project-img-wrapper cursor-pointer position-relative" id="videoPoster-{{ $project['id'] }}" onclick="playInlineVideo('{{ $project['id'] }}', '{{ $project['video_url'] }}')" title="Klik untuk putar video di sini langsung">
-                                    <img src="{{ $project['image'] }}" alt="{{ $project['title'] }}" class="project-img" loading="lazy" decoding="async">
-                                    <div class="video-play-overlay-hint">
-                                        <div class="video-play-pulse-btn">
-                                            <i class="fa-solid fa-play"></i>
-                                        </div>
-                                        <span class="badge bg-dark bg-opacity-75 text-white font-mono px-2 py-1 mt-2" style="font-size: 0.7rem; letter-spacing: 0.05em;">
-                                             {{ $project['video_duration'] ?? '03:00' }} &bull; Klik untuk Putar
-                                        </span>
-                                    </div>
-                                </div>
-                                <div class="video-inline-slot d-none" id="videoIframeSlot-{{ $project['id'] }}"></div>
-                            </div>
-                        @elseif(($project['action_type'] ?? '') === 'lightbox')
-                            <!-- Graphic Image Showcase -->
-                            <div class="project-img-wrapper cursor-pointer position-relative" onclick="openImageLightbox('{{ $project['image'] }}', '{{ addslashes($project['title']) }}', '{{ addslashes($project['short_desc']) }}', '{{ addslashes($project['category_label']) }}')" title="Klik untuk lihat karya utuh">
-                                <img src="{{ $project['image'] }}" alt="{{ $project['title'] }}" class="project-img" loading="lazy" decoding="async">
-                            </div>
                         @else
-                            <!-- Project Interactive / Modal Showcase -->
-                            <div class="project-img-wrapper cursor-pointer position-relative" onclick="openProjectModal('{{ ltrim($project['modal_target'], '#') }}')" title="Klik untuk lihat detail karya">
-                                <img src="{{ $project['image'] }}" alt="{{ $project['title'] }}" class="project-img" loading="lazy" decoding="async">
+                        <div class="pw-stage">
+                            <div class="pw-stage-btn" role="button" tabindex="0" onclick="{{ $open }}" title="Klik untuk buka galeri lengkap">
+                                <img src="{{ $shots[0]['image'] }}" alt="{{ $shots[0]['title'] }}" loading="lazy" decoding="async" data-pw-main>
                             </div>
+                        </div>
                         @endif
 
-                        <div class="p-3.5 d-flex flex-column justify-content-between flex-grow-1">
-                            <div>
-                                <div class="d-flex align-items-center justify-content-between mb-1.5 flex-wrap gap-1">
-                                    <span class="font-mono small fw-bold text-uppercase" style="color: {{ $project['accent'] ?? '#A83C0C' }}; font-size: 0.74rem; letter-spacing: 0.08em;">
-                                        {{ $project['category_label'] }}
-                                    </span>
-                                    @if(!empty($project['video_client']))
-                                    <small class="text-muted font-sans" style="font-size: 0.72rem;">{{ $project['video_client'] }}</small>
-                                    @endif
-                                </div>
-                                <h3 class="h5 fw-bold mb-2 text-dark font-heading lh-sm" style="font-size: 1.02rem;">{{ $project['title'] }}</h3>
-                                <p class="text-muted small mb-2.5 lh-relaxed line-clamp-2" style="font-size: 0.84rem;">{{ $project['short_desc'] }}</p>
-                            </div>
-
-                            <div class="pt-2 mt-auto">
-                                <p class="small text-muted mb-2 font-sans" style="font-size: 0.75rem;">
-                                    <span class="fw-semibold text-dark">Software:</span> {{ implode(', ', $project['tags']) }}
-                                </p>
-
-                                @if(($project['action_type'] ?? '') === 'video')
-                                    <button type="button" class="btn-text-link p-0 border-0 bg-transparent fw-semibold font-sans d-inline-flex align-items-center gap-1" onclick="playInlineVideo('{{ $project['id'] }}', '{{ $project['video_url'] }}')">
-                                        Tonton Video <span aria-hidden="true">&nearr;</span>
-                                    </button>
-                                @elseif(($project['action_type'] ?? '') === 'lightbox')
-                                    <button type="button" class="btn-text-link p-0 border-0 bg-transparent fw-semibold font-sans d-inline-flex align-items-center gap-1" onclick="openImageLightbox('{{ $project['image'] }}', '{{ addslashes($project['title']) }}', '{{ addslashes($project['short_desc']) }}', '{{ addslashes($project['category_label']) }}')">
-                                        Lihat Karya <span aria-hidden="true">&nearr;</span>
-                                    </button>
-                                @else
-                                    <button type="button" class="btn-text-link p-0 border-0 bg-transparent fw-semibold font-sans d-inline-flex align-items-center gap-1" onclick="openProjectModal('{{ ltrim($project['modal_target'], '#') }}')">
-                                        Lihat Karya <span aria-hidden="true">&nearr;</span>
-                                    </button>
-                                @endif
-                            </div>
+                        @if(count($shots) > 1)
+                        <div class="pw-count font-mono"><span data-pw-n>1</span> / {{ count($shots) }} <span class="pw-cap" data-pw-cap>{{ $shots[0]['title'] }}</span></div>
+                        <div class="pw-thumbs">
+                            @foreach($shots as $i => $s)
+                            <button type="button" class="pw-thumb {{ $i === 0 ? 'on' : '' }}" data-src="{{ $s['image'] }}" data-cap="{{ $s['title'] }}" data-n="{{ $i + 1 }}" aria-label="Gambar {{ $i + 1 }}: {{ $s['title'] }}">
+                                <img src="{{ $s['image'] }}" alt="" loading="lazy" decoding="async">
+                            </button>
+                            @endforeach
                         </div>
-                    </div>
-                </div>
-                @endif
-                @endforeach
-            </div>
+                        @endif
 
+                        <div class="pw-info">
+                            <div class="pw-kicker font-mono">{{ $project['category_label'] }}</div>
+                            <h3 class="font-heading">{{ $project['title'] }}</h3>
+                            @if(!empty($project['case_study']))
+                                @include('portfolio.partials.case-study', ['cs' => $project['case_study']])
+                            @else
+                                <p class="pw-desc">{{ $project['full_desc'] }}</p>
+                            @endif
+                            @if($isVideo && !empty($project['video_role']))
+                                <p class="pw-meta"><strong>Peran:</strong> {{ $project['video_role'] }}</p>
+                            @endif
+                            <p class="pw-meta"><strong>Software:</strong> {{ implode(', ', $project['tags']) }}</p>
+                            @if($isVideo)
+                            <button type="button" class="btn btn-accent btn-sm" onclick="openVideoModal('{{ $project['id'] }}')"><i class="fa-solid {{ $project['btn_icon'] ?? 'fa-circle-play' }} me-1"></i> Detail &amp; Workflow</button>
+                            @else
+                            <button type="button" class="btn btn-accent btn-sm" onclick="{{ $open }}"><i class="fa-solid {{ $project['btn_icon'] ?? 'fa-images' }} me-1"></i> {{ $project['btn_text'] ?? 'Buka Galeri Karya' }}</button>
+                            @endif
+                        </div>
+                    </article>
+                    @endforeach
+                    @endforeach
+
+                    <a href="#layers" class="pw-next font-mono">Lanjut: Rekam Jejak Karier <i class="fa-solid fa-arrow-down"></i></a>
+                </div>
+            </div>
         </div>
     </section>
 
@@ -1255,46 +1145,46 @@
 
 
     <!-- ========================================================================== -->
-    <!-- 2B. KOPI KENANGAN (PAKET KUMPUL) GALLERY MODAL                             -->
+    <!-- 2B. KOPI KENANGAN (AVOCADO COFFEE DESIGN TEST) GALLERY MODAL               -->
     <!-- ========================================================================== -->
     @php
-        $kenangan = collect($projects)->firstWhere('id', 'proj-kenangan');
+        $avocado = collect($projects)->firstWhere('id', 'proj-avocado');
     @endphp
-    <div class="custom-modal-overlay" id="kenanganDemoModal" onclick="if(event.target === this) closeProjectModal('kenanganDemoModal')">
+    <div class="custom-modal-overlay" id="avocadoDemoModal" onclick="if(event.target === this) closeProjectModal('avocadoDemoModal')">
         <div class="custom-modal-dialog artwork-detail-dialog">
             <div class="modal-header modal-header-studio d-flex justify-content-between align-items-center">
                 <div class="d-flex align-items-center gap-2">
                     <span class="badge bg-accent text-white font-mono px-3 py-2 rounded-pill">
                         <i class="fa-solid fa-palette me-1"></i> KAMPANYE &amp; SOSIAL MEDIA
                     </span>
-                    <h3 class="h4 fw-bold text-dark mb-0">Kopi Kenangan: Paket Kumpul (Konsep)</h3>
+                    <h3 class="h4 fw-bold text-dark mb-0">Kopi Kenangan: Relaunch Avocado Coffee (Design Test)</h3>
                 </div>
-                <button type="button" class="btn-close" onclick="closeProjectModal('kenanganDemoModal')" aria-label="Close"></button>
+                <button type="button" class="btn-close" onclick="closeProjectModal('avocadoDemoModal')" aria-label="Close"></button>
             </div>
             <div class="modal-body modal-body-studio artwork-modal-body">
                 <div class="artwork-modal-grid">
                     <div class="artwork-modal-visual-col">
                         <div class="artwork-modal-img-wrap">
-                            <img id="kenanganActiveImg" src="{{ $kenangan['gallery_items'][0]['image'] }}" alt="Materi kampanye Kopi Kenangan Paket Kumpul" class="artwork-modal-img cursor-pointer" onclick="zoomActiveKenanganImage()" title="Klik untuk perbesar" loading="lazy" decoding="async">
-                            <button type="button" class="btn btn-sm btn-dark bg-opacity-75 text-white position-absolute bottom-0 end-0 m-3 rounded-pill font-mono btn-zoom-hd" onclick="zoomActiveKenanganImage()" title="Perbesar HD">
+                            <img id="avocadoActiveImg" src="{{ $avocado['gallery_items'][0]['image'] }}" alt="Materi relaunch Avocado Coffee Kopi Kenangan" class="artwork-modal-img cursor-pointer" onclick="zoomActiveAvocadoImage()" title="Klik untuk perbesar" loading="lazy" decoding="async">
+                            <button type="button" class="btn btn-sm btn-dark bg-opacity-75 text-white position-absolute bottom-0 end-0 m-3 rounded-pill font-mono btn-zoom-hd" onclick="zoomActiveAvocadoImage()" title="Perbesar HD">
                                 <i class="fa-solid fa-magnifying-glass-plus me-1"></i> Perbesar HD
                             </button>
                         </div>
                     </div>
                     <div class="artwork-modal-info-col">
                         <div class="d-flex align-items-center justify-content-between flex-wrap gap-2 mb-2">
-                            <span class="badge font-mono" id="kenanganActiveCategory" style="background: rgba(127, 22, 24, 0.12); color: #7F1618; font-size: 0.75rem;">{{ $kenangan['gallery_items'][0]['category'] }}</span>
-                            <small class="text-muted font-mono" style="font-size: 0.72rem;">Proyek konsep &bull; bukan materi resmi</small>
+                            <span class="badge font-mono" id="avocadoActiveCategory" style="background: rgba(127, 22, 24, 0.12); color: #7F1618; font-size: 0.75rem;">{{ $avocado['gallery_items'][0]['category'] }}</span>
+                            <small class="text-muted font-mono" style="font-size: 0.72rem;">Design test MagangHub &bull; bukan materi resmi</small>
                         </div>
-                        <h4 class="h5 fw-bold text-dark mt-1 mb-2 font-heading" id="kenanganActiveTitle">{{ $kenangan['gallery_items'][0]['title'] }}</h4>
-                        <p class="text-muted small mb-3 lh-relaxed" id="kenanganActiveDesc">{{ $kenangan['gallery_items'][0]['desc'] }}</p>
+                        <h4 class="h5 fw-bold text-dark mt-1 mb-2 font-heading" id="avocadoActiveTitle">{{ $avocado['gallery_items'][0]['title'] }}</h4>
+                        <p class="text-muted small mb-3 lh-relaxed" id="avocadoActiveDesc">{{ $avocado['gallery_items'][0]['desc'] }}</p>
 
                         <div class="mb-3">
                             <small class="text-muted font-mono fw-bold text-uppercase d-block mb-2" style="font-size: 0.72rem; letter-spacing: 0.05em;">Pilih Karya untuk Dilihat:</small>
                             <div class="row g-2">
-                                @foreach($kenangan['gallery_items'] as $i => $item)
+                                @foreach($avocado['gallery_items'] as $i => $item)
                                 <div class="col-6">
-                                    <div class="ritistic-thumb-card {{ $i === 0 ? 'active' : '' }}" onclick="selectKenanganArtwork({{ $i }}, this)">
+                                    <div class="ritistic-thumb-card {{ $i === 0 ? 'active' : '' }}" onclick="selectAvocadoArtwork({{ $i }}, this)">
                                         <img src="{{ $item['image'] }}" alt="Thumbnail {{ $item['title'] }}" width="72" height="54" class="img-fluid rounded-2 border" loading="lazy" decoding="async">
                                         <span class="thumb-label font-mono">{{ $item['title'] }}</span>
                                     </div>
@@ -1303,13 +1193,18 @@
                             </div>
                         </div>
 
-                        @include('portfolio.partials.case-study', ['cs' => $kenangan['case_study']])
+                        <div class="mb-3">
+                            <small class="text-muted font-mono fw-bold text-uppercase d-block mb-2" style="font-size: 0.72rem; letter-spacing: 0.05em;">Animasi Singkat:</small>
+                            <video src="{{ asset('images/avocado_coffee_animasi.mp4') }}" poster="{{ asset('images/avocado_poster_916.webp') }}" controls preload="none" playsinline class="w-100 rounded-3 border" style="max-height: 360px; background:#5a0d10;"></video>
+                        </div>
+
+                        @include('portfolio.partials.case-study', ['cs' => $avocado['case_study']])
                         <div class="p-3 bg-light rounded-4 border font-mono small mt-auto">
                             <strong class="text-accent d-block mb-1"><i class="fa-solid fa-circle-info me-1"></i> Informasi Desain &amp; Workflow:</strong>
                             <ul class="mb-0 ps-3 text-muted lh-base" style="font-size: 0.8rem;">
-                                <li><strong>Software:</strong> Adobe Photoshop &amp; Illustrator</li>
-                                <li><strong>Format:</strong> Poster A4, feed 4:5, story 9:16, materi meja landscape</li>
-                                <li><strong>Sistem warna:</strong> merah marun + krem; aksen kuning emas.</li>
+                                <li><strong>Software:</strong> Adobe Photoshop, Illustrator &amp; motion</li>
+                                <li><strong>Format:</strong> Poster 9:16, feed 4:5, banner 16:9, mockup aplikasi, animasi</li>
+                                <li><strong>Sistem warna:</strong> merah marun, krem, kuning emas; aksen hijau alpukat.</li>
                             </ul>
                         </div>
                     </div>
@@ -1317,6 +1212,7 @@
             </div>
         </div>
     </div>
+
 
     <!-- ========================================================================== -->
     <!-- 2A. ESTATE MANAGEMENT (RAWAT RUMAH KITA) GALLERY MODAL                     -->
@@ -1755,5 +1651,7 @@
 
     <!-- Custom Interactive JS with Cache Versioning -->
     <script src="{{ asset('js/portfolio-interactive.js') }}?v=2.14.0"></script>
+    <script src="{{ asset('js/project-showcase.js') }}?v=2.34.4" defer></script>
+    <script src="{{ asset('js/hero-world.js') }}?v=2.34.4" defer></script>
 </body>
 </html>

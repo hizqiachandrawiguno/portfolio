@@ -18,7 +18,7 @@ class PortfolioController extends Controller
             'gpa' => '3.70',
             'status' => 'Tersedia untuk Pekerjaan & Proyek Kreatif',
             'photo' => asset('images/hizqia_profile.webp'),
-            'catchy_summary' => 'Graphic Designer & Multimedia Specialist — membuat identitas visual dan materi komunikasi dengan arah, karakter, dan tujuan di balik setiap detail.',
+            'catchy_summary' => 'Membuat identitas visual dan materi komunikasi dengan arah, karakter, dan tujuan di balik setiap detail.',
             'contact' => [
                 'email' => 'hizqiachandrawiguno@gmail.com',
                 'location' => 'Jakarta / Bogor, Indonesia',
@@ -39,7 +39,7 @@ class PortfolioController extends Controller
                         ['name' => 'Canva', 'logo' => 'canva.svg', 'score' => '8.5'],
                     ],
                     'examples' => [
-                        ['label' => 'Kopi Kenangan (Paket Kumpul)', 'url' => '#proj-kenangan'],
+                        ['label' => 'Kopi Kenangan (Avocado Coffee)', 'url' => '#proj-avocado'],
                         ['label' => 'TRAC Astra (Lalala Fest 2025)', 'url' => '#proj-trac-astra'],
                         ['label' => 'DRP Teens', 'url' => '#proj-drp-social'],
                         ['label' => 'Ritistic Project', 'url' => '#proj-ritistic'],
@@ -375,38 +375,35 @@ class PortfolioController extends Controller
 
         // 8 Curated Flagship Projects (Ordered according to editorial grid rows: Baris 1 TRAC Astra, Baris 2 Traveloka & DRP, Baris 3 PintarBaca, ERC & Ritistic, Baris 4 Eleccion & Anak Bertanya)
         $projects = [
-            // =========================================================================
-            // SOROTAN ATAS: KOPI KENANGAN (KONSEP UNTUK LAMARAN MAGANGHUB)
-            // =========================================================================
+            // SOROTAN ATAS: KOPI KENANGAN AVOCADO COFFEE (DESIGN TEST MAGANGHUB)
             [
-                'id' => 'proj-kenangan',
+                'id' => 'proj-avocado',
                 'case_study' => [
-                    'context' => 'Konsep kampanye "Paket Kumpul" (1 Seliter Kenangan + 4 Cerita Roti) untuk Kopi Kenangan, edisi Desember, dengan ajakan pesan lewat Kenangan App. Dibuat sebagai proyek konsep untuk portofolio.',
-                    'problem' => 'Satu promo paket harus langsung dipahami di banyak tempat sekaligus: poster, feed, story, dan materi meja. Pembaca hanya punya beberapa detik untuk menangkap isi paket, harga, dan cara pesannya.',
-                    'solution' => 'Saya memakai satu sistem visual: pola lingkaran konsentris merah marun, krem sebagai latar terang, kuning emas untuk aksen, headline serif besar, dan foto produk dalam lingkaran krem. Harga "150 RB" dibuat paling besar, ajakan "Scan, pesan dari meja" dan tombol Kenangan App selalu di posisi yang mudah ditemukan. Tagline "Kumpul lagi, kenangan lagi" dipakai di semua format, sementara story dibuat sebagai polling agar mengundang interaksi.',
-                    'result' => 'Satu paket 5 materi yang konsisten antar format dan siap dipakai. Ini proyek konsep untuk portofolio, bukan materi resmi Kopi Kenangan, jadi belum ada data hasil lapangan.',
+                    'context' => 'Design test untuk seleksi MagangHub: relaunch resep baru Avocado Coffee (v2) dari Kopi Kenangan, dengan ide "Mantan Favoritmu balik, kali ini lebih baik". Dibuat sebagai tes desain, bukan materi resmi Kopi Kenangan.',
+                    'problem' => 'Produk lama kembali dengan resep baru. Pesan perubahannya (espresso lebih seimbang, alpukat lebih banyak, susu segar) harus langsung terbaca, dan satu visual harus bekerja di poster, feed, banner, serta tampilan aplikasi.',
+                    'solution' => 'Saya memakai latar merah marun khas brand dengan cahaya di belakang gelas, headline serif tebal "Avocado Coffee" dengan aksen kuning, dan tiga keunggulan produk sebagai callout berpanah yang mengelilingi foto gelas. Stempel "Resep Baru v2 2026" dan label "New Recipe" menandai pembaruan. Materi lalu diterapkan ke mockup Kenangan App: home banner, pop-up, dan splash ad, plus animasi singkat.',
+                    'result' => 'Satu paket materi relaunch yang konsisten: poster 9:16, feed 4:5, banner 16:9, mockup aplikasi, dan animasi. Ini hasil design test, bukan kampanye yang tayang.',
                 ],
-                'title' => 'Kopi Kenangan - Kampanye Paket Kumpul (Konsep)',
+                'title' => 'Kopi Kenangan - Relaunch Avocado Coffee (Design Test)',
                 'category' => 'graphic',
-                'category_label' => 'Kampanye Promo F&B (Konsep)',
+                'category_label' => 'Design Test MagangHub (Konsep)',
                 'action_type' => 'modal',
-                'modal_target' => '#kenanganDemoModal',
-                'btn_text' => 'Lihat Galeri Kampanye Paket Kumpul',
+                'modal_target' => '#avocadoDemoModal',
+                'btn_text' => 'Lihat Galeri Avocado Coffee',
                 'btn_icon' => 'fa-images',
-                'image' => asset('images/kenangan_materi_meja.png'),
+                'image' => asset('images/avocado_banner_169.webp'),
                 'is_featured' => true,
                 'grid_class' => 'col-12',
                 'card_layout' => 'featured',
-                'short_desc' => 'Proyek konsep kampanye "Kumpul lagi, kenangan lagi" untuk Kopi Kenangan: poster A4, dua feed 4:5, story polling, dan materi meja dalam satu sistem visual merah marun dan krem.',
-                'full_desc' => 'Konsep kampanye Paket Kumpul untuk Kopi Kenangan. Terdiri dari poster A4, feed Instagram 4:5 (paket dan visual utama), story polling 9:16, dan materi meja landscape dengan ajakan pesan lewat aplikasi. Dibuat sebagai proyek portofolio, bukan materi resmi.',
-                'tags' => ['Photoshop', 'Illustrator'],
+                'short_desc' => 'Design test MagangHub: relaunch resep baru Avocado Coffee dengan poster 9:16, feed 4:5, banner 16:9, mockup Kenangan App, dan animasi singkat.',
+                'full_desc' => 'Design test untuk MagangHub: relaunch Avocado Coffee v2 dari Kopi Kenangan. Terdiri dari poster 9:16, feed 4:5, banner 16:9, mockup home banner, pop-up, dan splash ad di Kenangan App, serta animasi singkat. Dibuat sebagai tes desain, bukan materi resmi.',
+                'tags' => ['Photoshop', 'Illustrator', 'Motion'],
                 'accent' => '#7F1618',
                 'gallery_items' => [
-                    ['id' => 'kenangan-poster', 'title' => 'Poster A4: Kumpul lagi, kenangan lagi', 'category' => 'Key Visual Poster A4', 'image' => asset('images/kenangan_poster_a4.webp'), 'desc' => 'Poster utama: headline krem di atas pola lingkaran merah marun, foto produk dalam lingkaran krem, dan panel harga "150 RB" dengan ajakan scan QR di bagian bawah.'],
-                    ['id' => 'kenangan-paket', 'title' => 'Paket Kumpul', 'category' => 'Feed Instagram 4:5', 'image' => asset('images/kenangan_feed_paket_kumpul.png'), 'desc' => 'Feed informatif: isi paket dalam satu kartu krem, harga "150 RB" sebagai elemen terbesar, serta kode promo dan tombol Kenangan App di bawah.'],
-                    ['id' => 'kenangan-feed-hero', 'title' => 'Kumpul lagi, kenangan lagi', 'category' => 'Feed Instagram 4:5', 'image' => asset('images/kenangan_feed_hero.webp'), 'desc' => 'Feed pembuka bertema ajakan: latar krem terang, headline marun besar di kiri, dan foto produk dalam lingkaran yang memecah pola lingkaran marun.'],
-                    ['id' => 'kenangan-story', 'title' => 'Polling: Siapa Paling Sering Telat?', 'category' => 'Instagram Story 9:16', 'image' => asset('images/kenangan_story_polling.png'), 'desc' => 'Story interaktif dengan ruang untuk stiker polling Instagram, ditutup ajakan "Boleh telat dateng, asal jangan telat pesen" dan tombol Kenangan App.'],
-                    ['id' => 'kenangan-meja', 'title' => 'Materi Meja: Lagi kumpul? Tambah seliter lagi.', 'category' => 'Materi Meja Landscape', 'image' => asset('images/kenangan_materi_meja.png'), 'desc' => 'Materi landscape untuk meja gerai: headline besar di kiri, foto produk di lingkaran kanan, dan area QR "Scan, pesan dari meja" di kiri bawah.'],
+                    ['id' => 'avocado-banner', 'title' => 'Banner 16:9', 'category' => 'Banner Landscape 16:9', 'image' => asset('images/avocado_banner_169.webp'), 'desc' => 'Versi landscape untuk banner dan layar: produk di sisi kanan, headline dan pesan utama di kiri.'],
+                    ['id' => 'avocado-poster', 'title' => 'Poster 9:16: Kenalan lagi sama Avocado Coffee', 'category' => 'Key Visual 9:16', 'image' => asset('images/avocado_poster_916.webp'), 'desc' => 'Key visual utama: gelas Avocado Coffee dengan splash, tiga callout keunggulan resep baru, stempel "Resep Baru v2", dan ajakan pesan lewat Kenangan App.'],
+                    ['id' => 'avocado-feed', 'title' => 'Feed Instagram 4:5', 'category' => 'Feed Instagram 4:5', 'image' => asset('images/avocado_feed_45.webp'), 'desc' => 'Versi feed dari key visual yang sama, dengan komposisi disesuaikan ke rasio 4:5 agar headline dan produk tetap terbaca di timeline.'],
+                    ['id' => 'avocado-mockup', 'title' => 'Mockup Kenangan App', 'category' => 'Mockup Aplikasi', 'image' => asset('images/avocado_mockup_app.webp'), 'desc' => 'Penerapan di aplikasi: home banner, pop-up, dan splash ad, untuk menguji keterbacaan visual di layar ponsel.'],
                 ]
             ],
 
