@@ -141,7 +141,7 @@
     <link rel="shortcut icon" type="image/png" href="{{ asset('images/hizqia_logo_orange.png') }}">
 
     <!-- Custom Designer Workspace CSS (Cached Version) -->
-    <link rel="stylesheet" href="{{ asset('css/custom-designer.css') }}?v=2.34.4">
+    <link rel="stylesheet" href="{{ asset('css/custom-designer.css') }}?v=2.35.4">
 
     <!-- Inject Experiences & Projects Data Objects early & Global Filter Functions -->
     <script>
@@ -266,8 +266,8 @@
                     <i class="fa-solid fa-paintbrush"></i>
                 </div>
                 <div class="sidebar-nav-text">
-                    <span class="nav-title">Canvas / Biografi</span>
-                    <small class="nav-desc">Artboard 01 & Bio Summary</small>
+                    <span class="nav-title">Beranda</span>
+                    <small class="nav-desc">Perkenalan singkat</small>
                 </div>
                 <i class="fa-solid fa-chevron-right nav-arrow"></i>
             </a>
@@ -356,7 +356,7 @@
         <div class="navbar-zone-right d-flex align-items-center justify-content-end">
             <a href="{{ route('download.cv') }}" target="_blank" download="CV_Hizqia_Chandra_Wiguno.pdf" class="btn btn-sm btn-outline-studio rounded-pill font-mono d-inline-flex align-items-center gap-2" title="Unduh CV Hizqia Chandra Wiguno (PDF)">
                 <i class="fa-solid fa-file-arrow-down text-accent"></i>
-                <span class="d-none d-sm-inline">Unduh CV</span>
+                <span>Unduh CV</span>
             </a>
         </div>
     </nav>
@@ -408,7 +408,7 @@
             <div class="section-header text-center max-w-700 mx-auto">
                 <div class="section-tag justify-content-center">KARYA PILIHAN (2024 - {{ date('Y') }})</div>
                 <h2 class="display-6 fw-bold">Galeri Karya Desain &amp; Media Digital</h2>
-                <p class="text-muted">Pilih proyek di daftar kiri untuk melihat visual dan studi kasusnya.</p>
+                <p class="text-muted">Pilih proyek untuk melihat visual dan studi kasusnya.</p>
             </div>
 
             @php
@@ -1651,7 +1651,7 @@
 
     <!-- Custom Interactive JS with Cache Versioning -->
     <script src="{{ asset('js/portfolio-interactive.js') }}?v=2.14.0"></script>
-    <script src="{{ asset('js/project-showcase.js') }}?v=2.34.4" defer></script>
-    <script src="{{ asset('js/hero-world.js') }}?v=2.34.4" defer></script>
+    <script src="{{ asset('js/project-showcase.js') }}?v=2.35.4" defer></script>
+    <script src="{{ asset('js/hero-world.js') }}?v=2.35.4" defer></script>
 </body>
 </html>

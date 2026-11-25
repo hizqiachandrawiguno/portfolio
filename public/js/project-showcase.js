@@ -51,6 +51,19 @@
         panel.querySelector('[data-pw-cap]').textContent = th.getAttribute('data-cap');
     });
 
+    // HP: studi kasus diringkas, dibuka lewat tombol
+    root.querySelectorAll('.pw-info .case-study').forEach(function (cs) {
+        var b = document.createElement('button');
+        b.type = 'button'; b.className = 'pw-more'; b.textContent = 'Baca studi kasus lengkap';
+        b.setAttribute('aria-expanded', 'false');
+        b.addEventListener('click', function () {
+            var open = cs.parentElement.classList.toggle('open');
+            b.setAttribute('aria-expanded', open);
+            b.textContent = open ? 'Ringkas studi kasus' : 'Baca studi kasus lengkap';
+        });
+        cs.after(b);
+    });
+
     root.addEventListener('keydown', function (e) {
         if ((e.key === 'Enter' || e.key === ' ') && e.target.classList.contains('pw-stage-btn')) {
             e.preventDefault(); e.target.click();

@@ -2728,3 +2728,62 @@ body.nav-on .studio-navbar { transform: translate(-50%, 0); opacity: 1; pointer-
 .pw-stage[id^="videoInlineWrap-"] { height: auto; aspect-ratio: 16 / 9; }
 .pw-stage[id^="videoInlineWrap-"] .pw-stage-btn img { object-fit: contain; background: #171311; }
 .pw-stage[id^="videoInlineWrap-"] { width: min(100%, calc(min(62vh, 520px) * 16 / 9)); margin-inline: auto; }
+
+/* ===================== TAMPILAN HP ===================== */
+.pw-more { display: none; }
+@media (max-width: 991.98px) {
+  /* hero: muat dalam satu layar, tombol langsung terlihat */
+  #hero { min-height: 100svh; padding: 60px 16px 20px !important; }
+  /* sisa tinggi layar masuk di atas foto, jadi foto + teks menempel ke bawah */
+  #hero .hero-mega { margin: 2.5svh 0 -19vw; }
+  #hero .hero-figure { --h: clamp(260px, calc(100svh - 390px), max(540px, 55svh)); margin: auto auto 0; }
+  #hero .hero-left { margin-top: 14px; text-align: center; }
+  #hero .hero-left .hero-tags { gap: 2px; margin-bottom: 14px; }
+  #hero .hero-left .hero-tags small { display: none; }
+  #hero .hero-left .hero-tags b { font-size: clamp(1.2rem, 6vw, 1.7rem); }
+  .hero-cta { display: grid; grid-template-columns: 1fr 1fr; gap: 10px; max-width: 460px; margin-inline: auto; }
+  .hbtn { justify-content: center; padding: 12px 8px; min-height: 48px; }
+  #hero .hero-right { text-align: center; margin-top: 12px; }
+  .hero-right .hero-tags li:nth-child(n+2) { display: none; }
+  .hero-right .hero-tags li { display: flex; justify-content: center; align-items: baseline; gap: 8px; }
+  .hero-right .hero-tags b { font-size: 1rem; }
+
+  /* navbar menempel di atas, tanpa celah */
+  .studio-navbar { top: 0 !important; width: 100% !important; max-width: 100% !important; height: 64px; border-radius: 0 0 18px 18px !important; background: #FFFDF8 !important; }
+
+  /* galeri proyek */
+  .pw { margin-top: 8px; }
+  .pw-index { top: 64px; scrollbar-width: none; }
+  .pw-index::-webkit-scrollbar { display: none; }
+  .pw-item { align-items: center; min-height: 44px; }
+  .pw-item:hover { transform: none; }
+  .pw-panel { scroll-margin-top: 140px; }
+  .pw-stage:not([id^="videoInlineWrap-"]) { height: auto; border-radius: 14px; }
+  .pw-stage:not([id^="videoInlineWrap-"]) .pw-stage-btn { position: static; padding: 6px; }
+  .pw-stage:not([id^="videoInlineWrap-"]) .pw-stage-btn img { width: 100%; height: auto; max-height: 68svh; }
+  .pw-thumb { width: 72px; height: 56px; }
+  .pw-info { margin-top: 14px; padding: 18px 16px; border-radius: 14px; }
+  .pw-info h3 { font-size: 1.15rem; }
+  .pw-info:not(.open) .case-study-step:nth-child(n+2) { display: none; }
+  .pw-more { display: block; width: 100%; min-height: 44px; margin: 0 0 12px; background: transparent; border: 1px solid var(--border-color); border-radius: 999px; font-weight: 700; font-size: .85rem; color: #171311; }
+  .pw-info > .btn { width: 100%; min-height: 44px; }
+}
+@media (max-width: 767.98px) {
+  .section-spacing { padding: 48px 0 !important; }
+  .section-header h2 { font-size: 1.6rem; }
+  .section-header p { font-size: .9rem; }
+  .skill-tab-switcher { flex-wrap: nowrap !important; max-width: 100%; }
+  .skill-tab-btn { white-space: nowrap; padding: 10px 12px !important; font-size: .72rem !important; }
+  /* pengalaman: kartu digeser ke samping, bukan ditumpuk panjang */
+  #experiencesGrid { flex-wrap: nowrap; overflow-x: auto; scroll-snap-type: x mandatory; margin: 0 -12px; padding: 4px 12px 12px; scroll-padding-inline: 12px; scrollbar-width: none; }
+  #experiencesGrid::-webkit-scrollbar { display: none; }
+  #experiencesGrid > .exp-card-col { flex: 0 0 86%; margin-top: 0; padding: 0 6px; scroll-snap-align: start; opacity: 1 !important; transform: none !important; }
+  .cert-showcase-card { padding: 18px 16px !important; }
+  .btn-text-link { display: inline-flex; align-items: center; min-height: 40px; }
+  .studio-email-link { font-size: .78rem !important; }
+}
+@media (max-width: 767.98px) {
+  #experiencesGrid { align-items: flex-start; }
+  #experiencesGrid .exp-card { height: auto !important; }
+}
+@media (max-width: 991.98px) { .sidebar-nav-item { padding-block: 8px !important; margin-bottom: 6px !important; } }
