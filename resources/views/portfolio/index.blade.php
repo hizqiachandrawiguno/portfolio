@@ -425,7 +425,7 @@
                             <div class="pw-group-title font-mono">{{ $label }}</div>
                             @foreach($grouped[$key] as $project)
                             <a href="#{{ $project['id'] }}" class="pw-item" data-pw="{{ $project['id'] }}" style="--proj-accent: {{ $project['accent'] }};">
-                                <img src="{{ $project['image'] }}" alt="" loading="lazy" decoding="async" width="56" height="56">
+                                <img src="{{ $project['thumb'] ?? $project['image'] }}" alt="" loading="lazy" decoding="async" width="56" height="56">
                                 <span class="pw-item-txt">
                                     <strong class="font-heading">{{ \Illuminate\Support\Str::before($project['title'], ' - ') }}</strong>
                                     <small>{{ $project['category_label'] }}</small>
@@ -445,6 +445,7 @@
                     @php
                         $isVideo = ($project['action_type'] ?? '') === 'video';
                         $isLight = ($project['action_type'] ?? '') === 'lightbox';
+                        $isPage = ($project['action_type'] ?? '') === 'page';
                         $shots = $project['gallery_items'] ?? [['title' => $project['title'], 'image' => $project['image'], 'desc' => $project['short_desc']]];
                         $modalId = ltrim($project['modal_target'] ?? '', '#');
                         $open = $isLight
@@ -459,6 +460,12 @@
                                 <span class="pw-play"><i class="fa-solid fa-play"></i></span>
                             </div>
                             <div class="video-inline-slot d-none" id="videoIframeSlot-{{ $project['id'] }}"></div>
+                        </div>
+                        @elseif($isPage)
+                        <div class="pw-stage">
+                            <a class="pw-stage-btn" href="{{ $project['page_url'] }}" title="Lihat case study" style="cursor: pointer;">
+                                <img src="{{ $project['image'] }}" alt="{{ $project['image_alt'] }}" width="{{ $project['image_width'] }}" height="{{ $project['image_height'] }}" loading="lazy" decoding="async">
+                            </a>
                         </div>
                         @else
                         <div class="pw-stage">
@@ -493,6 +500,8 @@
                             <p class="pw-meta"><strong>Software:</strong> {{ implode(', ', $project['tags']) }}</p>
                             @if($isVideo)
                             <button type="button" class="btn btn-accent btn-sm" onclick="openVideoModal('{{ $project['id'] }}')"><i class="fa-solid {{ $project['btn_icon'] ?? 'fa-circle-play' }} me-1"></i> Detail &amp; Workflow</button>
+                            @elseif($isPage)
+                            <a class="btn btn-accent btn-sm" href="{{ $project['page_url'] }}"><i class="fa-solid {{ $project['btn_icon'] }} me-1"></i> {{ $project['btn_text'] }}</a>
                             @else
                             <button type="button" class="btn btn-accent btn-sm" onclick="{{ $open }}"><i class="fa-solid {{ $project['btn_icon'] ?? 'fa-images' }} me-1"></i> {{ $project['btn_text'] ?? 'Buka Galeri Karya' }}</button>
                             @endif

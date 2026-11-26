@@ -375,6 +375,28 @@ class PortfolioController extends Controller
 
         // 8 Curated Flagship Projects (Ordered according to editorial grid rows: Baris 1 TRAC Astra, Baris 2 Traveloka & DRP, Baris 3 PintarBaca, ERC & Ritistic, Baris 4 Eleccion & Anak Bertanya)
         $projects = [
+            // PROYEK KONSEP OTHMAN (punya halaman detail sendiri)
+            [
+                'id' => 'proj-othman',
+                'title' => 'Othman — Trame: Behind the Weft',
+                'category' => 'graphic',
+                'category_label' => 'Graphic Design / Social Media Design',
+                'action_type' => 'page',
+                'page_url' => route('portfolio.othman'),
+                'btn_text' => 'Lihat Case Study',
+                'btn_icon' => 'fa-arrow-right',
+                'image' => asset('assets/img/othman/08-cover-169.webp'),
+                'thumb' => asset('assets/img/othman/03-carousel-1.webp'),
+                'image_alt' => 'Sampul proyek konsep Behind the Weft: ringkasan insight, peluang, deliverables, palet warna, dan foto model berjaket garis',
+                'image_width' => 1600,
+                'image_height' => 900,
+                'is_featured' => false,
+                'short_desc' => 'Konsep seri konten untuk koleksi Trame: cerita di balik kain setiap jaket, diterapkan ke feed, carousel, reels, lookbook, display toko, dan banner e-commerce.',
+                'full_desc' => 'Konsep seri konten untuk koleksi Trame: cerita di balik kain setiap jaket, diterapkan ke feed, carousel, reels, lookbook, display toko, dan banner e-commerce.',
+                'tags' => ['Adobe Photoshop', 'Adobe Illustrator', 'Figma'],
+                'accent' => '#4A2F1E'
+            ],
+
             // SOROTAN ATAS: KOPI KENANGAN AVOCADO COFFEE (DESIGN TEST MAGANGHUB)
             [
                 'id' => 'proj-avocado',
@@ -913,6 +935,11 @@ class PortfolioController extends Controller
                 'caption' => 'Lembar Januari 2026 dengan penanda hari (baik, biasa, kurang baik), keterangan aktivitas per tanggal, dan daftar hari libur nasional.'
             ]
         ];
+    }
+
+    public function othman()
+    {
+        return view('portfolio.othman');
     }
 
     public function trac()

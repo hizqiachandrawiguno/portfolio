@@ -18,6 +18,7 @@ Route::get('/', function () {
 Route::get('/portfolio', [PortfolioController::class, 'index'])->name('portfolio.home');
 
 Route::get('/portfolio/trac-astra', [PortfolioController::class, 'trac'])->name('portfolio.trac');
+Route::get('/portfolio/othman', [PortfolioController::class, 'othman'])->name('portfolio.othman');
 
 // Optional alias for /welcome
 Route::get('/welcome', function () {
