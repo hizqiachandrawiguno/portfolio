@@ -1,6 +1,6 @@
 @php
     // [file, lebar, tinggi] sesuai ukuran file webp di public/assets/img/othman/
-    $img = fn (string $file) => asset('assets/img/othman/'.$file.'.webp');
+    $img = fn (string $file) => asset('assets/img/othman/'.$file.'.webp').'?v=2';
     $slides = [
         ['Cover', 'Slide 1, cover: model memakai Canyon Rayé Short Jacket dengan judul The Canyon Stripe'],
         ['Inspiration', 'Slide 2, inspirasi: tampilan dekat garis bergelombang jaket dengan penjelasan Canyon + Rayé'],
